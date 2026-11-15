@@ -189,6 +189,9 @@ experiments/
                              beside the 30-tetrahedron ring and the flat helix's turns
   ring_tiling.py          ao the N = 24 ring of 5-cells on S^4: coverage, copies under its own
                              rotations, dihedral angle, beside the 5-orthoplex boundary; --small
+  e8_h4_fold.py           ap E8 from alpha_i and phi*alpha_i of H4 (integer form), roots by
+                             reflection, the fold to two 600-cells (exact), E8's Coxeter
+                             plane, and the logged N = 30 chains against its Coxeter element
   ancestry.py             ah rectified and truncated forms of four 4-polytopes: are their
                              voids covered by the parent, by the parent's dual, or both
                              together; --small (full ~25 s)

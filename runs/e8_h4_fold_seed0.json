@@ -1,0 +1,808 @@
+{
+ "params": {
+  "asked": "PROPOSED: E8's 240 roots fold to two 600-cells with radii in the ratio phi; on E8's Coxeter plane they fall on rings of 30; the (7, 13)/30 chain is E8's Coxeter element on the conjugate 4-space.",
+  "status_before_run": "PROPOSED",
+  "seed": 0
+ },
+ "outputs": {
+  "asked": "PROPOSED: E8's 240 roots fold to two 600-cells with radii in the ratio phi; on E8's Coxeter plane they fall on rings of 30; the (7, 13)/30 chain is E8's Coxeter element on the conjugate 4-space.",
+  "bound": {
+   "seed": 0,
+   "exact": "the Gram matrix, the roots, the fold, the squared lengths, the 600-cell reading and the traces",
+   "floats": "Coxeter number and exponents of the 8x8 element, the plane, the orbit geometry (tolerance 1e-9, radii rounded to 1e-6)",
+   "h4_gram": "2 on the diagonal, -phi on the 5-edge, -1 on the 3-edges",
+   "integer_form": "(x, y) = the a of <x, y> = a + b*phi",
+   "one_coxeter_element": "one ordering of the reflections; all orderings are conjugate, not all were run"
+  },
+  "e8": {
+   "gram": [
+    [
+     2,
+     0,
+     0,
+     0,
+     0,
+     -1,
+     0,
+     0
+    ],
+    [
+     0,
+     2,
+     -1,
+     0,
+     -1,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     -1,
+     2,
+     -1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     -1,
+     2,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     -1,
+     0,
+     0,
+     2,
+     -1,
+     0,
+     0
+    ],
+    [
+     -1,
+     0,
+     0,
+     0,
+     -1,
+     2,
+     -1,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     -1,
+     2,
+     -1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     -1,
+     2
+    ]
+   ],
+   "diagram": {
+    "simply_laced_cartan": true,
+    "n_edges": 7,
+    "degrees": [
+     1,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     3
+    ],
+    "branch_node_arms": [
+     1,
+     2,
+     4
+    ],
+    "edges": [
+     [
+      0,
+      5
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      1,
+      4
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      5,
+      6
+     ],
+     [
+      6,
+      7
+     ]
+    ]
+   },
+   "is_e8_shape": true,
+   "coxeter_number": 30,
+   "exponents": [
+    1,
+    7,
+    11,
+    13,
+    17,
+    19,
+    23,
+    29
+   ],
+   "computed_from_the_standard_e8_diagram": {
+    "h": 30,
+    "exponents": [
+     1,
+     7,
+     11,
+     13,
+     17,
+     19,
+     23,
+     29
+    ]
+   },
+   "same_h_and_exponents": true,
+   "n_roots": 240,
+   "squared_lengths_in_r8": [
+    2.0
+   ]
+  },
+  "fold": {
+   "n_roots": 240,
+   "distinct_folded_points": 240,
+   "squared_lengths_exact": [
+    [
+     [
+      2,
+      1
+     ],
+     [
+      0,
+      1
+     ]
+    ],
+    [
+     [
+      2,
+      1
+     ],
+     [
+      2,
+      1
+     ]
+    ]
+   ],
+   "squared_lengths_text": [
+    "2",
+    "2 + 2*phi"
+   ],
+   "roots_per_squared_length": [
+    120,
+    120
+   ],
+   "two_sets_of_120": true,
+   "squared_length_ratio_is_phi_squared": true,
+   "radius_ratio": "phi (the squared lengths are in the ratio phi^2 = 1 + phi)",
+   "larger_set_is_phi_times_the_smaller_exactly": true,
+   "smaller_set": {
+    "n_points": 120,
+    "closed_under_negation": true,
+    "inner_products_exact": [
+     "-1",
+     "-1 + 1*phi",
+     "-1*phi",
+     "-2",
+     "0",
+     "1",
+     "1 - 1*phi",
+     "1*phi"
+    ],
+    "n_distinct_inner_products": 8,
+    "nearest_neighbours_per_point": [
+     12
+    ],
+    "nearest_inner_product": [
+     "1*phi"
+    ],
+    "n_edges": 720,
+    "reads_as_600_cell_vertices": true
+   }
+  },
+  "coxeter_plane": {
+   "h": 30,
+   "n_rings": 8,
+   "rings": [
+    {
+     "radius": 0.238235,
+     "n_roots": 30
+    },
+    {
+     "radius": 0.385473,
+     "n_roots": 30
+    },
+    {
+     "radius": 0.473861,
+     "n_roots": 30
+    },
+    {
+     "radius": 0.572925,
+     "n_roots": 30
+    },
+    {
+     "radius": 0.704294,
+     "n_roots": 30
+    },
+    {
+     "radius": 0.766723,
+     "n_roots": 30
+    },
+    {
+     "radius": 0.927011,
+     "n_roots": 30
+    },
+    {
+     "radius": 1.139572,
+     "n_roots": 30
+    }
+   ],
+   "every_ring_has_30": true,
+   "radius_rounding": 1e-06
+  },
+  "chain": {
+   "coxeter_element": "r_1 r_2 r_3 r_4, each r_i = the E8 reflections in alpha_i and phi*alpha_i",
+   "order": 30,
+   "traces_exact": [
+    [
+     [
+      4,
+      1
+     ],
+     [
+      0,
+      1
+     ]
+    ],
+    [
+     [
+      -1,
+      1
+     ],
+     [
+      1,
+      1
+     ]
+    ],
+    [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      1
+     ]
+    ],
+    [
+     [
+      0,
+      1
+     ],
+     [
+      2,
+      1
+     ]
+    ],
+    [
+     [
+      1,
+      1
+     ],
+     [
+      -1,
+      1
+     ]
+    ],
+    [
+     [
+      2,
+      1
+     ],
+     [
+      0,
+      1
+     ]
+    ],
+    [
+     [
+      -2,
+      1
+     ],
+     [
+      2,
+      1
+     ]
+    ],
+    [
+     [
+      0,
+      1
+     ],
+     [
+      -1,
+      1
+     ]
+    ],
+    [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      1
+     ]
+    ],
+    [
+     [
+      2,
+      1
+     ],
+     [
+      -2,
+      1
+     ]
+    ],
+    [
+     [
+      -2,
+      1
+     ],
+     [
+      0,
+      1
+     ]
+    ],
+    [
+     [
+      -1,
+      1
+     ],
+     [
+      1,
+      1
+     ]
+    ],
+    [
+     [
+      0,
+      1
+     ],
+     [
+      -2,
+      1
+     ]
+    ],
+    [
+     [
+      0,
+      1
+     ],
+     [
+      -1,
+      1
+     ]
+    ],
+    [
+     [
+      1,
+      1
+     ],
+     [
+      -1,
+      1
+     ]
+    ],
+    [
+     [
+      -4,
+      1
+     ],
+     [
+      0,
+      1
+     ]
+    ],
+    [
+     [
+      1,
+      1
+     ],
+     [
+      -1,
+      1
+     ]
+    ],
+    [
+     [
+      0,
+      1
+     ],
+     [
+      -1,
+      1
+     ]
+    ],
+    [
+     [
+      0,
+      1
+     ],
+     [
+      -2,
+      1
+     ]
+    ],
+    [
+     [
+      -1,
+      1
+     ],
+     [
+      1,
+      1
+     ]
+    ],
+    [
+     [
+      -2,
+      1
+     ],
+     [
+      0,
+      1
+     ]
+    ],
+    [
+     [
+      2,
+      1
+     ],
+     [
+      -2,
+      1
+     ]
+    ],
+    [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      1
+     ]
+    ],
+    [
+     [
+      0,
+      1
+     ],
+     [
+      -1,
+      1
+     ]
+    ],
+    [
+     [
+      -2,
+      1
+     ],
+     [
+      2,
+      1
+     ]
+    ],
+    [
+     [
+      2,
+      1
+     ],
+     [
+      0,
+      1
+     ]
+    ],
+    [
+     [
+      1,
+      1
+     ],
+     [
+      -1,
+      1
+     ]
+    ],
+    [
+     [
+      0,
+      1
+     ],
+     [
+      2,
+      1
+     ]
+    ],
+    [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      1
+     ]
+    ],
+    [
+     [
+      -1,
+      1
+     ],
+     [
+      1,
+      1
+     ]
+    ]
+   ],
+   "exponents_on_the_fold_space": [
+    1,
+    11,
+    19,
+    29
+   ],
+   "exponents_on_the_conjugate_space": [
+    7,
+    13,
+    17,
+    23
+   ],
+   "together": [
+    1,
+    7,
+    11,
+    13,
+    17,
+    19,
+    23,
+    29
+   ],
+   "together_equal_e8_exponents": true,
+   "turns_fold_space": [
+    1,
+    11
+   ],
+   "turns_conjugate_space": [
+    7,
+    13
+   ],
+   "n_orbits_of_roots": 8,
+   "orbit_sizes": [
+    30
+   ],
+   "orbits": [
+    {
+     "n": 30,
+     "squared_length": "2 + 2*phi",
+     "fold_space": {
+      "regular_tetrahedra_in_every_window": true,
+      "largest_relative_edge_spread": 2.198129442157285e-15,
+      "edge_over_radius": 0.618033988749893
+     },
+     "conjugate_space": {
+      "regular_tetrahedra_in_every_window": true,
+      "largest_relative_edge_spread": 4.710277376051326e-16,
+      "edge_over_radius": 1.6180339887498953
+     }
+    },
+    {
+     "n": 30,
+     "squared_length": "2 + 2*phi",
+     "fold_space": {
+      "regular_tetrahedra_in_every_window": false,
+      "largest_relative_edge_spread": 0.9021130325903077,
+      "edge_over_radius": 1.175570504584944
+     },
+     "conjugate_space": {
+      "regular_tetrahedra_in_every_window": false,
+      "largest_relative_edge_spread": 0.9021130325903077,
+      "edge_over_radius": 1.902113032590308
+     }
+    },
+    {
+     "n": 30,
+     "squared_length": "2 + 2*phi",
+     "fold_space": {
+      "regular_tetrahedra_in_every_window": false,
+      "largest_relative_edge_spread": 1.2882456112707388,
+      "edge_over_radius": 1.4142135623730934
+     },
+     "conjugate_space": {
+      "regular_tetrahedra_in_every_window": false,
+      "largest_relative_edge_spread": 0.3449970239279151,
+      "edge_over_radius": 1.4142135623730951
+     }
+    },
+    {
+     "n": 30,
+     "squared_length": "2",
+     "fold_space": {
+      "regular_tetrahedra_in_every_window": true,
+      "largest_relative_edge_spread": 2.03237037090419e-15,
+      "edge_over_radius": 0.6180339887498935
+     },
+     "conjugate_space": {
+      "regular_tetrahedra_in_every_window": true,
+      "largest_relative_edge_spread": 3.881482019785852e-16,
+      "edge_over_radius": 1.6180339887498951
+     }
+    },
+    {
+     "n": 30,
+     "squared_length": "2",
+     "fold_space": {
+      "regular_tetrahedra_in_every_window": false,
+      "largest_relative_edge_spread": 0.9021130325903077,
+      "edge_over_radius": 1.1755705045849447
+     },
+     "conjugate_space": {
+      "regular_tetrahedra_in_every_window": false,
+      "largest_relative_edge_spread": 0.9021130325903075,
+      "edge_over_radius": 1.9021130325903075
+     }
+    },
+    {
+     "n": 30,
+     "squared_length": "2",
+     "fold_space": {
+      "regular_tetrahedra_in_every_window": false,
+      "largest_relative_edge_spread": 1.2882456112707388,
+      "edge_over_radius": 1.4142135623730934
+     },
+     "conjugate_space": {
+      "regular_tetrahedra_in_every_window": false,
+      "largest_relative_edge_spread": 0.3449970239279152,
+      "edge_over_radius": 1.4142135623730951
+     }
+    },
+    {
+     "n": 30,
+     "squared_length": "2 + 2*phi",
+     "fold_space": {
+      "regular_tetrahedra_in_every_window": false,
+      "largest_relative_edge_spread": 1.8025170768881476,
+      "edge_over_radius": 1.732050807568877
+     },
+     "conjugate_space": {
+      "regular_tetrahedra_in_every_window": false,
+      "largest_relative_edge_spread": 0.22474487139158927,
+      "edge_over_radius": 1.7320508075688774
+     }
+    },
+    {
+     "n": 30,
+     "squared_length": "2",
+     "fold_space": {
+      "regular_tetrahedra_in_every_window": false,
+      "largest_relative_edge_spread": 1.8025170768881476,
+      "edge_over_radius": 1.7320508075688767
+     },
+     "conjugate_space": {
+      "regular_tetrahedra_in_every_window": false,
+      "largest_relative_edge_spread": 0.22474487139158938,
+      "edge_over_radius": 1.7320508075688774
+     }
+    }
+   ],
+   "every_orbit_regular_in_fold_space": false,
+   "every_orbit_regular_in_conjugate_space": false,
+   "edge_over_radius_fold_space": [
+    0.618033989,
+    1.175570505,
+    1.414213562,
+    1.732050808
+   ],
+   "edge_over_radius_conjugate_space": [
+    1.414213562,
+    1.618033989,
+    1.732050808,
+    1.902113033
+   ],
+   "logged_chains_at_30": {
+    "(1, 11)": 0.6180339887498959,
+    "(7, 13)": 1.618033988749895
+   },
+   "chain_1_11": {
+    "turns_found": [
+     1,
+     11
+    ],
+    "turns_of_the_logged_chain": [
+     1,
+     11
+    ],
+    "turns_match": true,
+    "orbits": 8,
+    "orbits_that_are_regular_chains": 2,
+    "orbits_that_are_the_logged_chain": 2,
+    "squared_lengths_of_those_orbits": [
+     "2",
+     "2 + 2*phi"
+    ],
+    "logged_edge_over_radius": 0.6180339887498959,
+    "verdict": "match",
+    "verdict_means": "the turns are the logged chain's and at least one orbit of roots is the logged chain; not every orbit is"
+   },
+   "chain_7_13": {
+    "turns_found": [
+     7,
+     13
+    ],
+    "turns_of_the_logged_chain": [
+     7,
+     13
+    ],
+    "turns_match": true,
+    "orbits": 8,
+    "orbits_that_are_regular_chains": 2,
+    "orbits_that_are_the_logged_chain": 2,
+    "squared_lengths_of_those_orbits": [
+     "2",
+     "2 + 2*phi"
+    ],
+    "logged_edge_over_radius": 1.618033988749895,
+    "verdict": "match",
+    "verdict_means": "the turns are the logged chain's and at least one orbit of roots is the logged chain; not every orbit is"
+   }
+  }
+ },
+ "angles": null,
+ "human_interest": null,
+ "ai_interest": null,
+ "compressibility": {
+  "definition": "roots per ring on the Coxeter plane, in tens, inner ring first",
+  "n": 8,
+  "phrases": 2,
+  "zlib_ratio": 1.375
+ },
+ "nature_match": null,
+ "divergence_note": null
+}
