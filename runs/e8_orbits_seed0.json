@@ -1,0 +1,1233 @@
+{
+ "params": {
+  "source": "experiments/e8_h4_fold.py",
+  "status_before_run": "PROPOSED",
+  "seed": 0
+ },
+ "outputs": {
+  "bound": {
+   "seed": 0,
+   "exact": "every cosine, as a + b*phi; angles in degrees are named from a table of exact cosines or computed in floats",
+   "petrie_test": "step 36 degrees, 4 consecutive a regular tetrahedron, 5 consecutive not a regular simplex",
+   "one_coxeter_element": "r_1 r_2 r_3 r_4, as in e8_h4_fold",
+   "windows": "consecutive points only"
+  },
+  "orbits": [
+   {
+    "orbit": 0,
+    "n_points": 30,
+    "squared_length": "2 + 2*phi",
+    "which_600_cell": "phi x the 600-cell",
+    "step_cosine_same_all_round": true,
+    "fold_space": {
+     "step_cosine_exact": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ]
+     ],
+     "step_cosine_text": "1/2*phi",
+     "step_angle_deg": 36.0,
+     "step_angle_is_a_listed_exact_angle": true,
+     "edge_over_radius": 0.6180339887498948,
+     "cosines_by_gap_exact": [
+      "1/2*phi",
+      "1/2*phi",
+      "1/2*phi",
+      "1/2",
+      "1/2",
+      "-1/2 + 1/2*phi",
+      "0",
+      "0",
+      "1/2 - 1/2*phi",
+      "-1/2",
+      "-1/2",
+      "-1/2*phi",
+      "-1/2*phi",
+      "-1/2*phi",
+      "-1"
+     ],
+     "angles_by_gap_deg": [
+      36.0,
+      36.0,
+      36.0,
+      60.0,
+      60.0,
+      72.0,
+      90.0,
+      90.0,
+      108.0,
+      120.0,
+      120.0,
+      144.0,
+      144.0,
+      144.0,
+      180.0
+     ],
+     "largest_regular_simplex_window": 4,
+     "window_shape": "regular simplex with 36-degree edges (a 600-cell's cell when k = 4)",
+     "three_consecutive_are_a_regular_triangle": true,
+     "four_consecutive_are_a_regular_tetrahedron": true,
+     "five_consecutive_are_a_regular_5_cell": false,
+     "four_consecutive_are_a_plane_square": false,
+     "eight_consecutive_are_a_16_cell": false,
+     "opposite_point_is_15_steps_on": true,
+     "is_a_petrie_polygon_of_a_600_cell": true
+    },
+    "conjugate_space": {
+     "step_cosine_exact": [
+      [
+       1,
+       2
+      ],
+      [
+       -1,
+       2
+      ]
+     ],
+     "step_cosine_text": "1/2 - 1/2*phi",
+     "step_angle_deg": 108.0,
+     "step_angle_is_a_listed_exact_angle": true,
+     "edge_over_radius": 1.618033988749895,
+     "cosines_by_gap_exact": [
+      "1/2 - 1/2*phi",
+      "1/2 - 1/2*phi",
+      "1/2 - 1/2*phi",
+      "1/2",
+      "1/2",
+      "-1/2*phi",
+      "0",
+      "0",
+      "1/2*phi",
+      "-1/2",
+      "-1/2",
+      "-1/2 + 1/2*phi",
+      "-1/2 + 1/2*phi",
+      "-1/2 + 1/2*phi",
+      "-1"
+     ],
+     "angles_by_gap_deg": [
+      108.0,
+      108.0,
+      108.0,
+      60.0,
+      60.0,
+      144.0,
+      90.0,
+      90.0,
+      36.0,
+      120.0,
+      120.0,
+      72.0,
+      72.0,
+      72.0,
+      180.0
+     ],
+     "largest_regular_simplex_window": 4,
+     "window_shape": "regular simplex with 108-degree edges, not about the centre",
+     "three_consecutive_are_a_regular_triangle": true,
+     "four_consecutive_are_a_regular_tetrahedron": true,
+     "five_consecutive_are_a_regular_5_cell": false,
+     "four_consecutive_are_a_plane_square": false,
+     "eight_consecutive_are_a_16_cell": false,
+     "opposite_point_is_15_steps_on": true,
+     "is_a_petrie_polygon_of_a_600_cell": false
+    },
+    "steps_deg": [
+     36.0,
+     108.0
+    ],
+    "steps_sum_deg": 144.0,
+    "steps_sum_to_180": false,
+    "conjugate_cosine_is_the_conjugate_of_the_fold_cosine": true,
+    "fold_and_conjugate_steps_equal": false
+   },
+   {
+    "orbit": 1,
+    "n_points": 30,
+    "squared_length": "2 + 2*phi",
+    "which_600_cell": "phi x the 600-cell",
+    "step_cosine_same_all_round": true,
+    "fold_space": {
+     "step_cosine_exact": [
+      [
+       -1,
+       2
+      ],
+      [
+       1,
+       2
+      ]
+     ],
+     "step_cosine_text": "-1/2 + 1/2*phi",
+     "step_angle_deg": 72.0,
+     "step_angle_is_a_listed_exact_angle": true,
+     "edge_over_radius": 1.1755705045849463,
+     "cosines_by_gap_exact": [
+      "-1/2 + 1/2*phi",
+      "1/2",
+      "1/2*phi",
+      "0",
+      "1/2",
+      "-1/2 + 1/2*phi",
+      "1/2 - 1/2*phi",
+      "-1/2 + 1/2*phi",
+      "1/2 - 1/2*phi",
+      "-1/2",
+      "0",
+      "-1/2*phi",
+      "-1/2",
+      "1/2 - 1/2*phi",
+      "-1"
+     ],
+     "angles_by_gap_deg": [
+      72.0,
+      60.0,
+      36.0,
+      90.0,
+      60.0,
+      72.0,
+      108.0,
+      72.0,
+      108.0,
+      120.0,
+      90.0,
+      144.0,
+      120.0,
+      108.0,
+      180.0
+     ],
+     "largest_regular_simplex_window": null,
+     "window_shape": null,
+     "three_consecutive_are_a_regular_triangle": false,
+     "four_consecutive_are_a_regular_tetrahedron": false,
+     "five_consecutive_are_a_regular_5_cell": false,
+     "four_consecutive_are_a_plane_square": false,
+     "eight_consecutive_are_a_16_cell": false,
+     "opposite_point_is_15_steps_on": true,
+     "is_a_petrie_polygon_of_a_600_cell": false
+    },
+    "conjugate_space": {
+     "step_cosine_exact": [
+      [
+       0,
+       1
+      ],
+      [
+       -1,
+       2
+      ]
+     ],
+     "step_cosine_text": "-1/2*phi",
+     "step_angle_deg": 144.0,
+     "step_angle_is_a_listed_exact_angle": true,
+     "edge_over_radius": 1.902113032590307,
+     "cosines_by_gap_exact": [
+      "-1/2*phi",
+      "1/2",
+      "1/2 - 1/2*phi",
+      "0",
+      "1/2",
+      "-1/2*phi",
+      "1/2*phi",
+      "-1/2*phi",
+      "1/2*phi",
+      "-1/2",
+      "0",
+      "-1/2 + 1/2*phi",
+      "-1/2",
+      "1/2*phi",
+      "-1"
+     ],
+     "angles_by_gap_deg": [
+      144.0,
+      60.0,
+      108.0,
+      90.0,
+      60.0,
+      144.0,
+      36.0,
+      144.0,
+      36.0,
+      120.0,
+      90.0,
+      72.0,
+      120.0,
+      36.0,
+      180.0
+     ],
+     "largest_regular_simplex_window": null,
+     "window_shape": null,
+     "three_consecutive_are_a_regular_triangle": false,
+     "four_consecutive_are_a_regular_tetrahedron": false,
+     "five_consecutive_are_a_regular_5_cell": false,
+     "four_consecutive_are_a_plane_square": false,
+     "eight_consecutive_are_a_16_cell": false,
+     "opposite_point_is_15_steps_on": true,
+     "is_a_petrie_polygon_of_a_600_cell": false
+    },
+    "steps_deg": [
+     72.0,
+     144.0
+    ],
+    "steps_sum_deg": 216.0,
+    "steps_sum_to_180": false,
+    "conjugate_cosine_is_the_conjugate_of_the_fold_cosine": true,
+    "fold_and_conjugate_steps_equal": false
+   },
+   {
+    "orbit": 2,
+    "n_points": 30,
+    "squared_length": "2 + 2*phi",
+    "which_600_cell": "phi x the 600-cell",
+    "step_cosine_same_all_round": true,
+    "fold_space": {
+     "step_cosine_exact": [
+      [
+       0,
+       1
+      ],
+      [
+       0,
+       1
+      ]
+     ],
+     "step_cosine_text": "0",
+     "step_angle_deg": 90.0,
+     "step_angle_is_a_listed_exact_angle": true,
+     "edge_over_radius": 1.4142135623730951,
+     "cosines_by_gap_exact": [
+      "0",
+      "-1/2 + 1/2*phi",
+      "1/2*phi",
+      "1/2 - 1/2*phi",
+      "1/2",
+      "-1/2 + 1/2*phi",
+      "-1/2",
+      "1/2",
+      "1/2 - 1/2*phi",
+      "-1/2",
+      "-1/2 + 1/2*phi",
+      "-1/2*phi",
+      "1/2 - 1/2*phi",
+      "0",
+      "-1"
+     ],
+     "angles_by_gap_deg": [
+      90.0,
+      72.0,
+      36.0,
+      108.0,
+      60.0,
+      72.0,
+      120.0,
+      60.0,
+      108.0,
+      120.0,
+      72.0,
+      144.0,
+      108.0,
+      90.0,
+      180.0
+     ],
+     "largest_regular_simplex_window": null,
+     "window_shape": null,
+     "three_consecutive_are_a_regular_triangle": false,
+     "four_consecutive_are_a_regular_tetrahedron": false,
+     "five_consecutive_are_a_regular_5_cell": false,
+     "four_consecutive_are_a_plane_square": false,
+     "eight_consecutive_are_a_16_cell": false,
+     "opposite_point_is_15_steps_on": true,
+     "is_a_petrie_polygon_of_a_600_cell": false
+    },
+    "conjugate_space": {
+     "step_cosine_exact": [
+      [
+       0,
+       1
+      ],
+      [
+       0,
+       1
+      ]
+     ],
+     "step_cosine_text": "0",
+     "step_angle_deg": 90.0,
+     "step_angle_is_a_listed_exact_angle": true,
+     "edge_over_radius": 1.4142135623730951,
+     "cosines_by_gap_exact": [
+      "0",
+      "-1/2*phi",
+      "1/2 - 1/2*phi",
+      "1/2*phi",
+      "1/2",
+      "-1/2*phi",
+      "-1/2",
+      "1/2",
+      "1/2*phi",
+      "-1/2",
+      "-1/2*phi",
+      "-1/2 + 1/2*phi",
+      "1/2*phi",
+      "0",
+      "-1"
+     ],
+     "angles_by_gap_deg": [
+      90.0,
+      144.0,
+      108.0,
+      36.0,
+      60.0,
+      144.0,
+      120.0,
+      60.0,
+      36.0,
+      120.0,
+      144.0,
+      72.0,
+      36.0,
+      90.0,
+      180.0
+     ],
+     "largest_regular_simplex_window": null,
+     "window_shape": null,
+     "three_consecutive_are_a_regular_triangle": false,
+     "four_consecutive_are_a_regular_tetrahedron": false,
+     "five_consecutive_are_a_regular_5_cell": false,
+     "four_consecutive_are_a_plane_square": false,
+     "eight_consecutive_are_a_16_cell": false,
+     "opposite_point_is_15_steps_on": true,
+     "is_a_petrie_polygon_of_a_600_cell": false
+    },
+    "steps_deg": [
+     90.0,
+     90.0
+    ],
+    "steps_sum_deg": 180.0,
+    "steps_sum_to_180": true,
+    "conjugate_cosine_is_the_conjugate_of_the_fold_cosine": true,
+    "fold_and_conjugate_steps_equal": true
+   },
+   {
+    "orbit": 3,
+    "n_points": 30,
+    "squared_length": "2",
+    "which_600_cell": "the 600-cell",
+    "step_cosine_same_all_round": true,
+    "fold_space": {
+     "step_cosine_exact": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ]
+     ],
+     "step_cosine_text": "1/2*phi",
+     "step_angle_deg": 36.0,
+     "step_angle_is_a_listed_exact_angle": true,
+     "edge_over_radius": 0.6180339887498948,
+     "cosines_by_gap_exact": [
+      "1/2*phi",
+      "1/2*phi",
+      "1/2*phi",
+      "1/2",
+      "1/2",
+      "-1/2 + 1/2*phi",
+      "0",
+      "0",
+      "1/2 - 1/2*phi",
+      "-1/2",
+      "-1/2",
+      "-1/2*phi",
+      "-1/2*phi",
+      "-1/2*phi",
+      "-1"
+     ],
+     "angles_by_gap_deg": [
+      36.0,
+      36.0,
+      36.0,
+      60.0,
+      60.0,
+      72.0,
+      90.0,
+      90.0,
+      108.0,
+      120.0,
+      120.0,
+      144.0,
+      144.0,
+      144.0,
+      180.0
+     ],
+     "largest_regular_simplex_window": 4,
+     "window_shape": "regular simplex with 36-degree edges (a 600-cell's cell when k = 4)",
+     "three_consecutive_are_a_regular_triangle": true,
+     "four_consecutive_are_a_regular_tetrahedron": true,
+     "five_consecutive_are_a_regular_5_cell": false,
+     "four_consecutive_are_a_plane_square": false,
+     "eight_consecutive_are_a_16_cell": false,
+     "opposite_point_is_15_steps_on": true,
+     "is_a_petrie_polygon_of_a_600_cell": true
+    },
+    "conjugate_space": {
+     "step_cosine_exact": [
+      [
+       1,
+       2
+      ],
+      [
+       -1,
+       2
+      ]
+     ],
+     "step_cosine_text": "1/2 - 1/2*phi",
+     "step_angle_deg": 108.0,
+     "step_angle_is_a_listed_exact_angle": true,
+     "edge_over_radius": 1.618033988749895,
+     "cosines_by_gap_exact": [
+      "1/2 - 1/2*phi",
+      "1/2 - 1/2*phi",
+      "1/2 - 1/2*phi",
+      "1/2",
+      "1/2",
+      "-1/2*phi",
+      "0",
+      "0",
+      "1/2*phi",
+      "-1/2",
+      "-1/2",
+      "-1/2 + 1/2*phi",
+      "-1/2 + 1/2*phi",
+      "-1/2 + 1/2*phi",
+      "-1"
+     ],
+     "angles_by_gap_deg": [
+      108.0,
+      108.0,
+      108.0,
+      60.0,
+      60.0,
+      144.0,
+      90.0,
+      90.0,
+      36.0,
+      120.0,
+      120.0,
+      72.0,
+      72.0,
+      72.0,
+      180.0
+     ],
+     "largest_regular_simplex_window": 4,
+     "window_shape": "regular simplex with 108-degree edges, not about the centre",
+     "three_consecutive_are_a_regular_triangle": true,
+     "four_consecutive_are_a_regular_tetrahedron": true,
+     "five_consecutive_are_a_regular_5_cell": false,
+     "four_consecutive_are_a_plane_square": false,
+     "eight_consecutive_are_a_16_cell": false,
+     "opposite_point_is_15_steps_on": true,
+     "is_a_petrie_polygon_of_a_600_cell": false
+    },
+    "steps_deg": [
+     36.0,
+     108.0
+    ],
+    "steps_sum_deg": 144.0,
+    "steps_sum_to_180": false,
+    "conjugate_cosine_is_the_conjugate_of_the_fold_cosine": true,
+    "fold_and_conjugate_steps_equal": false
+   },
+   {
+    "orbit": 4,
+    "n_points": 30,
+    "squared_length": "2",
+    "which_600_cell": "the 600-cell",
+    "step_cosine_same_all_round": true,
+    "fold_space": {
+     "step_cosine_exact": [
+      [
+       -1,
+       2
+      ],
+      [
+       1,
+       2
+      ]
+     ],
+     "step_cosine_text": "-1/2 + 1/2*phi",
+     "step_angle_deg": 72.0,
+     "step_angle_is_a_listed_exact_angle": true,
+     "edge_over_radius": 1.1755705045849463,
+     "cosines_by_gap_exact": [
+      "-1/2 + 1/2*phi",
+      "1/2",
+      "1/2*phi",
+      "0",
+      "1/2",
+      "-1/2 + 1/2*phi",
+      "1/2 - 1/2*phi",
+      "-1/2 + 1/2*phi",
+      "1/2 - 1/2*phi",
+      "-1/2",
+      "0",
+      "-1/2*phi",
+      "-1/2",
+      "1/2 - 1/2*phi",
+      "-1"
+     ],
+     "angles_by_gap_deg": [
+      72.0,
+      60.0,
+      36.0,
+      90.0,
+      60.0,
+      72.0,
+      108.0,
+      72.0,
+      108.0,
+      120.0,
+      90.0,
+      144.0,
+      120.0,
+      108.0,
+      180.0
+     ],
+     "largest_regular_simplex_window": null,
+     "window_shape": null,
+     "three_consecutive_are_a_regular_triangle": false,
+     "four_consecutive_are_a_regular_tetrahedron": false,
+     "five_consecutive_are_a_regular_5_cell": false,
+     "four_consecutive_are_a_plane_square": false,
+     "eight_consecutive_are_a_16_cell": false,
+     "opposite_point_is_15_steps_on": true,
+     "is_a_petrie_polygon_of_a_600_cell": false
+    },
+    "conjugate_space": {
+     "step_cosine_exact": [
+      [
+       0,
+       1
+      ],
+      [
+       -1,
+       2
+      ]
+     ],
+     "step_cosine_text": "-1/2*phi",
+     "step_angle_deg": 144.0,
+     "step_angle_is_a_listed_exact_angle": true,
+     "edge_over_radius": 1.902113032590307,
+     "cosines_by_gap_exact": [
+      "-1/2*phi",
+      "1/2",
+      "1/2 - 1/2*phi",
+      "0",
+      "1/2",
+      "-1/2*phi",
+      "1/2*phi",
+      "-1/2*phi",
+      "1/2*phi",
+      "-1/2",
+      "0",
+      "-1/2 + 1/2*phi",
+      "-1/2",
+      "1/2*phi",
+      "-1"
+     ],
+     "angles_by_gap_deg": [
+      144.0,
+      60.0,
+      108.0,
+      90.0,
+      60.0,
+      144.0,
+      36.0,
+      144.0,
+      36.0,
+      120.0,
+      90.0,
+      72.0,
+      120.0,
+      36.0,
+      180.0
+     ],
+     "largest_regular_simplex_window": null,
+     "window_shape": null,
+     "three_consecutive_are_a_regular_triangle": false,
+     "four_consecutive_are_a_regular_tetrahedron": false,
+     "five_consecutive_are_a_regular_5_cell": false,
+     "four_consecutive_are_a_plane_square": false,
+     "eight_consecutive_are_a_16_cell": false,
+     "opposite_point_is_15_steps_on": true,
+     "is_a_petrie_polygon_of_a_600_cell": false
+    },
+    "steps_deg": [
+     72.0,
+     144.0
+    ],
+    "steps_sum_deg": 216.0,
+    "steps_sum_to_180": false,
+    "conjugate_cosine_is_the_conjugate_of_the_fold_cosine": true,
+    "fold_and_conjugate_steps_equal": false
+   },
+   {
+    "orbit": 5,
+    "n_points": 30,
+    "squared_length": "2",
+    "which_600_cell": "the 600-cell",
+    "step_cosine_same_all_round": true,
+    "fold_space": {
+     "step_cosine_exact": [
+      [
+       0,
+       1
+      ],
+      [
+       0,
+       1
+      ]
+     ],
+     "step_cosine_text": "0",
+     "step_angle_deg": 90.0,
+     "step_angle_is_a_listed_exact_angle": true,
+     "edge_over_radius": 1.4142135623730951,
+     "cosines_by_gap_exact": [
+      "0",
+      "-1/2 + 1/2*phi",
+      "1/2*phi",
+      "1/2 - 1/2*phi",
+      "1/2",
+      "-1/2 + 1/2*phi",
+      "-1/2",
+      "1/2",
+      "1/2 - 1/2*phi",
+      "-1/2",
+      "-1/2 + 1/2*phi",
+      "-1/2*phi",
+      "1/2 - 1/2*phi",
+      "0",
+      "-1"
+     ],
+     "angles_by_gap_deg": [
+      90.0,
+      72.0,
+      36.0,
+      108.0,
+      60.0,
+      72.0,
+      120.0,
+      60.0,
+      108.0,
+      120.0,
+      72.0,
+      144.0,
+      108.0,
+      90.0,
+      180.0
+     ],
+     "largest_regular_simplex_window": null,
+     "window_shape": null,
+     "three_consecutive_are_a_regular_triangle": false,
+     "four_consecutive_are_a_regular_tetrahedron": false,
+     "five_consecutive_are_a_regular_5_cell": false,
+     "four_consecutive_are_a_plane_square": false,
+     "eight_consecutive_are_a_16_cell": false,
+     "opposite_point_is_15_steps_on": true,
+     "is_a_petrie_polygon_of_a_600_cell": false
+    },
+    "conjugate_space": {
+     "step_cosine_exact": [
+      [
+       0,
+       1
+      ],
+      [
+       0,
+       1
+      ]
+     ],
+     "step_cosine_text": "0",
+     "step_angle_deg": 90.0,
+     "step_angle_is_a_listed_exact_angle": true,
+     "edge_over_radius": 1.4142135623730951,
+     "cosines_by_gap_exact": [
+      "0",
+      "-1/2*phi",
+      "1/2 - 1/2*phi",
+      "1/2*phi",
+      "1/2",
+      "-1/2*phi",
+      "-1/2",
+      "1/2",
+      "1/2*phi",
+      "-1/2",
+      "-1/2*phi",
+      "-1/2 + 1/2*phi",
+      "1/2*phi",
+      "0",
+      "-1"
+     ],
+     "angles_by_gap_deg": [
+      90.0,
+      144.0,
+      108.0,
+      36.0,
+      60.0,
+      144.0,
+      120.0,
+      60.0,
+      36.0,
+      120.0,
+      144.0,
+      72.0,
+      36.0,
+      90.0,
+      180.0
+     ],
+     "largest_regular_simplex_window": null,
+     "window_shape": null,
+     "three_consecutive_are_a_regular_triangle": false,
+     "four_consecutive_are_a_regular_tetrahedron": false,
+     "five_consecutive_are_a_regular_5_cell": false,
+     "four_consecutive_are_a_plane_square": false,
+     "eight_consecutive_are_a_16_cell": false,
+     "opposite_point_is_15_steps_on": true,
+     "is_a_petrie_polygon_of_a_600_cell": false
+    },
+    "steps_deg": [
+     90.0,
+     90.0
+    ],
+    "steps_sum_deg": 180.0,
+    "steps_sum_to_180": true,
+    "conjugate_cosine_is_the_conjugate_of_the_fold_cosine": true,
+    "fold_and_conjugate_steps_equal": true
+   },
+   {
+    "orbit": 6,
+    "n_points": 30,
+    "squared_length": "2 + 2*phi",
+    "which_600_cell": "phi x the 600-cell",
+    "step_cosine_same_all_round": true,
+    "fold_space": {
+     "step_cosine_exact": [
+      [
+       -1,
+       2
+      ],
+      [
+       0,
+       1
+      ]
+     ],
+     "step_cosine_text": "-1/2",
+     "step_angle_deg": 120.0,
+     "step_angle_is_a_listed_exact_angle": true,
+     "edge_over_radius": 1.7320508075688772,
+     "cosines_by_gap_exact": [
+      "-1/2",
+      "0",
+      "1/2*phi",
+      "-1/2*phi",
+      "1/2",
+      "-1/2 + 1/2*phi",
+      "-1/2*phi",
+      "1/2*phi",
+      "1/2 - 1/2*phi",
+      "-1/2",
+      "1/2*phi",
+      "-1/2*phi",
+      "0",
+      "1/2",
+      "-1"
+     ],
+     "angles_by_gap_deg": [
+      120.0,
+      90.0,
+      36.0,
+      144.0,
+      60.0,
+      72.0,
+      144.0,
+      36.0,
+      108.0,
+      120.0,
+      36.0,
+      144.0,
+      90.0,
+      60.0,
+      180.0
+     ],
+     "largest_regular_simplex_window": null,
+     "window_shape": null,
+     "three_consecutive_are_a_regular_triangle": false,
+     "four_consecutive_are_a_regular_tetrahedron": false,
+     "five_consecutive_are_a_regular_5_cell": false,
+     "four_consecutive_are_a_plane_square": false,
+     "eight_consecutive_are_a_16_cell": false,
+     "opposite_point_is_15_steps_on": true,
+     "is_a_petrie_polygon_of_a_600_cell": false
+    },
+    "conjugate_space": {
+     "step_cosine_exact": [
+      [
+       -1,
+       2
+      ],
+      [
+       0,
+       1
+      ]
+     ],
+     "step_cosine_text": "-1/2",
+     "step_angle_deg": 120.0,
+     "step_angle_is_a_listed_exact_angle": true,
+     "edge_over_radius": 1.7320508075688772,
+     "cosines_by_gap_exact": [
+      "-1/2",
+      "0",
+      "1/2 - 1/2*phi",
+      "-1/2 + 1/2*phi",
+      "1/2",
+      "-1/2*phi",
+      "-1/2 + 1/2*phi",
+      "1/2 - 1/2*phi",
+      "1/2*phi",
+      "-1/2",
+      "1/2 - 1/2*phi",
+      "-1/2 + 1/2*phi",
+      "0",
+      "1/2",
+      "-1"
+     ],
+     "angles_by_gap_deg": [
+      120.0,
+      90.0,
+      108.0,
+      72.0,
+      60.0,
+      144.0,
+      72.0,
+      108.0,
+      36.0,
+      120.0,
+      108.0,
+      72.0,
+      90.0,
+      60.0,
+      180.0
+     ],
+     "largest_regular_simplex_window": null,
+     "window_shape": null,
+     "three_consecutive_are_a_regular_triangle": false,
+     "four_consecutive_are_a_regular_tetrahedron": false,
+     "five_consecutive_are_a_regular_5_cell": false,
+     "four_consecutive_are_a_plane_square": false,
+     "eight_consecutive_are_a_16_cell": false,
+     "opposite_point_is_15_steps_on": true,
+     "is_a_petrie_polygon_of_a_600_cell": false
+    },
+    "steps_deg": [
+     120.0,
+     120.0
+    ],
+    "steps_sum_deg": 240.0,
+    "steps_sum_to_180": false,
+    "conjugate_cosine_is_the_conjugate_of_the_fold_cosine": true,
+    "fold_and_conjugate_steps_equal": true
+   },
+   {
+    "orbit": 7,
+    "n_points": 30,
+    "squared_length": "2",
+    "which_600_cell": "the 600-cell",
+    "step_cosine_same_all_round": true,
+    "fold_space": {
+     "step_cosine_exact": [
+      [
+       -1,
+       2
+      ],
+      [
+       0,
+       1
+      ]
+     ],
+     "step_cosine_text": "-1/2",
+     "step_angle_deg": 120.0,
+     "step_angle_is_a_listed_exact_angle": true,
+     "edge_over_radius": 1.7320508075688772,
+     "cosines_by_gap_exact": [
+      "-1/2",
+      "0",
+      "1/2*phi",
+      "-1/2*phi",
+      "1/2",
+      "-1/2 + 1/2*phi",
+      "-1/2*phi",
+      "1/2*phi",
+      "1/2 - 1/2*phi",
+      "-1/2",
+      "1/2*phi",
+      "-1/2*phi",
+      "0",
+      "1/2",
+      "-1"
+     ],
+     "angles_by_gap_deg": [
+      120.0,
+      90.0,
+      36.0,
+      144.0,
+      60.0,
+      72.0,
+      144.0,
+      36.0,
+      108.0,
+      120.0,
+      36.0,
+      144.0,
+      90.0,
+      60.0,
+      180.0
+     ],
+     "largest_regular_simplex_window": null,
+     "window_shape": null,
+     "three_consecutive_are_a_regular_triangle": false,
+     "four_consecutive_are_a_regular_tetrahedron": false,
+     "five_consecutive_are_a_regular_5_cell": false,
+     "four_consecutive_are_a_plane_square": false,
+     "eight_consecutive_are_a_16_cell": false,
+     "opposite_point_is_15_steps_on": true,
+     "is_a_petrie_polygon_of_a_600_cell": false
+    },
+    "conjugate_space": {
+     "step_cosine_exact": [
+      [
+       -1,
+       2
+      ],
+      [
+       0,
+       1
+      ]
+     ],
+     "step_cosine_text": "-1/2",
+     "step_angle_deg": 120.0,
+     "step_angle_is_a_listed_exact_angle": true,
+     "edge_over_radius": 1.7320508075688772,
+     "cosines_by_gap_exact": [
+      "-1/2",
+      "0",
+      "1/2 - 1/2*phi",
+      "-1/2 + 1/2*phi",
+      "1/2",
+      "-1/2*phi",
+      "-1/2 + 1/2*phi",
+      "1/2 - 1/2*phi",
+      "1/2*phi",
+      "-1/2",
+      "1/2 - 1/2*phi",
+      "-1/2 + 1/2*phi",
+      "0",
+      "1/2",
+      "-1"
+     ],
+     "angles_by_gap_deg": [
+      120.0,
+      90.0,
+      108.0,
+      72.0,
+      60.0,
+      144.0,
+      72.0,
+      108.0,
+      36.0,
+      120.0,
+      108.0,
+      72.0,
+      90.0,
+      60.0,
+      180.0
+     ],
+     "largest_regular_simplex_window": null,
+     "window_shape": null,
+     "three_consecutive_are_a_regular_triangle": false,
+     "four_consecutive_are_a_regular_tetrahedron": false,
+     "five_consecutive_are_a_regular_5_cell": false,
+     "four_consecutive_are_a_plane_square": false,
+     "eight_consecutive_are_a_16_cell": false,
+     "opposite_point_is_15_steps_on": true,
+     "is_a_petrie_polygon_of_a_600_cell": false
+    },
+    "steps_deg": [
+     120.0,
+     120.0
+    ],
+    "steps_sum_deg": 240.0,
+    "steps_sum_to_180": false,
+    "conjugate_cosine_is_the_conjugate_of_the_fold_cosine": true,
+    "fold_and_conjugate_steps_equal": true
+   }
+  ],
+  "pairing": {
+   "orbits_by_fold_and_conjugate_step": [
+    {
+     "fold_step_deg": 36.0,
+     "conjugate_step_deg": 108.0,
+     "sum_deg": 144.0,
+     "orbits": [
+      0,
+      3
+     ]
+    },
+    {
+     "fold_step_deg": 72.0,
+     "conjugate_step_deg": 144.0,
+     "sum_deg": 216.0,
+     "orbits": [
+      1,
+      4
+     ]
+    },
+    {
+     "fold_step_deg": 90.0,
+     "conjugate_step_deg": 90.0,
+     "sum_deg": 180.0,
+     "orbits": [
+      2,
+      5
+     ]
+    },
+    {
+     "fold_step_deg": 120.0,
+     "conjugate_step_deg": 120.0,
+     "sum_deg": 240.0,
+     "orbits": [
+      6,
+      7
+     ]
+    }
+   ],
+   "phi_times_pairs": [
+    [
+     3,
+     0
+    ],
+    [
+     4,
+     1
+    ],
+    [
+     5,
+     2
+    ],
+    [
+     7,
+     6
+    ]
+   ],
+   "fold_steps_deg": [
+    36.0,
+    72.0,
+    90.0,
+    120.0
+   ],
+   "conjugate_steps_deg": [
+    90.0,
+    108.0,
+    120.0,
+    144.0
+   ],
+   "steps_in_both_lists": [
+    90.0,
+    120.0
+   ],
+   "pairs_summing_to_180": [
+    2,
+    5
+   ],
+   "rule": "the conjugate step's cosine is the conjugate (phi -> 1 - phi) of the fold step's cosine; a rational cosine is its own conjugate"
+  },
+  "summary": {
+   "orbits": 8,
+   "petrie_in_fold_space": [
+    0,
+    3
+   ],
+   "petrie_in_conjugate_space": [],
+   "window_shapes_fold": {
+    "0": "regular simplex with 36-degree edges (a 600-cell's cell when k = 4)",
+    "1": null,
+    "2": null,
+    "3": "regular simplex with 36-degree edges (a 600-cell's cell when k = 4)",
+    "4": null,
+    "5": null,
+    "6": null,
+    "7": null
+   },
+   "window_shapes_conjugate": {
+    "0": "regular simplex with 108-degree edges, not about the centre",
+    "1": null,
+    "2": null,
+    "3": "regular simplex with 108-degree edges, not about the centre",
+    "4": null,
+    "5": null,
+    "6": null,
+    "7": null
+   }
+  }
+ },
+ "angles": {
+  "0": [
+   36.0,
+   108.0
+  ],
+  "1": [
+   72.0,
+   144.0
+  ],
+  "2": [
+   90.0,
+   90.0
+  ],
+  "3": [
+   36.0,
+   108.0
+  ],
+  "4": [
+   72.0,
+   144.0
+  ],
+  "5": [
+   90.0,
+   90.0
+  ],
+  "6": [
+   120.0,
+   120.0
+  ],
+  "7": [
+   120.0,
+   120.0
+  ]
+ },
+ "human_interest": null,
+ "ai_interest": null,
+ "compressibility": {
+  "definition": "fold step of each orbit as a letter (a = under 12 degrees, one letter per 12 degrees)",
+  "n": 8,
+  "phrases": 5,
+  "zlib_ratio": 2.0
+ },
+ "nature_match": null,
+ "divergence_note": null
+}

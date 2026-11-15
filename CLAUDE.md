@@ -192,6 +192,9 @@ experiments/
   e8_h4_fold.py           ap E8 from alpha_i and phi*alpha_i of H4 (integer form), roots by
                              reflection, the fold to two 600-cells (exact), E8's Coxeter
                              plane, and the logged N = 30 chains against its Coxeter element
+  e8_orbits.py            aq the eight Coxeter-element orbits of E8's roots, each in the fold
+                             and the conjugate 4-space: exact step cosine, Petrie test,
+                             regular windows of consecutive points, fold / conjugate pairing
   ancestry.py             ah rectified and truncated forms of four 4-polytopes: are their
                              voids covered by the parent, by the parent's dual, or both
                              together; --small (full ~25 s)
