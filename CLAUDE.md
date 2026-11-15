@@ -38,8 +38,10 @@ shape            keep shape: record the object as computed before any summary.
 bounds           any count / period / symmetry reading logs the instrument bound
                  it was read at (points, precision, probe step); unknown bound
                  = void, not omitted. See docs/resolution_leak.md.
-response         in field/, a cell's difference from the ideal is its RESPONSE to the
-                 local field, logged beside the field value; it is not called error.
+response         in field/, "ideal" is the REFERENCE sheet, not a target. A cell's
+                 difference from it is its RESPONSE to the local field, logged
+                 beside the field value; it is not called error. The optimum is
+                 relative to the environment.
                  The toy is CONSTRUCTED: never describe its numbers as findings
                  about a material.
 sampling         a "none found" / "largest seen" reading logs how samples were drawn
@@ -81,7 +83,8 @@ exact/                 numbers with no floats: ZPhi (a + b*phi, a, b Fractions,
                        (Fibonacci chain, pentagon, Penrose subdivision)
 field/                 hexsheet: CONSTRUCTED toy. Ideal hexagonal sheet (exact
                        reference), a field over it, a local relaxation rule, and
-                       each cell's RESPONSE (never called error)
+                       each cell's RESPONSE (never called error); saturating rule,
+                       performance (strain, net pull, energy), inverse_readout
 toolkit/
   primitives.py        vectors, rotation in any (i, j) plane, projection, angles,
                        Gram-Schmidt, polytopes (simplex, hypercube, cross-polytope,
@@ -135,6 +138,9 @@ experiments/
                              two constructions per level must be EQUAL; --small
   field_response.py       t  hexagonal sheet under a gradient field + uniform control;
                              per-cell field value and response; --small
+  field_adaptation.py     v  inverse readout of the field from offsets; ideal reference
+                             sheet vs adapted sheet under one field; linear and
+                             saturating rules; --small
 runs/*.json            one file per run, schema below
 runs/*.json.gz         the same, gzipped, for a run above emlib.GZ_THRESHOLD bytes;
                        full content; read either form with emlib.load_run
@@ -172,7 +178,7 @@ python3 -m unittest discover -s tests          # all tests
 python3 experiments/<name>.py                  # writes runs/<name>_seed<k>.json (or .json.gz)
 python3 experiments/layered_pursuit.py --small # phone bound -> runs/<name>_small_seed<k>; also anchor_generate,
                                                # constrained_generate, pairing_reread, exact_inflation,
-                                               # field_response
+                                               # field_response, field_adaptation
 python3 -m toolkit.generator 0 1 2             # writes runs/generated_seed<k>.json
 python3 -m toolkit.generator --pipeline cut_weighted 0 1 2   # runs/generated_cut_weighted_seed<k>.json
 python3 -m compare                             # cross-build comparison -> compare/runs/*.jsonl

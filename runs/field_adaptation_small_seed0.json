@@ -1,0 +1,3007 @@
+{
+ "params": {
+  "small": true,
+  "radius": 3,
+  "sweeps": 600,
+  "rate": 0.15,
+  "slopes": [
+   0.0,
+   0.5
+  ],
+  "main_slope": 0.5,
+  "alpha": 0.01,
+  "saturation": 1.5,
+  "fail_fraction": 0.1,
+  "claims": {
+   "C1": "PROPOSED before the run: the field can be read back from the cell offsets alone.",
+   "C2": "PROPOSED before the run: under a field the adapted sheet has lower strain, net pull and energy than the ideal reference sheet; the ideal reference sheet is the better one only at zero field.",
+   "C3": "PROPOSED before the run: at uniform zero field the two sheets are equal.",
+   "C4": "PROPOSED before the run: with a saturating rule the inverse readout fails somewhere; where is logged."
+  },
+  "status_before_run": "PROPOSED",
+  "constructed": true,
+  "seed": 0
+ },
+ "outputs": {
+  "claims": {
+   "C1": "PROPOSED before the run: the field can be read back from the cell offsets alone.",
+   "C2": "PROPOSED before the run: under a field the adapted sheet has lower strain, net pull and energy than the ideal reference sheet; the ideal reference sheet is the better one only at zero field.",
+   "C3": "PROPOSED before the run: at uniform zero field the two sheets are equal.",
+   "C4": "PROPOSED before the run: with a saturating rule the inverse readout fails somewhere; where is logged."
+  },
+  "constructed": true,
+  "naming": {
+   "ideal": "the reference sheet, not a target",
+   "response": "a cell's difference from the reference; not an error",
+   "optimum": "relative to the environment"
+  },
+  "bound": {
+   "radius": 3,
+   "n_cells": 37,
+   "sweeps": 600,
+   "rate": 0.15,
+   "alpha": 0.01,
+   "saturation": 1.5,
+   "slopes": [
+    0.0,
+    0.5
+   ],
+   "main_slope": 0.5,
+   "fail_fraction": 0.1,
+   "arithmetic": "binary float (64-bit); the reference is exact",
+   "readout_input": "relaxed positions and the rule; the field is not passed to the readout",
+   "readout_estimator": "mean distance to the neighbours a cell has, inverted through the rule",
+   "boundary": "free edge"
+  },
+  "rules": {
+   "linear": {
+    "rule": "linear",
+    "saturation": null,
+    "main": {
+     "slope": 0.5,
+     "field": "gradient: slope * x",
+     "performance": {
+      "relaxation_bound": {
+       "sweeps": 600,
+       "rate": 0.15,
+       "n_cells": 37,
+       "n_edges": 90,
+       "rule": "linear",
+       "saturation": null,
+       "max_net_pull_left": 8.12854219163873e-13,
+       "max_move_in_last_sweep": 1.2635457716912631e-13,
+       "arithmetic": "binary float (64-bit)"
+      },
+      "ideal_reference_sheet": {
+       "n_edges": 90,
+       "n_cells": 37,
+       "energy": 0.0023156249999999982,
+       "max_abs_strain": 0.01394169835234478,
+       "rms_strain": 0.00717455069048735,
+       "max_net_pull": 0.026249999999999996,
+       "mean_net_pull": 0.011130427496544465
+      },
+      "adapted_sheet": {
+       "n_edges": 90,
+       "n_cells": 37,
+       "energy": 4.410000919199262e-09,
+       "max_abs_strain": 2.0141499352366872e-05,
+       "rms_strain": 9.90086638192298e-06,
+       "max_net_pull": 8.12854219163873e-13,
+       "mean_net_pull": 4.73796946107672e-13
+      },
+      "adapted_lower": {
+       "energy": true,
+       "max_abs_strain": true,
+       "rms_strain": true,
+       "max_net_pull": true,
+       "mean_net_pull": true
+      },
+      "equal": {
+       "energy": false,
+       "max_abs_strain": false,
+       "rms_strain": false,
+       "max_net_pull": false,
+       "mean_net_pull": false
+      },
+      "adapted_minus_ideal": {
+       "energy": -0.002315620589999079,
+       "max_abs_strain": -0.013921556852992414,
+       "rms_strain": -0.007164649824105427,
+       "max_net_pull": -0.026249999999187142,
+       "mean_net_pull": -0.011130427496070669
+      }
+     },
+     "inverse_readout": {
+      "rule_used_for_the_inversion": "linear",
+      "rule_that_made_the_sheet": "linear",
+      "fail_threshold": 0.30000000000000004,
+      "true_field_range": 3.0,
+      "interior": {
+       "n_cells": 19,
+       "n_recovered": 19,
+       "n_void_outside_rule_range": 0,
+       "correlation": 0.9999998830293588,
+       "slope_recovered_vs_true": 0.9999973214051652,
+       "max_abs_difference": 0.0009818053158472395,
+       "mean_abs_difference": 0.000437966617838903,
+       "n_failing": 0
+      },
+      "edge": {
+       "n_cells": 18,
+       "n_recovered": 18,
+       "n_void_outside_rule_range": 0,
+       "correlation": 0.9997749716425756,
+       "slope_recovered_vs_true": 0.9076047117305976,
+       "max_abs_difference": 0.16715456517650695,
+       "mean_abs_difference": 0.07889786129008357,
+       "n_failing": 0
+      },
+      "all": {
+       "n_cells": 37,
+       "n_recovered": 37,
+       "n_void_outside_rule_range": 0,
+       "correlation": 0.9989009565296915,
+       "slope_recovered_vs_true": 0.9314479658401634,
+       "max_abs_difference": 0.16715456517650695,
+       "mean_abs_difference": 0.03860764510703901,
+       "n_failing": 0
+      },
+      "where_it_fails": {
+       "n": 0,
+       "cells": [],
+       "interior": 0,
+       "edge": 0,
+       "min_abs_true_field_among_failing": null,
+       "max_abs_true_field_among_passing": 1.5
+      },
+      "cells": [
+       {
+        "cell": [
+         -3,
+         0
+        ],
+        "interior": false,
+        "true_field": -1.5,
+        "recovered_field": -1.332845434823493,
+        "difference": 0.16715456517650695,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -3,
+         1
+        ],
+        "interior": false,
+        "true_field": -1.25,
+        "recovered_field": -1.1553852648989893,
+        "difference": 0.0946147351010107,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -3,
+         2
+        ],
+        "interior": false,
+        "true_field": -1.0,
+        "recovered_field": -0.9053862592587336,
+        "difference": 0.09461374074126638,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -3,
+         3
+        ],
+        "interior": false,
+        "true_field": -0.75,
+        "recovered_field": -0.6661808733854802,
+        "difference": 0.08381912661451985,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -2,
+         -1
+        ],
+        "interior": false,
+        "true_field": -1.25,
+        "recovered_field": -1.1553852648989893,
+        "difference": 0.0946147351010107,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -2,
+         0
+        ],
+        "interior": true,
+        "true_field": -1.0,
+        "recovered_field": -1.0001816874554037,
+        "difference": -0.00018168745540370068,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -2,
+         1
+        ],
+        "interior": true,
+        "true_field": -0.75,
+        "recovered_field": -0.7502861661362381,
+        "difference": -0.0002861661362381085,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -2,
+         2
+        ],
+        "interior": true,
+        "true_field": -0.5,
+        "recovered_field": -0.5001828445320045,
+        "difference": -0.00018284453200445583,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -2,
+         3
+        ],
+        "interior": false,
+        "true_field": -0.25,
+        "recovered_field": -0.24914027168954078,
+        "difference": 0.0008597283104592179,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         -2
+        ],
+        "interior": false,
+        "true_field": -1.0,
+        "recovered_field": -0.9053862592587336,
+        "difference": 0.09461374074126638,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         -1
+        ],
+        "interior": true,
+        "true_field": -0.75,
+        "recovered_field": -0.7502861661362381,
+        "difference": -0.0002861661362381085,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         0
+        ],
+        "interior": true,
+        "true_field": -0.5,
+        "recovered_field": -0.5007493460041812,
+        "difference": -0.000749346004181195,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         1
+        ],
+        "interior": true,
+        "true_field": -0.25,
+        "recovered_field": -0.2507500355815484,
+        "difference": -0.0007500355815484028,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         2
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": -0.00028856603115912094,
+        "difference": -0.00028856603115912094,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         3
+        ],
+        "interior": false,
+        "true_field": 0.25,
+        "recovered_field": 0.2508577922702315,
+        "difference": 0.0008577922702315277,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         -3
+        ],
+        "interior": false,
+        "true_field": -0.75,
+        "recovered_field": -0.6661808733854802,
+        "difference": 0.08381912661451985,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         -2
+        ],
+        "interior": true,
+        "true_field": -0.5,
+        "recovered_field": -0.5001828445320045,
+        "difference": -0.00018284453200445583,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         -1
+        ],
+        "interior": true,
+        "true_field": -0.25,
+        "recovered_field": -0.2507500355815484,
+        "difference": -0.0007500355815484028,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         0
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": -0.0009818053158472395,
+        "difference": -0.0009818053158472395,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         1
+        ],
+        "interior": true,
+        "true_field": 0.25,
+        "recovered_field": 0.24924859055877047,
+        "difference": -0.0007514094412295336,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         2
+        ],
+        "interior": true,
+        "true_field": 0.5,
+        "recovered_field": 0.49981486504468986,
+        "difference": -0.00018513495531014001,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         3
+        ],
+        "interior": false,
+        "true_field": 0.75,
+        "recovered_field": 0.6671483474124384,
+        "difference": -0.08285165258756155,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         -3
+        ],
+        "interior": false,
+        "true_field": -0.25,
+        "recovered_field": -0.24914027168954078,
+        "difference": 0.0008597283104592179,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         -2
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": -0.00028856603115912094,
+        "difference": -0.00028856603115912094,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         -1
+        ],
+        "interior": true,
+        "true_field": 0.25,
+        "recovered_field": 0.24924859055877047,
+        "difference": -0.0007514094412295336,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         0
+        ],
+        "interior": true,
+        "true_field": 0.5,
+        "recovered_field": 0.49924790633324445,
+        "difference": -0.0007520936667555489,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         1
+        ],
+        "interior": true,
+        "true_field": 0.75,
+        "recovered_field": 0.7497090742051293,
+        "difference": -0.0002909257948706667,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         2
+        ],
+        "interior": false,
+        "true_field": 1.0,
+        "recovered_field": 0.9071038732913816,
+        "difference": -0.09289612670861835,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         2,
+         -3
+        ],
+        "interior": false,
+        "true_field": 0.25,
+        "recovered_field": 0.2508577922702315,
+        "difference": 0.0008577922702315277,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         2,
+         -2
+        ],
+        "interior": true,
+        "true_field": 0.5,
+        "recovered_field": 0.49981486504468986,
+        "difference": -0.00018513495531014001,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         2,
+         -1
+        ],
+        "interior": true,
+        "true_field": 0.75,
+        "recovered_field": 0.7497090742051293,
+        "difference": -0.0002909257948706667,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         2,
+         0
+        ],
+        "interior": true,
+        "true_field": 1.0,
+        "recovered_field": 0.9998137316479694,
+        "difference": -0.0001862683520306163,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         2,
+         1
+        ],
+        "interior": false,
+        "true_field": 1.25,
+        "recovered_field": 1.157102930680809,
+        "difference": -0.09289706931919106,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         3,
+         -3
+        ],
+        "interior": false,
+        "true_field": 0.75,
+        "recovered_field": 0.6671483474124384,
+        "difference": -0.08285165258756155,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         3,
+         -2
+        ],
+        "interior": false,
+        "true_field": 1.0,
+        "recovered_field": 0.9071038732913816,
+        "difference": -0.09289612670861835,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         3,
+         -1
+        ],
+        "interior": false,
+        "true_field": 1.25,
+        "recovered_field": 1.157102930680809,
+        "difference": -0.09289706931919106,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         3,
+         0
+        ],
+        "interior": false,
+        "true_field": 1.5,
+        "recovered_field": 1.33381300526072,
+        "difference": -0.16618699473928,
+        "in_rule_range": true,
+        "fails": false
+       }
+      ]
+     }
+    },
+    "control_zero_field": {
+     "slope": 0.0,
+     "field": "uniform zero",
+     "performance": {
+      "relaxation_bound": {
+       "sweeps": 600,
+       "rate": 0.15,
+       "n_cells": 37,
+       "n_edges": 90,
+       "rule": "linear",
+       "saturation": null,
+       "max_net_pull_left": 3.8459253727671276e-16,
+       "max_move_in_last_sweep": 5.768888059150691e-17,
+       "arithmetic": "binary float (64-bit)"
+      },
+      "ideal_reference_sheet": {
+       "n_edges": 90,
+       "n_cells": 37,
+       "energy": 3.944304526105059e-31,
+       "max_abs_strain": 2.220446049250313e-16,
+       "rms_strain": 9.362222582871203e-17,
+       "max_net_pull": 3.8459253727671276e-16,
+       "mean_net_pull": 1.6952632274524605e-16
+      },
+      "adapted_sheet": {
+       "n_edges": 90,
+       "n_cells": 37,
+       "energy": 3.944304526105059e-31,
+       "max_abs_strain": 2.220446049250313e-16,
+       "rms_strain": 9.362222582871203e-17,
+       "max_net_pull": 3.8459253727671276e-16,
+       "mean_net_pull": 1.6952632274524605e-16
+      },
+      "adapted_lower": {
+       "energy": false,
+       "max_abs_strain": false,
+       "rms_strain": false,
+       "max_net_pull": false,
+       "mean_net_pull": false
+      },
+      "equal": {
+       "energy": true,
+       "max_abs_strain": true,
+       "rms_strain": true,
+       "max_net_pull": true,
+       "mean_net_pull": true
+      },
+      "adapted_minus_ideal": {
+       "energy": 0.0,
+       "max_abs_strain": 0.0,
+       "rms_strain": 0.0,
+       "max_net_pull": 0.0,
+       "mean_net_pull": 0.0
+      }
+     },
+     "inverse_readout": {
+      "rule_used_for_the_inversion": "linear",
+      "rule_that_made_the_sheet": "linear",
+      "fail_threshold": 0.0,
+      "true_field_range": 0.0,
+      "interior": {
+       "n_cells": 19,
+       "n_recovered": 19,
+       "n_void_outside_rule_range": 0,
+       "correlation": null,
+       "slope_recovered_vs_true": null,
+       "max_abs_difference": 0.0,
+       "mean_abs_difference": 0.0,
+       "n_failing": 0
+      },
+      "edge": {
+       "n_cells": 18,
+       "n_recovered": 18,
+       "n_void_outside_rule_range": 0,
+       "correlation": null,
+       "slope_recovered_vs_true": null,
+       "max_abs_difference": 2.220446049250313e-14,
+       "mean_abs_difference": 4.9343245538895844e-15,
+       "n_failing": 0
+      },
+      "all": {
+       "n_cells": 37,
+       "n_recovered": 37,
+       "n_void_outside_rule_range": 0,
+       "correlation": null,
+       "slope_recovered_vs_true": null,
+       "max_abs_difference": 2.220446049250313e-14,
+       "mean_abs_difference": 2.400482215405744e-15,
+       "n_failing": 0
+      },
+      "where_it_fails": {
+       "n": 0,
+       "cells": [],
+       "interior": 0,
+       "edge": 0,
+       "min_abs_true_field_among_failing": null,
+       "max_abs_true_field_among_passing": 0.0
+      },
+      "cells": [
+       {
+        "cell": [
+         -3,
+         0
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -3,
+         1
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -3,
+         2
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -3,
+         3
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 2.220446049250313e-14,
+        "difference": 2.220446049250313e-14,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -2,
+         -1
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -2,
+         0
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -2,
+         1
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -2,
+         2
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -2,
+         3
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         -2
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         -1
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         0
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         1
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         2
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         3
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         -3
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 2.220446049250313e-14,
+        "difference": 2.220446049250313e-14,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         -2
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         -1
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         0
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         1
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         2
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         3
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 2.220446049250313e-14,
+        "difference": 2.220446049250313e-14,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         -3
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         -2
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         -1
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         0
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         1
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         2
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         2,
+         -3
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         2,
+         -2
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         2,
+         -1
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         2,
+         0
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         2,
+         1
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         3,
+         -3
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 2.220446049250313e-14,
+        "difference": 2.220446049250313e-14,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         3,
+         -2
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         3,
+         -1
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         3,
+         0
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       }
+      ]
+     }
+    },
+    "slope_sweep": [
+     {
+      "slope": 0.0,
+      "field_range": [
+       0.0,
+       0.0
+      ],
+      "performance": {
+       "relaxation_bound": {
+        "sweeps": 600,
+        "rate": 0.15,
+        "n_cells": 37,
+        "n_edges": 90,
+        "rule": "linear",
+        "saturation": null,
+        "max_net_pull_left": 3.8459253727671276e-16,
+        "max_move_in_last_sweep": 5.768888059150691e-17,
+        "arithmetic": "binary float (64-bit)"
+       },
+       "ideal_reference_sheet": {
+        "n_edges": 90,
+        "n_cells": 37,
+        "energy": 3.944304526105059e-31,
+        "max_abs_strain": 2.220446049250313e-16,
+        "rms_strain": 9.362222582871203e-17,
+        "max_net_pull": 3.8459253727671276e-16,
+        "mean_net_pull": 1.6952632274524605e-16
+       },
+       "adapted_sheet": {
+        "n_edges": 90,
+        "n_cells": 37,
+        "energy": 3.944304526105059e-31,
+        "max_abs_strain": 2.220446049250313e-16,
+        "rms_strain": 9.362222582871203e-17,
+        "max_net_pull": 3.8459253727671276e-16,
+        "mean_net_pull": 1.6952632274524605e-16
+       },
+       "adapted_lower": {
+        "energy": false,
+        "max_abs_strain": false,
+        "rms_strain": false,
+        "max_net_pull": false,
+        "mean_net_pull": false
+       },
+       "equal": {
+        "energy": true,
+        "max_abs_strain": true,
+        "rms_strain": true,
+        "max_net_pull": true,
+        "mean_net_pull": true
+       },
+       "adapted_minus_ideal": {
+        "energy": 0.0,
+        "max_abs_strain": 0.0,
+        "rms_strain": 0.0,
+        "max_net_pull": 0.0,
+        "mean_net_pull": 0.0
+       }
+      }
+     },
+     {
+      "slope": 0.5,
+      "field_range": [
+       -1.5,
+       1.5
+      ],
+      "performance": {
+       "relaxation_bound": {
+        "sweeps": 600,
+        "rate": 0.15,
+        "n_cells": 37,
+        "n_edges": 90,
+        "rule": "linear",
+        "saturation": null,
+        "max_net_pull_left": 8.12854219163873e-13,
+        "max_move_in_last_sweep": 1.2635457716912631e-13,
+        "arithmetic": "binary float (64-bit)"
+       },
+       "ideal_reference_sheet": {
+        "n_edges": 90,
+        "n_cells": 37,
+        "energy": 0.0023156249999999982,
+        "max_abs_strain": 0.01394169835234478,
+        "rms_strain": 0.00717455069048735,
+        "max_net_pull": 0.026249999999999996,
+        "mean_net_pull": 0.011130427496544465
+       },
+       "adapted_sheet": {
+        "n_edges": 90,
+        "n_cells": 37,
+        "energy": 4.410000919199262e-09,
+        "max_abs_strain": 2.0141499352366872e-05,
+        "rms_strain": 9.90086638192298e-06,
+        "max_net_pull": 8.12854219163873e-13,
+        "mean_net_pull": 4.73796946107672e-13
+       },
+       "adapted_lower": {
+        "energy": true,
+        "max_abs_strain": true,
+        "rms_strain": true,
+        "max_net_pull": true,
+        "mean_net_pull": true
+       },
+       "equal": {
+        "energy": false,
+        "max_abs_strain": false,
+        "rms_strain": false,
+        "max_net_pull": false,
+        "mean_net_pull": false
+       },
+       "adapted_minus_ideal": {
+        "energy": -0.002315620589999079,
+        "max_abs_strain": -0.013921556852992414,
+        "rms_strain": -0.007164649824105427,
+        "max_net_pull": -0.026249999999187142,
+        "mean_net_pull": -0.011130427496070669
+       }
+      }
+     }
+    ],
+    "slopes_where_ideal_reference_is_not_worse": [
+     0.0
+    ]
+   },
+   "saturating": {
+    "rule": "saturating",
+    "saturation": 1.5,
+    "main": {
+     "slope": 0.5,
+     "field": "gradient: slope * x",
+     "performance": {
+      "relaxation_bound": {
+       "sweeps": 600,
+       "rate": 0.15,
+       "n_cells": 37,
+       "n_edges": 90,
+       "rule": "saturating",
+       "saturation": 1.5,
+       "max_net_pull_left": 6.595331804288362e-13,
+       "max_move_in_last_sweep": 1.0252463165118434e-13,
+       "arithmetic": "binary float (64-bit)"
+      },
+      "ideal_reference_sheet": {
+       "n_edges": 90,
+       "n_cells": 37,
+       "energy": 0.0017524399810933497,
+       "max_abs_strain": 0.010947468856486066,
+       "rms_strain": 0.006241084618426787,
+       "max_net_pull": 0.020911747856232177,
+       "mean_net_pull": 0.00968357562660303
+      },
+      "adapted_sheet": {
+       "n_edges": 90,
+       "n_cells": 37,
+       "energy": 1.5156625439332161e-06,
+       "max_abs_strain": 0.00032956887478522524,
+       "rms_strain": 0.0001834694880401115,
+       "max_net_pull": 6.595331804288362e-13,
+       "mean_net_pull": 3.6769201725767694e-13
+      },
+      "adapted_lower": {
+       "energy": true,
+       "max_abs_strain": true,
+       "rms_strain": true,
+       "max_net_pull": true,
+       "mean_net_pull": true
+      },
+      "equal": {
+       "energy": false,
+       "max_abs_strain": false,
+       "rms_strain": false,
+       "max_net_pull": false,
+       "mean_net_pull": false
+      },
+      "adapted_minus_ideal": {
+       "energy": -0.0017509243185494165,
+       "max_abs_strain": -0.01061789998170084,
+       "rms_strain": -0.006057615130386676,
+       "max_net_pull": -0.020911747855572645,
+       "mean_net_pull": -0.009683575626235338
+      }
+     },
+     "inverse_readout": {
+      "rule_used_for_the_inversion": "saturating",
+      "rule_that_made_the_sheet": "saturating",
+      "fail_threshold": 0.30000000000000004,
+      "true_field_range": 3.0,
+      "interior": {
+       "n_cells": 19,
+       "n_recovered": 19,
+       "n_void_outside_rule_range": 0,
+       "correlation": 0.9999745748317322,
+       "slope_recovered_vs_true": 0.9525575882729598,
+       "max_abs_difference": 0.04276029578929208,
+       "mean_abs_difference": 0.023502105467175766,
+       "n_failing": 0
+      },
+      "edge": {
+       "n_cells": 18,
+       "n_recovered": 18,
+       "n_void_outside_rule_range": 0,
+       "correlation": 0.9997249585276985,
+       "slope_recovered_vs_true": 0.9090419844928548,
+       "max_abs_difference": 0.16358767257934792,
+       "mean_abs_difference": 0.07896221810405975,
+       "n_failing": 0
+      },
+      "all": {
+       "n_cells": 37,
+       "n_recovered": 37,
+       "n_void_outside_rule_range": 0,
+       "correlation": 0.9995796936281715,
+       "slope_recovered_vs_true": 0.9202718177264302,
+       "max_abs_difference": 0.16358767257934792,
+       "mean_abs_difference": 0.050482700804038244,
+       "n_failing": 0
+      },
+      "where_it_fails": {
+       "n": 0,
+       "cells": [],
+       "interior": 0,
+       "edge": 0,
+       "min_abs_true_field_among_failing": null,
+       "max_abs_true_field_among_passing": 1.5
+      },
+      "cells": [
+       {
+        "cell": [
+         -3,
+         0
+        ],
+        "interior": false,
+        "true_field": -1.5,
+        "recovered_field": -1.336412327420652,
+        "difference": 0.16358767257934792,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -3,
+         1
+        ],
+        "interior": false,
+        "true_field": -1.25,
+        "recovered_field": -1.162262418031252,
+        "difference": 0.08773758196874804,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -3,
+         2
+        ],
+        "interior": false,
+        "true_field": -1.0,
+        "recovered_field": -0.906544210011144,
+        "difference": 0.09345578998885595,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -3,
+         3
+        ],
+        "interior": false,
+        "true_field": -0.75,
+        "recovered_field": -0.6586296365100975,
+        "difference": 0.09137036348990246,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -2,
+         -1
+        ],
+        "interior": false,
+        "true_field": -1.25,
+        "recovered_field": -1.162262418031252,
+        "difference": 0.08773758196874804,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -2,
+         0
+        ],
+        "interior": true,
+        "true_field": -1.0,
+        "recovered_field": -0.9575937088491646,
+        "difference": 0.042406291150835385,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -2,
+         1
+        ],
+        "interior": true,
+        "true_field": -0.75,
+        "recovered_field": -0.7146904276410094,
+        "difference": 0.03530957235899057,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -2,
+         2
+        ],
+        "interior": true,
+        "true_field": -0.5,
+        "recovered_field": -0.4779799443714007,
+        "difference": 0.022020055628599322,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -2,
+         3
+        ],
+        "interior": false,
+        "true_field": -0.25,
+        "recovered_field": -0.24560460606925436,
+        "difference": 0.004395393930745645,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         -2
+        ],
+        "interior": false,
+        "true_field": -1.0,
+        "recovered_field": -0.906544210011144,
+        "difference": 0.09345578998885595,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         -1
+        ],
+        "interior": true,
+        "true_field": -0.75,
+        "recovered_field": -0.7146904276410094,
+        "difference": 0.03530957235899057,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         0
+        ],
+        "interior": true,
+        "true_field": -0.5,
+        "recovered_field": -0.46837927472402463,
+        "difference": 0.03162072527597537,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         1
+        ],
+        "interior": true,
+        "true_field": -0.25,
+        "recovered_field": -0.2343990687360285,
+        "difference": 0.015600931263971496,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         2
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": -0.00022609407989398553,
+        "difference": -0.00022609407989398553,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         3
+        ],
+        "interior": false,
+        "true_field": 0.25,
+        "recovered_field": 0.24705500438481637,
+        "difference": -0.002944995615183632,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         -3
+        ],
+        "interior": false,
+        "true_field": -0.75,
+        "recovered_field": -0.6586296365100842,
+        "difference": 0.09137036348991578,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         -2
+        ],
+        "interior": true,
+        "true_field": -0.5,
+        "recovered_field": -0.4779799443714007,
+        "difference": 0.022020055628599322,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         -1
+        ],
+        "interior": true,
+        "true_field": -0.25,
+        "recovered_field": -0.23439906873600574,
+        "difference": 0.015600931263994255,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         0
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": -0.0007334148507646401,
+        "difference": -0.0007334148507646401,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         1
+        ],
+        "interior": true,
+        "true_field": 0.25,
+        "recovered_field": 0.23323789978705495,
+        "difference": -0.016762100212945052,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         2
+        ],
+        "interior": true,
+        "true_field": 0.5,
+        "recovered_field": 0.47766585562391706,
+        "difference": -0.022334144376082943,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         3
+        ],
+        "interior": false,
+        "true_field": 0.75,
+        "recovered_field": 0.6595282464867358,
+        "difference": -0.0904717535132642,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         -3
+        ],
+        "interior": false,
+        "true_field": -0.25,
+        "recovered_field": -0.24560460606925436,
+        "difference": 0.004395393930745645,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         -2
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": -0.00022609407991619002,
+        "difference": -0.00022609407991619002,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         -1
+        ],
+        "interior": true,
+        "true_field": 0.25,
+        "recovered_field": 0.23323789978705495,
+        "difference": -0.016762100212945052,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         0
+        ],
+        "interior": true,
+        "true_field": 0.5,
+        "recovered_field": 0.4671693431045957,
+        "difference": -0.03283065689540432,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         1
+        ],
+        "interior": true,
+        "true_field": 0.75,
+        "recovered_field": 0.714158587963472,
+        "difference": -0.03584141203652802,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         2
+        ],
+        "interior": false,
+        "true_field": 1.0,
+        "recovered_field": 0.9083245527921775,
+        "difference": -0.0916754472078225,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         2,
+         -3
+        ],
+        "interior": false,
+        "true_field": 0.25,
+        "recovered_field": 0.24705500438481637,
+        "difference": -0.002944995615183632,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         2,
+         -2
+        ],
+        "interior": true,
+        "true_field": 0.5,
+        "recovered_field": 0.47766585562391706,
+        "difference": -0.022334144376082943,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         2,
+         -1
+        ],
+        "interior": true,
+        "true_field": 0.75,
+        "recovered_field": 0.714158587963472,
+        "difference": -0.03584141203652802,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         2,
+         0
+        ],
+        "interior": true,
+        "true_field": 1.0,
+        "recovered_field": 0.9572397042107079,
+        "difference": -0.04276029578929208,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         2,
+         1
+        ],
+        "interior": false,
+        "true_field": 1.25,
+        "recovered_field": 1.1643201124785565,
+        "difference": -0.08567988752144351,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         3,
+         -3
+        ],
+        "interior": false,
+        "true_field": 0.75,
+        "recovered_field": 0.6595282464867358,
+        "difference": -0.0904717535132642,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         3,
+         -2
+        ],
+        "interior": false,
+        "true_field": 1.0,
+        "recovered_field": 0.9083245527921775,
+        "difference": -0.0916754472078225,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         3,
+         -1
+        ],
+        "interior": false,
+        "true_field": 1.25,
+        "recovered_field": 1.1643201124785565,
+        "difference": -0.08567988752144351,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         3,
+         0
+        ],
+        "interior": false,
+        "true_field": 1.5,
+        "recovered_field": 1.3377301731782176,
+        "difference": -0.16226982682178237,
+        "in_rule_range": true,
+        "fails": false
+       }
+      ]
+     },
+     "inverse_readout_linear_rule_assumed": {
+      "rule_used_for_the_inversion": "linear",
+      "rule_that_made_the_sheet": "saturating",
+      "fail_threshold": 0.30000000000000004,
+      "true_field_range": 3.0,
+      "interior": {
+       "n_cells": 19,
+       "n_recovered": 19,
+       "n_void_outside_rule_range": 0,
+       "correlation": 0.9994303033786062,
+       "slope_recovered_vs_true": 0.8825930869917823,
+       "max_abs_difference": 0.15453207802611413,
+       "mean_abs_difference": 0.05090240486734979,
+       "n_failing": 0
+      },
+      "edge": {
+       "n_cells": 18,
+       "n_recovered": 18,
+       "n_void_outside_rule_range": 0,
+       "correlation": 0.9981394057243834,
+       "slope_recovered_vs_true": 0.7783754093055802,
+       "max_abs_difference": 0.43221229412186846,
+       "mean_abs_difference": 0.18134525475864244,
+       "n_failing": 2
+      },
+      "all": {
+       "n_cells": 37,
+       "n_recovered": 37,
+       "n_void_outside_rule_range": 0,
+       "correlation": 0.9969402462858634,
+       "slope_recovered_vs_true": 0.8052702938697616,
+       "max_abs_difference": 0.43221229412186846,
+       "mean_abs_difference": 0.11436108859824891,
+       "n_failing": 2
+      },
+      "where_it_fails": {
+       "n": 2,
+       "cells": [
+        [
+         -3,
+         0
+        ],
+        [
+         3,
+         0
+        ]
+       ],
+       "interior": 0,
+       "edge": 2,
+       "min_abs_true_field_among_failing": 1.5,
+       "max_abs_true_field_among_passing": 1.25
+      },
+      "cells": [
+       {
+        "cell": [
+         -3,
+         0
+        ],
+        "interior": false,
+        "true_field": -1.5,
+        "recovered_field": -1.0677877058781315,
+        "difference": 0.43221229412186846,
+        "in_rule_range": true,
+        "fails": true
+       },
+       {
+        "cell": [
+         -3,
+         1
+        ],
+        "interior": false,
+        "true_field": -1.25,
+        "recovered_field": -0.9746039245115745,
+        "difference": 0.2753960754884255,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -3,
+         2
+        ],
+        "interior": false,
+        "true_field": -1.0,
+        "recovered_field": -0.8102201500284512,
+        "difference": 0.18977984997154884,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -3,
+         3
+        ],
+        "interior": false,
+        "true_field": -0.75,
+        "recovered_field": -0.6193303422527219,
+        "difference": 0.13066965774727812,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -2,
+         -1
+        ],
+        "interior": false,
+        "true_field": -1.25,
+        "recovered_field": -0.9746039245115745,
+        "difference": 0.2753960754884255,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -2,
+         0
+        ],
+        "interior": true,
+        "true_field": -1.0,
+        "recovered_field": -0.8457094286234201,
+        "difference": 0.15429057137657987,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -2,
+         1
+        ],
+        "interior": true,
+        "true_field": -0.75,
+        "recovered_field": -0.6651064464226586,
+        "difference": 0.08489355357734141,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -2,
+         2
+        ],
+        "interior": true,
+        "true_field": -0.5,
+        "recovered_field": -0.4624330759362749,
+        "difference": 0.03756692406372508,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -2,
+         3
+        ],
+        "interior": false,
+        "true_field": -0.25,
+        "recovered_field": -0.24343303610883105,
+        "difference": 0.006566963891168953,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         -2
+        ],
+        "interior": false,
+        "true_field": -1.0,
+        "recovered_field": -0.8102201500284512,
+        "difference": 0.18977984997154884,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         -1
+        ],
+        "interior": true,
+        "true_field": -0.75,
+        "recovered_field": -0.6651064464226586,
+        "difference": 0.08489355357734141,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         0
+        ],
+        "interior": true,
+        "true_field": -0.5,
+        "recovered_field": -0.45372781426897824,
+        "difference": 0.046272185731021764,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         1
+        ],
+        "interior": true,
+        "true_field": -0.25,
+        "recovered_field": -0.23250958605282035,
+        "difference": 0.01749041394717965,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         2
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": -0.00022609407818174887,
+        "difference": -0.00022609407818174887,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         3
+        ],
+        "interior": false,
+        "true_field": 0.25,
+        "recovered_field": 0.24484501237553857,
+        "difference": -0.005154987624461427,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         -3
+        ],
+        "interior": false,
+        "true_field": -0.75,
+        "recovered_field": -0.6193303422527108,
+        "difference": 0.13066965774728923,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         -2
+        ],
+        "interior": true,
+        "true_field": -0.5,
+        "recovered_field": -0.4624330759362749,
+        "difference": 0.03756692406372508,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         -1
+        ],
+        "interior": true,
+        "true_field": -0.25,
+        "recovered_field": -0.23250958605279815,
+        "difference": 0.017490413947201855,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         0
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": -0.0007334147923199197,
+        "difference": -0.0007334147923199197,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         1
+        ],
+        "interior": true,
+        "true_field": 0.25,
+        "recovered_field": 0.2313761807146708,
+        "difference": -0.01862381928532919,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         2
+        ],
+        "interior": true,
+        "true_field": 0.5,
+        "recovered_field": 0.462148820445063,
+        "difference": -0.037851179554937,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         3
+        ],
+        "interior": false,
+        "true_field": 0.75,
+        "recovered_field": 0.6200755767427291,
+        "difference": -0.12992442325727094,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         -3
+        ],
+        "interior": false,
+        "true_field": -0.25,
+        "recovered_field": -0.24343303610883105,
+        "difference": 0.006566963891168953,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         -2
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": -0.00022609407820395333,
+        "difference": -0.00022609407820395333,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         -1
+        ],
+        "interior": true,
+        "true_field": 0.25,
+        "recovered_field": 0.2313761807146708,
+        "difference": -0.01862381928532919,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         0
+        ],
+        "interior": true,
+        "true_field": 0.5,
+        "recovered_field": 0.45262832010013465,
+        "difference": -0.04737167989986535,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         1
+        ],
+        "interior": true,
+        "true_field": 0.75,
+        "recovered_field": 0.6646791031798438,
+        "difference": -0.0853208968201562,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         2
+        ],
+        "interior": false,
+        "true_field": 1.0,
+        "recovered_field": 0.8114802541761224,
+        "difference": -0.18851974582387765,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         2,
+         -3
+        ],
+        "interior": false,
+        "true_field": 0.25,
+        "recovered_field": 0.24484501237553857,
+        "difference": -0.005154987624461427,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         2,
+         -2
+        ],
+        "interior": true,
+        "true_field": 0.5,
+        "recovered_field": 0.462148820445063,
+        "difference": -0.037851179554937,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         2,
+         -1
+        ],
+        "interior": true,
+        "true_field": 0.75,
+        "recovered_field": 0.6646791031798438,
+        "difference": -0.0853208968201562,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         2,
+         0
+        ],
+        "interior": true,
+        "true_field": 1.0,
+        "recovered_field": 0.8454679219738859,
+        "difference": -0.15453207802611413,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         2,
+         1
+        ],
+        "interior": false,
+        "true_field": 1.25,
+        "recovered_field": 0.9757918896618811,
+        "difference": -0.27420811033811887,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         3,
+         -3
+        ],
+        "interior": false,
+        "true_field": 0.75,
+        "recovered_field": 0.6200755767427291,
+        "difference": -0.12992442325727094,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         3,
+         -2
+        ],
+        "interior": false,
+        "true_field": 1.0,
+        "recovered_field": 0.8114802541761224,
+        "difference": -0.18851974582387765,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         3,
+         -1
+        ],
+        "interior": false,
+        "true_field": 1.25,
+        "recovered_field": 0.9757918896618811,
+        "difference": -0.27420811033811887,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         3,
+         0
+        ],
+        "interior": false,
+        "true_field": 1.5,
+        "recovered_field": 1.0684373367506161,
+        "difference": -0.43156266324938386,
+        "in_rule_range": true,
+        "fails": true
+       }
+      ]
+     }
+    },
+    "control_zero_field": {
+     "slope": 0.0,
+     "field": "uniform zero",
+     "performance": {
+      "relaxation_bound": {
+       "sweeps": 600,
+       "rate": 0.15,
+       "n_cells": 37,
+       "n_edges": 90,
+       "rule": "saturating",
+       "saturation": 1.5,
+       "max_net_pull_left": 3.8459253727671276e-16,
+       "max_move_in_last_sweep": 5.768888059150691e-17,
+       "arithmetic": "binary float (64-bit)"
+      },
+      "ideal_reference_sheet": {
+       "n_edges": 90,
+       "n_cells": 37,
+       "energy": 3.944304526105059e-31,
+       "max_abs_strain": 2.220446049250313e-16,
+       "rms_strain": 9.362222582871203e-17,
+       "max_net_pull": 3.8459253727671276e-16,
+       "mean_net_pull": 1.6952632274524605e-16
+      },
+      "adapted_sheet": {
+       "n_edges": 90,
+       "n_cells": 37,
+       "energy": 3.944304526105059e-31,
+       "max_abs_strain": 2.220446049250313e-16,
+       "rms_strain": 9.362222582871203e-17,
+       "max_net_pull": 3.8459253727671276e-16,
+       "mean_net_pull": 1.6952632274524605e-16
+      },
+      "adapted_lower": {
+       "energy": false,
+       "max_abs_strain": false,
+       "rms_strain": false,
+       "max_net_pull": false,
+       "mean_net_pull": false
+      },
+      "equal": {
+       "energy": true,
+       "max_abs_strain": true,
+       "rms_strain": true,
+       "max_net_pull": true,
+       "mean_net_pull": true
+      },
+      "adapted_minus_ideal": {
+       "energy": 0.0,
+       "max_abs_strain": 0.0,
+       "rms_strain": 0.0,
+       "max_net_pull": 0.0,
+       "mean_net_pull": 0.0
+      }
+     },
+     "inverse_readout": {
+      "rule_used_for_the_inversion": "saturating",
+      "rule_that_made_the_sheet": "saturating",
+      "fail_threshold": 0.0,
+      "true_field_range": 0.0,
+      "interior": {
+       "n_cells": 19,
+       "n_recovered": 19,
+       "n_void_outside_rule_range": 0,
+       "correlation": null,
+       "slope_recovered_vs_true": null,
+       "max_abs_difference": 0.0,
+       "mean_abs_difference": 0.0,
+       "n_failing": 0
+      },
+      "edge": {
+       "n_cells": 18,
+       "n_recovered": 18,
+       "n_void_outside_rule_range": 0,
+       "correlation": null,
+       "slope_recovered_vs_true": null,
+       "max_abs_difference": 2.220446049250313e-14,
+       "mean_abs_difference": 4.9343245538895844e-15,
+       "n_failing": 0
+      },
+      "all": {
+       "n_cells": 37,
+       "n_recovered": 37,
+       "n_void_outside_rule_range": 0,
+       "correlation": null,
+       "slope_recovered_vs_true": null,
+       "max_abs_difference": 2.220446049250313e-14,
+       "mean_abs_difference": 2.400482215405744e-15,
+       "n_failing": 0
+      },
+      "where_it_fails": {
+       "n": 0,
+       "cells": [],
+       "interior": 0,
+       "edge": 0,
+       "min_abs_true_field_among_failing": null,
+       "max_abs_true_field_among_passing": 0.0
+      },
+      "cells": [
+       {
+        "cell": [
+         -3,
+         0
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -3,
+         1
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -3,
+         2
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -3,
+         3
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 2.220446049250313e-14,
+        "difference": 2.220446049250313e-14,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -2,
+         -1
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -2,
+         0
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -2,
+         1
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -2,
+         2
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -2,
+         3
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         -2
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         -1
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         0
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         1
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         2
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         -1,
+         3
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         -3
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 2.220446049250313e-14,
+        "difference": 2.220446049250313e-14,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         -2
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         -1
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         0
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         1
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         2
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         0,
+         3
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 2.220446049250313e-14,
+        "difference": 2.220446049250313e-14,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         -3
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         -2
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         -1
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         0
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         1
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         1,
+         2
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         2,
+         -3
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         2,
+         -2
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         2,
+         -1
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         2,
+         0
+        ],
+        "interior": true,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         2,
+         1
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         3,
+         -3
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 2.220446049250313e-14,
+        "difference": 2.220446049250313e-14,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         3,
+         -2
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         3,
+         -1
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       },
+       {
+        "cell": [
+         3,
+         0
+        ],
+        "interior": false,
+        "true_field": 0.0,
+        "recovered_field": 0.0,
+        "difference": 0.0,
+        "in_rule_range": true,
+        "fails": false
+       }
+      ]
+     }
+    },
+    "slope_sweep": [
+     {
+      "slope": 0.0,
+      "field_range": [
+       0.0,
+       0.0
+      ],
+      "performance": {
+       "relaxation_bound": {
+        "sweeps": 600,
+        "rate": 0.15,
+        "n_cells": 37,
+        "n_edges": 90,
+        "rule": "saturating",
+        "saturation": 1.5,
+        "max_net_pull_left": 3.8459253727671276e-16,
+        "max_move_in_last_sweep": 5.768888059150691e-17,
+        "arithmetic": "binary float (64-bit)"
+       },
+       "ideal_reference_sheet": {
+        "n_edges": 90,
+        "n_cells": 37,
+        "energy": 3.944304526105059e-31,
+        "max_abs_strain": 2.220446049250313e-16,
+        "rms_strain": 9.362222582871203e-17,
+        "max_net_pull": 3.8459253727671276e-16,
+        "mean_net_pull": 1.6952632274524605e-16
+       },
+       "adapted_sheet": {
+        "n_edges": 90,
+        "n_cells": 37,
+        "energy": 3.944304526105059e-31,
+        "max_abs_strain": 2.220446049250313e-16,
+        "rms_strain": 9.362222582871203e-17,
+        "max_net_pull": 3.8459253727671276e-16,
+        "mean_net_pull": 1.6952632274524605e-16
+       },
+       "adapted_lower": {
+        "energy": false,
+        "max_abs_strain": false,
+        "rms_strain": false,
+        "max_net_pull": false,
+        "mean_net_pull": false
+       },
+       "equal": {
+        "energy": true,
+        "max_abs_strain": true,
+        "rms_strain": true,
+        "max_net_pull": true,
+        "mean_net_pull": true
+       },
+       "adapted_minus_ideal": {
+        "energy": 0.0,
+        "max_abs_strain": 0.0,
+        "rms_strain": 0.0,
+        "max_net_pull": 0.0,
+        "mean_net_pull": 0.0
+       }
+      }
+     },
+     {
+      "slope": 0.5,
+      "field_range": [
+       -1.5,
+       1.5
+      ],
+      "performance": {
+       "relaxation_bound": {
+        "sweeps": 600,
+        "rate": 0.15,
+        "n_cells": 37,
+        "n_edges": 90,
+        "rule": "saturating",
+        "saturation": 1.5,
+        "max_net_pull_left": 6.595331804288362e-13,
+        "max_move_in_last_sweep": 1.0252463165118434e-13,
+        "arithmetic": "binary float (64-bit)"
+       },
+       "ideal_reference_sheet": {
+        "n_edges": 90,
+        "n_cells": 37,
+        "energy": 0.0017524399810933497,
+        "max_abs_strain": 0.010947468856486066,
+        "rms_strain": 0.006241084618426787,
+        "max_net_pull": 0.020911747856232177,
+        "mean_net_pull": 0.00968357562660303
+       },
+       "adapted_sheet": {
+        "n_edges": 90,
+        "n_cells": 37,
+        "energy": 1.5156625439332161e-06,
+        "max_abs_strain": 0.00032956887478522524,
+        "rms_strain": 0.0001834694880401115,
+        "max_net_pull": 6.595331804288362e-13,
+        "mean_net_pull": 3.6769201725767694e-13
+       },
+       "adapted_lower": {
+        "energy": true,
+        "max_abs_strain": true,
+        "rms_strain": true,
+        "max_net_pull": true,
+        "mean_net_pull": true
+       },
+       "equal": {
+        "energy": false,
+        "max_abs_strain": false,
+        "rms_strain": false,
+        "max_net_pull": false,
+        "mean_net_pull": false
+       },
+       "adapted_minus_ideal": {
+        "energy": -0.0017509243185494165,
+        "max_abs_strain": -0.01061789998170084,
+        "rms_strain": -0.006057615130386676,
+        "max_net_pull": -0.020911747855572645,
+        "mean_net_pull": -0.009683575626235338
+       }
+      }
+     }
+    ],
+    "slopes_where_ideal_reference_is_not_worse": [
+     0.0
+    ]
+   }
+  }
+ },
+ "angles": null,
+ "human_interest": null,
+ "ai_interest": "CONSTRUCTED toy; readings of the model only. 37 cells, field slope 0.5, alpha 0.01, saturation 1.5. OBSERVED, linear rule -- inverse readout: interior r = 1 (max |diff| 0.000981805), edge r = 0.999775 (max |diff| 0.167155), void 0, failing 0 (0 interior, 0 edge). Performance: energy ideal reference 2.316e-03 / adapted 4.410e-09; max |strain| 1.394e-02 / 2.014e-05; max net pull 2.625e-02 / 8.129e-13. Zero field: energy ideal reference 3.944e-31 / adapted 3.944e-31; max |strain| 2.220e-16 / 2.220e-16; max net pull 3.846e-16 / 3.846e-16; equal {'energy': True, 'max_abs_strain': True, 'rms_strain': True, 'max_net_pull': True, 'mean_net_pull': True}. Slopes where the ideal reference sheet is not worse: [0.0]. OBSERVED, saturating rule -- inverse readout with the true rule: interior r = 0.999975 (max |diff| 0.0427603), edge r = 0.999725 (max |diff| 0.163588), void 0, failing 0 (0 interior, 0 edge); with the linear rule assumed: interior r = 0.99943 (max |diff| 0.154532), edge r = 0.998139 (max |diff| 0.432212), void 0, failing 2 (0 interior, 2 edge). Performance: energy ideal reference 1.752e-03 / adapted 1.516e-06; max |strain| 1.095e-02 / 3.296e-04; max net pull 2.091e-02 / 6.595e-13. Zero field: energy ideal reference 3.944e-31 / adapted 3.944e-31; max |strain| 2.220e-16 / 2.220e-16; max net pull 3.846e-16 / 3.846e-16. Slopes where the ideal reference sheet is not worse: [0.0]. No reading is given: the run was asked for as a log, not an interpretation.",
+ "compressibility": {
+  "definition": "saturating rule, true rule inverted: one letter per cell in sheet order, f readout fails, p passes",
+  "n": 37,
+  "phrases": 2,
+  "zlib_ratio": 0.32432432432432434
+ },
+ "nature_match": null,
+ "divergence_note": null
+}

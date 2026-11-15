@@ -66,6 +66,8 @@
     "rate": 0.15,
     "n_cells": 37,
     "n_edges": 90,
+    "rule": "linear",
+    "saturation": null,
     "max_net_pull_left": 1.822774668426272e-15,
     "max_move_in_last_sweep": 2.69889091544101e-16,
     "arithmetic": "binary float (64-bit)"
@@ -1953,6 +1955,8 @@
     "rate": 0.15,
     "n_cells": 37,
     "n_edges": 90,
+    "rule": "linear",
+    "saturation": null,
     "max_net_pull_left": 3.8459253727671276e-16,
     "max_move_in_last_sweep": 5.768888059150691e-17,
     "arithmetic": "binary float (64-bit)"

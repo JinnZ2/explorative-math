@@ -2,6 +2,11 @@
 
 CONSTRUCTED toy. Nothing here is a claim about a real sheet.
 
+  naming            "ideal" is the reference a cell is measured against, not a
+                    target. "response" is a cell's difference from that
+                    reference; it is not called error. Which sheet is the
+                    optimum is relative to the environment (see
+                    performance()).
   ideal reference   cell centres on the triangular lattice, held exactly as
                     axial integers (q, r). The ideal position is
                     x = q + r/2, y = r * (sqrt(3)/2): x is an exact
@@ -13,7 +18,10 @@ CONSTRUCTED toy. Nothing here is a claim about a real sheet.
                     over a symmetric sheet. uniform: the same value
                     everywhere.
   local rule        each cell has a preferred spacing set by the field
-                    where it sits: 1 + alpha * value. The rest length
+                    where it sits. linear: 1 + alpha * value. saturating:
+                    1 + alpha * s * tanh(value / s), which follows the
+                    linear rule for small values and levels off at
+                    1 +- alpha * s. The rest length
                     between two neighbours is the mean of their two
                     preferred spacings. Every cell moves a fraction of the
                     net pull of its neighbours, all cells together, a fixed
@@ -79,14 +87,108 @@ def edges(sheet):
     return out
 
 
-def relax(sheet, field, alpha, sweeps, rate=0.15):
+RULES = ("linear", "saturating")
+
+
+def preferred_spacing(value, alpha, rule="linear", saturation=None):
+    """The spacing a cell prefers at a field value."""
+    if rule == "linear":
+        return 1.0 + alpha * value
+    if rule == "saturating":
+        if not saturation or saturation <= 0:
+            raise ValueError("the saturating rule needs a positive saturation scale")
+        return 1.0 + alpha * saturation * math.tanh(value / saturation)
+    raise ValueError(f"unknown rule {rule!r}")
+
+
+def field_from_spacing(spacing, alpha, rule="linear", saturation=None):
+    """The inverse of preferred_spacing: the field value a spacing stands for.
+    None where the spacing lies outside what the rule can produce (the
+    saturating rule never reaches 1 +- alpha * s): not clipped, void."""
+    x = (spacing - 1.0) / alpha
+    if rule == "linear":
+        return x
+    if rule == "saturating":
+        if not saturation or saturation <= 0:
+            raise ValueError("the saturating rule needs a positive saturation scale")
+        u = x / saturation
+        if abs(u) >= 1.0:
+            return None
+        return saturation * math.atanh(u)
+    raise ValueError(f"unknown rule {rule!r}")
+
+
+def rest_lengths(sheet, field, alpha, rule="linear", saturation=None):
+    """(a, b, rest) per edge: the mean of the two cells' preferred spacings."""
+    if rule == "linear":
+        # written as one expression so the linear runs keep their logged digits
+        return [(a, b, 1.0 + alpha * (field[a] + field[b]) / 2.0) for a, b in edges(sheet)]
+    pref = {c: preferred_spacing(field[c], alpha, rule, saturation) for c in sheet}
+    return [(a, b, (pref[a] + pref[b]) / 2.0) for a, b in edges(sheet)]
+
+
+def performance(sheet, es, pos):
+    """How a sheet (a set of positions) sits in a field (a set of rest lengths).
+
+    strain per edge = (length - rest) / rest; net pull per cell = the sum of
+    its edges' (length - rest) along each edge; energy = half the sum of
+    (length - rest)^2. All are 0 for a sheet in balance with its field."""
+    pull = {c: [0.0, 0.0] for c in sheet}
+    strains, energy = [], 0.0
+    for a, b, rest in es:
+        dx, dy = pos[b][0] - pos[a][0], pos[b][1] - pos[a][1]
+        d = math.hypot(dx, dy)
+        strains.append((d - rest) / rest)
+        energy += 0.5 * (d - rest) ** 2
+        f = (d - rest) / d
+        pull[a][0] += f * dx
+        pull[a][1] += f * dy
+        pull[b][0] -= f * dx
+        pull[b][1] -= f * dy
+    pulls = [math.hypot(*p) for p in pull.values()]
+    n = len(strains)
+    return {"n_edges": n, "n_cells": len(sheet),
+            "energy": energy,
+            "max_abs_strain": max(abs(s) for s in strains) if strains else 0.0,
+            "rms_strain": math.sqrt(sum(s * s for s in strains) / n) if n else 0.0,
+            "max_net_pull": max(pulls) if pulls else 0.0,
+            "mean_net_pull": sum(pulls) / len(pulls) if pulls else 0.0}
+
+
+def inverse_readout(sheet, pos, alpha, rule="linear", saturation=None):
+    """Reconstruct the field from the cells' offsets alone.
+
+    Input: positions (so, every cell's neighbour offsets) and the rule. The
+    field is not passed in. For each cell: its mean distance to the
+    neighbours it has is taken as its preferred spacing, and the rule is
+    inverted. Returns {cell: value or None}; None where the spacing is
+    outside the rule's range.
+
+    Bound: a cell's mean neighbour distance mixes its own preferred spacing
+    with its neighbours'. For an interior cell in a field that is linear
+    across its six neighbours the mix returns the cell's own value. For an
+    edge cell the neighbours are all on one side."""
+    s = set(sheet)
+    out = {}
+    for c in sheet:
+        dists = []
+        for dq, dr in NEIGHBOURS:
+            n = (c[0] + dq, c[1] + dr)
+            if n in s:
+                dists.append(math.hypot(pos[n][0] - pos[c][0], pos[n][1] - pos[c][1]))
+        out[c] = (field_from_spacing(sum(dists) / len(dists), alpha, rule, saturation)
+                  if dists else None)
+    return out
+
+
+def relax(sheet, field, alpha, sweeps, rate=0.15, rule="linear", saturation=None):
     """The local rule, applied `sweeps` times to all cells together.
 
     Returns (positions, bound): the bound holds what the result was read at
     (sweeps, rate, the largest net pull left on any cell, the largest move
     in the last sweep)."""
     pos = {c: ideal_xy(c) for c in sheet}
-    es = [(a, b, 1.0 + alpha * (field[a] + field[b]) / 2.0) for a, b in edges(sheet)]
+    es = rest_lengths(sheet, field, alpha, rule, saturation)
     max_pull = last_move = 0.0
     for _ in range(sweeps):
         pull = {c: [0.0, 0.0] for c in sheet}
@@ -115,6 +217,7 @@ def relax(sheet, field, alpha, sweeps, rate=0.15):
         pull[b][1] -= f * dy
     left = max(math.hypot(*p) for p in pull.values()) if sheet else 0.0
     return pos, {"sweeps": sweeps, "rate": rate, "n_cells": len(sheet), "n_edges": len(es),
+                 "rule": rule, "saturation": saturation,
                  "max_net_pull_left": left, "max_move_in_last_sweep": last_move,
                  "arithmetic": "binary float (64-bit)"}
 
