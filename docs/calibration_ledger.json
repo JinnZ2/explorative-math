@@ -1,0 +1,164 @@
+{
+ "status": "retrospective; episodes from 2026-11-15; every Y is a run result quoted from this repository",
+ "interest": "Written by Claude, a party to every episode below: the AI expressions are its own, and the relation field is its reading of its own work. Recheck the quoted Y lines; do not take the relation on trust.",
+ "fields": {
+  "H": "the human's mark, as the operator named the episode (CARRIED from the operator's message of 2026-11-15; the human's own words in the chat are not in this repository)",
+  "A": "the AI's expression of it, as the operator named it, with the artifact where it landed",
+  "C": "the coupling between H and A; only the operator's arrow is recorded, anything more is UNDECLARED",
+  "Y": "an independent result from a run: a line quoted verbatim from a file (at a git ref when the file is on another branch), or a verdict count recomputed from a compare/ jsonl; no run means UNRESOLVED",
+  "relation": "Claude's reading of how Y bears on A (SUPPORTS / CONTRADICTS / MIXED / DOES_NOT_TEST), reasoning given; interested party"
+ },
+ "episodes": [
+  {
+   "id": "E1",
+   "H": "drift (read at the time as a defect: the two builds diverging from one spec)",
+   "A": "two builds kept side by side, differences logged as data (docs/two_builds.md, compare/)",
+   "C": "drift -> two builds (operator's arrow); otherwise UNDECLARED",
+   "Y": [
+    {
+     "file": "compare/runs/rotate_project.jsonl",
+     "count": {
+      "verdict": "AGREE",
+      "n": 58,
+      "of": 58
+     }
+    },
+    {
+     "file": "compare/runs/shared_stream_sampler.jsonl",
+     "count": {
+      "verdict": "AGREE",
+      "n": 340,
+      "of": 340
+     }
+    },
+    {
+     "file": "compare/runs/seed_alignment.jsonl",
+     "count": {
+      "verdict": "DIFFER",
+      "n": 168,
+      "of": 168
+     }
+    },
+    {
+     "file": "docs/two_builds.md",
+     "quote": "The seed difference is entirely the seeding rule."
+    },
+    {
+     "file": "docs/two_builds.md",
+     "quote": "Build A takes degrees and Build B radians."
+    }
+   ],
+   "state": "Y_PRESENT",
+   "relation": "CONTRADICTS",
+   "reasoning": "Under shared inputs the builds agree exactly: rotations 58 of 58, samplers 340 of 340. The 168 seed differences trace to the seeding rule; the other deltas the comparison reads trace to conventions (degrees against radians, float formulas, normalisation, vertex order, centre). That contradicts drift-as-defect. Two deltas are not conventions and stay elsewhere: phi composition is two operations (E3), and the ai_interest schema rule is a recorded, unresolved disagreement."
+  },
+  {
+   "id": "E2",
+   "H": "OR parent",
+   "A": "the ancestry run (experiments/ancestry.py) and the PROPOSED pattern 'void cover = dual OR parent' (docs/complement.md)",
+   "C": "\"OR parent\" -> ancestry run (operator's arrow); otherwise UNDECLARED",
+   "Y": [
+    {
+     "file": "docs/complement.md",
+     "quote": "- The parent's dual covers the deepest voids in 7 of 8 forms."
+    },
+    {
+     "file": "docs/complement.md",
+     "quote": "- The parent, in its own position, covers no void class of any form."
+    }
+   ],
+   "state": "Y_PRESENT",
+   "relation": "CONTRADICTS",
+   "reasoning": "In the ancestry frame the parent at its own position covers no void class, so the 'OR parent' clause found no case. The rectified 5-cell, which raised it, is covered by the 5-cell at the parent's negative, i.e. the dual by position. The eighth form (rectified 16-cell) takes parent and dual together."
+  },
+  {
+   "id": "E3",
+   "H": "phi-composition",
+   "A": "welded-term entry: one label, two operations, split names in compare/ output (docs/two_builds.md), and Q12 (open_questions.md)",
+   "C": "phi-composition -> weld (operator's arrow); otherwise UNDECLARED",
+   "Y": [
+    {
+     "file": "open_questions.md",
+     "quote": "Build A's union (`phi_scale_rotate`) has 16 distinct directions and Build B's"
+    },
+    {
+     "file": "docs/resolution_leak.md",
+     "quote": "**2b. Not a leak at the bounds tested.** OBSERVED: on all 8 frames the two"
+    },
+    {
+     "file": "docs/resolution_leak.md",
+     "quote": "`k_max` 24 it returns `[2, 4, 8]` and `[2, 4, 8, 16]`. Two shapes of known,"
+    }
+   ],
+   "state": "Y_PRESENT",
+   "relation": "MIXED",
+   "reasoning": "The two operations give different unions (16 against 8 distinct directions), which is what the weld entry says. The symmetry probe returns the same list for both at every bound tested, so that instrument cannot see the weld. The probe itself separates an 8-gon from a 16-gon at k_max 24."
+  },
+  {
+   "id": "E4",
+   "H": "tetra-chain",
+   "A": "E8 link",
+   "C": "tetra-chain -> E8 link (operator's arrow); otherwise UNDECLARED",
+   "Y": [
+    {
+     "file": "runs/e8_h4_fold_seed0.json",
+     "ref": "a2b6ac0",
+     "quote": "the (7, 13)/30 chain is E8's Coxeter element on the conjugate 4-space"
+    },
+    {
+     "file": "runs/e8_h4_fold_seed0.json",
+     "ref": "a2b6ac0",
+     "quote": "\"orbits_that_are_the_logged_chain\": 2,"
+    },
+    {
+     "file": "runs/e8_h4_fold_seed0.json",
+     "ref": "a2b6ac0",
+     "quote": "\"verdict_means\": \"the turns are the logged chain's and at least one orbit of roots is the logged chain; not every orbit is\""
+    }
+   ],
+   "state": "Y_PRESENT",
+   "relation": "SUPPORTS",
+   "reasoning": "The e8_h4_fold run (branch claude/quasicrystal-projection-properties-448bx7, commit a2b6ac0, not on main) builds E8's Coxeter element from the H4 fold: order 30, and its (7, 13) and (1, 11) turns are the logged tetrahedra chains; 2 of the 8 root orbits are the logged chain, the other 6 are not. Scope: one ordering of the reflections was run (all are conjugate, not all were run)."
+  }
+ ],
+ "corrections": [
+  {
+   "episode": "E1",
+   "date": "2026-11-15",
+   "by": "operator",
+   "was": {
+    "Y": [
+     {
+      "file": "docs/two_builds.md",
+      "quote": "| seed_alignment | 0 | 168 | 0 | 0 | 1.8 |"
+     },
+     {
+      "file": "docs/two_builds.md",
+      "quote": "| rotate_project | 58 | 0 | 0 | 0 | 0 |"
+     }
+    ],
+    "state": "Y_PRESENT",
+    "relation": "DOES_NOT_TEST",
+    "reasoning": "Y measures where the builds differ (all 168 seed-alignment fields) and agree (all 58 rotate-project fields). Keeping two builds is a design choice; no run can come out against it."
+   },
+   "why": "the first entry read E1 as DOES_NOT_TEST and quoted the summary table; the operator pointed to the compare/ results, which test the defect reading directly"
+  },
+  {
+   "episode": "E4",
+   "date": "2026-11-15",
+   "by": "operator",
+   "was": {
+    "Y": [
+     {
+      "file": "runs/corkscrew_seed0.json",
+      "quote": "\"n_tetrahedra_to_close\": 30"
+     }
+    ],
+    "state": "UNRESOLVED",
+    "relation": "DOES_NOT_TEST",
+    "reasoning": "The corkscrew run closes a chain of regular tetrahedra in R^4 at N = 30 (and at 4, 5, 8), with edge over radius 0.618 for (p, q) = (1, 11). That is a result about the chain. No run in this repository tests any link to E8, so the A expression has no Y."
+   },
+   "why": "the first entry searched main only; the E8 run is on another branch (runs/e8_h4_fold_seed0.json at a2b6ac0)"
+  }
+ ]
+}
