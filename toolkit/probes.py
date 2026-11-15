@@ -4,6 +4,9 @@ CC0. Co-authored. Stdlib only.
 
   rotational_symmetry  k-fold symmetries of a 2D point set about its centroid
   mirror_symmetry      whether the 2D set has a mirror line through the centroid
+                       (axes on a fixed angle grid)
+  mirror_symmetry_from_pairs  the same with no grid: candidate axes from
+                       every pair of points
   smallest_period      smallest p with s[i] == s[i+p] throughout
   period_profile       smallest period of growing prefixes (aperiodicity shows
                        as growth; a finite sequence always has some period)
@@ -68,6 +71,32 @@ def mirror_symmetry(points, n_axes=360, rel_tol=1e-6):
         refl = [[c2 * x + s2 * y, s2 * x - c2 * y] for x, y in pts]
         if _matches(refl, pts, tol):
             out.append(180.0 * m / n_axes)
+    return out
+
+
+def mirror_symmetry_from_pairs(points, rel_tol=1e-6):
+    """Mirror axes through the centroid with no angle grid.
+
+    A mirror line through the centroid maps each point to a point of the set,
+    so its angle is the mean polar angle of some pair (a point with itself
+    included). Every such candidate is tested. Returns axis angles in degrees
+    in [0, 180), merged within 1e-9 degrees. Bounded by rel_tol and by the
+    centroid as the centre, not by an axis step."""
+    c = P.centroid(points)
+    pts = [P.sub(p, c) for p in points]
+    tol = rel_tol * _scale_of(points)
+    th = [math.atan2(y, x) for x, y in pts if math.hypot(x, y) > tol]
+    cands = sorted({round(math.degrees((a + b) / 2.0) % 180.0, 9)
+                    for i, a in enumerate(th) for b in th[i:]})
+    out = []
+    for deg in cands:
+        a = math.radians(deg)
+        c2, s2 = math.cos(2 * a), math.sin(2 * a)
+        refl = [[c2 * x + s2 * y, s2 * x - c2 * y] for x, y in pts]
+        if _matches(refl, pts, tol) and not (out and deg - out[-1] <= 1e-9):
+            out.append(deg)
+    if len(out) > 1 and out[-1] - out[0] >= 180.0 - 1e-9:
+        out.pop()
     return out
 
 

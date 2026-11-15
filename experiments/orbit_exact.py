@@ -92,6 +92,15 @@ def run(seed=0, source=None, extended_steps=EXTENDED_STEPS, prefixes=EXTENDED_PR
                      "steps": extended_steps, "word": eword_all,
                      "period_profile": ext_prof,
                      "period_bound": Q.period_bound(eword_all, ext_prefixes)},
+        "exact_orbit_period": {
+            "alpha_denominator_log2": ea.denominator.bit_length() - 1,
+            "x0_denominator_log2": ex0.denominator.bit_length() - 1,
+            "alpha_denominator_is_power_of_two":
+                ea.denominator & (ea.denominator - 1) == 0,
+            "orbit_period": ea.denominator,
+            "note": "DERIVED: alpha = p/q in lowest terms, so x + n*alpha (mod 1) returns "
+                    "to x first at n = q, for any x0. The coded word repeats with a period "
+                    "that divides q."},
         "k_alpha": {"k": k, "k_times_alpha": float(ka), "nearest_integer": near,
                     "residual": float(ka - near)},
         "float_precision_check": {
@@ -121,6 +130,10 @@ def main(argv):
           f"Exact orbit carried to {x['steps']} steps, period profile {x['period_profile']}. "
           f"184 * alpha = {out['k_alpha']['k_times_alpha']:.9f}, residual from the nearest "
           f"integer {out['k_alpha']['residual']:.3e}. "
+          f"DERIVED: alpha is a rational with denominator 2^"
+          f"{out['exact_orbit_period']['alpha_denominator_log2']}, so the orbit is exactly "
+          "periodic with that period and the word's period divides it; every prefix "
+          "period logged here is bounded by its prefix. "
           "DERIVED: the 512-step word is the same in both arithmetics, so the 184 reading "
           "is not made by float rounding; the extended profile is a separate reading, "
           "bounded by its own steps. AI reading: not interpretable atm beyond these values.")

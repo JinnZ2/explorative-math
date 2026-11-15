@@ -49,6 +49,32 @@ class BoundHelpers(unittest.TestCase):
         self.assertEqual(g["period_bound"]["n"], len(g["word"]))
 
 
+class MirrorFromPairs(unittest.TestCase):
+    def test_agrees_with_grid_on_grid_axes(self):
+        sq = P.regular_polygon(4)
+        self.assertEqual(Q.mirror_symmetry_from_pairs(sq), Q.mirror_symmetry(sq))
+
+    def test_finds_axes_off_the_grid(self):
+        pent = P.regular_polygon(5, phase=0.1234)
+        self.assertEqual(Q.mirror_symmetry(pent), [])
+        self.assertEqual(len(Q.mirror_symmetry_from_pairs(pent)), 5)
+
+    def test_no_mirror(self):
+        self.assertEqual(Q.mirror_symmetry_from_pairs([[0, 0], [1, 0], [0, 2], [3, 3]]), [])
+
+
+class CompareBounds(unittest.TestCase):
+    def test_compare_records_carry_bounds_outside_the_tally(self):
+        from compare import cross as X
+        for fn in (X.cmp_angle_measure, X.cmp_phi_scale_vs_phi_scale_rotate):
+            for r in fn():
+                b = r["outputs"]["bounds"]["rotational_symmetry_k"]
+                for side in b.values():
+                    self.assertEqual(side["k_tested"], [2, 12])
+                self.assertEqual(sum(r["outputs"]["tally"][v] for v in X.VERDICTS),
+                                 len(r["outputs"]["fields"]))
+
+
 class OrbitExact(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -68,6 +94,12 @@ class OrbitExact(unittest.TestCase):
     def test_observed_extended_profile(self):
         self.assertEqual(self.out["extended"]["period_profile"], {"512": 184, "1024": 689})
         self.assertEqual(self.out["extended"]["period_bound"]["n"], 1025)
+
+    def test_orbit_period_is_alpha_denominator(self):
+        p = self.out["exact_orbit_period"]
+        self.assertTrue(p["alpha_denominator_is_power_of_two"])
+        self.assertEqual(p["orbit_period"], 2 ** p["alpha_denominator_log2"])
+        self.assertEqual(p["alpha_denominator_log2"], 52)
 
     def test_first_difference(self):
         self.assertEqual(O.first_difference("0101", "0111"), 2)
@@ -96,6 +128,20 @@ class SymmetryResolution(unittest.TestCase):
                          [0, 0, 0, 0])
         for f in self.out["unions"]:
             self.assertLessEqual(max(f["n_points"]), 24)
+
+    def test_observed_mirror_on_unions(self):
+        # OBSERVED on this run, pinned so a change shows up
+        self.assertEqual([c for _, _, c, _ in self.out["mirror_frames_separating_by_bound"]],
+                         [2, 2, 2, 2])
+        self.assertEqual([c for _, c, _ in self.out["mirror_frames_separating_from_pairs"]],
+                         [2, 2])
+        self.assertTrue(self.out["prediction"]["rotation_lists_equal_on_all_frames_and_bounds"])
+        for f in self.out["unions_mirror"]:
+            for r in f["rows"]:
+                self.assertEqual(r["a_bound"]["n_axes"], r["n_axes"])
+            # grid and no-grid readings agree on these frames
+            self.assertEqual(len(f["rows"][0]["a"]), len(f["from_pairs"][0]["a"]))
+            self.assertEqual(len(f["rows"][0]["b"]), len(f["from_pairs"][0]["b"]))
 
     def test_json_serialisable(self):
         json.dumps(self.out)

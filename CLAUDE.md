@@ -72,7 +72,7 @@ toolkit/
   composers.py         rotate_project, phi_scale / phi_stack, cut_and_project
                        (hard window and/or weight function; gaussian_weight),
                        iterate, overlay
-  probes.py            rotational / mirror symmetry, smallest period, period
+  probes.py            rotational / mirror symmetry (grid, and from pairs), smallest period, period
                        profile, zlib ratio, angle histogram, polar angles
                        three_gap_sum (L3 = L1 + L2: pass / fail / not_applicable)
                        min_stretch_tag (points < 3 / third-gap freq: under-resolved)
@@ -93,7 +93,8 @@ experiments/
   three_gap_check.py      h  three_gap_sum probe over every logged cut run
   min_stretch_flag.py     i  under-resolved tag for logged gap readings; run files untouched
   orbit_exact.py          j  seed-5 orbit in exact arithmetic, then past 512 steps
-  symmetry_resolution.py  k  rotational_symmetry at k_max 12 / 24, tolerance 1e-6 / 1e-9
+  symmetry_resolution.py  k  rotational_symmetry at k_max 12 / 24, tolerance 1e-6 / 1e-9;
+                             mirror_symmetry on the Q12 unions
 runs/*.json            one file per run, schema below
 tests/                 unittest, one file per experiment plus emlib
 DIVERGENCE_LOG.md      where human and AI interest differ (columns = schema)

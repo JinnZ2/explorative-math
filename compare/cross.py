@@ -94,6 +94,9 @@ def tally(fields):
 
 
 def record(name, params, fields, extra=None):
+    """extra: keys placed in outputs beside fields and tally. `bounds` holds the
+    instrument bound each probe reading was taken at (docs/resolution_leak.md);
+    it is not a compared field and does not enter the tally."""
     rec = {k: None for k in SCHEMA_UNION}
     rec.update(id=f"compare-{name}", params=params,
                outputs={"fields": fields, "tally": tally(fields), **(extra or {})},
@@ -259,7 +262,12 @@ def cmp_angle_measure():
                             None, True, False))
         recs.append(record(f"angle_measure_{name}_n{n}",
                            {"shape": name, "dimension": n,
-                            "A_origin": "coordinate origin", "B_origin": "centroid"}, fields))
+                            "A_origin": "coordinate origin", "B_origin": "centroid"}, fields,
+                           extra={"bounds": {
+                               "rotational_symmetry_k": {
+                                   "b": B_probe.rotational_symmetry_bound(pts)},
+                               "mirror_axes_deg": {
+                                   "b": B_probe.mirror_symmetry_bound(pts)}}}))
     return recs
 
 
@@ -303,7 +311,12 @@ def cmp_phi_scale_vs_phi_scale_rotate():
                                 "A_phi": "copy scaled by phi AND rotated in-plane by the golden angle",
                                 "B_operation": "phi_scale",
                                 "B_phi": "copy scaled by phi, not rotated (phi_stack ks 0, 1)"},
-                               fields))
+                               fields,
+                               extra={"bounds": {
+                                   "rotational_symmetry_k": {
+                                       "a": B_probe.rotational_symmetry_bound(a_union),
+                                       "b": B_probe.rotational_symmetry_bound(b_union)},
+                                   "distinct_directions": {"rounding_decimals": 9}}}))
     return recs
 
 

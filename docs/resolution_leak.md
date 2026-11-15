@@ -37,6 +37,7 @@ correctly. The loss is at the join between the reading and its log.
 | 1 | count: 2 gap lengths | `runs/generated_cut_weighted_seed1.json`, level 0.9 | points: 57 against 99..1997 | CONFIRMED (points) |
 | 2a | symmetry: same list for a regular 8-gon and a regular 16-gon | `runs/symmetry_resolution_seed0.json`, `known` | `k_max` 12 against 24; tolerance 1e-6 against 1e-9 | CONFIRMED (`k_max`); tolerance: no change |
 | 2b | symmetry: same list for the two unions of Q12 | `runs/symmetry_resolution_seed0.json`, `unions`; `compare/runs/phi_scale_vs_phi_scale_rotate.jsonl` | the same four bounds | not a leak at the bounds tested |
+| 2c | mirror: axis lists for the two unions of Q12 | `runs/symmetry_resolution_seed0.json`, `unions_mirror` | 360 against 720 axes; tolerance 1e-6 against 1e-9; grid against no grid | not a leak at the bounds tested |
 | 3a | period: 184 at 256 and 512 steps | `runs/orbit_exact_seed0.json`, `exact` | precision: binary float against exact rational | not a leak (float precision); open |
 | 3b | the same reading | `runs/orbit_exact_seed0.json`, `extended` | steps: 512 against 1024, 2048, 4096 | CONFIRMED (steps) |
 
@@ -60,6 +61,20 @@ therefore not made by `k_max`. Not tested: a coarser tolerance, a centre
 other than the centroid, other frames or shapes. Q12 stays as written; its
 own test asks for more shapes than the two run here.
 
+**2c. Not a leak at the bounds tested.** Prediction logged before the
+reading (DERIVED, the operator's): the mirror lists separate; the rotation
+lists are equal by construction. OBSERVED: the rotation lists are equal on
+all 8 frames at all four bounds. The mirror lists separate on 2 of 8
+frames: simplex frame 0 (Build A's union no axis; Build B's 30, 90, 150
+degrees) and cross-polytope frame 0 (A none; B 0, 45, 90, 135 degrees). On
+the other 6 frames both unions read no mirror axis. The readings are the
+same at 360 and 720 axes, at both tolerances, and with no axis grid
+(`probes.mirror_symmetry_from_pairs`, candidates from every pair of
+points). The empty lists on those 6 frames are therefore not made by the
+axis step. So the prediction holds on 2 frames and does not on 6; in every
+frame the mirror reading separates the two unions or shows no mirror in
+either.
+
 **3a. Not a leak (float precision); open.** OBSERVED: the 512-step word in
 exact rational arithmetic equals the float word at every index; the largest
 float-minus-exact difference is 0. The period profile is the same,
@@ -75,10 +90,29 @@ exact arithmetic, the prefix period reads 184 at 512, 689 at 1024, 1699 at
 logged: 184 x alpha = 47.001883, 1.883e-03 from an integer. The extended
 profile is itself a reading bounded at 4096 steps.
 
-The extended reading (3b) and the union reading (2b) were added by the AI
-co-author beside the two tests that were asked for (3a, 2a). The period
+Note on row 3. DERIVED: alpha and x0 are dyadic (multiples of 2^-52), and
+alpha in lowest terms has denominator 2^52. The orbit x + n*alpha (mod 1)
+is therefore exactly periodic with period 2^52, and the coded word's period
+divides 2^52. So 184 was never the period: it was the smallest period of a
+512-letter prefix, a prefix bound. Status per 3b: CONFIRMED. The true word
+period is not logged; no run here reaches 2^52 steps.
+
+The extended reading (3b), the union reading (2b) and the no-grid mirror
+check in 2c were added by the AI
+co-author beside the tests that were asked for (3a, 2a, the mirror grid in 2c). The period
 instance was also the AI co-author's choice for the third row; the
 operator's own list was not in the relay.
+
+## Lesson
+
+The bound suspected is not always the bound that matters; test all logged
+bounds, not only the hypothesized one.
+
+```text
+row   bound suspected      bound that moved the reading
+2     tolerance, k_max     k_max (known shapes); none for the unions
+3     float precision      steps
+```
 
 ## Rule
 
@@ -112,9 +146,13 @@ called directly still returns only its reading: the caller logs the bound
 with `probes.rotational_symmetry_bound`, `mirror_symmetry_bound` or
 `period_bound`.
 
-Still without a logged bound: the compare/ comparisons that call
-`rotational_symmetry` (`compare/runs/*.jsonl`), and the Manus build, which
-this rule does not govern.
+compare/ now logs them too: each record that reads `rotational_symmetry`
+or `mirror_symmetry` carries `outputs.bounds`, beside `fields` and `tally`.
+The bounds are not compared fields and do not enter a tally; every earlier
+value in `compare/runs/*.jsonl` is unchanged.
+
+Still without a logged bound: the Manus build, which this rule does not
+govern.
 
 ## Flag for gap readings
 

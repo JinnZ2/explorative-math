@@ -153,7 +153,8 @@ Two readings are both open:
 - Recorded beside it: `runs/symmetry_resolution_seed0.json` reads the probe
   on a regular 8-gon and 16-gon, and on the two unions, at `k_max` 12 and
   24 and tolerance 1e-6 and 1e-9. Two of the shapes this test lists, not
-  all of them. See `docs/resolution_leak.md` rows 2a, 2b.
+  all of them. The same run reads `mirror_symmetry` on the two unions.
+  See `docs/resolution_leak.md` rows 2a, 2b, 2c.
 
 ## Projection and the source lattice
 

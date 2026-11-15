@@ -19,6 +19,11 @@
    ]
   ],
   "unions_source": "explorative_math.projections.iter_projection_runs (dimension 4, frames 4, seed 0, composition phi), as in compare/cross.py",
+  "n_axes": [
+   360,
+   720
+  ],
+  "prediction": "DERIVED before the run, by the operator: on the two unions the mirror lists separate; the rotation lists are equal by construction.",
   "about": "centroid",
   "seed": 0
  },
@@ -1367,6 +1372,1123 @@
     ]
    }
   ],
+  "unions_mirror": [
+   {
+    "shape": "simplex",
+    "dimension": 4,
+    "frame": 0,
+    "a_operation": "phi_scale_rotate (Build A)",
+    "b_operation": "phi_scale (Build B)",
+    "n_points": [
+     10,
+     10
+    ],
+    "rows": [
+     {
+      "n_axes": 360,
+      "rel_tol": 1e-06,
+      "a": [],
+      "b": [
+       30.0,
+       90.0,
+       150.0
+      ],
+      "separate": true,
+      "a_bound": {
+       "n_points": 10,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.4770561907472962e-06,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 10,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.4770561907472962e-06,
+       "about": "centroid"
+      }
+     },
+     {
+      "n_axes": 360,
+      "rel_tol": 1e-09,
+      "a": [],
+      "b": [
+       30.0,
+       90.0,
+       150.0
+      ],
+      "separate": true,
+      "a_bound": {
+       "n_points": 10,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.4770561907472963e-09,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 10,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.4770561907472963e-09,
+       "about": "centroid"
+      }
+     },
+     {
+      "n_axes": 720,
+      "rel_tol": 1e-06,
+      "a": [],
+      "b": [
+       30.0,
+       90.0,
+       150.0
+      ],
+      "separate": true,
+      "a_bound": {
+       "n_points": 10,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.4770561907472962e-06,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 10,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.4770561907472962e-06,
+       "about": "centroid"
+      }
+     },
+     {
+      "n_axes": 720,
+      "rel_tol": 1e-09,
+      "a": [],
+      "b": [
+       30.0,
+       90.0,
+       150.0
+      ],
+      "separate": true,
+      "a_bound": {
+       "n_points": 10,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.4770561907472963e-09,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 10,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.4770561907472963e-09,
+       "about": "centroid"
+      }
+     }
+    ],
+    "from_pairs": [
+     {
+      "rel_tol": 1e-06,
+      "a": [],
+      "b": [
+       30.0,
+       90.0,
+       150.0
+      ],
+      "bound": {
+       "axes": "every pair of points; no angle grid",
+       "rel_tol": 1e-06,
+       "about": "centroid"
+      }
+     },
+     {
+      "rel_tol": 1e-09,
+      "a": [],
+      "b": [
+       30.0,
+       90.0,
+       150.0
+      ],
+      "bound": {
+       "axes": "every pair of points; no angle grid",
+       "rel_tol": 1e-09,
+       "about": "centroid"
+      }
+     }
+    ]
+   },
+   {
+    "shape": "simplex",
+    "dimension": 4,
+    "frame": 1,
+    "a_operation": "phi_scale_rotate (Build A)",
+    "b_operation": "phi_scale (Build B)",
+    "n_points": [
+     10,
+     10
+    ],
+    "rows": [
+     {
+      "n_axes": 360,
+      "rel_tol": 1e-06,
+      "a": [],
+      "b": [],
+      "separate": false,
+      "a_bound": {
+       "n_points": 10,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.5816073241004616e-06,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 10,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.5816073241004616e-06,
+       "about": "centroid"
+      }
+     },
+     {
+      "n_axes": 360,
+      "rel_tol": 1e-09,
+      "a": [],
+      "b": [],
+      "separate": false,
+      "a_bound": {
+       "n_points": 10,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.5816073241004618e-09,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 10,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.5816073241004618e-09,
+       "about": "centroid"
+      }
+     },
+     {
+      "n_axes": 720,
+      "rel_tol": 1e-06,
+      "a": [],
+      "b": [],
+      "separate": false,
+      "a_bound": {
+       "n_points": 10,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.5816073241004616e-06,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 10,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.5816073241004616e-06,
+       "about": "centroid"
+      }
+     },
+     {
+      "n_axes": 720,
+      "rel_tol": 1e-09,
+      "a": [],
+      "b": [],
+      "separate": false,
+      "a_bound": {
+       "n_points": 10,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.5816073241004618e-09,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 10,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.5816073241004618e-09,
+       "about": "centroid"
+      }
+     }
+    ],
+    "from_pairs": [
+     {
+      "rel_tol": 1e-06,
+      "a": [],
+      "b": [],
+      "bound": {
+       "axes": "every pair of points; no angle grid",
+       "rel_tol": 1e-06,
+       "about": "centroid"
+      }
+     },
+     {
+      "rel_tol": 1e-09,
+      "a": [],
+      "b": [],
+      "bound": {
+       "axes": "every pair of points; no angle grid",
+       "rel_tol": 1e-09,
+       "about": "centroid"
+      }
+     }
+    ]
+   },
+   {
+    "shape": "simplex",
+    "dimension": 4,
+    "frame": 2,
+    "a_operation": "phi_scale_rotate (Build A)",
+    "b_operation": "phi_scale (Build B)",
+    "n_points": [
+     10,
+     10
+    ],
+    "rows": [
+     {
+      "n_axes": 360,
+      "rel_tol": 1e-06,
+      "a": [],
+      "b": [],
+      "separate": false,
+      "a_bound": {
+       "n_points": 10,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.2602631927250974e-06,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 10,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.2602631927250974e-06,
+       "about": "centroid"
+      }
+     },
+     {
+      "n_axes": 360,
+      "rel_tol": 1e-09,
+      "a": [],
+      "b": [],
+      "separate": false,
+      "a_bound": {
+       "n_points": 10,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.2602631927250974e-09,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 10,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.2602631927250974e-09,
+       "about": "centroid"
+      }
+     },
+     {
+      "n_axes": 720,
+      "rel_tol": 1e-06,
+      "a": [],
+      "b": [],
+      "separate": false,
+      "a_bound": {
+       "n_points": 10,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.2602631927250974e-06,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 10,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.2602631927250974e-06,
+       "about": "centroid"
+      }
+     },
+     {
+      "n_axes": 720,
+      "rel_tol": 1e-09,
+      "a": [],
+      "b": [],
+      "separate": false,
+      "a_bound": {
+       "n_points": 10,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.2602631927250974e-09,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 10,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.2602631927250974e-09,
+       "about": "centroid"
+      }
+     }
+    ],
+    "from_pairs": [
+     {
+      "rel_tol": 1e-06,
+      "a": [],
+      "b": [],
+      "bound": {
+       "axes": "every pair of points; no angle grid",
+       "rel_tol": 1e-06,
+       "about": "centroid"
+      }
+     },
+     {
+      "rel_tol": 1e-09,
+      "a": [],
+      "b": [],
+      "bound": {
+       "axes": "every pair of points; no angle grid",
+       "rel_tol": 1e-09,
+       "about": "centroid"
+      }
+     }
+    ]
+   },
+   {
+    "shape": "simplex",
+    "dimension": 4,
+    "frame": 3,
+    "a_operation": "phi_scale_rotate (Build A)",
+    "b_operation": "phi_scale (Build B)",
+    "n_points": [
+     10,
+     10
+    ],
+    "rows": [
+     {
+      "n_axes": 360,
+      "rel_tol": 1e-06,
+      "a": [],
+      "b": [],
+      "separate": false,
+      "a_bound": {
+       "n_points": 10,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.5888451499151364e-06,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 10,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.5888451499151362e-06,
+       "about": "centroid"
+      }
+     },
+     {
+      "n_axes": 360,
+      "rel_tol": 1e-09,
+      "a": [],
+      "b": [],
+      "separate": false,
+      "a_bound": {
+       "n_points": 10,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.5888451499151367e-09,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 10,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.5888451499151365e-09,
+       "about": "centroid"
+      }
+     },
+     {
+      "n_axes": 720,
+      "rel_tol": 1e-06,
+      "a": [],
+      "b": [],
+      "separate": false,
+      "a_bound": {
+       "n_points": 10,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.5888451499151364e-06,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 10,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.5888451499151362e-06,
+       "about": "centroid"
+      }
+     },
+     {
+      "n_axes": 720,
+      "rel_tol": 1e-09,
+      "a": [],
+      "b": [],
+      "separate": false,
+      "a_bound": {
+       "n_points": 10,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.5888451499151367e-09,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 10,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.5888451499151365e-09,
+       "about": "centroid"
+      }
+     }
+    ],
+    "from_pairs": [
+     {
+      "rel_tol": 1e-06,
+      "a": [],
+      "b": [],
+      "bound": {
+       "axes": "every pair of points; no angle grid",
+       "rel_tol": 1e-06,
+       "about": "centroid"
+      }
+     },
+     {
+      "rel_tol": 1e-09,
+      "a": [],
+      "b": [],
+      "bound": {
+       "axes": "every pair of points; no angle grid",
+       "rel_tol": 1e-09,
+       "about": "centroid"
+      }
+     }
+    ]
+   },
+   {
+    "shape": "crosspolytope",
+    "dimension": 4,
+    "frame": 0,
+    "a_operation": "phi_scale_rotate (Build A)",
+    "b_operation": "phi_scale (Build B)",
+    "n_points": [
+     16,
+     16
+    ],
+    "rows": [
+     {
+      "n_axes": 360,
+      "rel_tol": 1e-06,
+      "a": [],
+      "b": [
+       0.0,
+       45.0,
+       90.0,
+       135.0
+      ],
+      "separate": true,
+      "a_bound": {
+       "n_points": 16,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.6180339887498948e-06,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 16,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.6180339887498948e-06,
+       "about": "centroid"
+      }
+     },
+     {
+      "n_axes": 360,
+      "rel_tol": 1e-09,
+      "a": [],
+      "b": [
+       0.0,
+       45.0,
+       90.0,
+       135.0
+      ],
+      "separate": true,
+      "a_bound": {
+       "n_points": 16,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.618033988749895e-09,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 16,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.618033988749895e-09,
+       "about": "centroid"
+      }
+     },
+     {
+      "n_axes": 720,
+      "rel_tol": 1e-06,
+      "a": [],
+      "b": [
+       0.0,
+       45.0,
+       90.0,
+       135.0
+      ],
+      "separate": true,
+      "a_bound": {
+       "n_points": 16,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.6180339887498948e-06,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 16,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.6180339887498948e-06,
+       "about": "centroid"
+      }
+     },
+     {
+      "n_axes": 720,
+      "rel_tol": 1e-09,
+      "a": [],
+      "b": [
+       0.0,
+       45.0,
+       90.0,
+       135.0
+      ],
+      "separate": true,
+      "a_bound": {
+       "n_points": 16,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.618033988749895e-09,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 16,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.618033988749895e-09,
+       "about": "centroid"
+      }
+     }
+    ],
+    "from_pairs": [
+     {
+      "rel_tol": 1e-06,
+      "a": [],
+      "b": [
+       0.0,
+       45.0,
+       90.0,
+       135.0
+      ],
+      "bound": {
+       "axes": "every pair of points; no angle grid",
+       "rel_tol": 1e-06,
+       "about": "centroid"
+      }
+     },
+     {
+      "rel_tol": 1e-09,
+      "a": [],
+      "b": [
+       0.0,
+       45.0,
+       90.0,
+       135.0
+      ],
+      "bound": {
+       "axes": "every pair of points; no angle grid",
+       "rel_tol": 1e-09,
+       "about": "centroid"
+      }
+     }
+    ]
+   },
+   {
+    "shape": "crosspolytope",
+    "dimension": 4,
+    "frame": 1,
+    "a_operation": "phi_scale_rotate (Build A)",
+    "b_operation": "phi_scale (Build B)",
+    "n_points": [
+     16,
+     16
+    ],
+    "rows": [
+     {
+      "n_axes": 360,
+      "rel_tol": 1e-06,
+      "a": [],
+      "b": [],
+      "separate": false,
+      "a_bound": {
+       "n_points": 16,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.5816073241004616e-06,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 16,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.5816073241004616e-06,
+       "about": "centroid"
+      }
+     },
+     {
+      "n_axes": 360,
+      "rel_tol": 1e-09,
+      "a": [],
+      "b": [],
+      "separate": false,
+      "a_bound": {
+       "n_points": 16,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.5816073241004618e-09,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 16,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.5816073241004618e-09,
+       "about": "centroid"
+      }
+     },
+     {
+      "n_axes": 720,
+      "rel_tol": 1e-06,
+      "a": [],
+      "b": [],
+      "separate": false,
+      "a_bound": {
+       "n_points": 16,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.5816073241004616e-06,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 16,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.5816073241004616e-06,
+       "about": "centroid"
+      }
+     },
+     {
+      "n_axes": 720,
+      "rel_tol": 1e-09,
+      "a": [],
+      "b": [],
+      "separate": false,
+      "a_bound": {
+       "n_points": 16,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.5816073241004618e-09,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 16,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.5816073241004618e-09,
+       "about": "centroid"
+      }
+     }
+    ],
+    "from_pairs": [
+     {
+      "rel_tol": 1e-06,
+      "a": [],
+      "b": [],
+      "bound": {
+       "axes": "every pair of points; no angle grid",
+       "rel_tol": 1e-06,
+       "about": "centroid"
+      }
+     },
+     {
+      "rel_tol": 1e-09,
+      "a": [],
+      "b": [],
+      "bound": {
+       "axes": "every pair of points; no angle grid",
+       "rel_tol": 1e-09,
+       "about": "centroid"
+      }
+     }
+    ]
+   },
+   {
+    "shape": "crosspolytope",
+    "dimension": 4,
+    "frame": 2,
+    "a_operation": "phi_scale_rotate (Build A)",
+    "b_operation": "phi_scale (Build B)",
+    "n_points": [
+     16,
+     16
+    ],
+    "rows": [
+     {
+      "n_axes": 360,
+      "rel_tol": 1e-06,
+      "a": [],
+      "b": [],
+      "separate": false,
+      "a_bound": {
+       "n_points": 16,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.5458562549954698e-06,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 16,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.5458562549954698e-06,
+       "about": "centroid"
+      }
+     },
+     {
+      "n_axes": 360,
+      "rel_tol": 1e-09,
+      "a": [],
+      "b": [],
+      "separate": false,
+      "a_bound": {
+       "n_points": 16,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.5458562549954698e-09,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 16,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.5458562549954698e-09,
+       "about": "centroid"
+      }
+     },
+     {
+      "n_axes": 720,
+      "rel_tol": 1e-06,
+      "a": [],
+      "b": [],
+      "separate": false,
+      "a_bound": {
+       "n_points": 16,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.5458562549954698e-06,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 16,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.5458562549954698e-06,
+       "about": "centroid"
+      }
+     },
+     {
+      "n_axes": 720,
+      "rel_tol": 1e-09,
+      "a": [],
+      "b": [],
+      "separate": false,
+      "a_bound": {
+       "n_points": 16,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.5458562549954698e-09,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 16,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.5458562549954698e-09,
+       "about": "centroid"
+      }
+     }
+    ],
+    "from_pairs": [
+     {
+      "rel_tol": 1e-06,
+      "a": [],
+      "b": [],
+      "bound": {
+       "axes": "every pair of points; no angle grid",
+       "rel_tol": 1e-06,
+       "about": "centroid"
+      }
+     },
+     {
+      "rel_tol": 1e-09,
+      "a": [],
+      "b": [],
+      "bound": {
+       "axes": "every pair of points; no angle grid",
+       "rel_tol": 1e-09,
+       "about": "centroid"
+      }
+     }
+    ]
+   },
+   {
+    "shape": "crosspolytope",
+    "dimension": 4,
+    "frame": 3,
+    "a_operation": "phi_scale_rotate (Build A)",
+    "b_operation": "phi_scale (Build B)",
+    "n_points": [
+     16,
+     16
+    ],
+    "rows": [
+     {
+      "n_axes": 360,
+      "rel_tol": 1e-06,
+      "a": [],
+      "b": [],
+      "separate": false,
+      "a_bound": {
+       "n_points": 16,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.5723712092375667e-06,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 16,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.5723712092375667e-06,
+       "about": "centroid"
+      }
+     },
+     {
+      "n_axes": 360,
+      "rel_tol": 1e-09,
+      "a": [],
+      "b": [],
+      "separate": false,
+      "a_bound": {
+       "n_points": 16,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.572371209237567e-09,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 16,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.572371209237567e-09,
+       "about": "centroid"
+      }
+     },
+     {
+      "n_axes": 720,
+      "rel_tol": 1e-06,
+      "a": [],
+      "b": [],
+      "separate": false,
+      "a_bound": {
+       "n_points": 16,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.5723712092375667e-06,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 16,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.5723712092375667e-06,
+       "about": "centroid"
+      }
+     },
+     {
+      "n_axes": 720,
+      "rel_tol": 1e-09,
+      "a": [],
+      "b": [],
+      "separate": false,
+      "a_bound": {
+       "n_points": 16,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.572371209237567e-09,
+       "about": "centroid"
+      },
+      "b_bound": {
+       "n_points": 16,
+       "n_axes": 720,
+       "axis_step_deg": 0.25,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.572371209237567e-09,
+       "about": "centroid"
+      }
+     }
+    ],
+    "from_pairs": [
+     {
+      "rel_tol": 1e-06,
+      "a": [],
+      "b": [],
+      "bound": {
+       "axes": "every pair of points; no angle grid",
+       "rel_tol": 1e-06,
+       "about": "centroid"
+      }
+     },
+     {
+      "rel_tol": 1e-09,
+      "a": [],
+      "b": [],
+      "bound": {
+       "axes": "every pair of points; no angle grid",
+       "rel_tol": 1e-09,
+       "about": "centroid"
+      }
+     }
+    ]
+   }
+  ],
+  "mirror_frames_separating_by_bound": [
+   [
+    360,
+    1e-06,
+    2,
+    8
+   ],
+   [
+    360,
+    1e-09,
+    2,
+    8
+   ],
+   [
+    720,
+    1e-06,
+    2,
+    8
+   ],
+   [
+    720,
+    1e-09,
+    2,
+    8
+   ]
+  ],
+  "mirror_frames_separating_from_pairs": [
+   [
+    1e-06,
+    2,
+    8
+   ],
+   [
+    1e-09,
+    2,
+    8
+   ]
+  ],
+  "prediction": {
+   "text": "DERIVED before the run, by the operator: on the two unions the mirror lists separate; the rotation lists are equal by construction.",
+   "frames_where_mirror_lists_separate_from_pairs": 2,
+   "rotation_lists_equal_on_all_frames_and_bounds": true,
+   "frames_where_mirror_lists_separate_at_some_bound": 2,
+   "frames": 8
+  },
   "known_separate_by_bound": [
    [
     12,
@@ -1418,7 +2540,7 @@
  },
  "angles": null,
  "human_interest": null,
- "ai_interest": "OBSERVED, known shapes (8-gon vs 16-gon, 8 and 16 points): k_max 12 tol 1e-06: [2, 4, 8] vs [2, 4, 8] -> equal; k_max 12 tol 1e-09: [2, 4, 8] vs [2, 4, 8] -> equal; k_max 24 tol 1e-06: [2, 4, 8] vs [2, 4, 8, 16] -> separate; k_max 24 tol 1e-09: [2, 4, 8] vs [2, 4, 8, 16] -> separate. OBSERVED, the Q12 unions (8 frames, 10 or 16 points each): k_max 12 tol 1e-06: 0 of 8 frames separate; k_max 12 tol 1e-09: 0 of 8 frames separate; k_max 24 tol 1e-06: 0 of 8 frames separate; k_max 24 tol 1e-09: 0 of 8 frames separate. DERIVED: for the known pair the outputs are equal exactly where k_max is below the larger order, so there the equal reading is the probe's bound; the tolerance change moves nothing in this run. A set of n points cannot have rotational order above n, and every union has at most 16 points, so k_max 24 covers every order the unions could have. AI reading: not interpretable atm beyond the table.",
+ "ai_interest": "OBSERVED, known shapes (8-gon vs 16-gon, 8 and 16 points): k_max 12 tol 1e-06: [2, 4, 8] vs [2, 4, 8] -> equal; k_max 12 tol 1e-09: [2, 4, 8] vs [2, 4, 8] -> equal; k_max 24 tol 1e-06: [2, 4, 8] vs [2, 4, 8, 16] -> separate; k_max 24 tol 1e-09: [2, 4, 8] vs [2, 4, 8, 16] -> separate. OBSERVED, the Q12 unions (8 frames, 10 or 16 points each): k_max 12 tol 1e-06: 0 of 8 frames separate; k_max 12 tol 1e-09: 0 of 8 frames separate; k_max 24 tol 1e-06: 0 of 8 frames separate; k_max 24 tol 1e-09: 0 of 8 frames separate. DERIVED: for the known pair the outputs are equal exactly where k_max is below the larger order, so there the equal reading is the probe's bound; the tolerance change moves nothing in this run. A set of n points cannot have rotational order above n, and every union has at most 16 points, so k_max 24 covers every order the unions could have. OBSERVED, mirror_symmetry on the same unions: 360 axes tol 1e-06: 2 of 8 frames separate; 360 axes tol 1e-09: 2 of 8 frames separate; 720 axes tol 1e-06: 2 of 8 frames separate; 720 axes tol 1e-09: 2 of 8 frames separate. Axis counts at 360 axes, tolerance 1e-6: simplex frame 0: A 0 axes, B 3 axes; simplex frame 1: A 0 axes, B 0 axes; simplex frame 2: A 0 axes, B 0 axes; simplex frame 3: A 0 axes, B 0 axes; crosspolytope frame 0: A 0 axes, B 4 axes; crosspolytope frame 1: A 0 axes, B 0 axes; crosspolytope frame 2: A 0 axes, B 0 axes; crosspolytope frame 3: A 0 axes, B 0 axes. Prediction logged before the reading: DERIVED before the run, by the operator: on the two unions the mirror lists separate; the rotation lists are equal by construction. DERIVED: the probe tests only axes on its grid (0.5 or 0.25 degrees apart) through the centroid, so a mirror line between grid angles reads as no mirror; an empty list there is bounded by that step. OBSERVED, mirror axes with no grid (candidates from every pair of points): tol 1e-06: 2 of 8 frames separate; tol 1e-09: 2 of 8 frames separate. Axis counts, tolerance 1e-6: simplex frame 0: A 0, B 3; simplex frame 1: A 0, B 0; simplex frame 2: A 0, B 0; simplex frame 3: A 0, B 0; crosspolytope frame 0: A 0, B 4; crosspolytope frame 1: A 0, B 0; crosspolytope frame 2: A 0, B 0; crosspolytope frame 3: A 0, B 0. AI reading: not interpretable atm beyond the table.",
  "compressibility": {
   "definition": "one letter per (pair, bound): s outputs separate, e outputs equal; known pair first, then union frames, bounds in grid order",
   "n": 36,

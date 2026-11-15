@@ -110,6 +110,13 @@
     ]
    }
   },
+  "exact_orbit_period": {
+   "alpha_denominator_log2": 52,
+   "x0_denominator_log2": 50,
+   "alpha_denominator_is_power_of_two": true,
+   "orbit_period": 4503599627370496,
+   "note": "DERIVED: alpha = p/q in lowest terms, so x + n*alpha (mod 1) returns to x first at n = q, for any x0. The coded word repeats with a period that divides q."
+  },
   "k_alpha": {
    "k": 184,
    "k_times_alpha": 47.00188303357963,
@@ -126,7 +133,7 @@
  },
  "angles": null,
  "human_interest": null,
- "ai_interest": "OBSERVED: float word remade equals the logged word: True. Exact word equals float word: True (largest float-minus-exact difference 0.000e+00; nearest approach to the coding boundary 1.047e-03, to the wrap 1.059e-04). Exact period profile, prefix lengths 8..512: {'8': 4, '16': 4, '32': 27, '64': 39, '128': 117, '256': 184, '512': 184}. Verdict by the stated rule: not a float-precision leak; open. Exact orbit carried to 4096 steps, period profile {'512': 184, '1024': 689, '2048': 1699, '4096': 3719}. 184 * alpha = 47.001883034, residual from the nearest integer 1.883e-03. DERIVED: the 512-step word is the same in both arithmetics, so the 184 reading is not made by float rounding; the extended profile is a separate reading, bounded by its own steps. AI reading: not interpretable atm beyond these values.",
+ "ai_interest": "OBSERVED: float word remade equals the logged word: True. Exact word equals float word: True (largest float-minus-exact difference 0.000e+00; nearest approach to the coding boundary 1.047e-03, to the wrap 1.059e-04). Exact period profile, prefix lengths 8..512: {'8': 4, '16': 4, '32': 27, '64': 39, '128': 117, '256': 184, '512': 184}. Verdict by the stated rule: not a float-precision leak; open. Exact orbit carried to 4096 steps, period profile {'512': 184, '1024': 689, '2048': 1699, '4096': 3719}. 184 * alpha = 47.001883034, residual from the nearest integer 1.883e-03. DERIVED: alpha is a rational with denominator 2^52, so the orbit is exactly periodic with that period and the word's period divides it; every prefix period logged here is bounded by its prefix. DERIVED: the 512-step word is the same in both arithmetics, so the 184 reading is not made by float rounding; the extended profile is a separate reading, bounded by its own steps. AI reading: not interpretable atm beyond these values.",
  "compressibility": {
   "definition": "exact orbit, 512 steps, coded 0 if x < 1/2 else 1",
   "n": 513,
