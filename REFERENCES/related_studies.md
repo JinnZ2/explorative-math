@@ -106,12 +106,19 @@ abstract  (paraphrase, not a quote) the (n-1)-dimensional analogue of the
           span a regular simplex. The generalized twist that shifts it one
           step has the characteristic equation below.
 equation  (lambda - 1)^2 { (n-1) lambda^(n-2) + 2(n-2) lambda^(n-3)
-                           + 3(n-3) lambda^(n-4) + ... + (n-2)^2 lambda
+                           + 3(n-3) lambda^(n-4) + ... + 2(n-2) lambda
                            + (n-1) } = 0,     lambda = exp(2 theta i)
-          (as relayed. The terms shown follow k (n-k) lambda^(n-1-k); by
-          that pattern the term in lambda would be 2 (n-2), where the relay
-          has (n-2)^2. The two agree at n = 4. Which the paper prints was
-          not checked here.)
+          general term: k (n-k) lambda^(n-1-k), k = 1 .. n-1.
+
+          Correction, 2026-11-15. The term in lambda is 2(n-2) lambda.
+          The first relay, received the same day, had "(n-2)^2 lambda".
+          Cause, as reported by the co-author who read the page: a misread
+          of the flattened page text "(n - 2)2 lambda". Evidence for the
+          corrected term: it is what the pattern k (n-k) gives at
+          k = n-2, and it makes the coefficients read the same forwards
+          and backwards, as k (n-k) = (n-k) k requires. The original relay
+          is kept here as a record; it is superseded, not deleted. The
+          paper itself was still not read in this build environment.
 carried   the mapping: theta = half the turn, n = the simplex's vertex
           count, a helix in flat R^(n-1) with a translation along its axis.
 ```
