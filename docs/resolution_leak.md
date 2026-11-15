@@ -162,8 +162,8 @@ a hit / miss probe shows nothing.
 | # | Reading | Where | Sampled | What a different instrument showed |
 |---|---|---|---|---|
 | S1 | no pentagon view of the 5-cell in 2000 random rotations (lowest score 23.45, median 152.8) | `runs/simplex_4d_seed0.json` | 2000 random rotations | the Petrie projection, by construction, scores 2.2e-14 (same run) |
-| S2 | a mirror on 1 frame of 360 per shape, frame 0 only | `runs/mirror_sweep_seed0.json`, `axis_count_per_frame` | one seeded tour, 360 frames | `mirror_residual` on the same frames dips off frame 0: 5-cell 5.5e-03 at frame 137; 16-cell 9.0e-04 at frame 178 and 5.9e-04 at frame 1 (median over frames about 1e-01) |
-| S3 | largest mirror count on the tour 3 (5-cell) and 4 (16-cell) | `runs/mirror_sweep_seed0.json` | the same tour | Coxeter-plane projections, by construction, have 5 and 8 (`runs/coxeter_plane_seed0.json`) |
+| S2 | a mirror on 1 frame of 360 per shape, frame 0 only. **DEGENERATE:** frame 0 has coincident points for both shapes; no frame with distinct points has a mirror. | `runs/mirror_sweep_seed0.json`, `axis_count_per_frame` | one seeded tour, 360 frames | `mirror_residual` on the same frames dips off frame 0: 5-cell 5.5e-03 at frame 137; 16-cell 9.0e-04 at frame 178 and 5.9e-04 at frame 1 (median over frames about 1e-01) |
+| S3 | largest mirror count on the tour 3 (5-cell) and 4 (16-cell). **DEGENERATE:** both are read on frame 0, where points coincide (4 and 5 distinct points). Excluding degenerate frames the largest count on the tour is 0 for both. | `runs/mirror_sweep_seed0.json` (`max_axis_count_degenerate`, `max_axis_count_excluding_degenerate`) | the same tour | Coxeter-plane projections, by construction, have 5 and 8, on distinct points (`runs/coxeter_plane_seed0.json`) |
 
 S2 and S3 do not say the tour passes near a mirror orientation at the dips;
 they say the hit / miss reading could not have shown it either way.
@@ -236,6 +236,38 @@ check, and the limit was the bound that moved the reading. At tolerance
 Bound: 8 starts, one seed; the pairing of points across the anchor is read
 at the anchor and kept; a trial here costs a pull-back, so trials and the
 other runs' evaluations are not like for like.
+
+Pairing type (`runs/pairing_reread_seed0.json.gz`). A mirror line fixes the
+points on it and swaps the rest in pairs, so a pairing has a type: the
+number of points on the axis. PROPOSED by the operator: the 5-cell is
+weaker because the anchor's pairing is kept, and re-reading it would help.
+OBSERVED, kept pairing, rule m = h, 2500 trials, by the anchor's type:
+
+```text
+5-cell    1 point on the axis    1 of 4 starts reach 5 (3 of 4 at tolerance 1e-4)
+          3 points on the axis   0 of 4
+16-cell   6 points on the axis   0 of 2 starts reach 8
+          2 points on the axis   4 of 4
+          0 points on the axis   1 of 2
+```
+
+OBSERVED, pairing re-read at every pull-back, same starts and limits:
+
+```text
+starts reaching h, rule m = h      kept pairing     re-read pairing
+5-cell    400 / 2500 trials          0 / 1            0 / 2
+16-cell   400 / 2500 trials          1 / 5            1 / 2
+controls m = h-1, h+1                0 everywhere     0 everywhere
+```
+
+Under re-reading, one 5-cell start whose anchor had 3 points on the axis
+ends with 1 on the axis and 5 mirrors. On the 16-cell, three starts that
+reached 8 with the kept pairing end on 4 axes when it is re-read; 6 of
+the 8 re-read 16-cell endpoints have coincident points, against 2 of 8
+with the kept pairing. No 5-cell endpoint is degenerate either way. The
+anchor is held (residual below 1e-6) on every start either way. Bound: 8
+starts, one seed; the pairing is the nearest-point one at each trial
+position; paths are not kept for the re-read descents.
 
 Degenerate projections (`runs/degeneracy_check_seed0.json`). A projection
 where two points land on each other has mirrors the polytope's symmetry

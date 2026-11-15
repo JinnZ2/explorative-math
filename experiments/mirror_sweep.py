@@ -67,7 +67,8 @@ def frame_zero(shape):
             "original_vertices": original, "projected_points": pts,
             "projected_equals_first_two_coordinates": pts == first_two,
             "max_abs_difference": max(abs(a - b) for p, q in zip(pts, first_two)
-                                      for a, b in zip(p, q))}
+                                      for a, b in zip(p, q)),
+            "degeneracy": Q.degeneracy(pts)}
 
 
 def sweep(shape, frames=FRAMES, rel_tol=REL_TOL):
@@ -86,10 +87,27 @@ def sweep(shape, frames=FRAMES, rel_tol=REL_TOL):
         if any(axes.values()):
             rots = _rotations(f)
             with_mirror.append({"frame_index": f["frame_index"],
+                                "degeneracy": {k: Q.degeneracy(v) for k, v in sets.items()},
+                                "degenerate": {k: Q.degeneracy(v)["tags"]["1e-06"]["degenerate"]
+                                               for k, v in sets.items()},
                                 "progress": f["frame_index"] / frames,
                                 "rotation_angles_degrees": rots,
                                 "axes_deg": axes})
     n = len(fs)
+    result = _sweep_result(shape, fs, n, rel_tol, counts, with_mirror, resid)
+    deg = {}
+    for k in SETS:
+        top = max(counts[k])
+        hits = [m for m in with_mirror if len(m["axes_deg"][k]) == top]
+        deg[k] = (all(m["degenerate"][k] for m in hits) if top and hits else None)
+    result["max_axis_count_degenerate"] = deg
+    result["max_axis_count_excluding_degenerate"] = {
+        k: max([len(m["axes_deg"][k]) for m in with_mirror if not m["degenerate"][k]] + [0])
+        for k in SETS}
+    return result
+
+
+def _sweep_result(shape, fs, n, rel_tol, counts, with_mirror, resid):
     return {"shape": shape, "frames": n,
             "bound": {"frames": n, "frame_step": f"1/{n} of each plane's sweep",
                       "axes": "every pair of points; no angle grid", "rel_tol": rel_tol,
@@ -101,6 +119,8 @@ def sweep(shape, frames=FRAMES, rel_tol=REL_TOL):
             "frames_with_any_mirror": {k: sum(1 for c in counts[k] if c) for k in SETS},
             "fraction_with_any_mirror": {k: sum(1 for c in counts[k] if c) / n for k in SETS},
             "max_axis_count": {k: max(counts[k]) for k in SETS},
+            "max_axis_count_degenerate": None,      # filled below: is that maximum read on
+                                                    # a projection with coincident points?
             "mirror_frames": with_mirror,
             # continuous reading, added beside the hit / miss counts
             "residual_per_frame": resid,

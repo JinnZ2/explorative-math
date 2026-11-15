@@ -114,10 +114,21 @@ def solve(mat, rhs):
     return x
 
 
-def pull_back(verts, planes, angles, axis_deg, pair):
-    """Gauss-Newton onto c = 0. Returns (angles, projections evaluated)."""
+def points_on_axis(pair):
+    """How many points a pairing maps to themselves: the points on the mirror line."""
+    return sum(1 for i, j in enumerate(pair) if i == j)
+
+
+def pull_back(verts, planes, angles, axis_deg, pair, reread=False):
+    """Gauss-Newton onto c = 0. Returns (angles, projections evaluated), and with
+    reread=True also the pairing used: read afresh at the trial position (each
+    point paired with the point nearest its reflection there) instead of the
+    one handed in."""
     ang = list(angles)
     evals = 0
+    if reread:
+        pair = pairing(project(verts, planes, ang), axis_deg)
+        evals += 1
     for _ in range(GN_ITERS):
         c0 = constraint(project(verts, planes, ang), axis_deg, pair)
         evals += 1
@@ -139,13 +150,22 @@ def pull_back(verts, planes, angles, axis_deg, pair):
         if step is None:
             break
         ang = [a + d for a, d in zip(ang, step)]
+    if reread:
+        return ang, evals, pair
     return ang, evals
 
 
-def constrained_descent(verts, planes, anchor_angles, axis_deg, m, max_trials=MAX_TRIALS):
+def constrained_descent(verts, planes, anchor_angles, axis_deg, m, max_trials=MAX_TRIALS,
+                        reread_pairing=False):
+    """reread_pairing=False: the anchor's pairing is kept for every pull-back.
+    reread_pairing=True: every pull-back reads the pairing afresh at its trial
+    position, so the anchor mirror may be held under a different pairing."""
     axes = A.generated_axes(axis_deg, m)
     scored = axes[1:]
     pair = pairing(project(verts, planes, anchor_angles), axis_deg)
+    anchor_pair = list(pair)
+    current_pair = list(pair)
+    rereads_differing = 0
     proj_evals = 0
 
     def anchor_res(a):
@@ -178,7 +198,13 @@ def constrained_descent(verts, planes, anchor_angles, axis_deg, m, max_trials=MA
             for d in (step, -step):
                 t = list(ang)
                 t[i] += d
-                t, e = pull_back(verts, planes, t, axis_deg, pair)
+                if reread_pairing:
+                    t, e, used = pull_back(verts, planes, t, axis_deg, pair, reread=True)
+                    if used != anchor_pair:
+                        rereads_differing += 1
+                else:
+                    t, e = pull_back(verts, planes, t, axis_deg, pair)
+                    used = pair
                 proj_evals += e
                 trials += 1
                 if anchor_res(t) >= ANCHOR_TOL:
@@ -187,6 +213,7 @@ def constrained_descent(verts, planes, anchor_angles, axis_deg, m, max_trials=MA
                 r = score(t)
                 if r < best:
                     ang, best, moved = t, r, True
+                    current_pair = list(used)
                     accepted += 1
                     break
         n_pass += 1
@@ -196,7 +223,13 @@ def constrained_descent(verts, planes, anchor_angles, axis_deg, m, max_trials=MA
             step /= 2.0
     pts = project(verts, planes, ang)
     res = Q.mirror_residual_at(pts, axes)
-    return {"m": m, "generated_axes_deg": axes, "anchor_pairing": pair,
+    return {"m": m, "generated_axes_deg": axes, "anchor_pairing": anchor_pair,
+            "anchor_points_on_axis": points_on_axis(anchor_pair),
+            "pairing": "re-read at every pull-back" if reread_pairing else "kept from the anchor",
+            "final_pairing": pairing(pts, axis_deg),
+            "final_points_on_axis": points_on_axis(pairing(pts, axis_deg)),
+            "pairing_of_last_accepted_move": current_pair,
+            "pull_backs_with_a_different_pairing": rereads_differing if reread_pairing else None,
             "feasible_at_start": feasible_start, "anchor_residual_at_start": start_anchor,
             "start_score": path[0]["score"], "final_score": best,
             "final_residual_per_axis": res, "final_anchor_residual": res[0],
@@ -244,7 +277,8 @@ def run(seed=0, starts=STARTS, max_trials=MAX_TRIALS, anchor_max_evals=U.MAX_EVA
                                           "max_anchor_residual_on_path", "final_angles_deg",
                                           "passes", "trials", "trials_refused_by_constraint",
                                           "moves_accepted", "projection_evals", "stop",
-                                          "counts", "degeneracy")}
+                                          "counts", "degeneracy", "final_pairing",
+                                          "final_points_on_axis")}
                     rules[label]["bound_check"]["max_trials"] = bound_check_trials
             rows.append({"start_index": i, "start_angles_deg": start,
                          "anchor": {"final_angles_deg": anc["final_angles_deg"],
@@ -261,6 +295,8 @@ def run(seed=0, starts=STARTS, max_trials=MAX_TRIALS, anchor_max_evals=U.MAX_EVA
             cnt = [g["counts"][0]["n_mirror_axes"] for g in gs]
             deg = [g["degeneracy"]["tags"]["1e-06"]["degenerate"] for g in gs]
             return {"m": rows[0]["rules"][label]["m"], "final_counts": cnt, "degenerate": deg,
+                    "anchor_points_on_axis": [x["rules"][label]["anchor_points_on_axis"]
+                                              for x in rows],
                     "final_counts_at_1e-4": [g["counts"][1]["n_mirror_axes"] for g in gs],
                     "starts_reaching_h": sum(1 for c in cnt if c == h),
                     "starts_reaching_h_excluding_degenerate":

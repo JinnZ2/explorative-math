@@ -104,7 +104,32 @@
      ]
     ],
     "projected_equals_first_two_coordinates": true,
-    "max_abs_difference": 0.0
+    "max_abs_difference": 0.0,
+    "degeneracy": {
+     "n_points": 5,
+     "min_pair_distance": 0.0,
+     "closest_pair": [
+      3,
+      4
+     ],
+     "collinearity": 0.9999999999999997,
+     "scale": 0.912870929175277,
+     "about": "centroid",
+     "tags": {
+      "1e-06": {
+       "coincident": true,
+       "collinear": false,
+       "degenerate": true,
+       "n_distinct": 4
+      },
+      "0.001": {
+       "coincident": true,
+       "collinear": false,
+       "degenerate": true,
+       "n_distinct": 4
+      }
+     }
+    }
    },
    {
     "shape": "crosspolytope",
@@ -225,7 +250,32 @@
      ]
     ],
     "projected_equals_first_two_coordinates": true,
-    "max_abs_difference": 0.0
+    "max_abs_difference": 0.0,
+    "degeneracy": {
+     "n_points": 8,
+     "min_pair_distance": 0.0,
+     "closest_pair": [
+      4,
+      5
+     ],
+     "collinearity": 1.0,
+     "scale": 1.0,
+     "about": "centroid",
+     "tags": {
+      "1e-06": {
+       "coincident": true,
+       "collinear": false,
+       "degenerate": true,
+       "n_distinct": 5
+      },
+      "0.001": {
+       "coincident": true,
+       "collinear": false,
+       "degenerate": true,
+       "n_distinct": 5
+      }
+     }
+    }
    }
   ],
   "sweep": [
@@ -1347,9 +1397,96 @@
      "a_union": 0,
      "b_union": 3
     },
+    "max_axis_count_degenerate": {
+     "shape": true,
+     "a_union": null,
+     "b_union": true
+    },
     "mirror_frames": [
      {
       "frame_index": 0,
+      "degeneracy": {
+       "shape": {
+        "n_points": 5,
+        "min_pair_distance": 0.0,
+        "closest_pair": [
+         3,
+         4
+        ],
+        "collinearity": 0.9999999999999997,
+        "scale": 0.912870929175277,
+        "about": "centroid",
+        "tags": {
+         "1e-06": {
+          "coincident": true,
+          "collinear": false,
+          "degenerate": true,
+          "n_distinct": 4
+         },
+         "0.001": {
+          "coincident": true,
+          "collinear": false,
+          "degenerate": true,
+          "n_distinct": 4
+         }
+        }
+       },
+       "a_union": {
+        "n_points": 10,
+        "min_pair_distance": 0.0,
+        "closest_pair": [
+         3,
+         4
+        ],
+        "collinearity": 0.9999999999999998,
+        "scale": 1.4770561907472963,
+        "about": "centroid",
+        "tags": {
+         "1e-06": {
+          "coincident": true,
+          "collinear": false,
+          "degenerate": true,
+          "n_distinct": 7
+         },
+         "0.001": {
+          "coincident": true,
+          "collinear": false,
+          "degenerate": true,
+          "n_distinct": 7
+         }
+        }
+       },
+       "b_union": {
+        "n_points": 10,
+        "min_pair_distance": 0.0,
+        "closest_pair": [
+         3,
+         4
+        ],
+        "collinearity": 0.9999999999999996,
+        "scale": 1.4770561907472963,
+        "about": "centroid",
+        "tags": {
+         "1e-06": {
+          "coincident": true,
+          "collinear": false,
+          "degenerate": true,
+          "n_distinct": 7
+         },
+         "0.001": {
+          "coincident": true,
+          "collinear": false,
+          "degenerate": true,
+          "n_distinct": 7
+         }
+        }
+       }
+      },
+      "degenerate": {
+       "shape": true,
+       "a_union": true,
+       "b_union": true
+      },
       "progress": 0.0,
       "rotation_angles_degrees": [
        [
@@ -2612,6 +2749,11 @@
        0.04254476063153256
       ]
      ]
+    },
+    "max_axis_count_excluding_degenerate": {
+     "shape": 0,
+     "a_union": 0,
+     "b_union": 0
     }
    },
    {
@@ -3732,9 +3874,96 @@
      "a_union": 0,
      "b_union": 4
     },
+    "max_axis_count_degenerate": {
+     "shape": true,
+     "a_union": null,
+     "b_union": true
+    },
     "mirror_frames": [
      {
       "frame_index": 0,
+      "degeneracy": {
+       "shape": {
+        "n_points": 8,
+        "min_pair_distance": 0.0,
+        "closest_pair": [
+         4,
+         5
+        ],
+        "collinearity": 1.0,
+        "scale": 1.0,
+        "about": "centroid",
+        "tags": {
+         "1e-06": {
+          "coincident": true,
+          "collinear": false,
+          "degenerate": true,
+          "n_distinct": 5
+         },
+         "0.001": {
+          "coincident": true,
+          "collinear": false,
+          "degenerate": true,
+          "n_distinct": 5
+         }
+        }
+       },
+       "a_union": {
+        "n_points": 16,
+        "min_pair_distance": 0.0,
+        "closest_pair": [
+         4,
+         5
+        ],
+        "collinearity": 1.0,
+        "scale": 1.618033988749895,
+        "about": "centroid",
+        "tags": {
+         "1e-06": {
+          "coincident": true,
+          "collinear": false,
+          "degenerate": true,
+          "n_distinct": 9
+         },
+         "0.001": {
+          "coincident": true,
+          "collinear": false,
+          "degenerate": true,
+          "n_distinct": 9
+         }
+        }
+       },
+       "b_union": {
+        "n_points": 16,
+        "min_pair_distance": 0.0,
+        "closest_pair": [
+         4,
+         5
+        ],
+        "collinearity": 1.0,
+        "scale": 1.618033988749895,
+        "about": "centroid",
+        "tags": {
+         "1e-06": {
+          "coincident": true,
+          "collinear": false,
+          "degenerate": true,
+          "n_distinct": 9
+         },
+         "0.001": {
+          "coincident": true,
+          "collinear": false,
+          "degenerate": true,
+          "n_distinct": 9
+         }
+        }
+       }
+      },
+      "degenerate": {
+       "shape": true,
+       "a_union": true,
+       "b_union": true
+      },
       "progress": 0.0,
       "rotation_angles_degrees": [
        [
@@ -4999,6 +5228,11 @@
        0.029651669394997675
       ]
      ]
+    },
+    "max_axis_count_excluding_degenerate": {
+     "shape": 0,
+     "a_union": 0,
+     "b_union": 0
     }
    }
   ]
