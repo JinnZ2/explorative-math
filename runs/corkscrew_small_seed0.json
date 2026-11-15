@@ -1,0 +1,3252 @@
+{
+ "params": {
+  "small": true,
+  "n_steps": 1500,
+  "alpha_deg": 36.0,
+  "ratios": [
+   "1",
+   "2",
+   "3",
+   "1/2",
+   "3/2",
+   "5/3",
+   "7/4",
+   "13/8",
+   "1618/1000",
+   "3/2 + 1/10000",
+   "phi",
+   "sqrt(2)",
+   "pi/3",
+   "e/2"
+  ],
+  "epsilons_deg": [
+   1e-06,
+   1e-05,
+   0.0001,
+   0.001,
+   0.01
+  ],
+  "laps": [
+   1,
+   2,
+   3,
+   5,
+   10
+  ],
+  "n_max_chain": 32,
+  "asked": "PROPOSED, carried: a double rotation closes only at rational ratios of its two angles; a slightly wrong angle shows as a miss that grows in a readable way; a chain of regular tetrahedra that never closes in R^3 closes in R^4 at 30.",
+  "status_before_run": "PROPOSED",
+  "seed": 0
+ },
+ "outputs": {
+  "asked": "PROPOSED, carried: a double rotation closes only at rational ratios of its two angles; a slightly wrong angle shows as a miss that grows in a readable way; a chain of regular tetrahedra that never closes in R^3 closes in R^4 at 30.",
+  "bound": {
+   "seed": 0,
+   "n_steps": 1500,
+   "alpha_deg": 36.0,
+   "return_tol": 1e-09,
+   "n_max_chain": 32,
+   "miss": "largest distance of a point from where it started, over the shape's radius",
+   "positions": "from the angle k * alpha directly, not by k products",
+   "irrationals_are_floats": "an irrational ratio is held as a 64-bit float, which is itself a rational; within N steps it does not return",
+   "not_closing_means": "not within the steps run"
+  },
+  "shapes": [
+   {
+    "shape": "5-cell",
+    "dimension": 4,
+    "n_vertices": 5,
+    "planes": [
+     [
+      0,
+      1
+     ],
+     [
+      2,
+      3
+     ]
+    ],
+    "fixed_axes": [],
+    "rotations": [
+     {
+      "alpha_deg": 90.0,
+      "beta_deg": 90.0,
+      "point_return_step": 4,
+      "set_return_step": 4,
+      "smallest_miss": 2.5018537765542e-16,
+      "smallest_miss_step": 4,
+      "steps_run": 4,
+      "record_low_misses": [
+       [
+        1,
+        1.414213562373095
+       ],
+       [
+        4,
+        2.5018537765542e-16
+       ]
+      ],
+      "miss_first_24_steps": [
+       1.414213562373095,
+       2.0,
+       1.414213562373095,
+       2.5018537765542e-16
+      ]
+     },
+     {
+      "alpha_deg": 72.0,
+      "beta_deg": 144.0,
+      "point_return_step": 5,
+      "set_return_step": 5,
+      "smallest_miss": 4.613190423717511e-16,
+      "smallest_miss_step": 5,
+      "steps_run": 5,
+      "record_low_misses": [
+       [
+        1,
+        1.8014871613475154
+       ],
+       [
+        5,
+        4.613190423717511e-16
+       ]
+      ],
+      "miss_first_24_steps": [
+       1.8014871613475154,
+       1.902113032590307,
+       1.9021130325903073,
+       1.8014871613475156,
+       4.613190423717511e-16
+      ]
+     },
+     {
+      "alpha_deg": 36.0,
+      "beta_deg": 58.24922359499622,
+      "point_return_step": null,
+      "set_return_step": null,
+      "smallest_miss": 0.07543568478465086,
+      "smallest_miss_step": 340,
+      "steps_run": 400,
+      "record_low_misses": [
+       [
+        1,
+        0.9237344085724507
+       ],
+       [
+        19,
+        0.6180339887498951
+       ],
+       [
+        31,
+        0.6180339887498941
+       ],
+       [
+        50,
+        0.5103017166141408
+       ],
+       [
+        80,
+        0.3180112777766551
+       ],
+       [
+        130,
+        0.19716417174453715
+       ],
+       [
+        210,
+        0.12200127913838062
+       ],
+       [
+        340,
+        0.07543568478465086
+       ]
+      ],
+      "miss_first_24_steps": [
+       0.9237344085724507,
+       1.6249975178829967,
+       1.9397614139630306,
+       1.902113032590307,
+       2.0,
+       1.9021130325903073,
+       1.618033988749895,
+       1.5349971488685918,
+       1.8260242451138442,
+       1.7016506094957333,
+       1.1915109527547785,
+       1.175570504584946,
+       1.6180339887498947,
+       1.902113032590307,
+       1.9999999999999998,
+       1.9191866196290652,
+       1.6180339887498951,
+       1.1755705045849465,
+       0.6180339887498951,
+       1.2332709051427955,
+       1.750847469923324,
+       1.8568447199559692,
+       1.6180339887498945,
+       1.9021130325903068
+      ]
+     }
+    ]
+   },
+   {
+    "shape": "16-cell",
+    "dimension": 4,
+    "n_vertices": 8,
+    "planes": [
+     [
+      0,
+      1
+     ],
+     [
+      2,
+      3
+     ]
+    ],
+    "fixed_axes": [],
+    "rotations": [
+     {
+      "alpha_deg": 90.0,
+      "beta_deg": 90.0,
+      "point_return_step": 4,
+      "set_return_step": 1,
+      "smallest_miss": 2.4492935982947064e-16,
+      "smallest_miss_step": 4,
+      "steps_run": 4,
+      "record_low_misses": [
+       [
+        1,
+        1.414213562373095
+       ],
+       [
+        4,
+        2.4492935982947064e-16
+       ]
+      ],
+      "miss_first_24_steps": [
+       1.414213562373095,
+       2.0,
+       1.4142135623730951,
+       2.4492935982947064e-16
+      ]
+     },
+     {
+      "alpha_deg": 72.0,
+      "beta_deg": 144.0,
+      "point_return_step": 5,
+      "set_return_step": 5,
+      "smallest_miss": 4.898587196589413e-16,
+      "smallest_miss_step": 5,
+      "steps_run": 5,
+      "record_low_misses": [
+       [
+        1,
+        1.9021130325903073
+       ],
+       [
+        3,
+        1.902113032590307
+       ],
+       [
+        5,
+        4.898587196589413e-16
+       ]
+      ],
+      "miss_first_24_steps": [
+       1.9021130325903073,
+       1.9021130325903073,
+       1.902113032590307,
+       1.9021130325903073,
+       4.898587196589413e-16
+      ]
+     },
+     {
+      "alpha_deg": 36.0,
+      "beta_deg": 58.24922359499622,
+      "point_return_step": null,
+      "set_return_step": null,
+      "smallest_miss": 0.08263565239480503,
+      "smallest_miss_step": 340,
+      "steps_run": 400,
+      "record_low_misses": [
+       [
+        1,
+        0.9734213408626367
+       ],
+       [
+        19,
+        0.6180339887498952
+       ],
+       [
+        31,
+        0.6180339887498941
+       ],
+       [
+        50,
+        0.5590075226463475
+       ],
+       [
+        80,
+        0.34836390075863066
+       ],
+       [
+        130,
+        0.2159825287926114
+       ],
+       [
+        210,
+        0.13364570525715103
+       ],
+       [
+        340,
+        0.08263565239480503
+       ]
+      ],
+      "miss_first_24_steps": [
+       0.9734213408626367,
+       1.7006901885708225,
+       1.997899500467891,
+       1.9021130325903073,
+       2.0,
+       1.902113032590307,
+       1.618033988749895,
+       1.5972057770342638,
+       1.9811219675331155,
+       1.8640648476264554,
+       1.2756350647389318,
+       1.175570504584946,
+       1.6180339887498945,
+       1.902113032590307,
+       2.0,
+       1.9225831423909625,
+       1.6180339887498951,
+       1.1755705045849467,
+       0.6180339887498952,
+       1.3509805885230461,
+       1.89793757359779,
+       1.9649563798171228,
+       1.6180339887498947,
+       1.9021130325903068
+      ]
+     }
+    ]
+   },
+   {
+    "shape": "tesseract",
+    "dimension": 4,
+    "n_vertices": 16,
+    "planes": [
+     [
+      0,
+      1
+     ],
+     [
+      2,
+      3
+     ]
+    ],
+    "fixed_axes": [],
+    "rotations": [
+     {
+      "alpha_deg": 90.0,
+      "beta_deg": 90.0,
+      "point_return_step": 4,
+      "set_return_step": 1,
+      "smallest_miss": 2.220446049250313e-16,
+      "smallest_miss_step": 4,
+      "steps_run": 4,
+      "record_low_misses": [
+       [
+        1,
+        1.4142135623730951
+       ],
+       [
+        4,
+        2.220446049250313e-16
+       ]
+      ],
+      "miss_first_24_steps": [
+       1.4142135623730951,
+       2.0,
+       1.4142135623730951,
+       2.220446049250313e-16
+      ]
+     },
+     {
+      "alpha_deg": 72.0,
+      "beta_deg": 144.0,
+      "point_return_step": 5,
+      "set_return_step": 5,
+      "smallest_miss": 3.510833468576701e-16,
+      "smallest_miss_step": 5,
+      "steps_run": 5,
+      "record_low_misses": [
+       [
+        1,
+        1.5811388300841898
+       ],
+       [
+        5,
+        3.510833468576701e-16
+       ]
+      ],
+      "miss_first_24_steps": [
+       1.5811388300841898,
+       1.5811388300841898,
+       1.5811388300841898,
+       1.5811388300841898,
+       3.510833468576701e-16
+      ]
+     },
+     {
+      "alpha_deg": 36.0,
+      "beta_deg": 58.24922359499622,
+      "point_return_step": null,
+      "set_return_step": null,
+      "smallest_miss": 0.05843223017614098,
+      "smallest_miss_step": 340,
+      "steps_run": 400,
+      "record_low_misses": [
+       [
+        1,
+        0.8153266578791959
+       ],
+       [
+        19,
+        0.5457913584191219
+       ],
+       [
+        31,
+        0.44268780038508615
+       ],
+       [
+        50,
+        0.3952780099975249
+       ],
+       [
+        80,
+        0.24633047654702517
+       ],
+       [
+        130,
+        0.15272271072707427
+       ],
+       [
+        210,
+        0.0945017844637901
+       ],
+       [
+        340,
+        0.05843223017614098
+       ]
+      ],
+      "miss_first_24_steps": [
+       0.8153266578791959,
+       1.461901694497815,
+       1.8179158950182133,
+       1.846855518257647,
+       1.624076694592814,
+       1.3512131240887515,
+       1.279288855578795,
+       1.4023252663775498,
+       1.4674485104241966,
+       1.3180928943281351,
+       1.0023000622671845,
+       0.8703222768842932,
+       1.2300034045378783,
+       1.7043103904614212,
+       1.974027057151263,
+       1.9123754767508137,
+       1.5181844575060708,
+       0.9156802453802674,
+       0.5457913584191219,
+       0.9552875353960388,
+       1.4114058673047187,
+       1.619107715044635,
+       1.5771072335533338,
+       1.4373899341147354
+      ]
+     }
+    ]
+   },
+   {
+    "shape": "24-cell",
+    "dimension": 4,
+    "n_vertices": 24,
+    "planes": [
+     [
+      0,
+      1
+     ],
+     [
+      2,
+      3
+     ]
+    ],
+    "fixed_axes": [],
+    "rotations": [
+     {
+      "alpha_deg": 90.0,
+      "beta_deg": 90.0,
+      "point_return_step": 4,
+      "set_return_step": 1,
+      "smallest_miss": 2.4492935982947064e-16,
+      "smallest_miss_step": 4,
+      "steps_run": 4,
+      "record_low_misses": [
+       [
+        1,
+        1.414213562373095
+       ],
+       [
+        4,
+        2.4492935982947064e-16
+       ]
+      ],
+      "miss_first_24_steps": [
+       1.414213562373095,
+       2.0,
+       1.414213562373095,
+       2.4492935982947064e-16
+      ]
+     },
+     {
+      "alpha_deg": 72.0,
+      "beta_deg": 144.0,
+      "point_return_step": 5,
+      "set_return_step": 5,
+      "smallest_miss": 4.440892098500626e-16,
+      "smallest_miss_step": 5,
+      "steps_run": 5,
+      "record_low_misses": [
+       [
+        1,
+        1.902113032590307
+       ],
+       [
+        5,
+        4.440892098500626e-16
+       ]
+      ],
+      "miss_first_24_steps": [
+       1.902113032590307,
+       1.902113032590307,
+       1.902113032590307,
+       1.902113032590307,
+       4.440892098500626e-16
+      ]
+     },
+     {
+      "alpha_deg": 36.0,
+      "beta_deg": 58.24922359499622,
+      "point_return_step": null,
+      "set_return_step": null,
+      "smallest_miss": 0.08263565239480498,
+      "smallest_miss_step": 340,
+      "steps_run": 400,
+      "record_low_misses": [
+       [
+        1,
+        0.9734213408626368
+       ],
+       [
+        19,
+        0.6180339887498952
+       ],
+       [
+        31,
+        0.618033988749894
+       ],
+       [
+        50,
+        0.5590075226463475
+       ],
+       [
+        80,
+        0.3483639007586306
+       ],
+       [
+        130,
+        0.2159825287926114
+       ],
+       [
+        210,
+        0.133645705257151
+       ],
+       [
+        340,
+        0.08263565239480498
+       ]
+      ],
+      "miss_first_24_steps": [
+       0.9734213408626368,
+       1.7006901885708223,
+       1.9978995004678908,
+       1.902113032590307,
+       2.0,
+       1.902113032590307,
+       1.618033988749895,
+       1.5972057770342636,
+       1.9811219675331149,
+       1.8640648476264554,
+       1.2756350647389318,
+       1.175570504584946,
+       1.6180339887498947,
+       1.902113032590307,
+       2.0,
+       1.922583142390962,
+       1.618033988749895,
+       1.1755705045849465,
+       0.6180339887498952,
+       1.3509805885230461,
+       1.8979375735977897,
+       1.9649563798171228,
+       1.6180339887498942,
+       1.9021130325903068
+      ]
+     }
+    ]
+   },
+   {
+    "shape": "5-simplex",
+    "dimension": 5,
+    "n_vertices": 6,
+    "planes": [
+     [
+      0,
+      1
+     ],
+     [
+      2,
+      3
+     ]
+    ],
+    "fixed_axes": [
+     4
+    ],
+    "rotations": [
+     {
+      "alpha_deg": 90.0,
+      "beta_deg": 90.0,
+      "point_return_step": 4,
+      "set_return_step": 4,
+      "smallest_miss": 2.8522145930998397e-16,
+      "smallest_miss_step": 4,
+      "steps_run": 4,
+      "record_low_misses": [
+       [
+        1,
+        1.4142135623730951
+       ],
+       [
+        4,
+        2.8522145930998397e-16
+       ]
+      ],
+      "miss_first_24_steps": [
+       1.4142135623730951,
+       2.0,
+       1.4142135623730951,
+       2.8522145930998397e-16
+      ]
+     },
+     {
+      "alpha_deg": 72.0,
+      "beta_deg": 144.0,
+      "point_return_step": 5,
+      "set_return_step": 5,
+      "smallest_miss": 4.726108120745382e-16,
+      "smallest_miss_step": 5,
+      "steps_run": 5,
+      "record_low_misses": [
+       [
+        1,
+        1.8423971317280963
+       ],
+       [
+        5,
+        4.726108120745382e-16
+       ]
+      ],
+      "miss_first_24_steps": [
+       1.8423971317280963,
+       1.902113032590307,
+       1.9021130325903073,
+       1.8423971317280963,
+       4.726108120745382e-16
+      ]
+     },
+     {
+      "alpha_deg": 36.0,
+      "beta_deg": 58.24922359499622,
+      "point_return_step": null,
+      "set_return_step": null,
+      "smallest_miss": 0.07839506325045947,
+      "smallest_miss_step": 340,
+      "steps_run": 400,
+      "record_low_misses": [
+       [
+        1,
+        0.9439230886503109
+       ],
+       [
+        19,
+        0.6180339887498952
+       ],
+       [
+        31,
+        0.618033988749894
+       ],
+       [
+        50,
+        0.5303211002191841
+       ],
+       [
+        80,
+        0.33048701429343963
+       ],
+       [
+        130,
+        0.20489901773626465
+       ],
+       [
+        210,
+        0.12678744843364093
+       ],
+       [
+        340,
+        0.07839506325045947
+       ]
+      ],
+      "miss_first_24_steps": [
+       0.9439230886503109,
+       1.6556898884984363,
+       1.96322326072402,
+       1.902113032590307,
+       2.0,
+       1.9021130325903073,
+       1.618033988749895,
+       1.5601782801646338,
+       1.8895916030568787,
+       1.768407187426294,
+       1.2258535547435343,
+       1.175570504584946,
+       1.6180339887498947,
+       1.902113032590307,
+       2.0,
+       1.9205459495519255,
+       1.618033988749895,
+       1.1755705045849465,
+       0.6180339887498952,
+       1.2816527203222676,
+       1.8111175917294409,
+       1.9008274035931363,
+       1.6180339887498945,
+       1.902113032590307
+      ]
+     }
+    ]
+   },
+   {
+    "shape": "5-orthoplex",
+    "dimension": 5,
+    "n_vertices": 10,
+    "planes": [
+     [
+      0,
+      1
+     ],
+     [
+      2,
+      3
+     ]
+    ],
+    "fixed_axes": [
+     4
+    ],
+    "rotations": [
+     {
+      "alpha_deg": 90.0,
+      "beta_deg": 90.0,
+      "point_return_step": 4,
+      "set_return_step": 1,
+      "smallest_miss": 2.4492935982947064e-16,
+      "smallest_miss_step": 4,
+      "steps_run": 4,
+      "record_low_misses": [
+       [
+        1,
+        1.414213562373095
+       ],
+       [
+        4,
+        2.4492935982947064e-16
+       ]
+      ],
+      "miss_first_24_steps": [
+       1.414213562373095,
+       2.0,
+       1.4142135623730951,
+       2.4492935982947064e-16
+      ]
+     },
+     {
+      "alpha_deg": 72.0,
+      "beta_deg": 144.0,
+      "point_return_step": 5,
+      "set_return_step": 5,
+      "smallest_miss": 4.898587196589413e-16,
+      "smallest_miss_step": 5,
+      "steps_run": 5,
+      "record_low_misses": [
+       [
+        1,
+        1.9021130325903073
+       ],
+       [
+        3,
+        1.902113032590307
+       ],
+       [
+        5,
+        4.898587196589413e-16
+       ]
+      ],
+      "miss_first_24_steps": [
+       1.9021130325903073,
+       1.9021130325903073,
+       1.902113032590307,
+       1.9021130325903073,
+       4.898587196589413e-16
+      ]
+     },
+     {
+      "alpha_deg": 36.0,
+      "beta_deg": 58.24922359499622,
+      "point_return_step": null,
+      "set_return_step": null,
+      "smallest_miss": 0.08263565239480503,
+      "smallest_miss_step": 340,
+      "steps_run": 400,
+      "record_low_misses": [
+       [
+        1,
+        0.9734213408626367
+       ],
+       [
+        19,
+        0.6180339887498952
+       ],
+       [
+        31,
+        0.6180339887498941
+       ],
+       [
+        50,
+        0.5590075226463475
+       ],
+       [
+        80,
+        0.34836390075863066
+       ],
+       [
+        130,
+        0.2159825287926114
+       ],
+       [
+        210,
+        0.13364570525715103
+       ],
+       [
+        340,
+        0.08263565239480503
+       ]
+      ],
+      "miss_first_24_steps": [
+       0.9734213408626367,
+       1.7006901885708225,
+       1.997899500467891,
+       1.9021130325903073,
+       2.0,
+       1.902113032590307,
+       1.618033988749895,
+       1.5972057770342638,
+       1.9811219675331155,
+       1.8640648476264554,
+       1.2756350647389318,
+       1.175570504584946,
+       1.6180339887498945,
+       1.902113032590307,
+       2.0,
+       1.9225831423909625,
+       1.6180339887498951,
+       1.1755705045849467,
+       0.6180339887498952,
+       1.3509805885230461,
+       1.89793757359779,
+       1.9649563798171228,
+       1.6180339887498947,
+       1.9021130325903068
+      ]
+     }
+    ]
+   },
+   {
+    "shape": "5-cube",
+    "dimension": 5,
+    "n_vertices": 32,
+    "planes": [
+     [
+      0,
+      1
+     ],
+     [
+      2,
+      3
+     ]
+    ],
+    "fixed_axes": [
+     4
+    ],
+    "rotations": [
+     {
+      "alpha_deg": 90.0,
+      "beta_deg": 90.0,
+      "point_return_step": 4,
+      "set_return_step": 1,
+      "smallest_miss": 1.9860273225978183e-16,
+      "smallest_miss_step": 4,
+      "steps_run": 4,
+      "record_low_misses": [
+       [
+        1,
+        1.2649110640673518
+       ],
+       [
+        4,
+        1.9860273225978183e-16
+       ]
+      ],
+      "miss_first_24_steps": [
+       1.2649110640673518,
+       1.7888543819998317,
+       1.2649110640673518,
+       1.9860273225978183e-16
+      ]
+     },
+     {
+      "alpha_deg": 72.0,
+      "beta_deg": 144.0,
+      "point_return_step": 5,
+      "set_return_step": 5,
+      "smallest_miss": 3.1401849173675503e-16,
+      "smallest_miss_step": 5,
+      "steps_run": 5,
+      "record_low_misses": [
+       [
+        1,
+        1.4142135623730951
+       ],
+       [
+        5,
+        3.1401849173675503e-16
+       ]
+      ],
+      "miss_first_24_steps": [
+       1.4142135623730951,
+       1.4142135623730951,
+       1.4142135623730951,
+       1.4142135623730951,
+       3.1401849173675503e-16
+      ]
+     },
+     {
+      "alpha_deg": 36.0,
+      "beta_deg": 58.24922359499622,
+      "point_return_step": null,
+      "set_return_step": null,
+      "smallest_miss": 0.05226337550030629,
+      "smallest_miss_step": 340,
+      "steps_run": 400,
+      "record_low_misses": [
+       [
+        1,
+        0.7292503323542385
+       ],
+       [
+        19,
+        0.4881706315828434
+       ],
+       [
+        31,
+        0.3959520057883641
+       ],
+       [
+        50,
+        0.35354740014612285
+       ],
+       [
+        80,
+        0.22032467619562637
+       ],
+       [
+        130,
+        0.13659934515750977
+       ],
+       [
+        210,
+        0.08452496562242726
+       ],
+       [
+        340,
+        0.05226337550030629
+       ]
+      ],
+      "miss_first_24_steps": [
+       0.7292503323542385,
+       1.3075646261276976,
+       1.6259934074552385,
+       1.651877793377881,
+       1.4526183559130788,
+       1.2085617590209228,
+       1.1442307375728384,
+       1.2542778488742807,
+       1.3125258491157248,
+       1.1789381249508628,
+       0.8964844292326786,
+       0.7784399093782693,
+       1.1001484900411476,
+       1.5243815551323787,
+       1.7656234756856346,
+       1.710480625807355,
+       1.357905459746886,
+       0.8190093097295862,
+       0.4881706315828434,
+       0.8544351468815117,
+       1.2623997852541595,
+       1.448173965493665,
+       1.4106075928127566,
+       1.2856406411417969
+      ]
+     }
+    ]
+   }
+  ],
+  "sweep": [
+   {
+    "shape": "tesseract",
+    "alpha_deg": 36.0,
+    "n_steps": 1500,
+    "rows": [
+     {
+      "ratio": "1",
+      "ratio_value": 1.0,
+      "rational": true,
+      "predicted_point_return_step": 10,
+      "predicted_within_the_steps_run": true,
+      "closes": true,
+      "return_matches_prediction": true,
+      "point_return_step": 10,
+      "smallest_miss": 2.220446049250313e-16,
+      "smallest_miss_step": 10,
+      "steps_run": 10,
+      "record_low_misses": [
+       [
+        1,
+        0.6180339887498949
+       ],
+       [
+        10,
+        2.220446049250313e-16
+       ]
+      ]
+     },
+     {
+      "ratio": "2",
+      "ratio_value": 2.0,
+      "rational": true,
+      "predicted_point_return_step": 10,
+      "predicted_within_the_steps_run": true,
+      "closes": true,
+      "return_matches_prediction": true,
+      "point_return_step": 10,
+      "smallest_miss": 3.510833468576701e-16,
+      "smallest_miss_step": 10,
+      "steps_run": 10,
+      "record_low_misses": [
+       [
+        1,
+        0.939130454862425
+       ],
+       [
+        10,
+        3.510833468576701e-16
+       ]
+      ]
+     },
+     {
+      "ratio": "3",
+      "ratio_value": 3.0,
+      "rational": true,
+      "predicted_point_return_step": 10,
+      "predicted_within_the_steps_run": true,
+      "closes": true,
+      "return_matches_prediction": true,
+      "point_return_step": 10,
+      "smallest_miss": 5.3533015581491455e-16,
+      "smallest_miss_step": 10,
+      "steps_run": 10,
+      "record_low_misses": [
+       [
+        1,
+        1.2247448713915892
+       ],
+       [
+        7,
+        1.224744871391589
+       ],
+       [
+        10,
+        5.3533015581491455e-16
+       ]
+      ]
+     },
+     {
+      "ratio": "1/2",
+      "ratio_value": 0.5,
+      "rational": true,
+      "predicted_point_return_step": 20,
+      "predicted_within_the_steps_run": true,
+      "closes": true,
+      "return_matches_prediction": true,
+      "point_return_step": 20,
+      "smallest_miss": 3.510833468576701e-16,
+      "smallest_miss_step": 20,
+      "steps_run": 20,
+      "record_low_misses": [
+       [
+        1,
+        0.4898229162972053
+       ],
+       [
+        20,
+        3.510833468576701e-16
+       ]
+      ]
+     },
+     {
+      "ratio": "3/2",
+      "ratio_value": 1.5,
+      "rational": true,
+      "predicted_point_return_step": 20,
+      "predicted_within_the_steps_run": true,
+      "closes": true,
+      "return_matches_prediction": true,
+      "point_return_step": 20,
+      "smallest_miss": 6.004449063730082e-16,
+      "smallest_miss_step": 20,
+      "steps_run": 20,
+      "record_low_misses": [
+       [
+        1,
+        0.7766580671908195
+       ],
+       [
+        19,
+        0.7766580671908191
+       ],
+       [
+        20,
+        6.004449063730082e-16
+       ]
+      ]
+     },
+     {
+      "ratio": "5/3",
+      "ratio_value": 1.6666666666666667,
+      "rational": true,
+      "predicted_point_return_step": 30,
+      "predicted_within_the_steps_run": true,
+      "closes": true,
+      "return_matches_prediction": true,
+      "point_return_step": 30,
+      "smallest_miss": 1.0385185452638062e-15,
+      "smallest_miss_step": 30,
+      "steps_run": 30,
+      "record_low_misses": [
+       [
+        1,
+        0.8312538755549068
+       ],
+       [
+        12,
+        0.8312538755549067
+       ],
+       [
+        19,
+        0.831253875554906
+       ],
+       [
+        30,
+        1.0385185452638062e-15
+       ]
+      ]
+     },
+     {
+      "ratio": "7/4",
+      "ratio_value": 1.75,
+      "rational": true,
+      "predicted_point_return_step": 40,
+      "predicted_within_the_steps_run": true,
+      "closes": true,
+      "return_matches_prediction": true,
+      "point_return_step": 40,
+      "smallest_miss": 1.3888885600717775e-15,
+      "smallest_miss_step": 40,
+      "steps_run": 40,
+      "record_low_misses": [
+       [
+        1,
+        0.8584826765203277
+       ],
+       [
+        11,
+        0.5477010876716281
+       ],
+       [
+        29,
+        0.5477010876716278
+       ],
+       [
+        40,
+        1.3888885600717775e-15
+       ]
+      ]
+     },
+     {
+      "ratio": "13/8",
+      "ratio_value": 1.625,
+      "rational": true,
+      "predicted_point_return_step": 80,
+      "predicted_within_the_steps_run": true,
+      "closes": true,
+      "return_matches_prediction": true,
+      "point_return_step": 80,
+      "smallest_miss": 3.1249376297809592e-15,
+      "smallest_miss_step": 80,
+      "steps_run": 80,
+      "record_low_misses": [
+       [
+        1,
+        0.817608978001773
+       ],
+       [
+        19,
+        0.5816724518755895
+       ],
+       [
+        30,
+        0.5411961001461983
+       ],
+       [
+        31,
+        0.46756078238810356
+       ],
+       [
+        80,
+        3.1249376297809592e-15
+       ]
+      ]
+     },
+     {
+      "ratio": "1618/1000",
+      "ratio_value": 1.618,
+      "rational": true,
+      "predicted_point_return_step": 5000,
+      "predicted_within_the_steps_run": false,
+      "closes": false,
+      "return_matches_prediction": null,
+      "point_return_step": null,
+      "smallest_miss": 0.00888570741045583,
+      "smallest_miss_step": 890,
+      "steps_run": 1500,
+      "record_low_misses": [
+       [
+        1,
+        0.8153155213790065
+       ],
+       [
+        19,
+        0.5456241765550405
+       ],
+       [
+        31,
+        0.4426134385761974
+       ],
+       [
+        50,
+        0.3945530059421472
+       ],
+       [
+        80,
+        0.24751998373086326
+       ],
+       [
+        130,
+        0.15077094027631993
+       ],
+       [
+        210,
+        0.09766562498313214
+       ],
+       [
+        340,
+        0.05330196750017313
+       ],
+       [
+        550,
+        0.044421521492695286
+       ],
+       [
+        890,
+        0.00888570741045583
+       ]
+      ]
+     },
+     {
+      "ratio": "3/2 + 1/10000",
+      "ratio_value": 1.5001,
+      "rational": true,
+      "predicted_point_return_step": 100000,
+      "predicted_within_the_steps_run": false,
+      "closes": false,
+      "return_matches_prediction": null,
+      "point_return_step": null,
+      "smallest_miss": 0.0008885765291641363,
+      "smallest_miss_step": 20,
+      "steps_run": 1500,
+      "record_low_misses": [
+       [
+        1,
+        0.7766907920979306
+       ],
+       [
+        19,
+        0.7760363159721402
+       ],
+       [
+        20,
+        0.0008885765291641363
+       ]
+      ]
+     },
+     {
+      "ratio": "phi",
+      "ratio_value": 1.618033988749895,
+      "rational": false,
+      "predicted_point_return_step": null,
+      "predicted_within_the_steps_run": null,
+      "closes": false,
+      "return_matches_prediction": null,
+      "point_return_step": null,
+      "smallest_miss": 0.013797687272318043,
+      "smallest_miss_step": 1440,
+      "steps_run": 1500,
+      "record_low_misses": [
+       [
+        1,
+        0.8153266578791959
+       ],
+       [
+        19,
+        0.5457913584191219
+       ],
+       [
+        31,
+        0.44268780038508615
+       ],
+       [
+        50,
+        0.3952780099975249
+       ],
+       [
+        80,
+        0.24633047654702517
+       ],
+       [
+        130,
+        0.15272271072707427
+       ],
+       [
+        210,
+        0.0945017844637901
+       ],
+       [
+        340,
+        0.05843223017614098
+       ],
+       [
+        550,
+        0.03611945936019089
+       ],
+       [
+        890,
+        0.02232455387858804
+       ],
+       [
+        1440,
+        0.013797687272318043
+       ]
+      ]
+     },
+     {
+      "ratio": "sqrt(2)",
+      "ratio_value": 1.4142135623730951,
+      "rational": false,
+      "predicted_point_return_step": null,
+      "predicted_within_the_steps_run": null,
+      "closes": false,
+      "return_matches_prediction": null,
+      "point_return_step": null,
+      "smallest_miss": 0.02243843355237393,
+      "smallest_miss_step": 700,
+      "steps_run": 1500,
+      "record_low_misses": [
+       [
+        1,
+        0.7486424537220531
+       ],
+       [
+        20,
+        0.7258994126682623
+       ],
+       [
+        21,
+        0.4570279982235531
+       ],
+       [
+        50,
+        0.31312929428415204
+       ],
+       [
+        120,
+        0.13059991681648367
+       ],
+       [
+        290,
+        0.05416019584000236
+       ],
+       [
+        700,
+        0.02243843355237393
+       ]
+      ]
+     },
+     {
+      "ratio": "pi/3",
+      "ratio_value": 1.0471975511965976,
+      "rational": false,
+      "predicted_point_return_step": null,
+      "predicted_within_the_steps_run": null,
+      "closes": false,
+      "return_matches_prediction": null,
+      "point_return_step": null,
+      "smallest_miss": 0.013063786436742393,
+      "smallest_miss_step": 1060,
+      "steps_run": 1500,
+      "record_low_misses": [
+       [
+        1,
+        0.6322578534991911
+       ],
+       [
+        9,
+        0.5055574128185532
+       ],
+       [
+        10,
+        0.2089256667357885
+       ],
+       [
+        210,
+        0.03932077654521096
+       ],
+       [
+        1060,
+        0.013063786436742393
+       ]
+      ]
+     },
+     {
+      "ratio": "e/2",
+      "ratio_value": 1.3591409142295225,
+      "rational": false,
+      "predicted_point_return_step": null,
+      "predicted_within_the_steps_run": null,
+      "closes": false,
+      "return_matches_prediction": null,
+      "point_return_step": null,
+      "smallest_miss": 0.008842076525947413,
+      "smallest_miss_step": 1420,
+      "steps_run": 1500,
+      "record_low_misses": [
+       [
+        1,
+        0.7307463418340868
+       ],
+       [
+        29,
+        0.5076995580564264
+       ],
+       [
+        30,
+        0.3405984888616977
+       ],
+       [
+        110,
+        0.21881766390304574
+       ],
+       [
+        140,
+        0.12411997052120906
+       ],
+       [
+        250,
+        0.09534805354636976
+       ],
+       [
+        390,
+        0.02885743159155898
+       ],
+       [
+        1420,
+        0.008842076525947413
+       ]
+      ]
+     }
+    ],
+    "rational_ratios": 10,
+    "rational_closing": 8,
+    "rational_not_closing_within_steps": [
+     "1618/1000",
+     "3/2 + 1/10000"
+    ],
+    "irrational_ratios": 4,
+    "irrational_closing": 0,
+    "smallest_miss_among_irrationals": 0.008842076525947413
+   }
+  ],
+  "error_test": {
+   "shape": "tesseract",
+   "nominal_miss_at_return": 3.510833468576701e-16,
+   "linear_estimate": "laps * return_step * eps (radians) * (largest radius in the perturbed plane / radius)",
+   "perturbations": [
+    {
+     "perturbed": "alpha",
+     "nominal_deg": [
+      36.0,
+      72.0
+     ],
+     "return_step": 10,
+     "rows": [
+      {
+       "eps_deg": 1e-06,
+       "laps": [
+        {
+         "laps": 1,
+         "step": 10,
+         "miss": 1.234134146125225e-07,
+         "linear_estimate": 1.234134149488435e-07,
+         "miss_over_linear_estimate": 0.9999999972748425,
+         "share_in_plane_01": 1.0,
+         "share_in_plane_23": 6.474194007625274e-18,
+         "plane_carrying_the_miss": "01"
+        },
+        {
+         "laps": 2,
+         "step": 20,
+         "miss": 2.4682682926430015e-07,
+         "linear_estimate": 2.46826829897687e-07,
+         "miss_over_linear_estimate": 0.9999999974338818,
+         "share_in_plane_01": 1.0,
+         "share_in_plane_23": 7.334047896930204e-18,
+         "plane_carrying_the_miss": "01"
+        },
+        {
+         "laps": 3,
+         "step": 30,
+         "miss": 3.702402438768311e-07,
+         "linear_estimate": 3.702402448465305e-07,
+         "miss_over_linear_estimate": 0.9999999973808914,
+         "share_in_plane_01": 1.0,
+         "share_in_plane_23": 8.205141709312572e-18,
+         "plane_carrying_the_miss": "01"
+        },
+        {
+         "laps": 5,
+         "step": 50,
+         "miss": 6.170670731411735e-07,
+         "linear_estimate": 6.170670747442175e-07,
+         "miss_over_linear_estimate": 0.999999997402156,
+         "share_in_plane_01": 1.0,
+         "share_in_plane_23": 7.833774747231889e-18,
+         "plane_carrying_the_miss": "01"
+        },
+        {
+         "laps": 10,
+         "step": 100,
+         "miss": 1.2341341463219517e-06,
+         "linear_estimate": 1.234134149488435e-06,
+         "miss_over_linear_estimate": 0.9999999974342471,
+         "share_in_plane_01": 1.0,
+         "share_in_plane_23": 7.8337747467291e-18,
+         "plane_carrying_the_miss": "01"
+        }
+       ]
+      },
+      {
+       "eps_deg": 1e-05,
+       "laps": [
+        {
+         "laps": 1,
+         "step": 10,
+         "miss": 1.2341341497761552e-06,
+         "linear_estimate": 1.2341341494884353e-06,
+         "miss_over_linear_estimate": 1.000000000233135,
+         "share_in_plane_01": 1.0,
+         "share_in_plane_23": 6.474193969320149e-20,
+         "plane_carrying_the_miss": "01"
+        },
+        {
+         "laps": 2,
+         "step": 20,
+         "miss": 2.468268299594382e-06,
+         "linear_estimate": 2.4682682989768705e-06,
+         "miss_over_linear_estimate": 1.00000000025018,
+         "share_in_plane_01": 1.0,
+         "share_in_plane_23": 7.334047855620464e-20,
+         "plane_carrying_the_miss": "01"
+        },
+        {
+         "laps": 3,
+         "step": 30,
+         "miss": 3.7024024512631067e-06,
+         "linear_estimate": 3.702402448465305e-06,
+         "miss_over_linear_estimate": 1.000000000755672,
+         "share_in_plane_01": 1.0,
+         "share_in_plane_23": 8.205141653931464e-20,
+         "plane_carrying_the_miss": "01"
+        },
+        {
+         "laps": 5,
+         "step": 50,
+         "miss": 6.1706707470530555e-06,
+         "linear_estimate": 6.170670747442176e-06,
+         "miss_over_linear_estimate": 0.9999999999369403,
+         "share_in_plane_01": 1.0,
+         "share_in_plane_23": 7.833774707518028e-20,
+         "plane_carrying_the_miss": "01"
+        },
+        {
+         "laps": 10,
+         "step": 100,
+         "miss": 1.2341341494026778e-05,
+         "linear_estimate": 1.2341341494884351e-05,
+         "miss_over_linear_estimate": 0.9999999999305121,
+         "share_in_plane_01": 1.0,
+         "share_in_plane_23": 7.833774707618742e-20,
+         "plane_carrying_the_miss": "01"
+        }
+       ]
+      },
+      {
+       "eps_deg": 0.0001,
+       "laps": [
+        {
+         "laps": 1,
+         "step": 10,
+         "miss": 1.2341341494968834e-05,
+         "linear_estimate": 1.2341341494884351e-05,
+         "miss_over_linear_estimate": 1.0000000000068456,
+         "share_in_plane_01": 1.0,
+         "share_in_plane_23": 6.474193972250236e-22,
+         "plane_carrying_the_miss": "01"
+        },
+        {
+         "laps": 2,
+         "step": 20,
+         "miss": 2.468268298906749e-05,
+         "linear_estimate": 2.4682682989768703e-05,
+         "miss_over_linear_estimate": 0.999999999971591,
+         "share_in_plane_01": 1.0,
+         "share_in_plane_23": 7.334047859706838e-22,
+         "plane_carrying_the_miss": "01"
+        },
+        {
+         "laps": 3,
+         "step": 30,
+         "miss": 3.7024024483113646e-05,
+         "linear_estimate": 3.702402448465306e-05,
+         "miss_over_linear_estimate": 0.9999999999584213,
+         "share_in_plane_01": 1.0,
+         "share_in_plane_23": 8.205141667014572e-22,
+         "plane_carrying_the_miss": "01"
+        },
+        {
+         "laps": 5,
+         "step": 50,
+         "miss": 6.17067074568126e-05,
+         "linear_estimate": 6.170670747442176e-05,
+         "miss_over_linear_estimate": 0.9999999997146313,
+         "share_in_plane_01": 1.0,
+         "share_in_plane_23": 7.833774711001066e-22,
+         "plane_carrying_the_miss": "01"
+        },
+        {
+         "laps": 10,
+         "step": 100,
+         "miss": 0.00012341341479613912,
+         "linear_estimate": 0.00012341341494884352,
+         "miss_over_linear_estimate": 0.9999999987626597,
+         "share_in_plane_01": 1.0,
+         "share_in_plane_23": 7.833774725916129e-22,
+         "plane_carrying_the_miss": "01"
+        }
+       ]
+      },
+      {
+       "eps_deg": 0.001,
+       "laps": [
+        {
+         "laps": 1,
+         "step": 10,
+         "miss": 0.00012341341479205685,
+         "linear_estimate": 0.00012341341494884352,
+         "miss_over_linear_estimate": 0.9999999987295817,
+         "share_in_plane_01": 1.0,
+         "share_in_plane_23": 6.474193988788742e-24,
+         "plane_carrying_the_miss": "01"
+        },
+        {
+         "laps": 2,
+         "step": 20,
+         "miss": 0.000246826828644225,
+         "linear_estimate": 0.00024682682989768704,
+         "miss_over_linear_estimate": 0.9999999949216947,
+         "share_in_plane_01": 1.0,
+         "share_in_plane_23": 7.334047933779199e-24,
+         "plane_carrying_the_miss": "01"
+        },
+        {
+         "laps": 3,
+         "step": 30,
+         "miss": 0.0003702402406160661,
+         "linear_estimate": 0.00037024024484653056,
+         "miss_over_linear_estimate": 0.9999999885737315,
+         "share_in_plane_01": 1.0,
+         "share_in_plane_23": 8.205141853840558e-24,
+         "plane_carrying_the_miss": "01"
+        },
+        {
+         "laps": 5,
+         "step": 50,
+         "miss": 0.0006170670551638032,
+         "linear_estimate": 0.0006170670747442175,
+         "miss_over_linear_estimate": 0.9999999682685803,
+         "share_in_plane_01": 1.0,
+         "share_in_plane_23": 7.833775203683646e-24,
+         "plane_carrying_the_miss": "01"
+        },
+        {
+         "laps": 10,
+         "step": 100,
+         "miss": 0.0012341339928467366,
+         "linear_estimate": 0.001234134149488435,
+         "miss_over_linear_estimate": 0.9999998730756308,
+         "share_in_plane_01": 1.0,
+         "share_in_plane_23": 7.833776695124243e-24,
+         "plane_carrying_the_miss": "01"
+        }
+       ]
+      },
+      {
+       "eps_deg": 0.01,
+       "laps": [
+        {
+         "laps": 1,
+         "step": 10,
+         "miss": 0.0012341339928470113,
+         "linear_estimate": 0.001234134149488435,
+         "miss_over_linear_estimate": 0.9999998730758534,
+         "share_in_plane_01": 1.0,
+         "share_in_plane_23": 6.474195615802277e-26,
+         "plane_carrying_the_miss": "01"
+        },
+        {
+         "laps": 2,
+         "step": 20,
+         "miss": 0.002468267045847366,
+         "linear_estimate": 0.00246826829897687,
+         "miss_over_linear_estimate": 0.9999994923041775,
+         "share_in_plane_01": 1.0,
+         "share_in_plane_23": 7.334055306226721e-26,
+         "plane_carrying_the_miss": "01"
+        },
+        {
+         "laps": 3,
+         "step": 30,
+         "miss": 0.0037023982191536813,
+         "linear_estimate": 0.0037024024484653057,
+         "miss_over_linear_estimate": 0.9999988576845216,
+         "share_in_plane_01": 1.0,
+         "share_in_plane_23": 8.20516041208503e-26,
+         "plane_carrying_the_miss": "01"
+        },
+        {
+         "laps": 5,
+         "step": 50,
+         "miss": 0.006170651167317087,
+         "linear_estimate": 0.0061706707474421755,
+         "miss_over_linear_estimate": 0.999996826904904,
+         "share_in_plane_01": 1.0,
+         "share_in_plane_23": 7.833824421390873e-26,
+         "plane_carrying_the_miss": "01"
+        },
+        {
+         "laps": 10,
+         "step": 100,
+         "miss": 0.012341184854330717,
+         "linear_estimate": 0.012341341494884351,
+         "miss_over_linear_estimate": 0.9999873076558412,
+         "share_in_plane_01": 1.0,
+         "share_in_plane_23": 7.833973568245335e-26,
+         "plane_carrying_the_miss": "01"
+        }
+       ]
+      }
+     ],
+     "log_log_slope_of_miss_against_eps": 0.9999999865152651,
+     "miss_over_linear_estimate_range": [
+      0.9999873076558412,
+      1.000000000755672
+     ],
+     "plane_carrying_the_miss": [
+      "01"
+     ],
+     "expected_plane": "01"
+    },
+    {
+     "perturbed": "beta",
+     "nominal_deg": [
+      36.0,
+      72.0
+     ],
+     "return_step": 10,
+     "rows": [
+      {
+       "eps_deg": 1e-06,
+       "laps": [
+        {
+         "laps": 1,
+         "step": 10,
+         "miss": 1.2341341445551324e-07,
+         "linear_estimate": 1.234134149488435e-07,
+         "miss_over_linear_estimate": 0.9999999960026206,
+         "share_in_plane_01": 1.6185485060246239e-18,
+         "share_in_plane_23": 1.0,
+         "plane_carrying_the_miss": "23"
+        },
+        {
+         "laps": 2,
+         "step": 20,
+         "miss": 2.4682682891102933e-07,
+         "linear_estimate": 2.46826829897687e-07,
+         "miss_over_linear_estimate": 0.9999999960026321,
+         "share_in_plane_01": 1.618548506024587e-18,
+         "share_in_plane_23": 1.0,
+         "plane_carrying_the_miss": "23"
+        },
+        {
+         "laps": 3,
+         "step": 30,
+         "miss": 3.7024024591795126e-07,
+         "linear_estimate": 3.702402448465305e-07,
+         "miss_over_linear_estimate": 1.0000000028938527,
+         "share_in_plane_01": 1.9107864043881685e-18,
+         "share_in_plane_23": 1.0,
+         "plane_carrying_the_miss": "23"
+        },
+        {
+         "laps": 5,
+         "step": 50,
+         "miss": 6.17067069804727e-07,
+         "linear_estimate": 6.170670747442175e-07,
+         "miss_over_linear_estimate": 0.999999991995213,
+         "share_in_plane_01": 2.1445767876710132e-18,
+         "share_in_plane_23": 1.0,
+         "plane_carrying_the_miss": "23"
+        },
+        {
+         "laps": 10,
+         "step": 100,
+         "miss": 1.2341341395705542e-06,
+         "linear_estimate": 1.234134149488435e-06,
+         "miss_over_linear_estimate": 0.999999991963693,
+         "share_in_plane_01": 1.9584437081098194e-18,
+         "share_in_plane_23": 1.0,
+         "plane_carrying_the_miss": "23"
+        }
+       ]
+      },
+      {
+       "eps_deg": 1e-05,
+       "laps": [
+        {
+         "laps": 1,
+         "step": 10,
+         "miss": 1.234134148991109e-06,
+         "linear_estimate": 1.2341341494884353e-06,
+         "miss_over_linear_estimate": 0.9999999995970241,
+         "share_in_plane_01": 1.6185484943891905e-20,
+         "share_in_plane_23": 1.0,
+         "plane_carrying_the_miss": "23"
+        },
+        {
+         "laps": 2,
+         "step": 20,
+         "miss": 2.4682682979850373e-06,
+         "linear_estimate": 2.4682682989768705e-06,
+         "miss_over_linear_estimate": 0.9999999995981663,
+         "share_in_plane_01": 1.6185484943854927e-20,
+         "share_in_plane_23": 1.0,
+         "plane_carrying_the_miss": "23"
+        },
+        {
+         "laps": 3,
+         "step": 30,
+         "miss": 3.702402448279931e-06,
+         "linear_estimate": 3.702402448465305e-06,
+         "miss_over_linear_estimate": 0.9999999999499314,
+         "share_in_plane_01": 1.9107864156385784e-20,
+         "share_in_plane_23": 1.0,
+         "plane_carrying_the_miss": "23"
+        },
+        {
+         "laps": 5,
+         "step": 50,
+         "miss": 6.170670748740905e-06,
+         "linear_estimate": 6.170670747442176e-06,
+         "miss_over_linear_estimate": 1.000000000210468,
+         "share_in_plane_01": 2.1445767524345222e-20,
+         "share_in_plane_23": 1.0,
+         "plane_carrying_the_miss": "23"
+        },
+        {
+         "laps": 10,
+         "step": 100,
+         "miss": 1.2341341497323972e-05,
+         "linear_estimate": 1.2341341494884351e-05,
+         "miss_over_linear_estimate": 1.0000000001976788,
+         "share_in_plane_01": 1.958443675858224e-20,
+         "share_in_plane_23": 1.0,
+         "plane_carrying_the_miss": "23"
+        }
+       ]
+      },
+      {
+       "eps_deg": 0.0001,
+       "laps": [
+        {
+         "laps": 1,
+         "step": 10,
+         "miss": 1.2341341494183787e-05,
+         "linear_estimate": 1.2341341494884351e-05,
+         "miss_over_linear_estimate": 0.9999999999432344,
+         "share_in_plane_01": 1.6185484932684744e-22,
+         "share_in_plane_23": 1.0,
+         "plane_carrying_the_miss": "23"
+        },
+        {
+         "laps": 2,
+         "step": 20,
+         "miss": 2.4682682987458146e-05,
+         "linear_estimate": 2.4682682989768703e-05,
+         "miss_over_linear_estimate": 0.9999999999063895,
+         "share_in_plane_01": 1.6185484933877446e-22,
+         "share_in_plane_23": 1.0,
+         "plane_carrying_the_miss": "23"
+        },
+        {
+         "laps": 3,
+         "step": 30,
+         "miss": 3.702402448260336e-05,
+         "linear_estimate": 3.702402448465306e-05,
+         "miss_over_linear_estimate": 0.9999999999446387,
+         "share_in_plane_01": 1.9107864156588038e-22,
+         "share_in_plane_23": 1.0,
+         "plane_carrying_the_miss": "23"
+        },
+        {
+         "laps": 5,
+         "step": 50,
+         "miss": 6.170670745339764e-05,
+         "linear_estimate": 6.170670747442176e-05,
+         "miss_over_linear_estimate": 0.9999999996592897,
+         "share_in_plane_01": 2.1445767547986107e-22,
+         "share_in_plane_23": 1.0,
+         "plane_carrying_the_miss": "23"
+        },
+        {
+         "laps": 10,
+         "step": 100,
+         "miss": 0.0001234134147893877,
+         "linear_estimate": 0.00012341341494884352,
+         "miss_over_linear_estimate": 0.999999998707954,
+         "share_in_plane_01": 1.958443681693308e-22,
+         "share_in_plane_23": 1.0,
+         "plane_carrying_the_miss": "23"
+        }
+       ]
+      },
+      {
+       "eps_deg": 0.001,
+       "laps": [
+        {
+         "laps": 1,
+         "step": 10,
+         "miss": 0.00012341341479248864,
+         "linear_estimate": 0.00012341341494884352,
+         "miss_over_linear_estimate": 0.9999999987330803,
+         "share_in_plane_01": 1.6185484971858604e-24,
+         "share_in_plane_23": 1.0,
+         "plane_carrying_the_miss": "23"
+        },
+        {
+         "laps": 2,
+         "step": 20,
+         "miss": 0.00024682682864512784,
+         "linear_estimate": 0.00024682682989768704,
+         "miss_over_linear_estimate": 0.9999999949253523,
+         "share_in_plane_01": 1.6185485095118451e-24,
+         "share_in_plane_23": 1.0,
+         "plane_carrying_the_miss": "23"
+        },
+        {
+         "laps": 3,
+         "step": 30,
+         "miss": 0.000370240240618068,
+         "linear_estimate": 0.00037024024484653056,
+         "miss_over_linear_estimate": 0.9999999885791384,
+         "share_in_plane_01": 1.9107864590928916e-24,
+         "share_in_plane_23": 1.0,
+         "plane_carrying_the_miss": "23"
+        },
+        {
+         "laps": 5,
+         "step": 50,
+         "miss": 0.0006170670551654126,
+         "linear_estimate": 0.0006170670747442175,
+         "miss_over_linear_estimate": 0.9999999682711884,
+         "share_in_plane_01": 2.1445768894270017e-24,
+         "share_in_plane_23": 1.0,
+         "plane_carrying_the_miss": "23"
+        },
+        {
+         "laps": 10,
+         "step": 100,
+         "miss": 0.0012341339928499946,
+         "linear_estimate": 0.001234134149488435,
+         "miss_over_linear_estimate": 0.9999998730782707,
+         "share_in_plane_01": 1.9584441737707206e-24,
+         "share_in_plane_23": 1.0,
+         "plane_carrying_the_miss": "23"
+        }
+       ]
+      },
+      {
+       "eps_deg": 0.01,
+       "laps": [
+        {
+         "laps": 1,
+         "step": 10,
+         "miss": 0.0012341339928468543,
+         "linear_estimate": 0.001234134149488435,
+         "miss_over_linear_estimate": 0.9999998730757261,
+         "share_in_plane_01": 1.6185489039509812e-26,
+         "share_in_plane_23": 1.0,
+         "plane_carrying_the_miss": "23"
+        },
+        {
+         "laps": 2,
+         "step": 20,
+         "miss": 0.002468267045847052,
+         "linear_estimate": 0.00246826829897687,
+         "miss_over_linear_estimate": 0.9999994923040503,
+         "share_in_plane_01": 1.6185501365469988e-26,
+         "share_in_plane_23": 1.0,
+         "plane_carrying_the_miss": "23"
+        },
+        {
+         "laps": 3,
+         "step": 30,
+         "miss": 0.0037023982191582345,
+         "linear_estimate": 0.0037024024484653057,
+         "miss_over_linear_estimate": 0.9999988576857514,
+         "share_in_plane_01": 1.9107907808918138e-26,
+         "share_in_plane_23": 1.0,
+         "plane_carrying_the_miss": "23"
+        },
+        {
+         "laps": 5,
+         "step": 50,
+         "miss": 0.006170651167321248,
+         "linear_estimate": 0.0061706707474421755,
+         "miss_over_linear_estimate": 0.9999968269055782,
+         "share_in_plane_01": 2.144590363291097e-26,
+         "share_in_plane_23": 1.0,
+         "plane_carrying_the_miss": "23"
+        },
+        {
+         "laps": 10,
+         "step": 100,
+         "miss": 0.01234118485433904,
+         "linear_estimate": 0.012341341494884351,
+         "miss_over_linear_estimate": 0.9999873076565157,
+         "share_in_plane_01": 1.9584933920586926e-26,
+         "share_in_plane_23": 1.0,
+         "plane_carrying_the_miss": "23"
+        }
+       ]
+      }
+     ],
+     "log_log_slope_of_miss_against_eps": 0.9999999866533812,
+     "miss_over_linear_estimate_range": [
+      0.9999873076565157,
+      1.0000000028938527
+     ],
+     "plane_carrying_the_miss": [
+      "23"
+     ],
+     "expected_plane": "23"
+    }
+   ]
+  },
+  "tetrahedra_chain": {
+   "r4": {
+    "searched": "every N from 4 to 32, every pair of turns (360 p / N, 360 q / N), 1 <= p < q <= N / 2, coprime with N",
+    "closed_chains": [
+     {
+      "n_tetrahedra_to_close": 4,
+      "p": 1,
+      "q": 2,
+      "alpha_deg": 90.0,
+      "beta_deg": 180.0,
+      "r1_squared_share": 0.6666666666666666,
+      "edge_over_radius": 1.632993161855452,
+      "d1_d2_d3_squared": [
+       1.3333333333333333,
+       1.3333333333333333,
+       1.3333333333333335
+      ],
+      "largest_relative_edge_difference": 1.6653345369377348e-16
+     },
+     {
+      "n_tetrahedra_to_close": 5,
+      "p": 1,
+      "q": 2,
+      "alpha_deg": 72.0,
+      "beta_deg": 144.0,
+      "r1_squared_share": 0.4999999999999999,
+      "edge_over_radius": 1.5811388300841898,
+      "d1_d2_d3_squared": [
+       1.2500000000000002,
+       1.25,
+       1.2499999999999998
+      ],
+      "largest_relative_edge_difference": 3.5527136788005e-16
+     },
+     {
+      "n_tetrahedra_to_close": 8,
+      "p": 1,
+      "q": 3,
+      "alpha_deg": 45.0,
+      "beta_deg": 135.0,
+      "r1_squared_share": 0.5,
+      "edge_over_radius": 1.4142135623730951,
+      "d1_d2_d3_squared": [
+       1.0,
+       1.0,
+       0.9999999999999999
+      ],
+      "largest_relative_edge_difference": 1.1102230246251565e-16
+     },
+     {
+      "n_tetrahedra_to_close": 30,
+      "p": 1,
+      "q": 11,
+      "alpha_deg": 12.0,
+      "beta_deg": 132.0,
+      "r1_squared_share": 0.8973272361458826,
+      "edge_over_radius": 0.6180339887498959,
+      "d1_d2_d3_squared": [
+       0.19098300562505324,
+       0.19098300562505316,
+       0.19098300562505247
+      ],
+      "largest_relative_edge_difference": 4.069242258985905e-15
+     },
+     {
+      "n_tetrahedra_to_close": 30,
+      "p": 7,
+      "q": 13,
+      "alpha_deg": 84.0,
+      "beta_deg": 156.0,
+      "r1_squared_share": 0.5937962370425399,
+      "edge_over_radius": 1.618033988749895,
+      "d1_d2_d3_squared": [
+       1.3090169943749475,
+       1.3090169943749472,
+       1.3090169943749475
+      ],
+      "largest_relative_edge_difference": 1.6962698412563933e-16
+     }
+    ],
+    "n_values_with_a_closed_chain": [
+     4,
+     5,
+     8,
+     30
+    ],
+    "turn_pairs_by_n": {
+     "4": [
+      [
+       1,
+       2
+      ]
+     ],
+     "5": [
+      [
+       1,
+       2
+      ]
+     ],
+     "8": [
+      [
+       1,
+       3
+      ]
+     ],
+     "30": [
+      [
+       1,
+       11
+      ],
+      [
+       7,
+       13
+      ]
+     ]
+    },
+    "closes_at_30": true,
+    "edge_over_radius_at_30": [
+     0.6180339887498959,
+     1.618033988749895
+    ],
+    "one_over_phi": 0.6180339887498948
+   },
+   "r3": {
+    "helix": "v_k = (r cos k theta, r sin k theta, k h), theta = acos(-2/3), r = 3 sqrt(3) / 10, h = 1 / sqrt(10), edge 1",
+    "twist_deg": 131.81031489577862,
+    "edges_d1_d2_d3": [
+     1.0000000000000002,
+     1.0,
+     1.0
+    ],
+    "moves_along_its_axis_every_step": 0.31622776601683794,
+    "returns_to_its_start": false,
+    "twist_back_to_zero_within_2000_steps": false,
+    "smallest_twist_miss_deg": 0.027510621875990182,
+    "at_step": 1961,
+    "record_low_twist_misses": [
+     [
+      2,
+      96.37937020844277
+     ],
+     [
+      3,
+      35.430944687335796
+     ],
+     [
+      8,
+      25.51748083377106
+     ],
+     [
+      11,
+      9.913463853564735
+     ],
+     [
+      30,
+      5.690553126642044
+     ],
+     [
+      41,
+      4.222910726923146
+     ],
+     [
+      71,
+      1.4676423997188977
+     ],
+     [
+      183,
+      1.287625927485351
+     ],
+     [
+      254,
+      0.1800164722299087
+     ],
+     [
+      1961,
+      0.027510621875990182
+     ]
+    ]
+   }
+  },
+  "exact": {
+   "five_cell": {
+    "vertices": "(zeta^k, zeta^(2k)), k = 0..4",
+    "is_a_regular_simplex_exactly": true,
+    "closures": [
+     {
+      "turns_of_36_deg": [
+       2,
+       4
+      ],
+      "set_return_step": 1,
+      "point_return_step": 5,
+      "miss_squared_of_first_point_per_step": [
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         0,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ]
+      ],
+      "miss_is_exactly_zero_at_return": true,
+      "arithmetic": "exact a + b*phi forms; equality is ==, no tolerance"
+     },
+     {
+      "turns_of_36_deg": [
+       1,
+       2
+      ],
+      "set_return_step": 2,
+      "point_return_step": 10,
+      "miss_squared_of_first_point_per_step": [
+       [
+        [
+         5,
+         1
+        ],
+        [
+         -2,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         3,
+         1
+        ],
+        [
+         2,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         4,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         3,
+         1
+        ],
+        [
+         2,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         -2,
+         1
+        ]
+       ],
+       [
+        [
+         0,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ]
+      ],
+      "miss_is_exactly_zero_at_return": true,
+      "arithmetic": "exact a + b*phi forms; equality is ==, no tolerance"
+     },
+     {
+      "turns_of_36_deg": [
+       2,
+       2
+      ],
+      "set_return_step": 5,
+      "point_return_step": 5,
+      "miss_squared_of_first_point_per_step": [
+       [
+        [
+         6,
+         1
+        ],
+        [
+         -2,
+         1
+        ]
+       ],
+       [
+        [
+         4,
+         1
+        ],
+        [
+         2,
+         1
+        ]
+       ],
+       [
+        [
+         4,
+         1
+        ],
+        [
+         2,
+         1
+        ]
+       ],
+       [
+        [
+         6,
+         1
+        ],
+        [
+         -2,
+         1
+        ]
+       ],
+       [
+        [
+         0,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ]
+      ],
+      "miss_is_exactly_zero_at_return": true,
+      "arithmetic": "exact a + b*phi forms; equality is ==, no tolerance"
+     },
+     {
+      "turns_of_36_deg": [
+       1,
+       3
+      ],
+      "set_return_step": 10,
+      "point_return_step": 10,
+      "miss_squared_of_first_point_per_step": [
+       [
+        [
+         3,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         3,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         8,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         3,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         3,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         0,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ]
+      ],
+      "miss_is_exactly_zero_at_return": true,
+      "arithmetic": "exact a + b*phi forms; equality is ==, no tolerance"
+     },
+     {
+      "turns_of_36_deg": [
+       4,
+       3
+      ],
+      "set_return_step": 2,
+      "point_return_step": 10,
+      "miss_squared_of_first_point_per_step": [
+       [
+        [
+         3,
+         1
+        ],
+        [
+         2,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         -2,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         4,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         -2,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         3,
+         1
+        ],
+        [
+         2,
+         1
+        ]
+       ],
+       [
+        [
+         0,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ]
+      ],
+      "miss_is_exactly_zero_at_return": true,
+      "arithmetic": "exact a + b*phi forms; equality is ==, no tolerance"
+     },
+     {
+      "turns_of_36_deg": [
+       5,
+       5
+      ],
+      "set_return_step": 2,
+      "point_return_step": 2,
+      "miss_squared_of_first_point_per_step": [
+       [
+        [
+         8,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         0,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ]
+      ],
+      "miss_is_exactly_zero_at_return": true,
+      "arithmetic": "exact a + b*phi forms; equality is ==, no tolerance"
+     },
+     {
+      "turns_of_36_deg": [
+       1,
+       1
+      ],
+      "set_return_step": 10,
+      "point_return_step": 10,
+      "miss_squared_of_first_point_per_step": [
+       [
+        [
+         4,
+         1
+        ],
+        [
+         -2,
+         1
+        ]
+       ],
+       [
+        [
+         6,
+         1
+        ],
+        [
+         -2,
+         1
+        ]
+       ],
+       [
+        [
+         2,
+         1
+        ],
+        [
+         2,
+         1
+        ]
+       ],
+       [
+        [
+         4,
+         1
+        ],
+        [
+         2,
+         1
+        ]
+       ],
+       [
+        [
+         8,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         4,
+         1
+        ],
+        [
+         2,
+         1
+        ]
+       ],
+       [
+        [
+         2,
+         1
+        ],
+        [
+         2,
+         1
+        ]
+       ],
+       [
+        [
+         6,
+         1
+        ],
+        [
+         -2,
+         1
+        ]
+       ],
+       [
+        [
+         4,
+         1
+        ],
+        [
+         -2,
+         1
+        ]
+       ],
+       [
+        [
+         0,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ]
+      ],
+      "miss_is_exactly_zero_at_return": true,
+      "arithmetic": "exact a + b*phi forms; equality is ==, no tolerance"
+     },
+     {
+      "turns_of_36_deg": [
+       3,
+       7
+      ],
+      "set_return_step": 10,
+      "point_return_step": 10,
+      "miss_squared_of_first_point_per_step": [
+       [
+        [
+         2,
+         1
+        ],
+        [
+         2,
+         1
+        ]
+       ],
+       [
+        [
+         4,
+         1
+        ],
+        [
+         2,
+         1
+        ]
+       ],
+       [
+        [
+         4,
+         1
+        ],
+        [
+         -2,
+         1
+        ]
+       ],
+       [
+        [
+         6,
+         1
+        ],
+        [
+         -2,
+         1
+        ]
+       ],
+       [
+        [
+         8,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         6,
+         1
+        ],
+        [
+         -2,
+         1
+        ]
+       ],
+       [
+        [
+         4,
+         1
+        ],
+        [
+         -2,
+         1
+        ]
+       ],
+       [
+        [
+         4,
+         1
+        ],
+        [
+         2,
+         1
+        ]
+       ],
+       [
+        [
+         2,
+         1
+        ],
+        [
+         2,
+         1
+        ]
+       ],
+       [
+        [
+         0,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ]
+      ],
+      "miss_is_exactly_zero_at_return": true,
+      "arithmetic": "exact a + b*phi forms; equality is ==, no tolerance"
+     }
+    ]
+   },
+   "duoprism_5_5": {
+    "n_points": 25,
+    "closures": [
+     {
+      "turns_of_36_deg": [
+       2,
+       4
+      ],
+      "set_return_step": 1,
+      "point_return_step": 5,
+      "miss_squared_of_first_point_per_step": [
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         0,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ]
+      ],
+      "miss_is_exactly_zero_at_return": true,
+      "arithmetic": "exact a + b*phi forms; equality is ==, no tolerance"
+     },
+     {
+      "turns_of_36_deg": [
+       1,
+       3
+      ],
+      "set_return_step": 2,
+      "point_return_step": 10,
+      "miss_squared_of_first_point_per_step": [
+       [
+        [
+         3,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         3,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         8,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         3,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         3,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         0,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ]
+      ],
+      "miss_is_exactly_zero_at_return": true,
+      "arithmetic": "exact a + b*phi forms; equality is ==, no tolerance"
+     }
+    ]
+   },
+   "limit": "turns by multiples of 36 degrees only; an irrational ratio cannot be written in these forms, so the exact part reads rational turns only"
+  }
+ },
+ "angles": {
+  "4:1,2": [
+   90.0,
+   180.0
+  ],
+  "5:1,2": [
+   72.0,
+   144.0
+  ],
+  "8:1,3": [
+   45.0,
+   135.0
+  ],
+  "30:1,11": [
+   12.0,
+   132.0
+  ],
+  "30:7,13": [
+   84.0,
+   156.0
+  ]
+ },
+ "human_interest": null,
+ "ai_interest": null,
+ "compressibility": {
+  "definition": "one letter per ratio in the sweep: c closes within the steps run, o does not; shape by shape",
+  "n": 14,
+  "phrases": 3,
+  "zlib_ratio": 1.0
+ },
+ "nature_match": null,
+ "divergence_note": null
+}
