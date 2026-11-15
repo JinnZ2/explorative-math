@@ -156,6 +156,9 @@ experiments/
                              probes vs baseline, random controls; plane, sphere, exact; --small
   complement_fit.py       ac fit of a probe shape in a baseline's complement (residual gap),
                              pairs and triples, and the same under a field gradient; --small
+  complement_fit_v2.py    ad fit at an equal point budget; points that respond to the field
+                             (hexsheet relaxation) before fitting; sphere rotations searched
+                             and joined sets set beside a catalogue; --small (full ~30 s)
   exact_inflation.py      s  Fibonacci / pentagon / Penrose inflation in exact forms:
                              two constructions per level must be EQUAL; --small
   field_response.py       t  hexagonal sheet under a gradient field + uniform control;
@@ -201,7 +204,7 @@ python3 experiments/<name>.py                  # writes runs/<name>_seed<k>.json
 python3 experiments/layered_pursuit.py --small # phone bound -> runs/<name>_small_seed<k>; also anchor_generate,
                                                # constrained_generate, pairing_reread, anchor_selection,
                                                # fold_loop, fold_shape, combine, collapse_gap,
-                                               # complement_fit,
+                                               # complement_fit, complement_fit_v2,
                                                # exact_inflation,
                                                # field_response, field_adaptation
 python3 -m toolkit.generator 0 1 2             # writes runs/generated_seed<k>.json
