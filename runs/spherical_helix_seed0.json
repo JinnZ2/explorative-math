@@ -1,0 +1,599 @@
+{
+ "params": {
+  "sources": [
+   "runs/corkscrew6_seed0.json",
+   "runs/corkscrew_seed0.json",
+   "runs/coxeter_exponents_seed0.json"
+  ],
+  "status_before_run": "PROPOSED",
+  "seed": 0
+ },
+ "outputs": {
+  "bound": {
+   "seed": 0,
+   "tol": 1e-09,
+   "vertices": "rebuilt from the logged turns and radius shares",
+   "flat_turns": "unit roots of the bracket of REFERENCES R5 for n = simplex vertex count, found by scanning and bisection",
+   "hinge_angle": "between the two apexes' heights above the shared facet",
+   "only_these_chains": "the four with no Coxeter match, and the 30-ring"
+  },
+  "ring_reference": {
+   "chain": "4D tetrahedra N=30 (1, 11): the 30-ring",
+   "n_to_close": 30,
+   "turns": [
+    1,
+    11
+   ],
+   "turn_deg": [
+    12.0,
+    132.0
+   ],
+   "radius_squared_shares": [
+    0.8973272361458826,
+    0.10267276385411739
+   ],
+   "simplex_m": 3,
+   "simplex_vertices": 4,
+   "ambient_dimension": 4,
+   "points_span_dimension": 4,
+   "sphere_dimension": 3,
+   "sphere_dimension_minus_simplex_dimension": 0,
+   "all_on_one_sphere": true,
+   "n_distinct_vertices": 30,
+   "every_window_is_a_regular_simplex": true,
+   "windows_checked": 30,
+   "largest_relative_edge_spread": 4.6705843312341645e-15,
+   "edge_over_radius": 0.618033988749896,
+   "distance_by_step_gap": [
+    0.618033988749896,
+    0.6180339887498957,
+    0.6180339887498947,
+    1.0000000000000007,
+    1.0
+   ],
+   "next_vertex_is_at_the_edge_distance": false,
+   "step_is_one_isometry": true,
+   "step_map": "the same rotation for every k: turns 12.0000, 132.0000 degrees in two orthogonal planes",
+   "step_largest_error": 2.8750810982144516e-15,
+   "step_has_a_translation": false,
+   "n_steps_return_to_start": true,
+   "consecutive_simplices_share_a_facet_of": 3,
+   "hinge_angle_deg": {
+    "min": 164.47751218592987,
+    "max": 164.47751218592995,
+    "same_at_every_facet": true
+   },
+   "flat_helix_same_n": {
+    "n": 4,
+    "coefficients": [
+     3,
+     4,
+     3
+    ],
+    "turns_deg": [
+     131.81031489577862
+    ],
+    "n_turns_expected": 1
+   },
+   "chain_turns_beside_flat_turns": [
+    {
+     "flat_turn_deg": 131.81031489577862,
+     "nearest_chain_turn_deg": 132.0,
+     "difference_deg": 0.18968510422138252
+    }
+   ],
+   "chain_turns_left_over_deg": [
+    12.0
+   ]
+  },
+  "survivors": [
+   {
+    "chain": "6D 5-cells N=18 (1, 5, 8)",
+    "n_to_close": 18,
+    "turns": [
+     1,
+     5,
+     8
+    ],
+    "turn_deg": [
+     20.0,
+     100.0,
+     160.0
+    ],
+    "radius_squared_shares": [
+     0.5685790213016287,
+     0.2577728010314408,
+     0.17364817766693047
+    ],
+    "simplex_m": 4,
+    "simplex_vertices": 5,
+    "ambient_dimension": 6,
+    "points_span_dimension": 6,
+    "sphere_dimension": 5,
+    "sphere_dimension_minus_simplex_dimension": 1,
+    "all_on_one_sphere": true,
+    "n_distinct_vertices": 18,
+    "every_window_is_a_regular_simplex": true,
+    "windows_checked": 18,
+    "largest_relative_edge_spread": 1.5303777573631871e-15,
+    "edge_over_radius": 1.1607309573427689,
+    "distance_by_step_gap": [
+     1.1607309573427689,
+     1.1607309573427689,
+     1.1607309573427689,
+     1.1607309573427689,
+     1.5912538723402863,
+     1.7320508075688774
+    ],
+    "next_vertex_is_at_the_edge_distance": false,
+    "step_is_one_isometry": true,
+    "step_map": "the same rotation for every k: turns 20.0000, 100.0000, 160.0000 degrees in three orthogonal planes",
+    "step_largest_error": 1.8916600742922826e-15,
+    "step_has_a_translation": false,
+    "n_steps_return_to_start": true,
+    "consecutive_simplices_share_a_facet_of": 4,
+    "hinge_angle_deg": {
+     "min": 120.23237288987886,
+     "max": 120.23237288987914,
+     "same_at_every_facet": true
+    },
+    "flat_helix_same_n": {
+     "n": 5,
+     "coefficients": [
+      4,
+      6,
+      6,
+      4
+     ],
+     "turns_deg": [
+      104.47751218592994,
+      180.0
+     ],
+     "n_turns_expected": 2
+    },
+    "chain_turns_beside_flat_turns": [
+     {
+      "flat_turn_deg": 104.47751218592994,
+      "nearest_chain_turn_deg": 100.0,
+      "difference_deg": -4.477512185929939
+     },
+     {
+      "flat_turn_deg": 180.0,
+      "nearest_chain_turn_deg": 160.0,
+      "difference_deg": -20.0
+     }
+    ],
+    "chain_turns_left_over_deg": [
+     20.0
+    ]
+   },
+   {
+    "chain": "6D 5-cells N=24 (1, 7, 12)",
+    "n_to_close": 24,
+    "turns": [
+     1,
+     7,
+     12
+    ],
+    "turn_deg": [
+     15.0,
+     105.0,
+     180.0
+    ],
+    "radius_squared_shares": [
+     0.7146687612194447,
+     0.19149491742450106,
+     0.09383632135605427
+    ],
+    "simplex_m": 4,
+    "simplex_vertices": 5,
+    "ambient_dimension": 6,
+    "points_span_dimension": 5,
+    "sphere_dimension": 5,
+    "sphere_dimension_minus_simplex_dimension": 1,
+    "all_on_one_sphere": true,
+    "n_distinct_vertices": 24,
+    "every_window_is_a_regular_simplex": true,
+    "windows_checked": 24,
+    "largest_relative_edge_spread": 2.099323704489636e-15,
+    "edge_over_radius": 0.9519262989559356,
+    "distance_by_step_gap": [
+     0.9519262989559356,
+     0.951926298955936,
+     0.9519262989559357,
+     0.9519262989559356,
+     1.4790783085124697,
+     1.34622708236311
+    ],
+    "next_vertex_is_at_the_edge_distance": false,
+    "step_is_one_isometry": true,
+    "step_map": "the same rotation for every k: turns 15.0000, 105.0000, 180.0000 degrees in three orthogonal planes",
+    "step_largest_error": 3.6662560989862795e-15,
+    "step_has_a_translation": false,
+    "n_steps_return_to_start": true,
+    "consecutive_simplices_share_a_facet_of": 4,
+    "hinge_angle_deg": {
+     "min": 158.6495237050641,
+     "max": 158.64952370506415,
+     "same_at_every_facet": true
+    },
+    "flat_helix_same_n": {
+     "n": 5,
+     "coefficients": [
+      4,
+      6,
+      6,
+      4
+     ],
+     "turns_deg": [
+      104.47751218592994,
+      180.0
+     ],
+     "n_turns_expected": 2
+    },
+    "chain_turns_beside_flat_turns": [
+     {
+      "flat_turn_deg": 104.47751218592994,
+      "nearest_chain_turn_deg": 105.0,
+      "difference_deg": 0.5224878140700611
+     },
+     {
+      "flat_turn_deg": 180.0,
+      "nearest_chain_turn_deg": 180.0,
+      "difference_deg": 0.0
+     }
+    ],
+    "chain_turns_left_over_deg": [
+     15.0
+    ]
+   },
+   {
+    "chain": "6D 5-cells N=28 (1, 8, 13)",
+    "n_to_close": 28,
+    "turns": [
+     1,
+     8,
+     13
+    ],
+    "turn_deg": [
+     12.857142857142858,
+     102.85714285714286,
+     167.14285714285714
+    ],
+    "radius_squared_shares": [
+     0.760340892168185,
+     0.153989264184952,
+     0.08566984364686298
+    ],
+    "simplex_m": 4,
+    "simplex_vertices": 5,
+    "ambient_dimension": 6,
+    "points_span_dimension": 6,
+    "sphere_dimension": 5,
+    "sphere_dimension_minus_simplex_dimension": 1,
+    "all_on_one_sphere": true,
+    "n_distinct_vertices": 28,
+    "every_window_is_a_regular_simplex": true,
+    "windows_checked": 28,
+    "largest_relative_edge_spread": 4.733785598266096e-15,
+    "edge_over_radius": 0.8677674782351167,
+    "distance_by_step_gap": [
+     0.8677674782351167,
+     0.8677674782351161,
+     0.8677674782351167,
+     0.867767478235116,
+     1.3007772567315652,
+     1.3007772567315652
+    ],
+    "next_vertex_is_at_the_edge_distance": false,
+    "step_is_one_isometry": true,
+    "step_map": "the same rotation for every k: turns 12.8571, 102.8571, 167.1429 degrees in three orthogonal planes",
+    "step_largest_error": 3.797744676539924e-15,
+    "step_has_a_translation": false,
+    "n_steps_return_to_start": true,
+    "consecutive_simplices_share_a_facet_of": 4,
+    "hinge_angle_deg": {
+     "min": 142.89997664779654,
+     "max": 142.899976647797,
+     "same_at_every_facet": true
+    },
+    "flat_helix_same_n": {
+     "n": 5,
+     "coefficients": [
+      4,
+      6,
+      6,
+      4
+     ],
+     "turns_deg": [
+      104.47751218592994,
+      180.0
+     ],
+     "n_turns_expected": 2
+    },
+    "chain_turns_beside_flat_turns": [
+     {
+      "flat_turn_deg": 104.47751218592994,
+      "nearest_chain_turn_deg": 102.85714285714286,
+      "difference_deg": -1.6203693287870777
+     },
+     {
+      "flat_turn_deg": 180.0,
+      "nearest_chain_turn_deg": 167.14285714285714,
+      "difference_deg": -12.857142857142861
+     }
+    ],
+    "chain_turns_left_over_deg": [
+     12.857142857142858
+    ]
+   },
+   {
+    "chain": "6D 5-cells N=28 (5, 9, 12)",
+    "n_to_close": 28,
+    "turns": [
+     5,
+     9,
+     12
+    ],
+    "turn_deg": [
+     64.28571428571429,
+     115.71428571428571,
+     154.28571428571428
+    ],
+    "radius_squared_shares": [
+     0.4166496237913913,
+     0.2617983101547134,
+     0.32155206605389536
+    ],
+    "simplex_m": 4,
+    "simplex_vertices": 5,
+    "ambient_dimension": 6,
+    "points_span_dimension": 6,
+    "sphere_dimension": 5,
+    "sphere_dimension_minus_simplex_dimension": 1,
+    "all_on_one_sphere": true,
+    "n_distinct_vertices": 28,
+    "every_window_is_a_regular_simplex": true,
+    "windows_checked": 28,
+    "largest_relative_edge_spread": 3.2660656597980873e-15,
+    "edge_over_radius": 1.5636629649360596,
+    "distance_by_step_gap": [
+     1.5636629649360596,
+     1.5636629649360596,
+     1.5636629649360598,
+     1.5636629649360598,
+     1.1648587330196776,
+     1.164858733019678
+    ],
+    "next_vertex_is_at_the_edge_distance": false,
+    "step_is_one_isometry": true,
+    "step_map": "the same rotation for every k: turns 64.2857, 115.7143, 154.2857 degrees in three orthogonal planes",
+    "step_largest_error": 5.973642137053781e-15,
+    "step_has_a_translation": false,
+    "n_steps_return_to_start": true,
+    "consecutive_simplices_share_a_facet_of": 4,
+    "hinge_angle_deg": {
+     "min": 56.21807115804012,
+     "max": 56.21807115804034,
+     "same_at_every_facet": true
+    },
+    "flat_helix_same_n": {
+     "n": 5,
+     "coefficients": [
+      4,
+      6,
+      6,
+      4
+     ],
+     "turns_deg": [
+      104.47751218592994,
+      180.0
+     ],
+     "n_turns_expected": 2
+    },
+    "chain_turns_beside_flat_turns": [
+     {
+      "flat_turn_deg": 104.47751218592994,
+      "nearest_chain_turn_deg": 115.71428571428571,
+      "difference_deg": 11.23677352835577
+     },
+     {
+      "flat_turn_deg": 180.0,
+      "nearest_chain_turn_deg": 154.28571428571428,
+      "difference_deg": -25.714285714285722
+     }
+    ],
+    "chain_turns_left_over_deg": [
+     64.28571428571429
+    ]
+   }
+  ],
+  "side_by_side": [
+   {
+    "chain": "4D tetrahedra N=30 (1, 11): the 30-ring",
+    "simplex_m": 3,
+    "ambient_dimension": 4,
+    "sphere_dimension": 3,
+    "sphere_dimension_minus_simplex_dimension": 0,
+    "every_window_is_a_regular_simplex": true,
+    "step_is_one_isometry": true,
+    "step_has_a_translation": false,
+    "edge_over_radius": 0.618033988749896,
+    "consecutive_simplices_share_a_facet_of": 3,
+    "hinge_angle_deg": 164.47751218592987,
+    "flat_turns_deg": [
+     131.81031489577862
+    ],
+    "chain_turns_deg": [
+     12.0,
+     132.0
+    ],
+    "differences_from_flat_turns_deg": [
+     0.18968510422138252
+    ],
+    "turns_left_over_deg": [
+     12.0
+    ]
+   },
+   {
+    "chain": "6D 5-cells N=18 (1, 5, 8)",
+    "simplex_m": 4,
+    "ambient_dimension": 6,
+    "sphere_dimension": 5,
+    "sphere_dimension_minus_simplex_dimension": 1,
+    "every_window_is_a_regular_simplex": true,
+    "step_is_one_isometry": true,
+    "step_has_a_translation": false,
+    "edge_over_radius": 1.1607309573427689,
+    "consecutive_simplices_share_a_facet_of": 4,
+    "hinge_angle_deg": 120.23237288987886,
+    "flat_turns_deg": [
+     104.47751218592994,
+     180.0
+    ],
+    "chain_turns_deg": [
+     20.0,
+     100.0,
+     160.0
+    ],
+    "differences_from_flat_turns_deg": [
+     -4.477512185929939,
+     -20.0
+    ],
+    "turns_left_over_deg": [
+     20.0
+    ]
+   },
+   {
+    "chain": "6D 5-cells N=24 (1, 7, 12)",
+    "simplex_m": 4,
+    "ambient_dimension": 6,
+    "sphere_dimension": 5,
+    "sphere_dimension_minus_simplex_dimension": 1,
+    "every_window_is_a_regular_simplex": true,
+    "step_is_one_isometry": true,
+    "step_has_a_translation": false,
+    "edge_over_radius": 0.9519262989559356,
+    "consecutive_simplices_share_a_facet_of": 4,
+    "hinge_angle_deg": 158.6495237050641,
+    "flat_turns_deg": [
+     104.47751218592994,
+     180.0
+    ],
+    "chain_turns_deg": [
+     15.0,
+     105.0,
+     180.0
+    ],
+    "differences_from_flat_turns_deg": [
+     0.5224878140700611,
+     0.0
+    ],
+    "turns_left_over_deg": [
+     15.0
+    ]
+   },
+   {
+    "chain": "6D 5-cells N=28 (1, 8, 13)",
+    "simplex_m": 4,
+    "ambient_dimension": 6,
+    "sphere_dimension": 5,
+    "sphere_dimension_minus_simplex_dimension": 1,
+    "every_window_is_a_regular_simplex": true,
+    "step_is_one_isometry": true,
+    "step_has_a_translation": false,
+    "edge_over_radius": 0.8677674782351167,
+    "consecutive_simplices_share_a_facet_of": 4,
+    "hinge_angle_deg": 142.89997664779654,
+    "flat_turns_deg": [
+     104.47751218592994,
+     180.0
+    ],
+    "chain_turns_deg": [
+     12.857142857142858,
+     102.85714285714286,
+     167.14285714285714
+    ],
+    "differences_from_flat_turns_deg": [
+     -1.6203693287870777,
+     -12.857142857142861
+    ],
+    "turns_left_over_deg": [
+     12.857142857142858
+    ]
+   },
+   {
+    "chain": "6D 5-cells N=28 (5, 9, 12)",
+    "simplex_m": 4,
+    "ambient_dimension": 6,
+    "sphere_dimension": 5,
+    "sphere_dimension_minus_simplex_dimension": 1,
+    "every_window_is_a_regular_simplex": true,
+    "step_is_one_isometry": true,
+    "step_has_a_translation": false,
+    "edge_over_radius": 1.5636629649360596,
+    "consecutive_simplices_share_a_facet_of": 4,
+    "hinge_angle_deg": 56.21807115804012,
+    "flat_turns_deg": [
+     104.47751218592994,
+     180.0
+    ],
+    "chain_turns_deg": [
+     64.28571428571429,
+     115.71428571428571,
+     154.28571428571428
+    ],
+    "differences_from_flat_turns_deg": [
+     11.23677352835577,
+     -25.714285714285722
+    ],
+    "turns_left_over_deg": [
+     64.28571428571429
+    ]
+   }
+  ],
+  "summary": {
+   "survivors": 4,
+   "every_window_regular": 4,
+   "step_is_one_isometry": 4,
+   "ring_every_window_regular": true,
+   "ring_step_is_one_isometry": true
+  }
+ },
+ "angles": {
+  "4D tetrahedra N=30 (1, 11): the 30-ring": [
+   12.0,
+   132.0
+  ],
+  "6D 5-cells N=18 (1, 5, 8)": [
+   20.0,
+   100.0,
+   160.0
+  ],
+  "6D 5-cells N=24 (1, 7, 12)": [
+   15.0,
+   105.0,
+   180.0
+  ],
+  "6D 5-cells N=28 (1, 8, 13)": [
+   12.857142857142858,
+   102.85714285714286,
+   167.14285714285714
+  ],
+  "6D 5-cells N=28 (5, 9, 12)": [
+   64.28571428571429,
+   115.71428571428571,
+   154.28571428571428
+  ]
+ },
+ "human_interest": null,
+ "ai_interest": null,
+ "compressibility": {
+  "definition": "per survivor: regular windows y/n, then one isometry y/n",
+  "n": 8,
+  "phrases": 2,
+  "zlib_ratio": 1.375
+ },
+ "nature_match": null,
+ "divergence_note": null
+}
