@@ -107,6 +107,7 @@ toolkit/
   complement.py        read a shape from the space around it: polar-grid distance field,
                        the turns / mirrors that leave it unchanged, voids, angular gaps;
                        on the sphere, voids by a seeded hill climb
+  hull4.py             facets of the convex hull of points on a sphere in R^4, brute force
   generator.py         seed -> random pipeline (shape / cut / orbit) -> probes -> log
                        cut_weighted: asked for by name, never drawn, own run files
   loghook.py           log_run() and @logged: every run writes the schema,
@@ -159,6 +160,9 @@ experiments/
   complement_fit_v2.py    ad fit at an equal point budget; points that respond to the field
                              (hexsheet relaxation) before fitting; sphere rotations searched
                              and joined sets set beside a catalogue; --small (full ~30 s)
+  sphere_compounds.py     ae two 16-cells (searched, and built in exact fractions), two
+                             24-cells in dual position, and the hulls of two carried
+                             catalogue entries; --small
   exact_inflation.py      s  Fibonacci / pentagon / Penrose inflation in exact forms:
                              two constructions per level must be EQUAL; --small
   field_response.py       t  hexagonal sheet under a gradient field + uniform control;
@@ -204,7 +208,7 @@ python3 experiments/<name>.py                  # writes runs/<name>_seed<k>.json
 python3 experiments/layered_pursuit.py --small # phone bound -> runs/<name>_small_seed<k>; also anchor_generate,
                                                # constrained_generate, pairing_reread, anchor_selection,
                                                # fold_loop, fold_shape, combine, collapse_gap,
-                                               # complement_fit, complement_fit_v2,
+                                               # complement_fit, complement_fit_v2, sphere_compounds,
                                                # exact_inflation,
                                                # field_response, field_adaptation
 python3 -m toolkit.generator 0 1 2             # writes runs/generated_seed<k>.json

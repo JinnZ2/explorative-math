@@ -380,7 +380,10 @@ def catalogue():
     return {"5-cell": sim, "16-cell": cross, "tesseract": cube, "24-cell": c24,
             "rectified 5-cell": rect4,
             "5-cell + its negative (as built)": sim + [[-x for x in v] for v in sim],
-            "16-cell + tesseract (as built)": cross + cube}
+            "16-cell + tesseract (as built)": cross + cube,
+            # the 24-cell as built, with its dual position (the 16-cell and tesseract
+            # directions as built): 48 directions
+            "24-cell + its dual (as built)": c24 + cross + cube}
 
 
 def sphere_part(seed, pairs, rot_starts, void_starts, void_steps):

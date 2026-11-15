@@ -66,7 +66,8 @@ class Sphere(unittest.TestCase):
         self.assertEqual({k: len(v) for k, v in cat.items()},
                          {"5-cell": 5, "16-cell": 8, "tesseract": 16, "24-cell": 24,
                           "rectified 5-cell": 10, "5-cell + its negative (as built)": 10,
-                          "16-cell + tesseract (as built)": 24})
+                          "16-cell + tesseract (as built)": 24,
+                          "24-cell + its dual (as built)": 48})
         s = {k: V.signature(v) for k, v in cat.items()}
         self.assertTrue(V.same_signature(s["24-cell"], s["16-cell + tesseract (as built)"]))
         self.assertFalse(V.same_signature(s["rectified 5-cell"],
