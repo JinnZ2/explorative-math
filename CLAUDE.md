@@ -21,7 +21,7 @@ kept. The log is the product; no single result is.
 
 ```text
 license          CC0, everything
-python           stdlib only: math, itertools, random, fractions, statistics for
+python           stdlib only: math, itertools, random, fractions, numbers, statistics for
                  the maths; zlib for the compressibility probe; json, pathlib,
                  functools, gzip, unittest for I/O, the log hook and tests.
                  No numpy, no pip.
@@ -38,6 +38,10 @@ shape            keep shape: record the object as computed before any summary.
 bounds           any count / period / symmetry reading logs the instrument bound
                  it was read at (points, precision, probe step); unknown bound
                  = void, not omitted. See docs/resolution_leak.md.
+response         in field/, a cell's difference from the ideal is its RESPONSE to the
+                 local field, logged beside the field value; it is not called error.
+                 The toy is CONSTRUCTED: never describe its numbers as findings
+                 about a material.
 sampling         a "none found" / "largest seen" reading logs how samples were drawn
                  and how many, and whether the target is measure zero there.
 status tags      every claim is OBSERVED (computed here), DERIVED (follows from
@@ -71,6 +75,13 @@ Known related names, kept as pointers, not as a name for the method:
 emlib.py               shared: run-file writer (+ .json.gz for large runs), load_run,
                        run_files, schema check, LZ76 + zlib
                        compressibility (vector helpers re-exported from toolkit)
+exact/                 numbers with no floats: ZPhi (a + b*phi, a, b Fractions,
+                       phi^2 = phi + 1; add, mul, inverse, compare, conjugate),
+                       Cyc5 (plane points on fifth roots of unity), inflation
+                       (Fibonacci chain, pentagon, Penrose subdivision)
+field/                 hexsheet: CONSTRUCTED toy. Ideal hexagonal sheet (exact
+                       reference), a field over it, a local relaxation rule, and
+                       each cell's RESPONSE (never called error)
 toolkit/
   primitives.py        vectors, rotation in any (i, j) plane, projection, angles,
                        Gram-Schmidt, polytopes (simplex, hypercube, cross-polytope,
@@ -118,6 +129,10 @@ experiments/
                              recount of starts reaching h with those excluded
   constrained_generate.py r  anchor_generate with the anchor HELD (Gauss-Newton pull-back,
                              anchor residual < 1e-6); controls; --small (full run ~1 min)
+  exact_inflation.py      s  Fibonacci / pentagon / Penrose inflation in exact forms:
+                             two constructions per level must be EQUAL; --small
+  field_response.py       t  hexagonal sheet under a gradient field + uniform control;
+                             per-cell field value and response; --small
 runs/*.json            one file per run, schema below
 runs/*.json.gz         the same, gzipped, for a run above emlib.GZ_THRESHOLD bytes;
                        full content; read either form with emlib.load_run
@@ -154,7 +169,7 @@ reading it asks for.
 python3 -m unittest discover -s tests          # all tests
 python3 experiments/<name>.py                  # writes runs/<name>_seed<k>.json (or .json.gz)
 python3 experiments/layered_pursuit.py --small # phone bound -> runs/<name>_small_seed<k>; also anchor_generate,
-                                               # constrained_generate
+                                               # constrained_generate, exact_inflation, field_response
 python3 -m toolkit.generator 0 1 2             # writes runs/generated_seed<k>.json
 python3 -m toolkit.generator --pipeline cut_weighted 0 1 2   # runs/generated_cut_weighted_seed<k>.json
 python3 -m compare                             # cross-build comparison -> compare/runs/*.jsonl

@@ -1,0 +1,1306 @@
+{
+ "params": {
+  "small": false,
+  "levels": {
+   "fibonacci": 16,
+   "pentagon": 12,
+   "penrose": 10
+  },
+  "claim": "PROPOSED before the run: in exact a + b*phi forms an inflation repeats with zero drift; the two constructions of each level agree exactly, at every level.",
+  "status_before_run": "PROPOSED",
+  "seed": 0
+ },
+ "outputs": {
+  "claim": "PROPOSED before the run: in exact a + b*phi forms an inflation repeats with zero drift; the two constructions of each level agree exactly, at every level.",
+  "bound": {
+   "levels": {
+    "fibonacci": 16,
+    "pentagon": 12,
+    "penrose": 10
+   },
+   "arithmetic": "fractions.Fraction pairs (a, b) for a + b*phi; points u + v*w with w^2 = -(2 + phi); equality is ==, no tolerance",
+   "float_contrast": "binary float (64-bit), Fibonacci check only"
+  },
+  "fibonacci": {
+   "levels": 16,
+   "tile_lengths": {
+    "L": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      1
+     ]
+    ],
+    "S": [
+     [
+      1,
+      1
+     ],
+     [
+      0,
+      1
+     ]
+    ]
+   },
+   "rows": [
+    {
+     "level": 1,
+     "n_tiles": 2,
+     "count_L": 1,
+     "count_S": 1,
+     "words_equal": true,
+     "positions_equal": true,
+     "n_position_mismatches": 0,
+     "total_length": [
+      [
+       1,
+       1
+      ],
+      [
+       1,
+       1
+      ]
+     ],
+     "total_length_equals_phi_power": true,
+     "float_contrast_max_abs_difference": 0.0,
+     "float_contrast_n_unequal": 0
+    },
+    {
+     "level": 2,
+     "n_tiles": 3,
+     "count_L": 2,
+     "count_S": 1,
+     "words_equal": true,
+     "positions_equal": true,
+     "n_position_mismatches": 0,
+     "total_length": [
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       1
+      ]
+     ],
+     "total_length_equals_phi_power": true,
+     "float_contrast_max_abs_difference": 0.0,
+     "float_contrast_n_unequal": 0
+    },
+    {
+     "level": 3,
+     "n_tiles": 5,
+     "count_L": 3,
+     "count_S": 2,
+     "words_equal": true,
+     "positions_equal": true,
+     "n_position_mismatches": 0,
+     "total_length": [
+      [
+       2,
+       1
+      ],
+      [
+       3,
+       1
+      ]
+     ],
+     "total_length_equals_phi_power": true,
+     "float_contrast_max_abs_difference": 0.0,
+     "float_contrast_n_unequal": 0
+    },
+    {
+     "level": 4,
+     "n_tiles": 8,
+     "count_L": 5,
+     "count_S": 3,
+     "words_equal": true,
+     "positions_equal": true,
+     "n_position_mismatches": 0,
+     "total_length": [
+      [
+       3,
+       1
+      ],
+      [
+       5,
+       1
+      ]
+     ],
+     "total_length_equals_phi_power": true,
+     "float_contrast_max_abs_difference": 0.0,
+     "float_contrast_n_unequal": 0
+    },
+    {
+     "level": 5,
+     "n_tiles": 13,
+     "count_L": 8,
+     "count_S": 5,
+     "words_equal": true,
+     "positions_equal": true,
+     "n_position_mismatches": 0,
+     "total_length": [
+      [
+       5,
+       1
+      ],
+      [
+       8,
+       1
+      ]
+     ],
+     "total_length_equals_phi_power": true,
+     "float_contrast_max_abs_difference": 0.0,
+     "float_contrast_n_unequal": 0
+    },
+    {
+     "level": 6,
+     "n_tiles": 21,
+     "count_L": 13,
+     "count_S": 8,
+     "words_equal": true,
+     "positions_equal": true,
+     "n_position_mismatches": 0,
+     "total_length": [
+      [
+       8,
+       1
+      ],
+      [
+       13,
+       1
+      ]
+     ],
+     "total_length_equals_phi_power": true,
+     "float_contrast_max_abs_difference": 1.0658141036401503e-14,
+     "float_contrast_n_unequal": 7
+    },
+    {
+     "level": 7,
+     "n_tiles": 34,
+     "count_L": 21,
+     "count_S": 13,
+     "words_equal": true,
+     "positions_equal": true,
+     "n_position_mismatches": 0,
+     "total_length": [
+      [
+       13,
+       1
+      ],
+      [
+       21,
+       1
+      ]
+     ],
+     "total_length_equals_phi_power": true,
+     "float_contrast_max_abs_difference": 2.842170943040401e-14,
+     "float_contrast_n_unequal": 20
+    },
+    {
+     "level": 8,
+     "n_tiles": 55,
+     "count_L": 34,
+     "count_S": 21,
+     "words_equal": true,
+     "positions_equal": true,
+     "n_position_mismatches": 0,
+     "total_length": [
+      [
+       21,
+       1
+      ],
+      [
+       34,
+       1
+      ]
+     ],
+     "total_length_equals_phi_power": true,
+     "float_contrast_max_abs_difference": 4.973799150320701e-14,
+     "float_contrast_n_unequal": 41
+    },
+    {
+     "level": 9,
+     "n_tiles": 89,
+     "count_L": 55,
+     "count_S": 34,
+     "words_equal": true,
+     "positions_equal": true,
+     "n_position_mismatches": 0,
+     "total_length": [
+      [
+       34,
+       1
+      ],
+      [
+       55,
+       1
+      ]
+     ],
+     "total_length_equals_phi_power": true,
+     "float_contrast_max_abs_difference": 8.526512829121202e-14,
+     "float_contrast_n_unequal": 74
+    },
+    {
+     "level": 10,
+     "n_tiles": 144,
+     "count_L": 89,
+     "count_S": 55,
+     "words_equal": true,
+     "positions_equal": true,
+     "n_position_mismatches": 0,
+     "total_length": [
+      [
+       55,
+       1
+      ],
+      [
+       89,
+       1
+      ]
+     ],
+     "total_length_equals_phi_power": true,
+     "float_contrast_max_abs_difference": 1.9895196601282805e-13,
+     "float_contrast_n_unequal": 124
+    },
+    {
+     "level": 11,
+     "n_tiles": 233,
+     "count_L": 144,
+     "count_S": 89,
+     "words_equal": true,
+     "positions_equal": true,
+     "n_position_mismatches": 0,
+     "total_length": [
+      [
+       89,
+       1
+      ],
+      [
+       144,
+       1
+      ]
+     ],
+     "total_length_equals_phi_power": true,
+     "float_contrast_max_abs_difference": 4.547473508864641e-13,
+     "float_contrast_n_unequal": 211
+    },
+    {
+     "level": 12,
+     "n_tiles": 377,
+     "count_L": 233,
+     "count_S": 144,
+     "words_equal": true,
+     "positions_equal": true,
+     "n_position_mismatches": 0,
+     "total_length": [
+      [
+       144,
+       1
+      ],
+      [
+       233,
+       1
+      ]
+     ],
+     "total_length_equals_phi_power": true,
+     "float_contrast_max_abs_difference": 1.8189894035458565e-12,
+     "float_contrast_n_unequal": 355
+    },
+    {
+     "level": 13,
+     "n_tiles": 610,
+     "count_L": 377,
+     "count_S": 233,
+     "words_equal": true,
+     "positions_equal": true,
+     "n_position_mismatches": 0,
+     "total_length": [
+      [
+       233,
+       1
+      ],
+      [
+       377,
+       1
+      ]
+     ],
+     "total_length_equals_phi_power": true,
+     "float_contrast_max_abs_difference": 3.865352482534945e-12,
+     "float_contrast_n_unequal": 579
+    },
+    {
+     "level": 14,
+     "n_tiles": 987,
+     "count_L": 610,
+     "count_S": 377,
+     "words_equal": true,
+     "positions_equal": true,
+     "n_position_mismatches": 0,
+     "total_length": [
+      [
+       377,
+       1
+      ],
+      [
+       610,
+       1
+      ]
+     ],
+     "total_length_equals_phi_power": true,
+     "float_contrast_max_abs_difference": 1.2732925824820995e-11,
+     "float_contrast_n_unequal": 956
+    },
+    {
+     "level": 15,
+     "n_tiles": 1597,
+     "count_L": 987,
+     "count_S": 610,
+     "words_equal": true,
+     "positions_equal": true,
+     "n_position_mismatches": 0,
+     "total_length": [
+      [
+       610,
+       1
+      ],
+      [
+       987,
+       1
+      ]
+     ],
+     "total_length_equals_phi_power": true,
+     "float_contrast_max_abs_difference": 2.5011104298755527e-11,
+     "float_contrast_n_unequal": 1566
+    },
+    {
+     "level": 16,
+     "n_tiles": 2584,
+     "count_L": 1597,
+     "count_S": 987,
+     "words_equal": true,
+     "positions_equal": true,
+     "n_position_mismatches": 0,
+     "total_length": [
+      [
+       987,
+       1
+      ],
+      [
+       1597,
+       1
+      ]
+     ],
+     "total_length_equals_phi_power": true,
+     "float_contrast_max_abs_difference": 1.0459189070388675e-10,
+     "float_contrast_n_unequal": 2551
+    }
+   ],
+   "zero_drift": true,
+   "final_word_head": "LSLLSLSLLSLLSLSLLSLSLLSLLSLSLLSLLSLSLLSLSLLSLLSLSLLSLSLLSLLSLSLL",
+   "final_positions_head": [
+    [
+     [
+      0,
+      1
+     ],
+     [
+      0,
+      1
+     ]
+    ],
+    [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      1
+     ]
+    ],
+    [
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      1
+     ]
+    ],
+    [
+     [
+      1,
+      1
+     ],
+     [
+      2,
+      1
+     ]
+    ],
+    [
+     [
+      1,
+      1
+     ],
+     [
+      3,
+      1
+     ]
+    ],
+    [
+     [
+      2,
+      1
+     ],
+     [
+      3,
+      1
+     ]
+    ],
+    [
+     [
+      2,
+      1
+     ],
+     [
+      4,
+      1
+     ]
+    ],
+    [
+     [
+      3,
+      1
+     ],
+     [
+      4,
+      1
+     ]
+    ]
+   ]
+  },
+  "pentagon": {
+   "levels": 12,
+   "rows": [
+    {
+     "level": 0,
+     "scale": [
+      [
+       1,
+       1
+      ],
+      [
+       0,
+       1
+      ]
+     ],
+     "diagonals_through_each_inner_vertex": [
+      2,
+      2,
+      2,
+      2,
+      2
+     ],
+     "every_inner_vertex_on_two_diagonals": true,
+     "diag2_over_side2_is_phi2": true,
+     "side2": [
+      [
+       3,
+       1
+      ],
+      [
+       -1,
+       1
+      ]
+     ],
+     "side2_ratio_to_next_is_phi4": true,
+     "vertex_sum_is_zero": true
+    },
+    {
+     "level": 1,
+     "scale": [
+      [
+       -2,
+       1
+      ],
+      [
+       1,
+       1
+      ]
+     ],
+     "diagonals_through_each_inner_vertex": [
+      2,
+      2,
+      2,
+      2,
+      2
+     ],
+     "every_inner_vertex_on_two_diagonals": true,
+     "diag2_over_side2_is_phi2": true,
+     "side2": [
+      [
+       18,
+       1
+      ],
+      [
+       -11,
+       1
+      ]
+     ],
+     "side2_ratio_to_next_is_phi4": true,
+     "vertex_sum_is_zero": true
+    },
+    {
+     "level": 2,
+     "scale": [
+      [
+       5,
+       1
+      ],
+      [
+       -3,
+       1
+      ]
+     ],
+     "diagonals_through_each_inner_vertex": [
+      2,
+      2,
+      2,
+      2,
+      2
+     ],
+     "every_inner_vertex_on_two_diagonals": true,
+     "diag2_over_side2_is_phi2": true,
+     "side2": [
+      [
+       123,
+       1
+      ],
+      [
+       -76,
+       1
+      ]
+     ],
+     "side2_ratio_to_next_is_phi4": true,
+     "vertex_sum_is_zero": true
+    },
+    {
+     "level": 3,
+     "scale": [
+      [
+       -13,
+       1
+      ],
+      [
+       8,
+       1
+      ]
+     ],
+     "diagonals_through_each_inner_vertex": [
+      2,
+      2,
+      2,
+      2,
+      2
+     ],
+     "every_inner_vertex_on_two_diagonals": true,
+     "diag2_over_side2_is_phi2": true,
+     "side2": [
+      [
+       843,
+       1
+      ],
+      [
+       -521,
+       1
+      ]
+     ],
+     "side2_ratio_to_next_is_phi4": true,
+     "vertex_sum_is_zero": true
+    },
+    {
+     "level": 4,
+     "scale": [
+      [
+       34,
+       1
+      ],
+      [
+       -21,
+       1
+      ]
+     ],
+     "diagonals_through_each_inner_vertex": [
+      2,
+      2,
+      2,
+      2,
+      2
+     ],
+     "every_inner_vertex_on_two_diagonals": true,
+     "diag2_over_side2_is_phi2": true,
+     "side2": [
+      [
+       5778,
+       1
+      ],
+      [
+       -3571,
+       1
+      ]
+     ],
+     "side2_ratio_to_next_is_phi4": true,
+     "vertex_sum_is_zero": true
+    },
+    {
+     "level": 5,
+     "scale": [
+      [
+       -89,
+       1
+      ],
+      [
+       55,
+       1
+      ]
+     ],
+     "diagonals_through_each_inner_vertex": [
+      2,
+      2,
+      2,
+      2,
+      2
+     ],
+     "every_inner_vertex_on_two_diagonals": true,
+     "diag2_over_side2_is_phi2": true,
+     "side2": [
+      [
+       39603,
+       1
+      ],
+      [
+       -24476,
+       1
+      ]
+     ],
+     "side2_ratio_to_next_is_phi4": true,
+     "vertex_sum_is_zero": true
+    },
+    {
+     "level": 6,
+     "scale": [
+      [
+       233,
+       1
+      ],
+      [
+       -144,
+       1
+      ]
+     ],
+     "diagonals_through_each_inner_vertex": [
+      2,
+      2,
+      2,
+      2,
+      2
+     ],
+     "every_inner_vertex_on_two_diagonals": true,
+     "diag2_over_side2_is_phi2": true,
+     "side2": [
+      [
+       271443,
+       1
+      ],
+      [
+       -167761,
+       1
+      ]
+     ],
+     "side2_ratio_to_next_is_phi4": true,
+     "vertex_sum_is_zero": true
+    },
+    {
+     "level": 7,
+     "scale": [
+      [
+       -610,
+       1
+      ],
+      [
+       377,
+       1
+      ]
+     ],
+     "diagonals_through_each_inner_vertex": [
+      2,
+      2,
+      2,
+      2,
+      2
+     ],
+     "every_inner_vertex_on_two_diagonals": true,
+     "diag2_over_side2_is_phi2": true,
+     "side2": [
+      [
+       1860498,
+       1
+      ],
+      [
+       -1149851,
+       1
+      ]
+     ],
+     "side2_ratio_to_next_is_phi4": true,
+     "vertex_sum_is_zero": true
+    },
+    {
+     "level": 8,
+     "scale": [
+      [
+       1597,
+       1
+      ],
+      [
+       -987,
+       1
+      ]
+     ],
+     "diagonals_through_each_inner_vertex": [
+      2,
+      2,
+      2,
+      2,
+      2
+     ],
+     "every_inner_vertex_on_two_diagonals": true,
+     "diag2_over_side2_is_phi2": true,
+     "side2": [
+      [
+       12752043,
+       1
+      ],
+      [
+       -7881196,
+       1
+      ]
+     ],
+     "side2_ratio_to_next_is_phi4": true,
+     "vertex_sum_is_zero": true
+    },
+    {
+     "level": 9,
+     "scale": [
+      [
+       -4181,
+       1
+      ],
+      [
+       2584,
+       1
+      ]
+     ],
+     "diagonals_through_each_inner_vertex": [
+      2,
+      2,
+      2,
+      2,
+      2
+     ],
+     "every_inner_vertex_on_two_diagonals": true,
+     "diag2_over_side2_is_phi2": true,
+     "side2": [
+      [
+       87403803,
+       1
+      ],
+      [
+       -54018521,
+       1
+      ]
+     ],
+     "side2_ratio_to_next_is_phi4": true,
+     "vertex_sum_is_zero": true
+    },
+    {
+     "level": 10,
+     "scale": [
+      [
+       10946,
+       1
+      ],
+      [
+       -6765,
+       1
+      ]
+     ],
+     "diagonals_through_each_inner_vertex": [
+      2,
+      2,
+      2,
+      2,
+      2
+     ],
+     "every_inner_vertex_on_two_diagonals": true,
+     "diag2_over_side2_is_phi2": true,
+     "side2": [
+      [
+       599074578,
+       1
+      ],
+      [
+       -370248451,
+       1
+      ]
+     ],
+     "side2_ratio_to_next_is_phi4": true,
+     "vertex_sum_is_zero": true
+    },
+    {
+     "level": 11,
+     "scale": [
+      [
+       -28657,
+       1
+      ],
+      [
+       17711,
+       1
+      ]
+     ],
+     "diagonals_through_each_inner_vertex": [
+      2,
+      2,
+      2,
+      2,
+      2
+     ],
+     "every_inner_vertex_on_two_diagonals": true,
+     "diag2_over_side2_is_phi2": true,
+     "side2": [
+      [
+       4106118243,
+       1
+      ],
+      [
+       -2537720636,
+       1
+      ]
+     ],
+     "side2_ratio_to_next_is_phi4": true,
+     "vertex_sum_is_zero": true
+    },
+    {
+     "level": 12,
+     "scale": [
+      [
+       75025,
+       1
+      ],
+      [
+       -46368,
+       1
+      ]
+     ],
+     "diagonals_through_each_inner_vertex": [
+      2,
+      2,
+      2,
+      2,
+      2
+     ],
+     "every_inner_vertex_on_two_diagonals": true,
+     "diag2_over_side2_is_phi2": true,
+     "side2": [
+      [
+       28143753123,
+       1
+      ],
+      [
+       -17393796001,
+       1
+      ]
+     ],
+     "side2_ratio_to_next_is_phi4": true,
+     "vertex_sum_is_zero": true
+    }
+   ],
+   "zero_drift": true
+  },
+  "penrose": {
+   "levels": 10,
+   "seed_triangle": [
+    [
+     [
+      [
+       0,
+       1
+      ],
+      [
+       0,
+       1
+      ]
+     ],
+     [
+      [
+       0,
+       1
+      ],
+      [
+       0,
+       1
+      ]
+     ]
+    ],
+    [
+     [
+      [
+       1,
+       1
+      ],
+      [
+       0,
+       1
+      ]
+     ],
+     [
+      [
+       0,
+       1
+      ],
+      [
+       0,
+       1
+      ]
+     ]
+    ],
+    [
+     [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ]
+     ],
+     [
+      [
+       -1,
+       2
+      ],
+      [
+       1,
+       2
+      ]
+     ]
+    ]
+   ],
+   "rows": [
+    {
+     "level": 0,
+     "n_triangles": 1,
+     "n_acute": 1,
+     "n_obtuse": 0,
+     "counts_follow_recurrence": true,
+     "area_over_w": [
+      [
+       -1,
+       4
+      ],
+      [
+       1,
+       4
+      ]
+     ],
+     "area_conserved_exactly": true,
+     "n_distinct_squared_edge_lengths": 2,
+     "squared_edge_lengths_as_phi_powers": [
+      -2,
+      0
+     ],
+     "every_squared_edge_is_a_phi_power": true,
+     "n_distinct_vertices_exact": 3
+    },
+    {
+     "level": 1,
+     "n_triangles": 2,
+     "n_acute": 1,
+     "n_obtuse": 1,
+     "counts_follow_recurrence": true,
+     "area_over_w": [
+      [
+       -1,
+       4
+      ],
+      [
+       1,
+       4
+      ]
+     ],
+     "area_conserved_exactly": true,
+     "n_distinct_squared_edge_lengths": 3,
+     "squared_edge_lengths_as_phi_powers": [
+      -4,
+      -2,
+      0
+     ],
+     "every_squared_edge_is_a_phi_power": true,
+     "n_distinct_vertices_exact": 4
+    },
+    {
+     "level": 2,
+     "n_triangles": 5,
+     "n_acute": 2,
+     "n_obtuse": 3,
+     "counts_follow_recurrence": true,
+     "area_over_w": [
+      [
+       -1,
+       4
+      ],
+      [
+       1,
+       4
+      ]
+     ],
+     "area_conserved_exactly": true,
+     "n_distinct_squared_edge_lengths": 3,
+     "squared_edge_lengths_as_phi_powers": [
+      -6,
+      -4,
+      -2
+     ],
+     "every_squared_edge_is_a_phi_power": true,
+     "n_distinct_vertices_exact": 6
+    },
+    {
+     "level": 3,
+     "n_triangles": 13,
+     "n_acute": 5,
+     "n_obtuse": 8,
+     "counts_follow_recurrence": true,
+     "area_over_w": [
+      [
+       -1,
+       4
+      ],
+      [
+       1,
+       4
+      ]
+     ],
+     "area_conserved_exactly": true,
+     "n_distinct_squared_edge_lengths": 3,
+     "squared_edge_lengths_as_phi_powers": [
+      -8,
+      -6,
+      -4
+     ],
+     "every_squared_edge_is_a_phi_power": true,
+     "n_distinct_vertices_exact": 12
+    },
+    {
+     "level": 4,
+     "n_triangles": 34,
+     "n_acute": 13,
+     "n_obtuse": 21,
+     "counts_follow_recurrence": true,
+     "area_over_w": [
+      [
+       -1,
+       4
+      ],
+      [
+       1,
+       4
+      ]
+     ],
+     "area_conserved_exactly": true,
+     "n_distinct_squared_edge_lengths": 3,
+     "squared_edge_lengths_as_phi_powers": [
+      -10,
+      -8,
+      -6
+     ],
+     "every_squared_edge_is_a_phi_power": true,
+     "n_distinct_vertices_exact": 26
+    },
+    {
+     "level": 5,
+     "n_triangles": 89,
+     "n_acute": 34,
+     "n_obtuse": 55,
+     "counts_follow_recurrence": true,
+     "area_over_w": [
+      [
+       -1,
+       4
+      ],
+      [
+       1,
+       4
+      ]
+     ],
+     "area_conserved_exactly": true,
+     "n_distinct_squared_edge_lengths": 3,
+     "squared_edge_lengths_as_phi_powers": [
+      -12,
+      -10,
+      -8
+     ],
+     "every_squared_edge_is_a_phi_power": true,
+     "n_distinct_vertices_exact": 58
+    },
+    {
+     "level": 6,
+     "n_triangles": 233,
+     "n_acute": 89,
+     "n_obtuse": 144,
+     "counts_follow_recurrence": true,
+     "area_over_w": [
+      [
+       -1,
+       4
+      ],
+      [
+       1,
+       4
+      ]
+     ],
+     "area_conserved_exactly": true,
+     "n_distinct_squared_edge_lengths": 3,
+     "squared_edge_lengths_as_phi_powers": [
+      -14,
+      -12,
+      -10
+     ],
+     "every_squared_edge_is_a_phi_power": true,
+     "n_distinct_vertices_exact": 137
+    },
+    {
+     "level": 7,
+     "n_triangles": 610,
+     "n_acute": 233,
+     "n_obtuse": 377,
+     "counts_follow_recurrence": true,
+     "area_over_w": [
+      [
+       -1,
+       4
+      ],
+      [
+       1,
+       4
+      ]
+     ],
+     "area_conserved_exactly": true,
+     "n_distinct_squared_edge_lengths": 3,
+     "squared_edge_lengths_as_phi_powers": [
+      -16,
+      -14,
+      -12
+     ],
+     "every_squared_edge_is_a_phi_power": true,
+     "n_distinct_vertices_exact": 338
+    },
+    {
+     "level": 8,
+     "n_triangles": 1597,
+     "n_acute": 610,
+     "n_obtuse": 987,
+     "counts_follow_recurrence": true,
+     "area_over_w": [
+      [
+       -1,
+       4
+      ],
+      [
+       1,
+       4
+      ]
+     ],
+     "area_conserved_exactly": true,
+     "n_distinct_squared_edge_lengths": 3,
+     "squared_edge_lengths_as_phi_powers": [
+      -18,
+      -16,
+      -14
+     ],
+     "every_squared_edge_is_a_phi_power": true,
+     "n_distinct_vertices_exact": 852
+    },
+    {
+     "level": 9,
+     "n_triangles": 4181,
+     "n_acute": 1597,
+     "n_obtuse": 2584,
+     "counts_follow_recurrence": true,
+     "area_over_w": [
+      [
+       -1,
+       4
+      ],
+      [
+       1,
+       4
+      ]
+     ],
+     "area_conserved_exactly": true,
+     "n_distinct_squared_edge_lengths": 3,
+     "squared_edge_lengths_as_phi_powers": [
+      -20,
+      -18,
+      -16
+     ],
+     "every_squared_edge_is_a_phi_power": true,
+     "n_distinct_vertices_exact": 2176
+    },
+    {
+     "level": 10,
+     "n_triangles": 10946,
+     "n_acute": 4181,
+     "n_obtuse": 6765,
+     "counts_follow_recurrence": true,
+     "area_over_w": [
+      [
+       -1,
+       4
+      ],
+      [
+       1,
+       4
+      ]
+     ],
+     "area_conserved_exactly": true,
+     "n_distinct_squared_edge_lengths": 3,
+     "squared_edge_lengths_as_phi_powers": [
+      -22,
+      -20,
+      -18
+     ],
+     "every_squared_edge_is_a_phi_power": true,
+     "n_distinct_vertices_exact": 5610
+    }
+   ],
+   "zero_drift": true
+  }
+ },
+ "angles": null,
+ "human_interest": null,
+ "ai_interest": "OBSERVED, Fibonacci chain, 16 levels (last level 2584 tiles): positions from the two constructions equal at every level: True; position mismatches in total 0. Float contrast, largest difference between the same two constructions per level: first 0.000e+00, last 1.046e-10, unequal positions at the last level 2551 of 2585. OBSERVED, pentagon, 12 nested levels: every inner vertex on exactly two diagonals, diagonal^2 / side^2 = phi^2, side^2 ratio phi^4, at every level: True. OBSERVED, Penrose subdivision, 10 levels (last level 10946 triangles, 5610 distinct vertices by exact equality): area conserved exactly, counts on the recurrence, every squared edge a power of phi, at every level: True; distinct squared edge lengths at the last level 3. Claim logged before the reading: PROPOSED before the run: in exact a + b*phi forms an inflation repeats with zero drift; the two constructions of each level agree exactly, at every level. AI reading: not interpretable atm beyond these values.",
+ "compressibility": {
+  "definition": "Fibonacci word at the last level, letters L / S",
+  "n": 2584,
+  "phrases": 17,
+  "zlib_ratio": 0.02089783281733746
+ },
+ "nature_match": null,
+ "divergence_note": null
+}
