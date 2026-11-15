@@ -9,6 +9,9 @@ CC0. Co-authored. Stdlib only.
                        as growth; a finite sequence always has some period)
   zlib_ratio           compressed length / raw length of the byte encoding
   angle_histogram      counts of angles in fixed-width bins
+  three_gap_sum        for three gap lengths: is the longest the sum of the
+                       other two (three-distance theorem)? pass / fail, or
+                       not_applicable for any other count
 """
 import math
 import zlib
@@ -98,3 +101,20 @@ def angle_histogram(angles_deg, width=10.0, lo=0.0, hi=180.0):
 def polar_angles(points2d):
     c = P.centroid(points2d)
     return sorted(math.degrees(math.atan2(p[1] - c[1], p[0] - c[0])) % 360.0 for p in points2d)
+
+
+
+def three_gap_sum(lengths, tol=1e-6):
+    """Consistency check on a set of distinct gap lengths.
+
+    With exactly three lengths L1 <= L2 <= L3, the three-distance theorem
+    gives L3 = L1 + L2. Returns the verdict "pass" or "fail" with the
+    residual L3 - (L1 + L2). Any other count is "not_applicable" (residual
+    None): it is recorded, not treated as a pass or a fail."""
+    ls = sorted(float(x) for x in lengths)
+    if len(ls) != 3:
+        return {"n_lengths": len(ls), "verdict": "not_applicable", "residual": None,
+                "tol": tol}
+    r = ls[2] - (ls[0] + ls[1])
+    return {"n_lengths": 3, "verdict": "pass" if abs(r) <= tol else "fail",
+            "residual": r, "tol": tol}

@@ -1,0 +1,448 @@
+{
+ "params": {
+  "key": "distinct_gap_lengths",
+  "tol": 1e-06,
+  "runs_dir": "runs",
+  "seed": 0
+ },
+ "outputs": {
+  "rows": [
+   {
+    "run": "fibonacci_chain_seed0.json",
+    "where": "golden.distinct_gap_lengths",
+    "lengths": [
+     0.5257311121191334,
+     0.85065080835204
+    ],
+    "n_lengths": 2,
+    "verdict": "not_applicable",
+    "residual": null,
+    "tol": 1e-06
+   },
+   {
+    "run": "fibonacci_chain_seed0.json",
+    "where": "control_rational_1_2.distinct_gap_lengths",
+    "lengths": [
+     0.447213595499958,
+     0.8944271909999159
+    ],
+    "n_lengths": 2,
+    "verdict": "not_applicable",
+    "residual": null,
+    "tol": 1e-06
+   },
+   {
+    "run": "generated_cut_weighted_seed0.json",
+    "where": "levels[0].distinct_gap_lengths",
+    "lengths": [
+     0.6173162777550669,
+     0.786715077533556,
+     1.404031355288623
+    ],
+    "n_lengths": 3,
+    "verdict": "pass",
+    "residual": 2.220446049250313e-16,
+    "tol": 1e-06
+   },
+   {
+    "run": "generated_cut_weighted_seed0.json",
+    "where": "levels[1].distinct_gap_lengths",
+    "lengths": [
+     0.1693987997784891,
+     0.447917477976578,
+     0.6173162777550668
+    ],
+    "n_lengths": 3,
+    "verdict": "pass",
+    "residual": -3.3306690738754696e-16,
+    "tol": 1e-06
+   },
+   {
+    "run": "generated_cut_weighted_seed0.json",
+    "where": "levels[2].distinct_gap_lengths",
+    "lengths": [
+     0.16939879977848893,
+     0.4479174779765784,
+     0.6173162777550668
+    ],
+    "n_lengths": 3,
+    "verdict": "pass",
+    "residual": -5.551115123125783e-16,
+    "tol": 1e-06
+   },
+   {
+    "run": "generated_cut_weighted_seed0.json",
+    "where": "levels[3].distinct_gap_lengths",
+    "lengths": [
+     0.16939879977848898,
+     0.2785186781980889,
+     0.447917477976578
+    ],
+    "n_lengths": 3,
+    "verdict": "pass",
+    "residual": 1.1102230246251565e-16,
+    "tol": 1e-06
+   },
+   {
+    "run": "generated_cut_weighted_seed0.json",
+    "where": "levels[4].distinct_gap_lengths",
+    "lengths": [
+     0.06027892135888875,
+     0.1091198784196003,
+     0.16939879977848887
+    ],
+    "n_lengths": 3,
+    "verdict": "pass",
+    "residual": -1.6653345369377348e-16,
+    "tol": 1e-06
+   },
+   {
+    "run": "generated_cut_weighted_seed1.json",
+    "where": "levels[0].distinct_gap_lengths",
+    "lengths": [
+     0.9713129747505578,
+     1.2091177372790292
+    ],
+    "n_lengths": 2,
+    "verdict": "not_applicable",
+    "residual": null,
+    "tol": 1e-06
+   },
+   {
+    "run": "generated_cut_weighted_seed1.json",
+    "where": "levels[1].distinct_gap_lengths",
+    "lengths": [
+     0.2378047625284714,
+     0.7335082122220862,
+     0.9713129747505587
+    ],
+    "n_lengths": 3,
+    "verdict": "pass",
+    "residual": 1.1102230246251565e-15,
+    "tol": 1e-06
+   },
+   {
+    "run": "generated_cut_weighted_seed1.json",
+    "where": "levels[2].distinct_gap_lengths",
+    "lengths": [
+     0.23780476252847127,
+     0.49570344969361585,
+     0.7335082122220861
+    ],
+    "n_lengths": 3,
+    "verdict": "pass",
+    "residual": -9.992007221626409e-16,
+    "tol": 1e-06
+   },
+   {
+    "run": "generated_cut_weighted_seed1.json",
+    "where": "levels[3].distinct_gap_lengths",
+    "lengths": [
+     0.02009392463667298,
+     0.23780476252847124,
+     0.25789868716514364
+    ],
+    "n_lengths": 3,
+    "verdict": "pass",
+    "residual": -6.106226635438361e-16,
+    "tol": 1e-06
+   },
+   {
+    "run": "generated_cut_weighted_seed1.json",
+    "where": "levels[4].distinct_gap_lengths",
+    "lengths": [
+     0.020093924636672717,
+     0.21771083789179868,
+     0.23780476252847113
+    ],
+    "n_lengths": 3,
+    "verdict": "pass",
+    "residual": -2.7755575615628914e-16,
+    "tol": 1e-06
+   },
+   {
+    "run": "generated_cut_weighted_seed2.json",
+    "where": "levels[0].distinct_gap_lengths",
+    "lengths": [
+     0.5713993553180924,
+     0.8206721493642077,
+     1.3920715046822991
+    ],
+    "n_lengths": 3,
+    "verdict": "pass",
+    "residual": -8.881784197001252e-16,
+    "tol": 1e-06
+   },
+   {
+    "run": "generated_cut_weighted_seed2.json",
+    "where": "levels[1].distinct_gap_lengths",
+    "lengths": [
+     0.24927279404611516,
+     0.3221265612719771,
+     0.5713993553180925
+    ],
+    "n_lengths": 3,
+    "verdict": "pass",
+    "residual": 2.220446049250313e-16,
+    "tol": 1e-06
+   },
+   {
+    "run": "generated_cut_weighted_seed2.json",
+    "where": "levels[2].distinct_gap_lengths",
+    "lengths": [
+     0.24927279404611488,
+     0.32212656127197786,
+     0.5713993553180924
+    ],
+    "n_lengths": 3,
+    "verdict": "pass",
+    "residual": -3.3306690738754696e-16,
+    "tol": 1e-06
+   },
+   {
+    "run": "generated_cut_weighted_seed2.json",
+    "where": "levels[3].distinct_gap_lengths",
+    "lengths": [
+     0.07285376722586288,
+     0.1764190268202519,
+     0.2492727940461149
+    ],
+    "n_lengths": 3,
+    "verdict": "pass",
+    "residual": 1.1102230246251565e-16,
+    "tol": 1e-06
+   },
+   {
+    "run": "generated_cut_weighted_seed2.json",
+    "where": "levels[4].distinct_gap_lengths",
+    "lengths": [
+     0.0728537672258629,
+     0.17641902682025204,
+     0.24927279404611452
+    ],
+    "n_lengths": 3,
+    "verdict": "pass",
+    "residual": -4.163336342344337e-16,
+    "tol": 1e-06
+   },
+   {
+    "run": "generated_seed0.json",
+    "where": "distinct_gap_lengths",
+    "lengths": [
+     0.6564927098216322,
+     0.7543323683569796
+    ],
+    "n_lengths": 2,
+    "verdict": "not_applicable",
+    "residual": null,
+    "tol": 1e-06
+   },
+   {
+    "run": "generated_seed7.json",
+    "where": "distinct_gap_lengths",
+    "lengths": [
+     0.5745865508902749,
+     0.8184438255225693
+    ],
+    "n_lengths": 2,
+    "verdict": "not_applicable",
+    "residual": null,
+    "tol": 1e-06
+   },
+   {
+    "run": "generated_seed9.json",
+    "where": "distinct_gap_lengths",
+    "lengths": [
+     0.6845856782973786,
+     0.7289324036356993
+    ],
+    "n_lengths": 2,
+    "verdict": "not_applicable",
+    "residual": null,
+    "tol": 1e-06
+   },
+   {
+    "run": "weighted_window_seed0.json",
+    "where": "hard.distinct_gap_lengths",
+    "lengths": [
+     0.5257311121191337,
+     0.8506508083520398
+    ],
+    "n_lengths": 2,
+    "verdict": "not_applicable",
+    "residual": null,
+    "tol": 1e-06
+   },
+   {
+    "run": "weighted_window_seed0.json",
+    "where": "gaussian.levels[0].distinct_gap_lengths",
+    "lengths": [
+     0.8506508083520394,
+     1.3763819204711742,
+     2.2270327288232123
+    ],
+    "n_lengths": 3,
+    "verdict": "pass",
+    "residual": -1.3322676295501878e-15,
+    "tol": 1e-06
+   },
+   {
+    "run": "weighted_window_seed0.json",
+    "where": "gaussian.levels[1].distinct_gap_lengths",
+    "lengths": [
+     0.5257311121191337,
+     0.8506508083520398
+    ],
+    "n_lengths": 2,
+    "verdict": "not_applicable",
+    "residual": null,
+    "tol": 1e-06
+   },
+   {
+    "run": "weighted_window_seed0.json",
+    "where": "gaussian.levels[2].distinct_gap_lengths",
+    "lengths": [
+     0.32491969623290684,
+     0.5257311121191337,
+     0.8506508083520394
+    ],
+    "n_lengths": 3,
+    "verdict": "pass",
+    "residual": -1.1102230246251565e-15,
+    "tol": 1e-06
+   },
+   {
+    "run": "weighted_window_seed0.json",
+    "where": "gaussian.levels[3].distinct_gap_lengths",
+    "lengths": [
+     0.20081141588622733,
+     0.32491969623290623,
+     0.5257311121191339
+    ],
+    "n_lengths": 3,
+    "verdict": "pass",
+    "residual": 3.3306690738754696e-16,
+    "tol": 1e-06
+   },
+   {
+    "run": "weighted_window_seed0.json",
+    "where": "gaussian.levels[4].distinct_gap_lengths",
+    "lengths": [
+     0.12410828034667933,
+     0.2008114158862273,
+     0.3249196962329063
+    ],
+    "n_lengths": 3,
+    "verdict": "pass",
+    "residual": -3.3306690738754696e-16,
+    "tol": 1e-06
+   },
+   {
+    "run": "window_extent_seed0.json",
+    "where": "stretches[0].distinct_gap_lengths",
+    "lengths": [
+     0.9713129747505578,
+     1.2091177372790292
+    ],
+    "n_lengths": 2,
+    "verdict": "not_applicable",
+    "residual": null,
+    "tol": 1e-06
+   },
+   {
+    "run": "window_extent_seed0.json",
+    "where": "stretches[1].distinct_gap_lengths",
+    "lengths": [
+     0.9713129747505578,
+     1.2091177372790285
+    ],
+    "n_lengths": 2,
+    "verdict": "not_applicable",
+    "residual": null,
+    "tol": 1e-06
+   },
+   {
+    "run": "window_extent_seed0.json",
+    "where": "stretches[2].distinct_gap_lengths",
+    "lengths": [
+     0.23780476252846938,
+     0.9713129747505576,
+     1.2091177372790292
+    ],
+    "n_lengths": 3,
+    "verdict": "pass",
+    "residual": 2.220446049250313e-15,
+    "tol": 1e-06
+   },
+   {
+    "run": "window_extent_seed0.json",
+    "where": "stretches[3].distinct_gap_lengths",
+    "lengths": [
+     0.23780476252846938,
+     0.9713129747505574,
+     1.2091177372790298
+    ],
+    "n_lengths": 3,
+    "verdict": "pass",
+    "residual": 3.1086244689504383e-15,
+    "tol": 1e-06
+   },
+   {
+    "run": "window_extent_seed0.json",
+    "where": "stretches[4].distinct_gap_lengths",
+    "lengths": [
+     0.23780476252846938,
+     0.9713129747505574,
+     1.2091177372790298
+    ],
+    "n_lengths": 3,
+    "verdict": "pass",
+    "residual": 3.1086244689504383e-15,
+    "tol": 1e-06
+   },
+   {
+    "run": "window_extent_seed0.json",
+    "where": "stretches[5].distinct_gap_lengths",
+    "lengths": [
+     0.23780476252846938,
+     0.9713129747505578,
+     1.209117737279029
+    ],
+    "n_lengths": 3,
+    "verdict": "pass",
+    "residual": 1.7763568394002505e-15,
+    "tol": 1e-06
+   }
+  ],
+  "verdict_counts": {
+   "not_applicable": 10,
+   "pass": 22
+  },
+  "rows_by_n_lengths": {
+   "2": 10,
+   "3": 22
+  },
+  "runs_with_an_entry": [
+   "fibonacci_chain_seed0.json",
+   "generated_cut_weighted_seed0.json",
+   "generated_cut_weighted_seed1.json",
+   "generated_cut_weighted_seed2.json",
+   "generated_seed0.json",
+   "generated_seed7.json",
+   "generated_seed9.json",
+   "weighted_window_seed0.json",
+   "window_extent_seed0.json"
+  ]
+ },
+ "angles": null,
+ "human_interest": null,
+ "ai_interest": "OBSERVED: 32 gap-length entries in 9 run files; verdicts {'not_applicable': 10, 'pass': 22}; entries by number of lengths {'2': 10, '3': 22}; fails: none. AI reading: not interpretable atm beyond the counts.",
+ "compressibility": {
+  "definition": "one letter per row: p pass, f fail, n not_applicable",
+  "n": 32,
+  "phrases": 8,
+  "zlib_ratio": 0.6875
+ },
+ "nature_match": null,
+ "divergence_note": null
+}

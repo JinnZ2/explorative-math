@@ -71,6 +71,7 @@ toolkit/
                        iterate, overlay
   probes.py            rotational / mirror symmetry, smallest period, period
                        profile, zlib ratio, angle histogram, polar angles
+                       three_gap_sum (L3 = L1 + L2: pass / fail / not_applicable)
   generator.py         seed -> random pipeline (shape / cut / orbit) -> probes -> log
                        cut_weighted: asked for by name, never drawn, own run files
   loghook.py           log_run() and @logged: every run writes the schema,
@@ -83,6 +84,8 @@ experiments/
   golden_angle.py         d  phyllotaxis points: golden angle vs perturbed angles
   simplex_4d.py           e  5-cell: rotate in 4D planes, project to 2D
   weighted_window.py      f  one Z^2 cut, two windows: hard strip and Gaussian weight
+  window_extent.py        g  one logged window on a longer stretch; width beside m + n*slope
+  three_gap_check.py      h  three_gap_sum probe over every logged cut run
 runs/*.json            one file per run, schema below
 tests/                 unittest, one file per experiment plus emlib
 DIVERGENCE_LOG.md      where human and AI interest differ (columns = schema)
