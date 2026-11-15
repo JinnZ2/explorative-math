@@ -7,6 +7,9 @@ CC0. Co-authored. Stdlib only.
                        (axes on a fixed angle grid)
   mirror_symmetry_from_pairs  the same with no grid: candidate axes from
                        every pair of points
+  mirror_residual      continuous: mean distance from each reflected point to
+                       its nearest point, smallest over candidate axes,
+                       over the set's radius. 0 = exact mirror
   smallest_period      smallest p with s[i] == s[i+p] throughout
   period_profile       smallest period of growing prefixes (aperiodicity shows
                        as growth; a finite sequence always has some period)
@@ -80,24 +83,82 @@ def mirror_symmetry_from_pairs(points, rel_tol=1e-6):
     A mirror line through the centroid maps each point to a point of the set,
     so its angle is the mean polar angle of some pair (a point with itself
     included). Every such candidate is tested. Returns axis angles in degrees
-    in [0, 180), merged within 1e-9 degrees. Bounded by rel_tol and by the
-    centroid as the centre, not by an axis step."""
+    in [0, 180). Bounded by rel_tol and by the centroid as the centre, not by
+    an axis step.
+
+    Accepted candidates closer together than degrees(4 * rel_tol) are one
+    axis (their mean is returned): two axes that close move no point by more
+    than the matching tolerance allows, so the probe cannot tell them apart.
+    Without this, one near-exact mirror is counted once per candidate pair."""
     c = P.centroid(points)
     pts = [P.sub(p, c) for p in points]
     tol = rel_tol * _scale_of(points)
     th = [math.atan2(y, x) for x, y in pts if math.hypot(x, y) > tol]
     cands = sorted({round(math.degrees((a + b) / 2.0) % 180.0, 9)
                     for i, a in enumerate(th) for b in th[i:]})
-    out = []
+    hits = []
     for deg in cands:
         a = math.radians(deg)
         c2, s2 = math.cos(2 * a), math.sin(2 * a)
         refl = [[c2 * x + s2 * y, s2 * x - c2 * y] for x, y in pts]
-        if _matches(refl, pts, tol) and not (out and deg - out[-1] <= 1e-9):
-            out.append(deg)
-    if len(out) > 1 and out[-1] - out[0] >= 180.0 - 1e-9:
-        out.pop()
-    return out
+        if _matches(refl, pts, tol):
+            hits.append(deg)
+    merge = math.degrees(4.0 * rel_tol)
+    groups = []
+    for deg in hits:
+        if groups and deg - groups[-1][-1] <= merge:
+            groups[-1].append(deg)
+        else:
+            groups.append([deg])
+    if len(groups) > 1 and groups[0][0] + 180.0 - groups[-1][-1] <= merge:
+        last = groups.pop()
+        groups[0] = [d - 180.0 for d in last] + groups[0]
+    return [(sum(g) / len(g)) % 180.0 for g in groups]
+
+
+def mirror_residual(points):
+    """How far a 2D point set is from having a mirror line through its centroid.
+
+    For each candidate axis (the mean polar angle of every pair of points, a
+    point with itself included) the set is reflected, and each reflected
+    point's distance to its nearest point of the set is averaged. The
+    smallest such mean over the candidates is returned, divided by the set's
+    largest distance from the centroid. 0 is an exact mirror; small is close
+    to one. A continuous reading, where mirror_symmetry is hit or miss.
+
+    Bounds, returned with the reading: axes are the pair candidates only;
+    the match is to the nearest point, not one-to-one, so a set with
+    coincident points can read lower than a true pairing would."""
+    n = len(points)
+    c = P.centroid(points)
+    pts = [P.sub(p, c) for p in points]
+    scale = _scale_of(points)
+    th = [math.atan2(y, x) for x, y in pts if math.hypot(x, y) > 1e-12 * scale]
+    # candidates are de-duplicated at 1e-9 degrees but used unrounded, so the
+    # reading is not floored by the rounding
+    uniq = {}
+    for i, a in enumerate(th):
+        for b in th[i:]:
+            deg = math.degrees((a + b) / 2.0) % 180.0
+            uniq.setdefault(round(deg, 9), deg)
+    cands = [uniq[k] for k in sorted(uniq)]
+    best, best_deg = None, None
+    for deg in cands:
+        a = math.radians(deg)
+        c2, s2 = math.cos(2 * a), math.sin(2 * a)
+        total = 0.0
+        for x, y in pts:
+            rx, ry = c2 * x + s2 * y, s2 * x - c2 * y
+            total += math.sqrt(min((rx - u) ** 2 + (ry - v) ** 2 for u, v in pts))
+            if best is not None and total >= best:
+                break
+        else:
+            best, best_deg = total, deg
+    return {"residual": (best / n / scale) if best is not None else None,
+            "axis_deg": best_deg, "n_candidates": len(cands), "n_points": n,
+            "scale": scale, "about": "centroid",
+            "axes": "mean polar angle of every pair of points; no angle grid",
+            "matching": "nearest point, not one-to-one"}
 
 
 def smallest_period(s):

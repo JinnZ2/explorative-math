@@ -43,6 +43,8 @@ Or find where every path must rise.
 - Recorded beside it: `runs/mirror_sweep_seed0.json` reads mirror axes on
   360 frames of one seeded tour of the 5-cell and the 16-cell. It is a
   mirror reading along a fixed path, not a `pentagon_score` path.
+  `runs/mirror_pursuit_seed0.json` logs descent paths from random starts,
+  scored step by step on `mirror_residual`, not on `pentagon_score`.
 
 **Q4. Mirror change under a φ overlay.** Overlay `icosahedron()` with its
 φ-scaled copy (`composers.phi_stack`, ks (0, 1)). Find the rotation angle

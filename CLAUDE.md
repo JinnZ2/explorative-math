@@ -35,6 +35,8 @@ shape            keep shape: record the object as computed before any summary.
 bounds           any count / period / symmetry reading logs the instrument bound
                  it was read at (points, precision, probe step); unknown bound
                  = void, not omitted. See docs/resolution_leak.md.
+sampling         a "none found" / "largest seen" reading logs how samples were drawn
+                 and how many, and whether the target is measure zero there.
 status tags      every claim is OBSERVED (computed here), DERIVED (follows from
                  computed values, reasoning shown) or PROPOSED (not yet run).
 interest fields  human_interest is the human's to fill; the AI never writes it.
@@ -78,6 +80,7 @@ toolkit/
                        three_gap_sum (L3 = L1 + L2: pass / fail / not_applicable)
                        min_stretch_tag (points < 3 / third-gap freq: under-resolved)
                        *_bound helpers: the bound a reading was taken at
+                       mirror_residual (continuous; 0 = exact mirror)
   generator.py         seed -> random pipeline (shape / cut / orbit) -> probes -> log
                        cut_weighted: asked for by name, never drawn, own run files
   loghook.py           log_run() and @logged: every run writes the schema,
@@ -98,6 +101,7 @@ experiments/
                              mirror_symmetry on the Q12 unions
   mirror_sweep.py         l  what frame 0 is; mirror axes on 360 tour frames per shape
   coxeter_plane.py        m  Coxeter-plane projections of four 4-polytopes, read for mirrors
+  mirror_pursuit.py       n  coordinate descent on mirror_residual from random starts; path logged
 runs/*.json            one file per run, schema below
 tests/                 unittest, one file per experiment plus emlib
 DIVERGENCE_LOG.md      where human and AI interest differ (columns = schema)

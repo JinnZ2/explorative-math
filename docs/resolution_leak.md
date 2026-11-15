@@ -38,6 +38,7 @@ correctly. The loss is at the join between the reading and its log.
 | 2a | symmetry: same list for a regular 8-gon and a regular 16-gon | `runs/symmetry_resolution_seed0.json`, `known` | `k_max` 12 against 24; tolerance 1e-6 against 1e-9 | CONFIRMED (`k_max`); tolerance: no change |
 | 2b | symmetry: same list for the two unions of Q12 | `runs/symmetry_resolution_seed0.json`, `unions`; `compare/runs/phi_scale_vs_phi_scale_rotate.jsonl` | the same four bounds | not a leak at the bounds tested |
 | 2c | mirror: axis lists for the two unions of Q12 | `runs/symmetry_resolution_seed0.json`, `unions_mirror` | 360 against 720 axes; tolerance 1e-6 against 1e-9; grid against no grid | not a leak at the bounds tested |
+| 4 | count: 7 mirror axes on a 5-point set | `probes.mirror_symmetry_from_pairs`, first `mirror_pursuit` reading (not committed) | merge precision: accepted axes within 1e-9 degrees were one axis | CONFIRMED (precision); probe changed |
 | 3a | period: 184 at 256 and 512 steps | `runs/orbit_exact_seed0.json`, `exact` | precision: binary float against exact rational | not a leak (float precision); open |
 | 3b | the same reading | `runs/orbit_exact_seed0.json`, `extended` | steps: 512 against 1024, 2048, 4096 | CONFIRMED (steps) |
 
@@ -112,6 +113,18 @@ co-author beside the tests that were asked for (3a, 2a, the mirror grid in 2c). 
 instance was also the AI co-author's choice for the third row; the
 operator's own list was not in the relay.
 
+**4. CONFIRMED (precision); probe changed.** Found while reading the
+pursuit endpoints. A descent ends on a mirror that is exact to about 1e-10,
+not to 0. Each pair of points then proposes the same axis at a slightly
+different angle, all pass the matching tolerance, and the probe merged only
+candidates within 1e-9 degrees: one axis was counted once per pair (3, 5,
+7 axes on a 5-point set). A set of 5 distinct points cannot have 7 mirror
+axes, which is how it was seen. The probe now treats accepted axes within
+degrees(4 x rel_tol) as one. The three earlier runs that use it
+(`symmetry_resolution`, `mirror_sweep`, `coxeter_plane`) were remade and
+every value is unchanged: their mirrors were exact, so the pairs agreed.
+The wrong counts were never committed.
+
 ## Lesson
 
 The bound suspected is not always the bound that matters; test all logged
@@ -122,6 +135,53 @@ row   bound suspected      bound that moved the reading
 2     tolerance, k_max     k_max (known shapes); none for the unions
 3     float precision      steps
 ```
+
+## A second entry type: sampling leak
+
+Status: defined here with three instances, all OBSERVED in logged runs.
+The name is the operator's.
+
+```text
+resolution leak    the bound is too coarse       raise the bound -> the reading moves
+sampling leak      the target has measure zero   more samples of the same kind -> no change
+                   in the space being sampled
+```
+
+A sampling leak is a "none found" or a "largest seen" reading, taken by
+sampling orientations (at random, or along a path chosen without regard to
+the target), when the thing looked for occupies a set of measure zero in
+the space sampled. The sample cannot land on it. The count of samples is
+logged, and it is the wrong bound: no count is large enough. Logged as a
+property of the object, "none in N" reads as "there is none".
+
+It is not cured the way a resolution leak is. What reaches the target is a
+different instrument: a construction (compute the special orientation), or
+a continuous reading (how far from the target), which shows approach where
+a hit / miss probe shows nothing.
+
+| # | Reading | Where | Sampled | What a different instrument showed |
+|---|---|---|---|---|
+| S1 | no pentagon view of the 5-cell in 2000 random rotations (lowest score 23.45, median 152.8) | `runs/simplex_4d_seed0.json` | 2000 random rotations | the Petrie projection, by construction, scores 2.2e-14 (same run) |
+| S2 | a mirror on 1 frame of 360 per shape, frame 0 only | `runs/mirror_sweep_seed0.json`, `axis_count_per_frame` | one seeded tour, 360 frames | `mirror_residual` on the same frames dips off frame 0: 5-cell 5.5e-03 at frame 137; 16-cell 9.0e-04 at frame 178 and 5.9e-04 at frame 1 (median over frames about 1e-01) |
+| S3 | largest mirror count on the tour 3 (5-cell) and 4 (16-cell) | `runs/mirror_sweep_seed0.json` | the same tour | Coxeter-plane projections, by construction, have 5 and 8 (`runs/coxeter_plane_seed0.json`) |
+
+S2 and S3 do not say the tour passes near a mirror orientation at the dips;
+they say the hit / miss reading could not have shown it either way.
+
+A continuous reading is not a cure by itself. OBSERVED in
+`runs/mirror_pursuit_seed0.json`: descending `mirror_residual` from 8
+random starts per shape reaches a mirror on every start (one axis on the
+5-cell, two on the 16-cell; one 16-cell start stops at 4.0e-06 on the
+evaluation limit) and reaches the Coxeter-plane count on none of the 16.
+DERIVED: the residual is 0 at any projection with one mirror, so the index
+has no slope toward more axes. The many-mirror orientations are measure
+zero inside the one-mirror set as well; the descent trades one sampling
+leak for the next one down.
+
+Rule for sampling readings: a "none found" or "largest seen" reading logs
+how the samples were drawn and how many, says whether the target is
+expected to be measure zero in that space, and where it is, is logged
+beside a constructed or continuous reading, or marked as not having one.
 
 ## Rule
 
