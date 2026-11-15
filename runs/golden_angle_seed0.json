@@ -1,0 +1,97 @@
+{
+ "params": {
+  "n_points": 400,
+  "inner_skip": 20,
+  "model": "Vogel r=sqrt(k), theta=k*alpha",
+  "seed": 0
+ },
+ "outputs": {
+  "rows": {
+   "golden": {
+    "alpha_deg": 137.50776405003788,
+    "min_nn": 1.6707587739456544,
+    "mean_nn": 1.7032954148386164,
+    "nn_cv": 0.01780426013553302
+   },
+   "golden-0.1": {
+    "alpha_deg": 137.40776405003788,
+    "min_nn": 1.4268018304092767,
+    "mean_nn": 1.588901831751514,
+    "nn_cv": 0.07177978599229294
+   },
+   "golden+0.1": {
+    "alpha_deg": 137.60776405003787,
+    "min_nn": 0.9813126839675363,
+    "mean_nn": 1.263636335396789,
+    "nn_cv": 0.1982447927973187
+   },
+   "golden-0.5": {
+    "alpha_deg": 137.00776405003788,
+    "min_nn": 1.0194973844522923,
+    "mean_nn": 1.1135519854449591,
+    "nn_cv": 0.1299358949364472
+   },
+   "golden+0.5": {
+    "alpha_deg": 138.00776405003788,
+    "min_nn": 1.1558994308103732,
+    "mean_nn": 1.4645368550814546,
+    "nn_cv": 0.1340218501261286
+   },
+   "137.0": {
+    "alpha_deg": 137.0,
+    "min_nn": 1.0483583841680228,
+    "mean_nn": 1.1413611572312414,
+    "nn_cv": 0.11856486500712839
+   },
+   "138.0": {
+    "alpha_deg": 138.0,
+    "min_nn": 1.1657133733913785,
+    "mean_nn": 1.4739790080374047,
+    "nn_cv": 0.1308340085172222
+   },
+   "rational_2/5_turn": {
+    "alpha_deg": 144.0,
+    "min_nn": 0.12539308564820928,
+    "mean_nn": 0.2010796803805443,
+    "nn_cv": 0.4067245674058914
+   },
+   "rational_3/8_turn": {
+    "alpha_deg": 135.0,
+    "min_nn": 0.2010101267766693,
+    "mean_nn": 0.31936467348733016,
+    "nn_cv": 0.3988260691256355
+   }
+  },
+  "rank_by_nn_cv": [
+   "golden",
+   "golden-0.1",
+   "137.0",
+   "golden-0.5",
+   "138.0",
+   "golden+0.5",
+   "golden+0.1",
+   "rational_3/8_turn",
+   "rational_2/5_turn"
+  ]
+ },
+ "angles": {
+  "golden": 137.50776405003788,
+  "golden-0.1": 137.40776405003788,
+  "golden+0.1": 137.60776405003787,
+  "golden-0.5": 137.00776405003788,
+  "golden+0.5": 138.00776405003788,
+  "137.0": 137.0,
+  "138.0": 138.0,
+  "rational_2/5_turn": 144.0,
+  "rational_3/8_turn": 135.0
+ },
+ "human_interest": null,
+ "ai_interest": "OBSERVED: ranking by evenness (nn_cv, low first): ['golden', 'golden-0.1', '137.0', 'golden-0.5', '138.0', 'golden+0.5', 'golden+0.1', 'rational_3/8_turn', 'rational_2/5_turn']. Golden min_nn = 1.6708; 144 deg (2/5 turn) min_nn = 0.1254. AI reading: not interpretable atm whether the small perturbations (+/-0.1) differ from golden by more than the finite-N effect; that needs an N sweep.",
+ "compressibility": {
+  "definition": "rank of each angle by nn_cv (a = most even), in ANGLES order",
+  "n": 9,
+  "phrases": 9
+ },
+ "nature_match": "phyllotaxis_golden_angle",
+ "divergence_note": null
+}
