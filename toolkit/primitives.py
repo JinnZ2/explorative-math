@@ -93,6 +93,42 @@ def project(points, basis=None, coords=(0, 1)):
     return [[p[c] for c in coords] for p in points]
 
 
+def reflect(v, root):
+    """Reflect v in the hyperplane orthogonal to root."""
+    return sub(v, scale(root, 2.0 * dot(v, root) / dot(root, root)))
+
+
+def coxeter_plane(simple_roots, h):
+    """Orthonormal basis (two vectors) of the Coxeter plane of a reflection group.
+
+    simple_roots: the simple roots. h: the Coxeter number (the order of the
+    Coxeter element c = product of the simple reflections). The plane is the
+    one c rotates by 360/h degrees. It is taken as the image of
+    (2/h) * sum_k cos(2 pi k / h) c^k, which projects onto that plane when the
+    eigenvalues exp(+-2 pi i / h) of c are simple. Raises ValueError if c^h
+    is not the identity or the image is not two-dimensional (both at 1e-9)."""
+    d = len(simple_roots[0])
+
+    def c(v):
+        for r in simple_roots:
+            v = reflect(v, r)
+        return v
+    cols = []
+    for i in range(d):
+        e = [1.0 if j == i else 0.0 for j in range(d)]
+        acc, v = [0.0] * d, e
+        for k in range(h):
+            acc = [a + b * math.cos(2 * math.pi * k / h) for a, b in zip(acc, v)]
+            v = c(v)
+        if max(abs(a - b) for a, b in zip(v, e)) > 1e-9:
+            raise ValueError("Coxeter element does not have order h")
+        cols.append(scale(acc, 2.0 / h))
+    basis = gram_schmidt(cols, tol=1e-9)
+    if len(basis) != 2:
+        raise ValueError(f"expected a plane, got dimension {len(basis)}")
+    return basis
+
+
 # ---- polytope vertex generators ---------------------------------------------
 
 def simplex(n):

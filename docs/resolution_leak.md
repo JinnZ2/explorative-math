@@ -75,6 +75,15 @@ axis step. So the prediction holds on 2 frames and does not on 6; in every
 frame the mirror reading separates the two unions or shows no mirror in
 either.
 
+Follow-up to 2c (`runs/mirror_sweep_seed0.json`). OBSERVED: frame 0 of
+Build A's tour has every rotation angle zero, and its projected points are
+the first two coordinates of the unrotated vertices. Along the same tour at
+360 frames per shape, a mirror shows on 1 frame of 360 for each shape,
+frame 0, for the shape alone and for Build B's union; on no frame for
+Build A's union. Bound: one tour (seed 0), steps of 1/360 of each plane's
+sweep, tolerance 1e-6, no axis grid. An orientation with a mirror between
+two frames, or off this path, is not seen.
+
 **3a. Not a leak (float precision); open.** OBSERVED: the 512-step word in
 exact rational arithmetic equals the float word at every index; the largest
 float-minus-exact difference is 0. The period profile is the same,

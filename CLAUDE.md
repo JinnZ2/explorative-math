@@ -68,7 +68,8 @@ emlib.py               shared: run-file writer + schema check, LZ76 + zlib
 toolkit/
   primitives.py        vectors, rotation in any (i, j) plane, projection, angles,
                        Gram-Schmidt, polytopes (simplex, hypercube, cross-polytope,
-                       24-cell, icosahedron, regular polygon), lattices (Z^n, hex)
+                       24-cell, icosahedron, regular polygon), lattices (Z^n, hex),
+                       reflect, coxeter_plane (from simple roots and Coxeter number)
   composers.py         rotate_project, phi_scale / phi_stack, cut_and_project
                        (hard window and/or weight function; gaussian_weight),
                        iterate, overlay
@@ -95,6 +96,8 @@ experiments/
   orbit_exact.py          j  seed-5 orbit in exact arithmetic, then past 512 steps
   symmetry_resolution.py  k  rotational_symmetry at k_max 12 / 24, tolerance 1e-6 / 1e-9;
                              mirror_symmetry on the Q12 unions
+  mirror_sweep.py         l  what frame 0 is; mirror axes on 360 tour frames per shape
+  coxeter_plane.py        m  Coxeter-plane projections of four 4-polytopes, read for mirrors
 runs/*.json            one file per run, schema below
 tests/                 unittest, one file per experiment plus emlib
 DIVERGENCE_LOG.md      where human and AI interest differ (columns = schema)

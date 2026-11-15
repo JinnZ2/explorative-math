@@ -69,7 +69,7 @@ The regular 5-cell in R⁴, rotated in all six coordinate planes and projected o
 
 | Part | Contents |
 |---|---|
-| primitives | vectors; rotation in any (i, j) plane in any dimension; projection onto coordinates or an orthonormal basis; angles; Gram-Schmidt; polytope vertex generators (simplex, hypercube, cross-polytope, 24-cell, icosahedron, regular polygon); lattices (Z^n, hexagonal) |
+| primitives | vectors; rotation in any (i, j) plane in any dimension; projection onto coordinates or an orthonormal basis; angles; Gram-Schmidt; polytope vertex generators (simplex, hypercube, cross-polytope, 24-cell, icosahedron, regular polygon); lattices (Z^n, hexagonal); Coxeter plane from simple roots |
 | composers | `rotate_project`, `phi_scale` / `phi_stack`, `cut_and_project` (general lattice, bases; hard window and/or a weighting function such as `gaussian_weight`), `iterate`, `overlay` (points tagged by source) |
 | probes | rotational symmetry, mirror symmetry, smallest period and period profile, zlib ratio, angle histogram, three-gap sum check (pass / fail / not_applicable), min-stretch tag (under-resolved) |
 | generator | a seed draws one of three pipelines and its parameters, runs it, applies the probes, and logs it. The pipelines are: shape → φ-stack → random rotations → 2D; Z² cut at a random slope; circle-rotation orbit. A fourth, `cut_weighted` (Z² cut with a Gaussian weight), is never drawn: it runs only when asked for (`--pipeline cut_weighted`) and writes `runs/generated_cut_weighted_seed<k>.json`, so the ten drawn runs stay as they are. The drawn spec is stored in `params`, so any run can be remade. |

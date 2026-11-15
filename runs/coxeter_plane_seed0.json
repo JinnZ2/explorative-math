@@ -1,0 +1,970 @@
+{
+ "params": {
+  "cases": [
+   [
+    "5-cell",
+    "A4",
+    5
+   ],
+   [
+    "16-cell",
+    "B4",
+    8
+   ],
+   [
+    "tesseract",
+    "B4",
+    8
+   ],
+   [
+    "24-cell",
+    "F4",
+    12
+   ]
+  ],
+  "rel_tols": [
+   1e-06,
+   1e-09
+  ],
+  "k_max": 24,
+  "n_axes_grid": 360,
+  "sweep_reference": "runs/mirror_sweep_seed0.json",
+  "prediction": "PROPOSED before the run, by the operator: the Petrie / Coxeter-plane projection has the maximal mirror count.",
+  "about": "centroid",
+  "seed": 0
+ },
+ "outputs": {
+  "prediction": "PROPOSED before the run, by the operator: the Petrie / Coxeter-plane projection has the maximal mirror count.",
+  "cases": [
+   {
+    "name": "5-cell",
+    "group": "A4",
+    "coxeter_number_h": 5,
+    "simple_roots": [
+     [
+      1.0,
+      -1.0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1.0,
+      -1.0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      1.0,
+      -1.0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      1.0,
+      -1.0
+     ]
+    ],
+    "plane_basis": [
+     [
+      0.6324555320336759,
+      0.19543950758485468,
+      -0.5116672736016928,
+      -0.5116672736016927,
+      0.19543950758485482
+     ],
+     [
+      0.0,
+      0.6015009550075457,
+      0.37174803446018445,
+      -0.3717480344601846,
+      -0.6015009550075456
+     ]
+    ],
+    "n_vertices": 5,
+    "n_distinct_projected_points": 5,
+    "projected": [
+     [
+      0.632455532033676,
+      1.3877787807814457e-17
+     ],
+     [
+      0.19543950758485473,
+      0.6015009550075457
+     ],
+     [
+      -0.5116672736016928,
+      0.37174803446018445
+     ],
+     [
+      -0.5116672736016927,
+      -0.3717480344601846
+     ],
+     [
+      0.19543950758485487,
+      -0.6015009550075456
+     ]
+    ],
+    "readings": [
+     {
+      "rel_tol": 1e-06,
+      "mirror_axes_from_pairs_deg": [
+       0.0,
+       36.0,
+       72.0,
+       108.0,
+       144.0
+      ],
+      "n_mirror_axes": 5,
+      "mirror_axes_grid_deg": [
+       0.0,
+       36.0,
+       72.0,
+       108.0,
+       144.0
+      ],
+      "n_mirror_axes_grid": 5,
+      "rotational_symmetry": [
+       5
+      ],
+      "mirror_bound": {
+       "axes": "every pair of points; no angle grid",
+       "rel_tol": 1e-06,
+       "about": "centroid",
+       "n_points": 5
+      },
+      "mirror_grid_bound": {
+       "n_points": 5,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-06,
+       "abs_tol": 6.324555320336759e-07,
+       "about": "centroid"
+      },
+      "rotational_symmetry_bound": {
+       "n_points": 5,
+       "k_tested": [
+        2,
+        24
+       ],
+       "rel_tol": 1e-06,
+       "abs_tol": 6.324555320336759e-07,
+       "about": "centroid"
+      }
+     },
+     {
+      "rel_tol": 1e-09,
+      "mirror_axes_from_pairs_deg": [
+       0.0,
+       36.0,
+       72.0,
+       108.0,
+       144.0
+      ],
+      "n_mirror_axes": 5,
+      "mirror_axes_grid_deg": [
+       0.0,
+       36.0,
+       72.0,
+       108.0,
+       144.0
+      ],
+      "n_mirror_axes_grid": 5,
+      "rotational_symmetry": [
+       5
+      ],
+      "mirror_bound": {
+       "axes": "every pair of points; no angle grid",
+       "rel_tol": 1e-09,
+       "about": "centroid",
+       "n_points": 5
+      },
+      "mirror_grid_bound": {
+       "n_points": 5,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-09,
+       "abs_tol": 6.32455532033676e-10,
+       "about": "centroid"
+      },
+      "rotational_symmetry_bound": {
+       "n_points": 5,
+       "k_tested": [
+        2,
+        24
+       ],
+       "rel_tol": 1e-09,
+       "abs_tol": 6.32455532033676e-10,
+       "about": "centroid"
+      }
+     }
+    ],
+    "n_mirror_axes_equals_h": true,
+    "sweep_reference": {
+     "max_axis_count_shape_alone": 3,
+     "frames": 360
+    },
+    "more_axes_than_sweep_max": true
+   },
+   {
+    "name": "16-cell",
+    "group": "B4",
+    "coxeter_number_h": 8,
+    "simple_roots": [
+     [
+      1.0,
+      -1.0,
+      0,
+      0
+     ],
+     [
+      0,
+      1.0,
+      -1.0,
+      0
+     ],
+     [
+      0,
+      0,
+      1.0,
+      -1.0
+     ],
+     [
+      0,
+      0,
+      0,
+      1.0
+     ]
+    ],
+    "plane_basis": [
+     [
+      0.7071067811865475,
+      0.49999999999999994,
+      -8.659560562354933e-17,
+      -0.5000000000000001
+     ],
+     [
+      2.220446049250313e-16,
+      0.5,
+      0.7071067811865476,
+      0.5
+     ]
+    ],
+    "n_vertices": 8,
+    "n_distinct_projected_points": 8,
+    "projected": [
+     [
+      0.7071067811865475,
+      2.220446049250313e-16
+     ],
+     [
+      -0.7071067811865475,
+      -2.220446049250313e-16
+     ],
+     [
+      0.49999999999999994,
+      0.5
+     ],
+     [
+      -0.49999999999999994,
+      -0.5
+     ],
+     [
+      -8.659560562354933e-17,
+      0.7071067811865476
+     ],
+     [
+      8.659560562354933e-17,
+      -0.7071067811865476
+     ],
+     [
+      -0.5000000000000001,
+      0.5
+     ],
+     [
+      0.5000000000000001,
+      -0.5
+     ]
+    ],
+    "readings": [
+     {
+      "rel_tol": 1e-06,
+      "mirror_axes_from_pairs_deg": [
+       0.0,
+       22.5,
+       45.0,
+       67.5,
+       90.0,
+       112.5,
+       135.0,
+       157.5
+      ],
+      "n_mirror_axes": 8,
+      "mirror_axes_grid_deg": [
+       0.0,
+       22.5,
+       45.0,
+       67.5,
+       90.0,
+       112.5,
+       135.0,
+       157.5
+      ],
+      "n_mirror_axes_grid": 8,
+      "rotational_symmetry": [
+       2,
+       4,
+       8
+      ],
+      "mirror_bound": {
+       "axes": "every pair of points; no angle grid",
+       "rel_tol": 1e-06,
+       "about": "centroid",
+       "n_points": 8
+      },
+      "mirror_grid_bound": {
+       "n_points": 8,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-06,
+       "abs_tol": 7.071067811865476e-07,
+       "about": "centroid"
+      },
+      "rotational_symmetry_bound": {
+       "n_points": 8,
+       "k_tested": [
+        2,
+        24
+       ],
+       "rel_tol": 1e-06,
+       "abs_tol": 7.071067811865476e-07,
+       "about": "centroid"
+      }
+     },
+     {
+      "rel_tol": 1e-09,
+      "mirror_axes_from_pairs_deg": [
+       0.0,
+       22.5,
+       45.0,
+       67.5,
+       90.0,
+       112.5,
+       135.0,
+       157.5
+      ],
+      "n_mirror_axes": 8,
+      "mirror_axes_grid_deg": [
+       0.0,
+       22.5,
+       45.0,
+       67.5,
+       90.0,
+       112.5,
+       135.0,
+       157.5
+      ],
+      "n_mirror_axes_grid": 8,
+      "rotational_symmetry": [
+       2,
+       4,
+       8
+      ],
+      "mirror_bound": {
+       "axes": "every pair of points; no angle grid",
+       "rel_tol": 1e-09,
+       "about": "centroid",
+       "n_points": 8
+      },
+      "mirror_grid_bound": {
+       "n_points": 8,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-09,
+       "abs_tol": 7.071067811865477e-10,
+       "about": "centroid"
+      },
+      "rotational_symmetry_bound": {
+       "n_points": 8,
+       "k_tested": [
+        2,
+        24
+       ],
+       "rel_tol": 1e-09,
+       "abs_tol": 7.071067811865477e-10,
+       "about": "centroid"
+      }
+     }
+    ],
+    "n_mirror_axes_equals_h": true,
+    "sweep_reference": {
+     "max_axis_count_shape_alone": 4,
+     "frames": 360
+    },
+    "more_axes_than_sweep_max": true
+   },
+   {
+    "name": "tesseract",
+    "group": "B4",
+    "coxeter_number_h": 8,
+    "simple_roots": [
+     [
+      1.0,
+      -1.0,
+      0,
+      0
+     ],
+     [
+      0,
+      1.0,
+      -1.0,
+      0
+     ],
+     [
+      0,
+      0,
+      1.0,
+      -1.0
+     ],
+     [
+      0,
+      0,
+      0,
+      1.0
+     ]
+    ],
+    "plane_basis": [
+     [
+      0.7071067811865475,
+      0.49999999999999994,
+      -8.659560562354933e-17,
+      -0.5000000000000001
+     ],
+     [
+      2.220446049250313e-16,
+      0.5,
+      0.7071067811865476,
+      0.5
+     ]
+    ],
+    "n_vertices": 16,
+    "n_distinct_projected_points": 16,
+    "projected": [
+     [
+      -0.7071067811865472,
+      -1.707106781186548
+     ],
+     [
+      -1.7071067811865475,
+      -0.7071067811865478
+     ],
+     [
+      -0.7071067811865474,
+      -0.29289321881345265
+     ],
+     [
+      -1.7071067811865477,
+      0.7071067811865474
+     ],
+     [
+      0.2928932188134527,
+      -0.7071067811865478
+     ],
+     [
+      -0.7071067811865476,
+      0.2928932188134522
+     ],
+     [
+      0.2928932188134525,
+      0.7071067811865474
+     ],
+     [
+      -0.7071067811865477,
+      1.7071067811865475
+     ],
+     [
+      0.7071067811865477,
+      -1.7071067811865475
+     ],
+     [
+      -0.2928932188134525,
+      -0.7071067811865474
+     ],
+     [
+      0.7071067811865476,
+      -0.2928932188134522
+     ],
+     [
+      -0.2928932188134527,
+      0.7071067811865478
+     ],
+     [
+      1.7071067811865477,
+      -0.7071067811865474
+     ],
+     [
+      0.7071067811865474,
+      0.29289321881345265
+     ],
+     [
+      1.7071067811865475,
+      0.7071067811865478
+     ],
+     [
+      0.7071067811865472,
+      1.707106781186548
+     ]
+    ],
+    "readings": [
+     {
+      "rel_tol": 1e-06,
+      "mirror_axes_from_pairs_deg": [
+       0.0,
+       22.5,
+       45.0,
+       67.5,
+       90.0,
+       112.5,
+       135.0,
+       157.5
+      ],
+      "n_mirror_axes": 8,
+      "mirror_axes_grid_deg": [
+       0.0,
+       22.5,
+       45.0,
+       67.5,
+       90.0,
+       112.5,
+       135.0,
+       157.5
+      ],
+      "n_mirror_axes_grid": 8,
+      "rotational_symmetry": [
+       2,
+       4,
+       8
+      ],
+      "mirror_bound": {
+       "axes": "every pair of points; no angle grid",
+       "rel_tol": 1e-06,
+       "about": "centroid",
+       "n_points": 16
+      },
+      "mirror_grid_bound": {
+       "n_points": 16,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.8477590650225736e-06,
+       "about": "centroid"
+      },
+      "rotational_symmetry_bound": {
+       "n_points": 16,
+       "k_tested": [
+        2,
+        24
+       ],
+       "rel_tol": 1e-06,
+       "abs_tol": 1.8477590650225736e-06,
+       "about": "centroid"
+      }
+     },
+     {
+      "rel_tol": 1e-09,
+      "mirror_axes_from_pairs_deg": [
+       0.0,
+       22.5,
+       45.0,
+       67.5,
+       90.0,
+       112.5,
+       135.0,
+       157.5
+      ],
+      "n_mirror_axes": 8,
+      "mirror_axes_grid_deg": [
+       0.0,
+       22.5,
+       45.0,
+       67.5,
+       90.0,
+       112.5,
+       135.0,
+       157.5
+      ],
+      "n_mirror_axes_grid": 8,
+      "rotational_symmetry": [
+       2,
+       4,
+       8
+      ],
+      "mirror_bound": {
+       "axes": "every pair of points; no angle grid",
+       "rel_tol": 1e-09,
+       "about": "centroid",
+       "n_points": 16
+      },
+      "mirror_grid_bound": {
+       "n_points": 16,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.8477590650225739e-09,
+       "about": "centroid"
+      },
+      "rotational_symmetry_bound": {
+       "n_points": 16,
+       "k_tested": [
+        2,
+        24
+       ],
+       "rel_tol": 1e-09,
+       "abs_tol": 1.8477590650225739e-09,
+       "about": "centroid"
+      }
+     }
+    ],
+    "n_mirror_axes_equals_h": true,
+    "sweep_reference": null,
+    "more_axes_than_sweep_max": null
+   },
+   {
+    "name": "24-cell",
+    "group": "F4",
+    "coxeter_number_h": 12,
+    "simple_roots": [
+     [
+      0,
+      1.0,
+      -1.0,
+      0
+     ],
+     [
+      0,
+      0,
+      1.0,
+      -1.0
+     ],
+     [
+      0,
+      0,
+      0,
+      1.0
+     ],
+     [
+      0.5,
+      -0.5,
+      -0.5,
+      -0.5
+     ]
+    ],
+    "plane_basis": [
+     [
+      0.8880738339771153,
+      1.5626840108175144e-16,
+      0.3250575836718682,
+      0.3250575836718681
+     ],
+     [
+      -1.5626840108175144e-16,
+      0.8880738339771153,
+      0.3250575836718681,
+      -0.3250575836718682
+     ]
+    ],
+    "n_vertices": 24,
+    "n_distinct_projected_points": 24,
+    "projected": [
+     [
+      -0.8880738339771154,
+      -0.8880738339771151
+     ],
+     [
+      -1.2131314176489836,
+      -0.32505758367186793
+     ],
+     [
+      -1.2131314176489834,
+      0.3250575836718684
+     ],
+     [
+      -0.5630162503052472,
+      -0.32505758367186804
+     ],
+     [
+      -0.563016250305247,
+      0.32505758367186827
+     ],
+     [
+      -0.8880738339771151,
+      0.8880738339771154
+     ],
+     [
+      -0.3250575836718684,
+      -1.2131314176489834
+     ],
+     [
+      -0.32505758367186827,
+      -0.563016250305247
+     ],
+     [
+      0.32505758367186793,
+      -1.2131314176489836
+     ],
+     [
+      0.32505758367186804,
+      -0.5630162503052472
+     ],
+     [
+      -0.6501151673437363,
+      1.1102230246251565e-16
+     ],
+     [
+      -1.1102230246251565e-16,
+      -0.6501151673437363
+     ],
+     [
+      1.1102230246251565e-16,
+      0.6501151673437363
+     ],
+     [
+      0.6501151673437363,
+      -1.1102230246251565e-16
+     ],
+     [
+      -0.32505758367186804,
+      0.5630162503052472
+     ],
+     [
+      -0.32505758367186793,
+      1.2131314176489836
+     ],
+     [
+      0.32505758367186827,
+      0.563016250305247
+     ],
+     [
+      0.3250575836718684,
+      1.2131314176489834
+     ],
+     [
+      0.8880738339771151,
+      -0.8880738339771154
+     ],
+     [
+      0.563016250305247,
+      -0.32505758367186827
+     ],
+     [
+      0.5630162503052472,
+      0.32505758367186804
+     ],
+     [
+      1.2131314176489834,
+      -0.3250575836718684
+     ],
+     [
+      1.2131314176489836,
+      0.32505758367186793
+     ],
+     [
+      0.8880738339771154,
+      0.8880738339771151
+     ]
+    ],
+    "readings": [
+     {
+      "rel_tol": 1e-06,
+      "mirror_axes_from_pairs_deg": [
+       0.0,
+       15.0,
+       30.0,
+       45.0,
+       60.0,
+       75.0,
+       90.0,
+       105.0,
+       120.0,
+       135.0,
+       150.0,
+       165.0
+      ],
+      "n_mirror_axes": 12,
+      "mirror_axes_grid_deg": [
+       0.0,
+       15.0,
+       30.0,
+       45.0,
+       60.0,
+       75.0,
+       90.0,
+       105.0,
+       120.0,
+       135.0,
+       150.0,
+       165.0
+      ],
+      "n_mirror_axes_grid": 12,
+      "rotational_symmetry": [
+       2,
+       3,
+       4,
+       6,
+       12
+      ],
+      "mirror_bound": {
+       "axes": "every pair of points; no angle grid",
+       "rel_tol": 1e-06,
+       "about": "centroid",
+       "n_points": 24
+      },
+      "mirror_grid_bound": {
+       "n_points": 24,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-06,
+       "abs_tol": 1.2559260603991088e-06,
+       "about": "centroid"
+      },
+      "rotational_symmetry_bound": {
+       "n_points": 24,
+       "k_tested": [
+        2,
+        24
+       ],
+       "rel_tol": 1e-06,
+       "abs_tol": 1.2559260603991088e-06,
+       "about": "centroid"
+      }
+     },
+     {
+      "rel_tol": 1e-09,
+      "mirror_axes_from_pairs_deg": [
+       0.0,
+       15.0,
+       30.0,
+       45.0,
+       60.0,
+       75.0,
+       90.0,
+       105.0,
+       120.0,
+       135.0,
+       150.0,
+       165.0
+      ],
+      "n_mirror_axes": 12,
+      "mirror_axes_grid_deg": [
+       0.0,
+       15.0,
+       30.0,
+       45.0,
+       60.0,
+       75.0,
+       90.0,
+       105.0,
+       120.0,
+       135.0,
+       150.0,
+       165.0
+      ],
+      "n_mirror_axes_grid": 12,
+      "rotational_symmetry": [
+       2,
+       3,
+       4,
+       6,
+       12
+      ],
+      "mirror_bound": {
+       "axes": "every pair of points; no angle grid",
+       "rel_tol": 1e-09,
+       "about": "centroid",
+       "n_points": 24
+      },
+      "mirror_grid_bound": {
+       "n_points": 24,
+       "n_axes": 360,
+       "axis_step_deg": 0.5,
+       "rel_tol": 1e-09,
+       "abs_tol": 1.255926060399109e-09,
+       "about": "centroid"
+      },
+      "rotational_symmetry_bound": {
+       "n_points": 24,
+       "k_tested": [
+        2,
+        24
+       ],
+       "rel_tol": 1e-09,
+       "abs_tol": 1.255926060399109e-09,
+       "about": "centroid"
+      }
+     }
+    ],
+    "n_mirror_axes_equals_h": true,
+    "sweep_reference": null,
+    "more_axes_than_sweep_max": null
+   }
+  ]
+ },
+ "angles": {
+  "5-cell": [
+   0.0,
+   36.0,
+   72.0,
+   108.0,
+   144.0
+  ],
+  "16-cell": [
+   0.0,
+   22.5,
+   45.0,
+   67.5,
+   90.0,
+   112.5,
+   135.0,
+   157.5
+  ],
+  "tesseract": [
+   0.0,
+   22.5,
+   45.0,
+   67.5,
+   90.0,
+   112.5,
+   135.0,
+   157.5
+  ],
+  "24-cell": [
+   0.0,
+   15.0,
+   30.0,
+   45.0,
+   60.0,
+   75.0,
+   90.0,
+   105.0,
+   120.0,
+   135.0,
+   150.0,
+   165.0
+  ]
+ },
+ "human_interest": null,
+ "ai_interest": "OBSERVED, tolerance 1e-6: 5-cell (A4, h = 5, 5 vertices, 5 distinct projected points): 5 mirror axes with no grid, 5 on the 360-axis grid, rotational symmetry [5] at k_max 24, tour maximum for the shape alone 3 over 360 frames; 16-cell (B4, h = 8, 8 vertices, 8 distinct projected points): 8 mirror axes with no grid, 8 on the 360-axis grid, rotational symmetry [2, 4, 8] at k_max 24, tour maximum for the shape alone 4 over 360 frames; tesseract (B4, h = 8, 16 vertices, 16 distinct projected points): 8 mirror axes with no grid, 8 on the 360-axis grid, rotational symmetry [2, 4, 8] at k_max 24, no tour reference; 24-cell (F4, h = 12, 24 vertices, 24 distinct projected points): 12 mirror axes with no grid, 12 on the 360-axis grid, rotational symmetry [2, 3, 4, 6, 12] at k_max 24, no tour reference. Same counts at tolerance 1e-9: True. Prediction logged before the reading: PROPOSED before the run, by the operator: the Petrie / Coxeter-plane projection has the maximal mirror count. DERIVED: a plane figure with h-fold rotational symmetry and one mirror has exactly h mirror axes through its centre; whether any other orientation of the same polytope shows more is not tested by this run, which reads one plane per shape. AI reading: not interpretable atm beyond the counts.",
+ "compressibility": {
+  "definition": "mirror-axis count per case as a letter (a = 0), cases in order",
+  "n": 4,
+  "phrases": 3,
+  "zlib_ratio": 3.0
+ },
+ "nature_match": null,
+ "divergence_note": null
+}

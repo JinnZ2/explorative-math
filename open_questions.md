@@ -23,10 +23,15 @@ reports.
   logged run beats that k.
 - Tools: `primitives.hypercube`, `composers.rotate_project`,
   `probes.rotational_symmetry`.
+- Recorded beside it: `runs/coxeter_plane_seed0.json` projects the
+  tesseract, 16-cell, 24-cell and 5-cell onto their Coxeter planes and logs
+  mirror axes and `rotational_symmetry` at `k_max` 24. It gives a projection
+  basis, not rotation planes and angles, and searches no other orientation.
 
 **Q2. 24-cell.** The same question for `cell24()`.
 - Resolved when: as for Q1.
 - Tools: `primitives.cell24`, `rotate_project`, `rotational_symmetry`.
+- Recorded beside it: `runs/coxeter_plane_seed0.json`, as under Q1.
 
 **Q3. 5-cell search path.** `simplex_4d` reaches the symmetric (Petrie)
 view only by construction; 2000 random rotations never came near it
@@ -35,6 +40,9 @@ random start to the Petrie plane along which `pentagon_score` never rises.
 Or find where every path must rise.
 - Resolved when: a logged path, scored step by step.
 - Tools: `experiments/simplex_4d.py`, `primitives.rotate_many`.
+- Recorded beside it: `runs/mirror_sweep_seed0.json` reads mirror axes on
+  360 frames of one seeded tour of the 5-cell and the 16-cell. It is a
+  mirror reading along a fixed path, not a `pentagon_score` path.
 
 **Q4. Mirror change under a φ overlay.** Overlay `icosahedron()` with its
 φ-scaled copy (`composers.phi_stack`, ks (0, 1)). Find the rotation angle
@@ -153,7 +161,8 @@ Two readings are both open:
 - Recorded beside it: `runs/symmetry_resolution_seed0.json` reads the probe
   on a regular 8-gon and 16-gon, and on the two unions, at `k_max` 12 and
   24 and tolerance 1e-6 and 1e-9. Two of the shapes this test lists, not
-  all of them. The same run reads `mirror_symmetry` on the two unions.
+  all of them. The same run reads `mirror_symmetry` on the two unions;
+  `runs/mirror_sweep_seed0.json` reads it on 360 frames per shape.
   See `docs/resolution_leak.md` rows 2a, 2b, 2c.
 
 ## Projection and the source lattice
