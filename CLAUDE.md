@@ -83,6 +83,7 @@ toolkit/
                        *_bound helpers: the bound a reading was taken at
                        mirror_residual (continuous; 0 = exact mirror)
                        mirror_axis_residuals, mirror_k_score (k distinct axes)
+                       mirror_residual_at (residual on given axes)
   generator.py         seed -> random pipeline (shape / cut / orbit) -> probes -> log
                        cut_weighted: asked for by name, never drawn, own run files
   loghook.py           log_run() and @logged: every run writes the schema,
@@ -106,6 +107,8 @@ experiments/
   mirror_pursuit.py       n  coordinate descent on mirror_residual from random starts; path logged
   layered_pursuit.py      o  descent on the sum of the k smallest axis residuals: staged
                              k = 1..h, and k = h at once; axis count per stage
+  anchor_generate.py      p  one mirror by descent, then axes a + k*180/m by rule
+                             (m = h, controls h-1, h+1); set beside layered and alt
 runs/*.json            one file per run, schema below
 runs/*.json.gz         the same, gzipped, for a run above emlib.GZ_THRESHOLD bytes;
                        full content; read either form with emlib.load_run

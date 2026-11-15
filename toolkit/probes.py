@@ -13,6 +13,7 @@ CC0. Co-authored. Stdlib only.
   mirror_axis_residuals, mirror_k_score
                        the residual per distinct axis, and the sum of the k
                        smallest (0 = k mirrors)
+  mirror_residual_at   the residual on axes handed in (no candidate search)
   smallest_period      smallest p with s[i] == s[i+p] throughout
   period_profile       smallest period of growing prefixes (aperiodicity shows
                        as growth; a finite sequence always has some period)
@@ -202,6 +203,29 @@ def mirror_axis_residuals(points, min_sep_deg=5.0):
                for k in kept):
             kept.append({"axis_deg": deg, "residual": r})
     return kept
+
+
+def mirror_residual_at(points, axes_deg):
+    """The mirror residual on given axes, one value per axis, in the order given.
+
+    For each axis angle (degrees, through the centroid): the mean distance
+    from each reflected point to its nearest point of the set, over the
+    set's radius. No candidate search: only the axes handed in are read.
+    Bound: nearest-point matching, not one-to-one."""
+    n = len(points)
+    c = P.centroid(points)
+    pts = [P.sub(p, c) for p in points]
+    scale = _scale_of(points)
+    out = []
+    for deg in axes_deg:
+        a = math.radians(deg)
+        c2, s2 = math.cos(2 * a), math.sin(2 * a)
+        total = 0.0
+        for x, y in pts:
+            rx, ry = c2 * x + s2 * y, s2 * x - c2 * y
+            total += math.sqrt(min((rx - u) ** 2 + (ry - v) ** 2 for u, v in pts))
+        out.append(total / n / scale)
+    return out
 
 
 def mirror_k_score(points, k, min_sep_deg=5.0):
