@@ -140,8 +140,11 @@ def read(label, n, turns, shares, m):
             "radius_squared_shares": list(shares), "simplex_m": m,
             "simplex_vertices": m + 1, "ambient_dimension": dim,
             "points_span_dimension": rank(pts),
-            "sphere_dimension": dim - 1,
-            "sphere_dimension_minus_simplex_dimension": dim - 1 - m,
+            # the sphere the chain actually lies on: one less than what its points
+            # span (a plane turned by 180 degrees holds its points on a line)
+            "sphere_dimension": rank(pts) - 1,
+            "sphere_dimension_minus_simplex_dimension": rank(pts) - 1 - m,
+            "planes_turned_by_180_deg": [i for i, t in enumerate(turns) if 2 * t == n],
             "all_on_one_sphere": max(abs(P.norm(p) - 1.0) for p in pts) < TOL,
             "n_distinct_vertices": len({tuple(round(x, 9) for x in p) for p in pts}),
             "every_window_is_a_regular_simplex": worst < TOL,
@@ -181,7 +184,7 @@ def run(seed=0):
                     if c["n_tetrahedra_to_close"] == 30 and c["p"] == 1)
     t = ring_src["r1_squared_share"]
     ring = read("4D tetrahedra N=30 (1, 11): the 30-ring", 30, (1, 11), (t, 1 - t), 3)
-    keys = ("simplex_m", "ambient_dimension", "sphere_dimension",
+    keys = ("simplex_m", "ambient_dimension", "points_span_dimension", "sphere_dimension",
             "sphere_dimension_minus_simplex_dimension", "every_window_is_a_regular_simplex",
             "step_is_one_isometry", "step_has_a_translation", "edge_over_radius",
             "consecutive_simplices_share_a_facet_of")
@@ -205,6 +208,9 @@ def run(seed=0):
                                                     if x["every_window_is_a_regular_simplex"]),
                         "step_is_one_isometry": sum(1 for x in survivors
                                                     if x["step_is_one_isometry"]),
+                        "sphere_minus_simplex_dimension":
+                            {x["chain"]: x["sphere_dimension_minus_simplex_dimension"]
+                             for x in [ring] + survivors},
                         "ring_every_window_regular": ring["every_window_is_a_regular_simplex"],
                         "ring_step_is_one_isometry": ring["step_is_one_isometry"]}}
 
