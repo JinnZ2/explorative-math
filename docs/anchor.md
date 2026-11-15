@@ -33,10 +33,15 @@ for two points to land on each other.
 | re-reading permits collapse | same run, `degenerate`; `runs/degeneracy_check_seed0.json` | 16-cell endpoints with coincident points: 6 of 8 re-read against 2 of 8 kept. 5-cell: 0 of 8 either way |
 | choosing the anchor by its pairing type | `runs/anchor_selection_seed0.json.gz` | 5-cell: 4 of 8 reach 5 against 1 of 8 with the anchor as found. 16-cell: 5 of 8 against 5 of 8 |
 | wrong rule (m = h - 1, h + 1) | all four runs | 0 starts reach h, every variant, every limit |
+| no rule: fold the axis directions by the mirrors found, search the wedge, next axis becomes the next anchor | `runs/fold_loop_seed0.json.gz` | reach h on 1 of 8 (5-cell), 3 of 8 (16-cell), 0 of 2 (24-cell). The wrong-fold control and the no-fold loop end on the same count as the fold on every start; the fold reads about half the candidate axes the no-fold loop reads |
 
 ## Bounds on these readings
 
-- 8 starts per shape, one seed, two shapes.
+- 8 starts per shape, one seed, two shapes (the fold loop adds the 24-cell
+  on 2 starts).
+- In `fold_loop` the fold acts on the directions of candidate axes in the
+  projection plane, not on the six rotation angles; that is one reading of
+  a carried method its carrier had not tested.
 - The preferred types in `anchor_selection` (5-cell 1, 16-cell 2) were read
   off the kept-pairing run on the same starts. Starts that are not
   re-anchored repeat that run's descents; only the re-anchored starts are

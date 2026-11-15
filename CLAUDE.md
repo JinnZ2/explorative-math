@@ -136,6 +136,9 @@ experiments/
                              every pull-back, beside the kept-pairing run; --small (~30 s)
   anchor_selection.py     w  anchors chosen by pairing type (points on the axis), re-anchored
                              otherwise; beside the anchor as found; --small (~30 s)
+  fold_loop.py            x  anchor -> fold -> rerun: search candidate axes only inside the
+                             wedge left by the mirrors found; wrong-fold and no-fold
+                             controls; 5-cell, 16-cell, 24-cell (2 starts); --small
   exact_inflation.py      s  Fibonacci / pentagon / Penrose inflation in exact forms:
                              two constructions per level must be EQUAL; --small
   field_response.py       t  hexagonal sheet under a gradient field + uniform control;
@@ -180,7 +183,7 @@ python3 -m unittest discover -s tests          # all tests
 python3 experiments/<name>.py                  # writes runs/<name>_seed<k>.json (or .json.gz)
 python3 experiments/layered_pursuit.py --small # phone bound -> runs/<name>_small_seed<k>; also anchor_generate,
                                                # constrained_generate, pairing_reread, anchor_selection,
-                                               # exact_inflation,
+                                               # fold_loop, exact_inflation,
                                                # field_response, field_adaptation
 python3 -m toolkit.generator 0 1 2             # writes runs/generated_seed<k>.json
 python3 -m toolkit.generator --pipeline cut_weighted 0 1 2   # runs/generated_cut_weighted_seed<k>.json
