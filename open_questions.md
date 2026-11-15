@@ -96,3 +96,38 @@ And which disagreements survive once that choice is aligned?
 - Resolved when: a logged comparison run, for each DIFFER group, with the
   choice aligned and the field re-checked.
 - Do not resolve it by making the builds identical.
+
+**Q12. Same symmetry answer, different unions: real equality or probe
+resolution?** Status: **PROPOSED** (not run).
+
+In `compare/runs/phi_scale_vs_phi_scale_rotate.jsonl`, Build B's
+`rotational_symmetry` probe returns the same list for both builds' unions on
+all 8 frames. The unions are not the same: on cross-polytope frames 1–3,
+Build A's union (`phi_scale_rotate`) has 16 distinct directions and Build B's
+(`phi_scale`) has 8.
+
+OBSERVED, from the jsonl:
+- Cross-polytope frame 0: both `[2, 4]`.
+- Cross-polytope frames 1–3: both `[2]`.
+- Simplex frame 0: both `[3]`.
+- Simplex frames 1–3: both `[]`.
+
+Two readings are both open:
+- *Real equality.* Rotating a k-fold set by a fixed angle, then adding the
+  copy, keeps the same k, so the order really is the same.
+- *Probe resolution.* The probe cannot see the difference. DERIVED from the
+  code: `rotational_symmetry` tests only k in 2..`k_max` (default 12), at a
+  relative tolerance (default 1e-6), about the centroid. So a 16-fold set
+  could only show up as its divisors ≤ 12, and two sets whose orders differ
+  above 12, or by less than the tolerance, read the same.
+  - "16 vs 8" is a count of distinct directions, not a symmetry order.
+
+- Test: run the probe on shapes whose symmetry orders are known and
+  different (for example regular polygons with k = 5, 8, 13, 16, 24, and a
+  k-gon plus its φ-scaled rotated copy). Report, for each pair, whether the
+  probe separates them, and at which `k_max` and tolerance.
+- Resolved when: that run is logged, with each shape's known order beside
+  the probe's output.
+- Tools: `toolkit.primitives.regular_polygon`, `toolkit.composers`
+  (`phi_stack`; a scale-and-rotate copy), `toolkit.probes.rotational_symmetry`.
+
