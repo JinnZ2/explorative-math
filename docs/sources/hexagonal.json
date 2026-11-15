@@ -1,0 +1,9 @@
+{
+  "id": "hexagonal",
+  "name": "Hexagonal patterns in honeycomb and basalt columns",
+  "summary": "Regular hexagonal honeycomb minimizes perimeter for equal-area planar partitions. Basalt columnar joints instead arise from contraction and fracturing during cooling; many columns are hexagonal, but three to seven sides occur. A regular hexagon has 60-degree spacing between successive vertex directions from its center.",
+  "source_url": "https://www.nps.gov/subjects/volcanoes/columnar-jointing.htm",
+  "source_title": "Columnar Jointing — U.S. National Park Service",
+  "caveat": "Honeycomb perimeter optimization is not itself a bee-building mechanism, and basalt is not literal optimal disk packing. The runtime's 60-degree catalog comparison is an angular coincidence, not evidence of natural cause or a simulation of formation. Basalt fracture junctions are described by 120-degree angles, distinct from 60-degree polar vertex spacing.",
+  "verified": true
+}

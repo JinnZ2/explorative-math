@@ -1,0 +1,9 @@
+{
+  "id": "quasicrystals",
+  "name": "Real-alloy quasicrystals",
+  "summary": "Quasicrystals have long-range atomic order without ordinary translational periodicity. Dan Shechtman discovered fivefold symmetry in rapidly solidified aluminum-manganese alloy at NIST in 1982 and received the 2011 Nobel Prize in Chemistry for discovering quasicrystals.",
+  "source_url": "https://www.nist.gov/nist-and-nobel/dan-shechtman",
+  "source_title": "Dan Shechtman — NIST",
+  "caveat": "Not all quasicrystals are fivefold: eightfold and twelvefold symmetries also occur in alloys, as documented by Michael Widom's university-hosted overview (https://euler.phys.cmu.edu/widom/pubs/html/EB_QC/QCarticle.html). Some are periodic perpendicular to quasiperiodic layers. The 72-degree catalog target is only a fivefold signature. Agreement with sampled polar angular gaps is an angular coincidence, not evidence of quasiperiodic atomic order or natural causation; sampled rotations and a phi-scaled second shape do not construct a quasicrystal.",
+  "verified": true
+}

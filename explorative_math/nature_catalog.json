@@ -1,0 +1,39 @@
+[
+  {
+    "id": "phyllotaxis",
+    "label": "Golden-angle phyllotaxis",
+    "target_angle_degrees": 137.50776405003785,
+    "status": "DERIVED",
+    "source_url": "https://beatymuseum.ubc.ca/2021/11/17/fibonacci-day/",
+    "source_title": "November 23 is Fibonacci Day! — Beaty Biodiversity Museum, University of British Columbia",
+    "interpretation": "Idealized divergence between successive florets: 360/phi^2, phi=(1+sqrt(5))/2. Not every sunflower exactly realizes this angle. A projected polar gap is a different measurement; numerical coincidence does not establish phyllotaxis or growth mechanism."
+  },
+  {
+    "id": "capsids",
+    "label": "Fivefold axis in icosahedral virus capsids",
+    "target_angle_degrees": 72.0,
+    "status": "DERIVED",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC524849/",
+    "source_title": "Origin of icosahedral symmetry in viruses",
+    "interpretation": "360/5 is a rotation about a fivefold axis in icosahedral symmetry. Many, not all, virus capsids have this symmetry. This is not a universal angle between capsid components; projected polar-gap agreement does not reconstruct a capsid or establish biology."
+  },
+  {
+    "id": "quasicrystals",
+    "label": "Fivefold quasicrystal / Penrose signature",
+    "target_angle_degrees": 72.0,
+    "status": "DERIVED",
+    "source_url": "https://www.nist.gov/nist-and-nobel/dan-shechtman",
+    "source_title": "Dan Shechtman — NIST",
+    "related_source_url": "https://www.ams.org/publicoutreach/feature-column/fcarc-ribbons",
+    "interpretation": "360/5 is a fivefold angular signature. Quasicrystal order occurs in real alloys; Shechtman received the 2011 Chemistry Nobel. Not all quasicrystals are fivefold. This target is not a test of quasiperiodicity; sampled projections do not implement a Penrose cut-and-project construction."
+  },
+  {
+    "id": "hexagonal",
+    "label": "Regular hexagon central vertex spacing",
+    "target_angle_degrees": 60.0,
+    "status": "DERIVED",
+    "source_url": "https://www.nps.gov/subjects/volcanoes/columnar-jointing.htm",
+    "source_title": "Columnar Jointing — U.S. National Park Service",
+    "interpretation": "360/6 is the central spacing of a regular hexagon's vertices. Honeycomb and many basalt columns show hexagonal patterns, but different mechanisms. Basalt fracture junctions use about 120 degrees, not this 60-degree convention; columns can have other side counts. Agreement is not evidence of optimal disk packing or natural cause."
+  }
+]

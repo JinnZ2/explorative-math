@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "explorative-math immutable base run, schema 1.0",
+  "description": "Every base observer slot remains null. Explicit annotations are stored separately and materialized only on read.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "params", "outputs", "human_interest", "ai_interest", "compressibility", "divergence_note", "status"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "run_id": {"type": "string", "minLength": 1},
+    "family": {"type": "string", "minLength": 1},
+    "kind": {"type": "string", "minLength": 1},
+    "params": {"type": "object"},
+    "outputs": {"oneOf": [{"type": "array"}, {"type": "object"}]},
+    "human_interest": {"type": "null"},
+    "ai_interest": {"type": "null"},
+    "compressibility": {"type": "null"},
+    "divergence_note": {"type": "null"},
+    "status": {"enum": ["OBSERVED", "DERIVED", "PROPOSED"]}
+  }
+}

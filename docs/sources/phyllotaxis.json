@@ -1,0 +1,9 @@
+{
+  "id": "phyllotaxis",
+  "name": "Golden angle in sunflower phyllotaxis",
+  "summary": "The golden angle is the smaller angle obtained by dividing a full turn in the golden ratio: 360/phi^2 ≈ 137.507764 degrees, where phi=(1+sqrt(5))/2. It describes rotation between successively originating sunflower florets; visible spiral counts commonly follow consecutive Fibonacci numbers.",
+  "source_url": "https://beatymuseum.ubc.ca/2021/11/17/fibonacci-day/",
+  "source_title": "November 23 is Fibonacci Day! — Beaty Biodiversity Museum, University of British Columbia",
+  "caveat": "This is an idealized phyllotactic angle, not a universal exact measurement: sunflower heads can depart from Fibonacci structure. The visible crossing arcs are not themselves golden or logarithmic spirals. A sampled projection gap near this catalog target is only an angular coincidence and does not establish sunflower growth mechanisms.",
+  "verified": true
+}

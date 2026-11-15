@@ -1,0 +1,9 @@
+{
+  "id": "projection-pursuit",
+  "name": "Projection pursuit",
+  "summary": "Projection pursuit searches for low-dimensional linear projections of multivariate data that reveal interesting structure, using a projection index such as departure from a Gaussian distribution.",
+  "source_url": "https://www.pnas.org/doi/10.1073/pnas.1801177115",
+  "source_title": "Projection pursuit in high dimensions",
+  "caveat": "With limited high-dimensional samples, even structureless Gaussian data can yield apparently interesting projections without statistical or scientific significance. This repository's sampled Givens rotations and angular catalog comparisons do not implement projection pursuit or index optimization. Angular matches are coincidences, not evidence of natural causes.",
+  "verified": true
+}

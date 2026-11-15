@@ -1,0 +1,9 @@
+{
+  "id": "capsids",
+  "name": "Icosahedral virus capsids and fivefold rotation",
+  "summary": "Many sphere-like viruses have protein shells (capsids) with icosahedral symmetry. The primary paper describes cowpea chlorotic mottle virus as having six fivefold rotation axes, ten threefold axes, and fifteen twofold axes. A fivefold symmetry operation corresponds to a 72-degree turn (360/5).",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC524849/",
+  "source_title": "Origin of icosahedral symmetry in viruses",
+  "caveat": "Not all viruses have icosahedral capsids; the paper documents exceptions, including HIV. The program compares sampled projected angular gaps with a 72-degree catalog target. An angular coincidence does not establish capsid geometry or a biological cause, and sampled Givens rotations are not an exhaustive grand tour or a capsid reconstruction.",
+  "verified": true
+}

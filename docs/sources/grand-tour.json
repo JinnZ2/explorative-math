@@ -1,0 +1,9 @@
+{
+  "id": "grand-tour",
+  "name": "Grand tour projection visualization — Daniel Asimov, 1985",
+  "summary": "Asimov's 1985 grand tour visualizes multivariate statistical data through orthogonal projections onto a sequence of two-dimensional subspaces chosen to be dense in the space of all such subspaces.",
+  "source_url": "https://epubs.siam.org/doi/10.1137/0906011",
+  "source_title": "The Grand Tour: A Tool for Viewing Multidimensional Data",
+  "caveat": "Density means approaching every projection subspace arbitrarily closely, not exhaustively viewing all projections in finitely many steps. The repository's sampled Givens rotations do not establish grand-tour convergence or implement projection pursuit. Angular catalog coincidences cannot establish natural causes.",
+  "verified": true
+}

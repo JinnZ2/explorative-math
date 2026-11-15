@@ -1,0 +1,9 @@
+{
+  "id": "principal-angles",
+  "name": "Grassmannian geometry and principal angles between subspaces",
+  "summary": "The Grassmannian Gr(p,n) is the space of p-dimensional linear subspaces of R^n. For orthonormal basis matrices Q1 and Q2 of two such subspaces, the cosines of their principal angles are the singular values of Q1^T Q2. These angles determine several subspace distances, including the canonical geodesic distance given by their Euclidean norm (sections 2.1 and 4.3).",
+  "source_url": "https://arxiv.org/html/physics/9806030",
+  "source_title": "The Geometry of Algorithms with Orthogonality Constraints — Alan Edelman, T. A. Arias, and Steven T. Smith (1998)",
+  "caveat": "Principal angles are basis-independent comparisons of linear subspaces, not pointwise polar angular gaps. The repository's sampled Givens rotations and polar-gap comparisons do not implement a principal-angle solver or establish exhaustive Grassmannian coverage or convergence.",
+  "verified": true
+}

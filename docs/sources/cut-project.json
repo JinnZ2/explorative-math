@@ -1,0 +1,9 @@
+{
+  "id": "cut-project",
+  "name": "Cut-and-project quasicrystals and five-dimensional cubic lattice Penrose tilings",
+  "summary": "Cut-and-project constructions project suitably selected points of a higher-dimensional lattice into a lower-dimensional space. De Bruijn's construction realizes nonperiodic Penrose rhomb tilings from selected points of a five-dimensional cubic lattice; these tilings model quasiperiodic order.",
+  "source_url": "https://www.ams.org/publicoutreach/feature-column/fcarc-ribbons",
+  "source_title": "Penrose Tilings Tied up in Ribbons — David Austin, American Mathematical Society",
+  "caveat": "Lattice-point selection matters: projecting an arbitrary rotated lattice is not a Penrose construction. The 72-degree catalog target is a fivefold angular signature, not evidence of natural cause or a universal quasicrystal pattern. Runtime uses sampled Givens rotations, polar angular gaps, a phi-scaled rotated second shape, and catalog comparisons; it implements neither Penrose construction nor exhaustive grand-tour convergence, projection pursuit, a Coxeter plane, or a principal-angle solver.",
+  "verified": true
+}
