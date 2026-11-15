@@ -70,7 +70,7 @@ The regular 5-cell in R⁴, rotated in all six coordinate planes and projected o
 | Part | Contents |
 |---|---|
 | primitives | vectors; rotation in any (i, j) plane in any dimension; projection onto coordinates or an orthonormal basis; angles; Gram-Schmidt; polytope vertex generators (simplex, hypercube, cross-polytope, 24-cell, icosahedron, regular polygon); lattices (Z^n, hexagonal) |
-| composers | `rotate_project`, `phi_scale` / `phi_stack`, `cut_and_project` (general lattice, bases and window), `iterate`, `overlay` (points tagged by source) |
+| composers | `rotate_project`, `phi_scale` / `phi_stack`, `cut_and_project` (general lattice, bases; hard window and/or a weighting function such as `gaussian_weight`), `iterate`, `overlay` (points tagged by source) |
 | probes | rotational symmetry, mirror symmetry, smallest period and period profile, zlib ratio, angle histogram |
 | generator | a seed draws one of three pipelines and its parameters, runs it, applies the probes, and logs it. The pipelines are: shape → φ-stack → random rotations → 2D; Z² cut at a random slope; circle-rotation orbit. The drawn spec is stored in `params`, so any run can be remade. |
 | loghook | `log_run()` and `@logged` write the schema for every run, with both interest slots and the divergence note left empty |
@@ -81,9 +81,10 @@ Ten generated runs are committed (`runs/generated_seed0..9.json`, seeds 0–9). 
 
 ## Puzzle layer
 
-`open_questions.md` holds ten OPEN prompts with no answer key.
+`open_questions.md` holds OPEN prompts with no answer key.
 - Five are find-the-angle challenges (tesseract, 24-cell, 5-cell search path, φ-overlay mirror change, three-gap slope).
 - Five come from something a recorded run showed and did not explain.
+- Q11 is across the two builds. Q13 (PROPOSED) asks which measured properties survive projection; Q12 is void.
 
 ## Method
 

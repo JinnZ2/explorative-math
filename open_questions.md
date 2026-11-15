@@ -96,3 +96,25 @@ And which disagreements survive once that choice is aligned?
 - Resolved when: a logged comparison run, for each DIFFER group, with the
   choice aligned and the field re-checked.
 - Do not resolve it by making the builds identical.
+
+## Projection and the source lattice
+
+Q12 is void: no prompt carries that number.
+
+**Q13. What survives the shadow?** Which measured properties survive
+projection unchanged, and which need the source lattice to distinguish?
+Take two different source lattices, with cuts and windows chosen so that
+both give the same shadow (the same projected point set, or the same gap
+word). Apply every probe to both. Sort the probes into those that read the
+same on both shadows and those that differ only once the source is given.
+- Status: PROPOSED. No run has been made. The pair of lattices is not
+  chosen; choosing one is part of the prompt.
+- Resolved when: a logged run for each source, the two shadows shown equal
+  by a stated test, and each probe listed as "same on the shadow" or
+  "needs the source", with its reading on both.
+- Tools: `composers.cut_and_project` (hard window, or `weight=` with
+  `gaussian_weight`), `primitives.lattice_zn`, `lattice_hex`, `probes`.
+- Recorded beside it: `runs/weighted_window_seed0.json` logs one lattice
+  under two windows. That is one source, so it is not an attempt at Q13.
+- Pointers: `REFERENCES/related_studies.md` R1.
+

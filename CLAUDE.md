@@ -66,7 +66,8 @@ toolkit/
   primitives.py        vectors, rotation in any (i, j) plane, projection, angles,
                        Gram-Schmidt, polytopes (simplex, hypercube, cross-polytope,
                        24-cell, icosahedron, regular polygon), lattices (Z^n, hex)
-  composers.py         rotate_project, phi_scale / phi_stack, cut_and_project,
+  composers.py         rotate_project, phi_scale / phi_stack, cut_and_project
+                       (hard window and/or weight function; gaussian_weight),
                        iterate, overlay
   probes.py            rotational / mirror symmetry, smallest period, period
                        profile, zlib ratio, angle histogram, polar angles
@@ -80,10 +81,12 @@ experiments/
   fibonacci_chain.py      c  Z^2 cut at slope 1/phi, projected to a 1D chain
   golden_angle.py         d  phyllotaxis points: golden angle vs perturbed angles
   simplex_4d.py           e  5-cell: rotate in 4D planes, project to 2D
+  weighted_window.py      f  one Z^2 cut, two windows: hard strip and Gaussian weight
 runs/*.json            one file per run, schema below
 tests/                 unittest, one file per experiment plus emlib
 DIVERGENCE_LOG.md      where human and AI interest differ (columns = schema)
 open_questions.md      puzzle layer: unsolved prompts, no answer key
+REFERENCES/            pointers to related studies, each with how far it was read
 ```
 
 ## Run schema (`runs/*.json`)
