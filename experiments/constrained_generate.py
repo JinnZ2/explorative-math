@@ -62,7 +62,7 @@ FD_DEG = 1e-5               # finite-difference step for the Jacobian, degrees
 DAMPING = 1e-12             # added to the normal equations' diagonal (relative to its trace)
 COUNT_TOLS = A.COUNT_TOLS
 SMALL = {"starts": 2, "max_trials": 80, "anchor_max_evals": 1000, "bound_check_trials": None}
-REFERENCE = "runs/anchor_generate_seed0.json"
+REFERENCE = "runs/anchor_generate_seed{seed}.json"     # the run of the same seed, if logged
 
 
 def project(verts, planes, angles_deg):
@@ -242,9 +242,9 @@ def constrained_descent(verts, planes, anchor_angles, axis_deg, m, max_trials=MA
             "final_projected": pts, "path": path}
 
 
-def reference(path=None):
+def reference(path=None, seed=0):
     try:
-        rec = emlib.load_run(Path(path) if path else emlib.ROOT / REFERENCE)
+        rec = emlib.load_run(Path(path) if path else emlib.ROOT / REFERENCE.format(seed=seed))
     except FileNotFoundError:
         return {}
     return {s["shape"]: {"starts": [r["start_angles_deg"] for r in s["starts"]],
@@ -254,7 +254,7 @@ def reference(path=None):
 def run(seed=0, starts=STARTS, max_trials=MAX_TRIALS, anchor_max_evals=U.MAX_EVALS,
         reference_path=None, bound_check_trials=BOUND_CHECK_TRIALS):
     rng = random.Random(seed)
-    ref = reference(reference_path)
+    ref = reference(reference_path, seed)
     shapes = []
     for name, make, h in SHAPES:
         verts = make()
@@ -376,7 +376,8 @@ def main(argv):
                          "bound_check_max_trials": b["bound_check_max_trials"],
                          "gauss_newton_iters": GN_ITERS, "finite_difference_deg": FD_DEG,
                          "anchor_max_evals": b["anchor_max_evals"],
-                         "count_rel_tols": list(COUNT_TOLS), "reference": REFERENCE,
+                         "count_rel_tols": list(COUNT_TOLS),
+                         "reference": REFERENCE.format(seed=seed),
                          "constraint": "anchor residual below anchor_tol at every accepted "
                                        "position, by a Gauss-Newton pull-back"},
                         out, angles, None, comp, None, gz=True)

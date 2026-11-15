@@ -43,7 +43,8 @@ from toolkit import primitives as P  # noqa: E402
 from toolkit import probes as Q  # noqa: E402
 
 NAME = "anchor_selection"
-PREFERRED = {"5-cell": 1, "16-cell": 2}       # points on the axis
+PREFERRED = {"5-cell": 1, "16-cell": 2}       # points on the axis; fixed from seed 0
+PREFERRED_FROM_SEED = 0                       # a run at another seed is a holdout for them
 MAX_ATTEMPTS = 12                             # stage-1 pursuits per start, the first included
 LIMITS = (K.MAX_TRIALS, K.BOUND_CHECK_TRIALS)
 SMALL = {"starts": 2, "limits": (80,), "anchor_max_evals": 1000, "max_attempts": 6}
@@ -68,7 +69,7 @@ def anchor_of(verts, planes, start, anchor_max_evals):
 def run(seed=0, starts=K.STARTS, limits=LIMITS, anchor_max_evals=U.MAX_EVALS,
         max_attempts=MAX_ATTEMPTS, reference_path=None):
     rng = random.Random(seed)
-    ref = R.kept_reference(reference_path)
+    ref = R.kept_reference(reference_path, seed)
     shapes = []
     for name, make, h in K.SHAPES:
         verts = make()
@@ -148,9 +149,14 @@ def run(seed=0, starts=K.STARTS, limits=LIMITS, anchor_max_evals=U.MAX_EVALS,
                       "anchor_max_evals": anchor_max_evals, "anchor_tol": K.ANCHOR_TOL,
                       "count_rel_tols": list(K.COUNT_TOLS),
                       "re_anchor": "stage-1 pursuit again from fresh uniform random angles",
-                      "preference_source": "read off the logged constrained_generate run on "
-                                           "these same starts; starts that are not re-anchored "
-                                           "repeat that run's descents",
+                      "preferred_from_seed": PREFERRED_FROM_SEED,
+                      "holdout": seed != PREFERRED_FROM_SEED,
+                      "preference_source": (
+                          "read off the logged constrained_generate run on these same starts; "
+                          "starts that are not re-anchored repeat that run's descents"
+                          if seed == PREFERRED_FROM_SEED else
+                          f"fixed from seed {PREFERRED_FROM_SEED}; these starts were not used "
+                          "to choose them, and nothing was retuned"),
                       "selection_costs_more": "a re-anchored start uses several stage-1 "
                                               "pursuits; anchor_evals_total logs them",
                       "pairing": "kept from the selected anchor",
@@ -179,7 +185,10 @@ def main(argv):
                          "starts": out["bound"]["starts_per_shape"], "trial_limits": limits,
                          "preferred_points_on_axis": PREFERRED,
                          "max_attempts": out["bound"]["max_attempts"],
-                         "rules": ["h - 1", "h", "h + 1"], "reference": R.REFERENCE,
+                         "rules": ["h - 1", "h", "h + 1"],
+                         "reference": R.REFERENCE.format(seed=seed),
+                         "preferred_from_seed": PREFERRED_FROM_SEED,
+                         "holdout": seed != PREFERRED_FROM_SEED,
                          "hypothesis": HYPOTHESIS, "status_before_run": "PROPOSED"},
                         out, angles, None, comp, None, gz=True)
     print(p)

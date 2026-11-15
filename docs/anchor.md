@@ -32,6 +32,8 @@ for two points to land on each other.
 | position held, pairing re-read | `runs/pairing_reread_seed0.json.gz` | reach h on 2 of 8 (5-cell) and 2 of 8 (16-cell); the anchor residual stays below 1e-6 on 8 of 8 |
 | re-reading permits collapse | same run, `degenerate`; `runs/degeneracy_check_seed0.json` | 16-cell endpoints with coincident points: 6 of 8 re-read against 2 of 8 kept. 5-cell: 0 of 8 either way |
 | choosing the anchor by its pairing type | `runs/anchor_selection_seed0.json.gz` | 5-cell: 4 of 8 reach 5 against 1 of 8 with the anchor as found. 16-cell: 5 of 8 against 5 of 8 |
+| the same selection on new starts (holdout: seed 1, types fixed from seed 0, nothing retuned) | `runs/anchor_selection_seed1.json.gz`, beside `runs/constrained_generate_seed1.json.gz` | 5-cell: 7 of 8 reach 5 against 4 of 8 with the anchor as found. 16-cell: 1 of 8 reach 8 against 2 of 8 |
+| the 16-cell anchors with 2 points on the axis, logged start by start | `runs/axis_split_seed0.json.gz`, `runs/axis_split_seed1.json.gz` | see "The 16-cell split" below |
 | wrong rule (m = h - 1, h + 1) | all four runs | 0 starts reach h, every variant, every limit |
 | no rule: fold the axis directions by the mirrors found, search the wedge, next axis becomes the next anchor | `runs/fold_loop_seed0.json.gz` | reach h on 1 of 8 (5-cell), 3 of 8 (16-cell), 0 of 2 (24-cell). The wrong-fold control and the no-fold loop end on the same count as the fold on every start; the fold reads about half the candidate axes the no-fold loop reads |
 
@@ -43,7 +45,8 @@ for two points to land on each other.
   projection plane, not on the six rotation angles; that is one reading of
   a carried method its carrier had not tested.
 - The preferred types in `anchor_selection` (5-cell 1, 16-cell 2) were read
-  off the kept-pairing run on the same starts. Starts that are not
+  off the kept-pairing run on the same starts (seed 0). Seed 1 is a holdout
+  for them: one further seed, 8 starts per shape. Starts that are not
   re-anchored repeat that run's descents; only the re-anchored starts are
   new draws (4 of 8 for each shape).
 - A re-anchored start spends several stage-1 pursuits (up to 6 here); the
@@ -54,7 +57,30 @@ for two points to land on each other.
 - The 400-trial limit binds in every variant. The 2500-trial readings are
   the ones quoted; they are still a bound.
 
+## The 16-cell split
+
+Logged, not interpreted (`axis_split`, rule m = h, pairing kept, 2500
+trials). Every selected 16-cell anchor has 2 points on the axis, and in
+every one those two points are an antipodal pair.
+
+```text
+                                  seed 0                          seed 1 (holdout)
+                                  reach 8 (5)    do not (3)       reach 8 (1)    do not (7)
+swaps a vertex with its antipode  1 each         1, 3, 3          1              3, 3, 2, 1, 3, 3, 1
+smallest pair distance at anchor  0.12 - 0.63    2e-10 - 2e-04    0.39           5e-10 - 1.6e-03, and one 0.14
+generator radius ratio at anchor  0.24 - 0.67    0.42, 1e-04, 0   0.55           0 - 0.07, and one 0.56
+generator radius ratio at end     1.0 each       0 each           1.0            0 - 0.06
+coincident points at the end      none           2 of 3           none           6 of 7
+final score                       below 1e-07    1.5 - 2.2        5e-08          1.5 each
+```
+
+Coxeter-plane reference, logged the same way: 8 mirrors, alternately 2
+antipodal points on the axis (1 swap with own antipode) and 0 on the axis
+(none); generator radius ratio 1.
+
 ## Not shown
 
 Whether the pairing type is what decides the outcome. On the 16-cell every
-selected anchor has 2 points on the axis and 3 of 8 still do not reach 8.
+selected anchor has 2 points on the axis and 3 of 8 still do not reach 8;
+on the holdout seed 7 of 8 do not. The preferred type for the 16-cell did
+not carry to new starts; the one for the 5-cell did, on one further seed.

@@ -136,6 +136,8 @@ experiments/
                              every pull-back, beside the kept-pairing run; --small (~30 s)
   anchor_selection.py     w  anchors chosen by pairing type (points on the axis), re-anchored
                              otherwise; beside the anchor as found; --small (~30 s)
+  axis_split.py           y  the 16-cell's 2-on-axis anchors, reach vs not, start by start:
+                             on-axis points, pairing, generators, residual path, degeneracy
   fold_loop.py            x  anchor -> fold -> rerun: search candidate axes only inside the
                              wedge left by the mirrors found; wrong-fold and no-fold
                              controls; 5-cell, 16-cell, 24-cell (2 starts); --small

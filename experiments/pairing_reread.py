@@ -40,7 +40,7 @@ from toolkit import probes as Q  # noqa: E402
 NAME = "pairing_reread"
 LIMITS = (K.MAX_TRIALS, K.BOUND_CHECK_TRIALS)      # 400 and 2500 trials
 SMALL = {"starts": 2, "limits": (80,), "anchor_max_evals": 1000}
-REFERENCE = "runs/constrained_generate_seed0.json"
+REFERENCE = "runs/constrained_generate_seed{seed}.json"   # the run of the same seed
 RULES = ("h_minus_1", "h", "h_plus_1")
 HYPOTHESIS = ("PROPOSED by the operator: the 5-cell is weaker because the pairing read at the "
               "anchor is kept; re-reading the pairing should let more starts reach h.")
@@ -52,10 +52,10 @@ KEEP = ("m", "final_score", "final_residual_per_axis", "final_anchor_residual", 
         "pull_backs_with_a_different_pairing", "pairing")
 
 
-def kept_reference(path=None):
+def kept_reference(path=None, seed=0):
     """Counts of the logged kept-pairing run, per shape, rule and trial limit."""
     try:
-        rec = emlib.load_run(Path(path) if path else emlib.ROOT / REFERENCE)
+        rec = emlib.load_run(Path(path) if path else emlib.ROOT / REFERENCE.format(seed=seed))
     except FileNotFoundError:
         return {}
     out = {}
@@ -78,7 +78,7 @@ def kept_reference(path=None):
 def run(seed=0, starts=K.STARTS, limits=LIMITS, anchor_max_evals=U.MAX_EVALS,
         reference_path=None):
     rng = random.Random(seed)
-    ref = kept_reference(reference_path)
+    ref = kept_reference(reference_path, seed)
     shapes = []
     for name, make, h in K.SHAPES:
         verts = make()
@@ -165,7 +165,8 @@ def main(argv):
     p = emlib.write_run(NAME + "_small" if small else NAME, seed,
                         {"small": small, "shapes": [[n, h] for n, _, h in K.SHAPES],
                          "starts": out["bound"]["starts_per_shape"], "trial_limits": limits,
-                         "rules": ["h - 1", "h", "h + 1"], "reference": REFERENCE,
+                         "rules": ["h - 1", "h", "h + 1"],
+                         "reference": REFERENCE.format(seed=seed),
                          "hypothesis": HYPOTHESIS, "status_before_run": "PROPOSED"},
                         out, angles, None, comp, None, gz=True)
     print(p)
