@@ -173,6 +173,9 @@ experiments/
   corkscrew6.py           aj triple rotation in R^6: return against the lcm of three periods,
                              rate sweep, per-plane miss, partial closure, chains of regular
                              simplices on the orbit; --small
+  coxeter_exponents.py    ak Coxeter exponents and h computed from the diagrams (A, B, D to
+                             rank 8, H3, H4, E6-E8); each logged closed chain's turns
+                             tested against them: match / no match
   ancestry.py             ah rectified and truncated forms of four 4-polytopes: are their
                              voids covered by the parent, by the parent's dual, or both
                              together; --small (full ~25 s)
