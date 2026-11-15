@@ -7,14 +7,25 @@
  },
  "outputs": {
   "equation": "tan(n theta) = n tan(theta)",
-  "source": "REFERENCES/related_studies.md R5 (carried; keywords only)",
+  "source": "REFERENCES/related_studies.md R5 (carried; abstract read by a co-author, not fetched here)",
+  "mapping_carried": {
+   "theta": "half the turn",
+   "n": "simplex vertex count",
+   "setting": "flat R^(n-1), a helix with translation"
+  },
+  "note": {
+   "null_result_expected": true,
+   "why": "the chains are spherical (closed, no translation); the equation is for flat helices",
+   "status": "carried from a co-author; the one flat helix in this run, the R^3 reference row, holds",
+   "chains_are_closed_with_no_translation": true
+  },
   "bound": {
    "seed": 0,
    "tol": 1e-09,
    "theta": "half of each plane's turn",
    "n": "simplex vertex count, m + 1",
    "bounded_form": "sin(n theta) cos(theta) - n sin(theta) cos(n theta)",
-   "theta_choice_not_from_the_paper": "the paper was not read; the half turn is the reading under which the R^3 reference row holds"
+   "theta_choice": "half the turn: carried from a co-author's reading of the abstract, and the reading under which the R^3 reference row holds; the paper was not fetched here"
   },
   "reference_r3": {
    "helix": "regular tetrahedra in R^3, turn acos(-2/3)",

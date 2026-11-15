@@ -2,8 +2,16 @@
 
 CC0. Co-authored. Stdlib only. Status: PROPOSED.
 
-Equation carried from REFERENCES/related_studies.md R5 (keywords only; the
-paper was not read here). For each of the 17 closed chains (corkscrew:
+Equation carried from REFERENCES/related_studies.md R5 (abstract read by a
+co-author; not fetched here). Mapping, as carried from that reading: theta
+is half the turn, n is the simplex's vertex count, and the helix lives in
+flat R^(n-1) with a translation along its axis.
+
+Note on what this run can show. The 17 chains are closed: they lie on a
+sphere and have no translation. The equation is for flat helices, which
+translate. So a null result on the chains is the expected reading, not a
+failed check of the equation; the R^3 row is the one case here that is a
+flat helix, and it holds. For each of the 17 closed chains (corkscrew:
 tetrahedra in R^4; corkscrew6: m-simplices, m >= 4, in R^6):
 
   n      the simplex's vertex count, m + 1
@@ -77,12 +85,22 @@ def run(seed=0):
            "half_turn_with_n_3": residuals(twist / 2.0, 3)}
     surv = [r for r in rows if r["survivor_unmatched"]]
     return {"equation": "tan(n theta) = n tan(theta)",
-            "source": "REFERENCES/related_studies.md R5 (carried; keywords only)",
+            "source": "REFERENCES/related_studies.md R5 (carried; abstract read by a "
+                      "co-author, not fetched here)",
+            "mapping_carried": {"theta": "half the turn", "n": "simplex vertex count",
+                                "setting": "flat R^(n-1), a helix with translation"},
+            "note": {"null_result_expected": True,
+                     "why": "the chains are spherical (closed, no translation); the equation "
+                            "is for flat helices",
+                     "status": "carried from a co-author; the one flat helix in this run, the "
+                               "R^3 reference row, holds",
+                     "chains_are_closed_with_no_translation": True},
             "bound": {"seed": seed, "tol": TOL, "theta": "half of each plane's turn",
                       "n": "simplex vertex count, m + 1",
                       "bounded_form": "sin(n theta) cos(theta) - n sin(theta) cos(n theta)",
-                      "theta_choice_not_from_the_paper": "the paper was not read; the half "
-                          "turn is the reading under which the R^3 reference row holds"},
+                      "theta_choice": "half the turn: carried from a co-author's reading of "
+                          "the abstract, and the reading under which the R^3 reference row "
+                          "holds; the paper was not fetched here"},
             "reference_r3": ref, "chains": rows,
             "summary": {"chains": len(rows),
                         "holding_on_every_plane": sum(1 for r in rows

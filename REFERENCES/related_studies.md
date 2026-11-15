@@ -97,13 +97,18 @@ The theorem itself is not checked here; only those two volumes are.
 where     Canadian Mathematical Bulletin 28(4):385-393, 1985.
           doi 10.4153/CMB-1985-045-5
 status    NOT FETCHED here (doi.org and the publisher were outside the allowed
-          network). Title and abstract: void. Read level CARRIED from a
-          co-author: ABSTRACT, keywords only.
-carried   the equation tan(n theta) = n tan(theta).
+          network). Title: void. Read level CARRIED from a co-author:
+          ABSTRACT, the full abstract, with its characteristic equation.
+carried   the equation tan(n theta) = n tan(theta);
+          the mapping: theta = half the turn, n = the simplex's vertex
+          count, a helix in flat R^(n-1) with a translation along its axis.
+          The abstract's text was not passed on and is not quoted here.
 ```
 
 Pointer to: `experiments/simplicial_helix.py`, `runs/simplicial_helix_seed0.json`.
-What theta and n stand for in the paper was not read. The run takes theta
-as half a plane's turn and n as the simplex's vertex count, the reading
-under which the tetrahedral helix of R^3 (turn acos(-2/3), n = 4) satisfies
-the equation.
+The run takes theta as half a plane's turn and n as the simplex's vertex
+count, which is the carried mapping; under it the tetrahedral helix of R^3
+(turn acos(-2/3), n = 4) satisfies the equation. The 17 closed chains do
+not, on any plane. Carried note: that is the expected reading, since the
+chains are spherical (closed, no translation) and the equation is for flat
+helices.
