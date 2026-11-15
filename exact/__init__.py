@@ -10,3 +10,4 @@ from .zphi import ZPhi, PHI, ONE, ZERO  # noqa: F401
 from .cyc5 import Cyc5, ZETA, W, cross, dot, norm2  # noqa: F401
 from . import inflation  # noqa: F401,E402
 from . import fold  # noqa: F401,E402
+from . import complement  # noqa: F401,E402

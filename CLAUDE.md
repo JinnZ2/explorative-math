@@ -81,7 +81,8 @@ exact/                 numbers with no floats: ZPhi (a + b*phi, a, b Fractions,
                        phi^2 = phi + 1; add, mul, inverse, compare, conjugate),
                        Cyc5 (plane points on fifth roots of unity), inflation
                        (Fibonacci chain, pentagon, Penrose subdivision), fold (reflect a
-                       point set into its mirror wedge, with multiplicities)
+                       point set into its mirror wedge, with multiplicities), complement
+                       (squared-distance field of an exact pattern and its exact symmetries)
 field/                 hexsheet: CONSTRUCTED toy. Ideal hexagonal sheet (exact
                        reference), a field over it, a local relaxation rule, and
                        each cell's RESPONSE (never called error); saturating rule,
@@ -103,6 +104,9 @@ toolkit/
                        mirror_axis_residuals, mirror_k_score (k distinct axes)
                        mirror_residual_at (residual on given axes)
                        degeneracy (smallest pair distance, collinearity, centre points, tags)
+  complement.py        read a shape from the space around it: polar-grid distance field,
+                       the turns / mirrors that leave it unchanged, voids, angular gaps;
+                       on the sphere, voids by a seeded hill climb
   generator.py         seed -> random pipeline (shape / cut / orbit) -> probes -> log
                        cut_weighted: asked for by name, never drawn, own run files
   loghook.py           log_run() and @logged: every run writes the schema,
@@ -148,6 +152,8 @@ experiments/
                              of the pentagon; --small
   combine.py              aa fold shape, anchor by type, rule m = h and weighed multiplicities,
                              together and one at a time through one loop; --small
+  collapse_gap.py         ab collapse a shape to one point, read it from the complement;
+                             probes vs baseline, random controls; plane, sphere, exact; --small
   exact_inflation.py      s  Fibonacci / pentagon / Penrose inflation in exact forms:
                              two constructions per level must be EQUAL; --small
   field_response.py       t  hexagonal sheet under a gradient field + uniform control;
@@ -192,7 +198,8 @@ python3 -m unittest discover -s tests          # all tests
 python3 experiments/<name>.py                  # writes runs/<name>_seed<k>.json (or .json.gz)
 python3 experiments/layered_pursuit.py --small # phone bound -> runs/<name>_small_seed<k>; also anchor_generate,
                                                # constrained_generate, pairing_reread, anchor_selection,
-                                               # fold_loop, fold_shape, combine, exact_inflation,
+                                               # fold_loop, fold_shape, combine, collapse_gap,
+                                               # exact_inflation,
                                                # field_response, field_adaptation
 python3 -m toolkit.generator 0 1 2             # writes runs/generated_seed<k>.json
 python3 -m toolkit.generator --pipeline cut_weighted 0 1 2   # runs/generated_cut_weighted_seed<k>.json
