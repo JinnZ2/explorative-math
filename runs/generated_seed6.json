@@ -53,7 +53,20 @@
    "256": 191,
    "512": 337
   },
-  "zlib_ratio": 0.07017543859649122
+  "zlib_ratio": 0.07017543859649122,
+  "period_bound": {
+   "n": 513,
+   "prefix_lengths": [
+    8,
+    16,
+    32,
+    64,
+    128,
+    256,
+    512
+   ]
+  },
+  "arithmetic": "binary float (64-bit)"
  },
  "angles": null,
  "human_interest": null,

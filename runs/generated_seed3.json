@@ -157,7 +157,26 @@
     0,
     0
    ]
-  }
+  },
+  "rotational_symmetry_bound": {
+   "n_points": 24,
+   "k_tested": [
+    2,
+    12
+   ],
+   "rel_tol": 1e-06,
+   "abs_tol": 3.07668766e-06,
+   "about": "centroid"
+  },
+  "mirror_symmetry_bound": {
+   "n_points": 24,
+   "n_axes": 360,
+   "axis_step_deg": 0.5,
+   "rel_tol": 1e-06,
+   "abs_tol": 3.07668766e-06,
+   "about": "centroid"
+  },
+  "point_rounding_decimals": 9
  },
  "angles": [
   0.0,

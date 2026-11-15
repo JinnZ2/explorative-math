@@ -37,6 +37,7 @@ from . import probes as Q
 NAME = "generated"
 PIPELINES = ("shape", "cut", "orbit")      # drawn from the seed; order is pinned
 OPTION_PIPELINES = ("cut_weighted",)        # only by name; never drawn
+GAP_SEP = 1e-6                              # gap lengths closer than this are one length
 WEIGHT_FLOOR = 1e-6                         # recording limit for weighted points
 WEIGHT_LEVELS = (0.9, math.exp(-0.5), 0.5, 0.1, 0.01)
 SHAPE_SOURCES = ("simplex", "hypercube", "cross_polytope", "cell24", "icosahedron")
@@ -87,6 +88,9 @@ def _shape(spec):
         "rotational_symmetry": Q.rotational_symmetry(proj),
         "mirror_axes_deg": Q.mirror_symmetry(proj),
         "polar_angle_histogram": Q.angle_histogram(ang, width=15.0, hi=360.0),
+        "rotational_symmetry_bound": Q.rotational_symmetry_bound(proj),
+        "mirror_symmetry_bound": Q.mirror_symmetry_bound(proj),
+        "point_rounding_decimals": 9,
     }
     symbols = [chr(ord("a") + int(a // 15)) for a in ang]
     return outputs, ang, symbols, "polar angles of projected points in 15-degree bins (a..x)"
@@ -97,7 +101,7 @@ def _gap_classes(xs):
     gaps = [b - a for a, b in zip(xs, xs[1:])]
     lengths = []
     for g in sorted(gaps):
-        if not lengths or g - lengths[-1][-1] > 1e-6:
+        if not lengths or g - lengths[-1][-1] > GAP_SEP:
             lengths.append([g])
         else:
             lengths[-1].append(g)
@@ -117,7 +121,9 @@ def _cut(spec):
     gaps, means, letters = _gap_classes(xs)
     outputs = {"n_gaps": len(gaps), "distinct_gap_lengths": means,
                "word": letters, "period_profile": Q.period_profile(letters),
-               "zlib_ratio": Q.zlib_ratio(letters)}
+               "zlib_ratio": Q.zlib_ratio(letters),
+               "n_points": len(xs), "gap_cluster_sep": GAP_SEP,
+               "period_bound": Q.period_bound(letters)}
     return outputs, None, list(letters), "gap classes as letters A.. (shortest first)"
 
 
@@ -141,7 +147,8 @@ def _cut_weighted(spec):
                        "half_width_in_q": sigma * math.sqrt(2.0 * math.log(1.0 / t)),
                        "n_points": len(xs), "distinct_gap_lengths": means,
                        "word": letters, "period_profile": Q.period_profile(letters),
-                       "zlib_ratio": Q.zlib_ratio(letters)})
+                       "zlib_ratio": Q.zlib_ratio(letters),
+                       "period_bound": Q.period_bound(letters)})
     outputs = {"sigma": sigma, "hard_strip": [lo, hi], "margin": margin,
                "n_lattice_points_in_margin": len(inside),
                "weight_sum_all": total,
@@ -149,7 +156,7 @@ def _cut_weighted(spec):
                "n_points_above_floor": len(kept),
                "points_x_q_weight": [[r["point"][0], r["perp"][0], r["weight"]]
                                      for r in kept],
-               "levels": levels}
+               "levels": levels, "gap_cluster_sep": GAP_SEP}
     word = levels[1]["word"]
     return (outputs, None, list(word),
             "gap classes as letters A.. (shortest first) of the points with weight "
@@ -161,7 +168,8 @@ def _orbit(spec):
     xs = C.iterate(lambda x: (x + a) % 1.0, spec["x0"], spec["steps"])
     word = "".join("0" if x < 0.5 else "1" for x in xs)
     outputs = {"orbit_head": [round(x, 9) for x in xs[:32]], "word": word,
-               "period_profile": Q.period_profile(word), "zlib_ratio": Q.zlib_ratio(word)}
+               "period_profile": Q.period_profile(word), "zlib_ratio": Q.zlib_ratio(word),
+               "period_bound": Q.period_bound(word), "arithmetic": "binary float (64-bit)"}
     return outputs, None, list(word), "orbit coded 0 if x < 1/2 else 1"
 
 

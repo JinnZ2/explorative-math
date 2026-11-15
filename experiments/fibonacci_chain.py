@@ -28,6 +28,7 @@ PHI = (1 + 5 ** 0.5) / 2
 EXTENT = 300         # lattice points with |m|, |n| <= EXTENT
 OFFSET = 1e-7        # shifts the window off lattice-point boundaries
 PREFIX_LENGTHS = (10, 20, 40, 80, 160, 320)
+SEP = 1e-6           # gap lengths closer than this are one length
 
 
 def cut_and_project(slope, extent=EXTENT, offset=OFFSET):
@@ -49,7 +50,7 @@ def cut_and_project(slope, extent=EXTENT, offset=OFFSET):
     return [b - a for a, b in zip(pts, pts[1:])]
 
 
-def to_word(gaps, sep=1e-6):
+def to_word(gaps, sep=SEP):
     """Cluster gap lengths (values closer than `sep` are one length). Returns the
     L/S word and the cluster means, or (None, means) when there are not exactly two."""
     clusters = []
@@ -86,7 +87,12 @@ def run(seed=0):
         gaps = cut_and_project(slope)
         word, distinct = to_word(gaps)
         row = {"slope": slope, "n_gaps": len(gaps),
-               "distinct_gap_lengths": distinct}
+               "distinct_gap_lengths": distinct,
+               # instrument bounds (docs/resolution_leak.md)
+               "n_points": len(gaps) + 1, "gap_cluster_sep": SEP,
+               "period_bound": {"n": len(word) if word is not None else None,
+                                "prefix_lengths": [k for k in PREFIX_LENGTHS
+                                                   if word is not None and k <= len(word)]}}
         if word is not None:
             nl, ns = word.count("L"), word.count("S")
             row.update({

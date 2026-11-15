@@ -15,6 +15,10 @@ CC0. Co-authored. Stdlib only.
   min_stretch_tag      is a gap reading taken on fewer points than about
                        3 / (frequency of the third gap)? "under-resolved"
                        or no tag; frequency unknown -> not assessed
+  rotational_symmetry_bound, mirror_symmetry_bound, period_bound
+                       the instrument bound a reading was taken at (points,
+                       precision, probe step), logged beside the reading
+                       (docs/resolution_leak.md)
 """
 import math
 import zlib
@@ -138,3 +142,27 @@ def min_stretch_tag(n_points, third_gap_freq, factor=3.0):
     return {"n_points": n_points, "third_gap_freq": third_gap_freq, "min_points": need,
             "factor": factor, "assessed": True,
             "tag": "under-resolved" if n_points < need else None}
+
+
+# ---- instrument bounds: logged beside a reading, never instead of it --------
+
+def rotational_symmetry_bound(points, k_max=12, rel_tol=1e-6):
+    """The bound rotational_symmetry reads at, for the same arguments."""
+    return {"n_points": len(points), "k_tested": [2, k_max], "rel_tol": rel_tol,
+            "abs_tol": rel_tol * _scale_of(points) if points else None,
+            "about": "centroid"}
+
+
+def mirror_symmetry_bound(points, n_axes=360, rel_tol=1e-6):
+    """The bound mirror_symmetry reads at, for the same arguments."""
+    return {"n_points": len(points), "n_axes": n_axes, "axis_step_deg": 180.0 / n_axes,
+            "rel_tol": rel_tol,
+            "abs_tol": rel_tol * _scale_of(points) if points else None,
+            "about": "centroid"}
+
+
+def period_bound(s, lengths=None):
+    """The bound smallest_period / period_profile read at: the length of the
+    word, and the prefix lengths the profile looks at."""
+    lengths = lengths or [k for k in (8, 16, 32, 64, 128, 256, 512) if k <= len(s)]
+    return {"n": len(s), "prefix_lengths": list(lengths)}

@@ -1,7 +1,9 @@
 # Resolution leak
 
-Status: a class of reading error, defined here, with three instances. One is
-CONFIRMED by a logged run; two are suspected and not run. The name is the
+Status: a class of reading error, defined here, with three instances, all
+three now run. Each row below carries its own status; two rows split,
+because the bound that was tested and the bound that was suspected were
+not the same bound. The name is the
 operator's. Co-authored. CC0. Claude Code build only (`toolkit/`,
 `experiments/`, `runs/`).
 
@@ -30,33 +32,53 @@ correctly. The loss is at the join between the reading and its log.
 
 ## Instances
 
-| # | Reading | Where | Bound it was read at | Status |
+| # | Reading | Where | Bound tested | Status |
 |---|---|---|---|---|
-| 1 | count: 2 gap lengths | `runs/generated_cut_weighted_seed1.json`, level 0.9 | 57 points | CONFIRMED |
-| 2 | symmetry: same `rotational_symmetry` list for two different unions | `compare/runs/phi_scale_vs_phi_scale_rotate.jsonl`; `open_questions.md` Q12 | `k_max` 12, relative tolerance 1e-6, about the centroid | suspected |
-| 3 | period: prefix period 184 at both 256 and 512 steps | `runs/generated_seed5.json`; `open_questions.md` Q8 | 512 steps; prefix lengths 8..512 in doublings | suspected |
+| 1 | count: 2 gap lengths | `runs/generated_cut_weighted_seed1.json`, level 0.9 | points: 57 against 99..1997 | CONFIRMED (points) |
+| 2a | symmetry: same list for a regular 8-gon and a regular 16-gon | `runs/symmetry_resolution_seed0.json`, `known` | `k_max` 12 against 24; tolerance 1e-6 against 1e-9 | CONFIRMED (`k_max`); tolerance: no change |
+| 2b | symmetry: same list for the two unions of Q12 | `runs/symmetry_resolution_seed0.json`, `unions`; `compare/runs/phi_scale_vs_phi_scale_rotate.jsonl` | the same four bounds | not a leak at the bounds tested |
+| 3a | period: 184 at 256 and 512 steps | `runs/orbit_exact_seed0.json`, `exact` | precision: binary float against exact rational | not a leak (float precision); open |
+| 3b | the same reading | `runs/orbit_exact_seed0.json`, `extended` | steps: 512 against 1024, 2048, 4096 | CONFIRMED (steps) |
 
-**1. CONFIRMED.** OBSERVED in `runs/window_extent_seed0.json`: the same
-slope and the same window read 2 gap lengths at 57 and 99 points and 3 at
-199, 501, 1001 and 1997 points. The third length is 20 of 1996 gaps on the
-longest stretch. The 57-point reading was logged with its point count in
-the file, but the count "2" was quoted without it.
+**1. CONFIRMED (points).** OBSERVED in `runs/window_extent_seed0.json`: the
+same slope and the same window read 2 gap lengths at 57 and 99 points and
+3 at 199, 501, 1001 and 1997 points. The third length is 20 of 1996 gaps on
+the longest stretch. The 57-point reading was logged with its point count
+in the file, but the count "2" was quoted without it.
 
-**2. Suspected.** Not run. DERIVED from the code (Q12): the probe tests
-only k in 2..12 at a fixed tolerance, so orders above 12, or differences
-below the tolerance, cannot show. Whether the equal lists are a real
-equality or the probe's bound is the open reading of Q12; its test is the
-one that would confirm or clear this instance.
+**2a. CONFIRMED (`k_max`).** OBSERVED: at `k_max` 12 the probe returns
+`[2, 4, 8]` for both the 8-gon and the 16-gon, at either tolerance. At
+`k_max` 24 it returns `[2, 4, 8]` and `[2, 4, 8, 16]`. Two shapes of known,
+different order read the same below the larger order and separate above it.
+Moving the tolerance from 1e-6 to 1e-9 changed no output in this run.
 
-**3. Suspected.** Not run. OBSERVED: the period profile of that run is
-4, 4, 27, 39, 117, 184, 184 at prefix lengths 8..512. The profile stops at
-512 because the orbit has 512 steps. Whether 184 holds past 512 is not
-logged anywhere. The sweep Q8 asks for, taken to longer orbits, would
-confirm or clear it.
+**2b. Not a leak at the bounds tested.** OBSERVED: on all 8 frames the two
+unions return the same list at all four bounds. DERIVED: a set of n points
+has no rotational order above n, and each union has 10 or 16 points, so
+`k_max` 24 covers every order they could have. The equal lists are
+therefore not made by `k_max`. Not tested: a coarser tolerance, a centre
+other than the centroid, other frames or shapes. Q12 stays as written; its
+own test asks for more shapes than the two run here.
 
-Instance 3 was chosen by the AI co-author as the period case. The
-operator's list of instances was not in the relay; if a different third
-instance was meant, this row is to be replaced, not kept beside it.
+**3a. Not a leak (float precision); open.** OBSERVED: the 512-step word in
+exact rational arithmetic equals the float word at every index; the largest
+float-minus-exact difference is 0. The period profile is the same,
+4, 4, 27, 39, 117, 184, 184. DERIVED: the logged alpha and x0 are both
+multiples of 2^-52, so every sum below 2 is exact in a 64-bit float; this
+orbit had no rounding to leak. That holds for this seed's values, not for
+the orbit pipeline in general. By the rule the run was made under, the
+reading persists, so it is logged as open, not as a float leak.
+
+**3b. CONFIRMED (steps).** OBSERVED, same run: carried past 512 steps in
+exact arithmetic, the prefix period reads 184 at 512, 689 at 1024, 1699 at
+2048 and 3719 at 4096. The stall at 184 was the end of the orbit. Also
+logged: 184 x alpha = 47.001883, 1.883e-03 from an integer. The extended
+profile is itself a reading bounded at 4096 steps.
+
+The extended reading (3b) and the union reading (2b) were added by the AI
+co-author beside the two tests that were asked for (3a, 2a). The period
+instance was also the AI co-author's choice for the third row; the
+operator's own list was not in the relay.
 
 ## Rule
 
@@ -75,15 +97,24 @@ its bound in the same sentence.
 
 Where the existing probes stand against the rule:
 
-| Probe | Bound in its output | Bound not in its output |
+| Reading | Bound now logged beside it | Where |
 |---|---|---|
-| gap-length count (cut pipelines, experiments c, f, g) | `n_gaps` or `n_points`; `gap_cluster_sep` in f, g | cluster separation 1e-6 in `generator` and experiment c |
-| `period_profile` | prefix lengths (its keys) | none |
-| `smallest_period` | none | the length of the word it was given |
-| `rotational_symmetry`, `mirror_symmetry` | none | `k_max`, tolerance, step |
+| gap-length count | `n_points`, `gap_cluster_sep` | `generator` cut and cut_weighted; experiments c, f, g |
+| `period_profile`, `smallest_period` | `period_bound`: word length `n`, `prefix_lengths` | `generator` cut, cut_weighted, orbit; experiment c |
+| orbit word | `arithmetic` | `generator` orbit |
+| `rotational_symmetry` | `rotational_symmetry_bound`: `n_points`, `k_tested`, `rel_tol`, `abs_tol`, `about` | `generator` shape; experiment k |
+| `mirror_symmetry` | `mirror_symmetry_bound`: `n_points`, `n_axes`, `axis_step_deg`, `rel_tol`, `abs_tol`, `about` | `generator` shape |
+| projected points fed to the symmetry probes | `point_rounding_decimals` | `generator` shape |
 
-The right-hand column is a list of gaps, not a list of repairs made. No
-existing run file was edited.
+The bounds are new fields. The probes' own return values are unchanged, and
+the regenerated run files carry every earlier value unchanged. A probe
+called directly still returns only its reading: the caller logs the bound
+with `probes.rotational_symmetry_bound`, `mirror_symmetry_bound` or
+`period_bound`.
+
+Still without a logged bound: the compare/ comparisons that call
+`rotational_symmetry` (`compare/runs/*.jsonl`), and the Manus build, which
+this rule does not govern.
 
 ## Flag for gap readings
 

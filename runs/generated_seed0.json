@@ -20,7 +20,18 @@
    "32": 15,
    "64": 43
   },
-  "zlib_ratio": 0.18181818181818182
+  "zlib_ratio": 0.18181818181818182,
+  "n_points": 111,
+  "gap_cluster_sep": 1e-06,
+  "period_bound": {
+   "n": 110,
+   "prefix_lengths": [
+    8,
+    16,
+    32,
+    64
+   ]
+  }
  },
  "angles": null,
  "human_interest": null,

@@ -76,6 +76,7 @@ toolkit/
                        profile, zlib ratio, angle histogram, polar angles
                        three_gap_sum (L3 = L1 + L2: pass / fail / not_applicable)
                        min_stretch_tag (points < 3 / third-gap freq: under-resolved)
+                       *_bound helpers: the bound a reading was taken at
   generator.py         seed -> random pipeline (shape / cut / orbit) -> probes -> log
                        cut_weighted: asked for by name, never drawn, own run files
   loghook.py           log_run() and @logged: every run writes the schema,
@@ -91,6 +92,8 @@ experiments/
   window_extent.py        g  one logged window on a longer stretch; width beside m + n*slope
   three_gap_check.py      h  three_gap_sum probe over every logged cut run
   min_stretch_flag.py     i  under-resolved tag for logged gap readings; run files untouched
+  orbit_exact.py          j  seed-5 orbit in exact arithmetic, then past 512 steps
+  symmetry_resolution.py  k  rotational_symmetry at k_max 12 / 24, tolerance 1e-6 / 1e-9
 runs/*.json            one file per run, schema below
 tests/                 unittest, one file per experiment plus emlib
 DIVERGENCE_LOG.md      where human and AI interest differ (columns = schema)

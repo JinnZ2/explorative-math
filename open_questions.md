@@ -87,6 +87,9 @@ prefix period profile is 184 at both 256 and 512 steps, while seed 6 keeps
 growing. Find which alphas stall at 512 steps and at what period.
 - Resolved when: an alpha sweep logged, with the stall points listed.
 - Tools: `composers.iterate`, `probes.period_profile`.
+- Recorded beside it: `runs/orbit_exact_seed0.json` remakes this one orbit
+  in exact arithmetic and carries it to 4096 steps. It is one alpha, not
+  the sweep. See `docs/resolution_leak.md` rows 3a, 3b.
 
 **Q9. Half-mass dimension.** For the normalised-Gaussian sampler in
 `near_orthogonality`, at which dimension does the share of angles within
@@ -147,6 +150,10 @@ Two readings are both open:
   the probe's output.
 - Tools: `toolkit.primitives.regular_polygon`, `toolkit.composers`
   (`phi_stack`; a scale-and-rotate copy), `toolkit.probes.rotational_symmetry`.
+- Recorded beside it: `runs/symmetry_resolution_seed0.json` reads the probe
+  on a regular 8-gon and 16-gon, and on the two unions, at `k_max` 12 and
+  24 and tolerance 1e-6 and 1e-9. Two of the shapes this test lists, not
+  all of them. See `docs/resolution_leak.md` rows 2a, 2b.
 
 ## Projection and the source lattice
 
