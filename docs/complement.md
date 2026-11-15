@@ -50,8 +50,10 @@ Two names are CARRIED from a co-author. What was computed for each set
 (`sphere_compounds`, convex hull by brute force):
 
 ```text
-"compound of two 5-cells"   10 vertices, 40 edges, 60 faces, 30 cells; every cell the same
-                            tetragonal disphenoid (angles 75.52 x 4, 104.48 x 2)
+"compound of two 5-cells"   10 vertices; its convex hull, carried name "disphenoidal
+                            30-cell (dual of bitruncated 5-cell)": 40 edges, 60 faces,
+                            30 cells; every cell the same tetragonal disphenoid
+                            (angles 75.52 x 4, 104.48 x 2)
 "disphenoidal 288-cell"     48 vertices, 336 edges, 576 faces, 288 cells; every cell the same
                             tetragonal disphenoid (angles 45 x 4, 60 x 2)
 ```
@@ -59,12 +61,53 @@ Two names are CARRIED from a co-author. What was computed for each set
 The 48-direction set has 288 cells, each a disphenoid, which is what the
 carried name says. Whether these are the objects those names denote in the
 literature was not checked: the reference pages were outside the allowed
-network. A compound is not its convex hull; the 30-cell figure above is the
-hull of the ten directions.
+network. A compound is not its convex hull; the 30 cells above are the hull
+of the ten directions, and they are 30 disphenoids, which is what the name
+carried for that hull says. That the hull is the dual of the bitruncated
+5-cell was not computed here.
 
 Bounds: the rotation search is a lower bound on the separation; the
 catalogue the joined sets are compared with is short (eight entries); a
 match is equality of sorted pairwise angles within 0.5 degrees.
+
+## Pattern (PROPOSED): the best-separated partner is the dual
+
+PROPOSED. Among a set of probe shapes, the one that can be placed farthest
+from a baseline is the baseline's dual; placed there it sits in the
+baseline's deepest voids and covers them, and the two together are a known
+figure. Three cases, from `sphere_compounds` and `dual_partner`:
+
+```text
+baseline    dual partner (placement)     separation   joined set
+16-cell     tesseract                    60           24-cell (24 directions)
+5-cell      5-cell, negated              75.52        ten directions; hull carried as "disphenoidal 30-cell"
+24-cell     24-cell, dual position       45           48 directions; carried as "disphenoidal 288-cell"
+```
+
+What the test logged (`runs/dual_partner_seed0.json.gz`):
+
+```text
+sphere, 4 baselines x 4 probes
+  dual is best-separated                4 of 4   (alone in 2; tied in 2: 16-cell with itself at 60,
+                                                  24-cell with the 16-cell and tesseract at 45)
+  dual sits in and covers the voids     4 of 4, and no other probe does for any baseline
+plane, 7 regular polygons
+  dual (the same polygon, turned)       best-separated in 7 of 7; alone in 4, tied in 3
+                                        (6-gon with the 3-gon, 8-gon with the 4-gon, 12-gon with three)
+controls (dual not in the probe set)
+  random 8 directions                   no probe covers its voids
+  5-cell with its negative              no probe covers its voids
+  rectified 5-cell                      the 5-cell covers its voids
+  9-gon, 10-gon                         best-separated: 3-gon, 5-gon
+```
+
+Not shown. Separation alone does not pick the dual: it ties in 5 of 11
+baselines, and a probe with fewer points can always sit farther. The void
+reading is what separates the dual on the sphere. One control (the
+rectified 5-cell) has a covering probe that is not its dual in this set, so
+"covers the voids" is not by itself a test for duality. Bound: four
+polytopes and seven polygons as probes; the rotation search is a lower
+bound; duals are taken as standard, not derived here; one seed.
 
 ## Pointer, structural only
 

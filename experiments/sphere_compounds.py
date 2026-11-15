@@ -113,7 +113,7 @@ def two_16_cells(seed, starts, jiggles, polish_moves, cat, sigs):
                                    hull=H4.summary(CP.unit_dirs(built)))}
 
 
-def hull_entry(name, dirs, carried, max_edge_deg=None):
+def hull_entry(name, dirs, carried, max_edge_deg=None, hull_name=None):
     s = H4.summary(dirs, max_edge_deg)
     v, c = s["n_points"], s["n_facets"]
     e = s["n_edges_if_all_tetrahedra"]
@@ -130,6 +130,10 @@ def hull_entry(name, dirs, carried, max_edge_deg=None):
                           for q in sorted((q for j, q in enumerate(dirs) if j != i),
                                           key=lambda q: -P.dot(p, q))))
     return {"name_carried": name, "name_checked_against_a_source": False,
+            # the name carried for the convex hull of these directions, when it is
+            # not the name of the set itself (a compound is not its hull)
+            "hull_name_carried": hull_name,
+            "hull_name_checked_against_a_source": False if hull_name else None,
             "why_not": "the reference pages were outside the allowed network",
             "carried_statement": carried,
             "computed": {"vertices": v, "edges": e, "faces_by_euler": faces, "cells": c,
@@ -191,7 +195,8 @@ def run(seed=0, starts=STARTS, jiggles=JIGGLES, polish_moves=POLISH):
             "catalogue_additions": {
                 "compound of two 5-cells": hull_entry(
                     "compound of two 5-cells", cat["5-cell + its negative (as built)"],
-                    "a 5-cell together with its negative (dual position); 10 vertices"),
+                    "a 5-cell together with its negative (dual position); 10 vertices",
+                    hull_name="disphenoidal 30-cell (dual of bitruncated 5-cell)"),
                 "disphenoidal 288-cell": hull_entry(
                     "disphenoidal 288-cell", cat["24-cell + its dual (as built)"],
                     "48 vertices = a 24-cell and its dual 24-cell; 288 cells", 61.0)},
@@ -228,7 +233,7 @@ def main(argv):
                                                      "separation_deg")},
           "against", b["against_catalogue"], "hull", b["hull"]["facets_by_vertex_count"])
     for k, c in out["catalogue_additions"].items():
-        print(k, {x: c["computed"][x] for x in ("vertices", "edges", "faces_by_euler", "cells",
+        print(k, "| hull name carried:", c["hull_name_carried"], {x: c["computed"][x] for x in ("vertices", "edges", "faces_by_euler", "cells",
                                                 "all_cells_one_shape",
                                                 "cells_are_tetragonal_disphenoids",
                                                 "cells_close_up",

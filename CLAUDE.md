@@ -163,6 +163,8 @@ experiments/
   sphere_compounds.py     ae two 16-cells (searched, and built in exact fractions), two
                              24-cells in dual position, and the hulls of two carried
                              catalogue entries; --small
+  dual_partner.py         af is a baseline's best-separated probe its dual? rank of the dual,
+                             void cover, controls with no dual in the set; --small (full ~50 s)
   exact_inflation.py      s  Fibonacci / pentagon / Penrose inflation in exact forms:
                              two constructions per level must be EQUAL; --small
   field_response.py       t  hexagonal sheet under a gradient field + uniform control;
@@ -209,6 +211,7 @@ python3 experiments/layered_pursuit.py --small # phone bound -> runs/<name>_smal
                                                # constrained_generate, pairing_reread, anchor_selection,
                                                # fold_loop, fold_shape, combine, collapse_gap,
                                                # complement_fit, complement_fit_v2, sphere_compounds,
+                                               # dual_partner,
                                                # exact_inflation,
                                                # field_response, field_adaptation
 python3 -m toolkit.generator 0 1 2             # writes runs/generated_seed<k>.json
