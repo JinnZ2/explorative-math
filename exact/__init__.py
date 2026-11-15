@@ -5,6 +5,7 @@
          for anything built on fifth roots of unity (pentagon, Penrose)
   corkscrew  a double rotation of R^4 by multiples of 36 degrees, with exact
          return steps; the exact 5-cell
+  volume exact 4-volume from tetrahedral facets; the unit 5-cell in sqrt(5) forms
   fold   reflect a point set into the wedge of its mirrors, with
          multiplicities; exact equality, no tolerance
 """
@@ -14,3 +15,4 @@ from . import inflation  # noqa: F401,E402
 from . import fold  # noqa: F401,E402
 from . import complement  # noqa: F401,E402
 from . import corkscrew  # noqa: F401,E402
+from . import volume  # noqa: F401,E402

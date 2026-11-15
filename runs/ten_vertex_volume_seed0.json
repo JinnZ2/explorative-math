@@ -1,0 +1,160 @@
+{
+ "params": {
+  "stated_bound": "25/384 * (10 + 2 sqrt 5)",
+  "status_before_run": "PROPOSED",
+  "point_sets": [
+   "A: 5-cell and its negative",
+   "B: two pentagons in orthogonal planes"
+  ],
+  "seed": 0
+ },
+ "outputs": {
+  "stated_bound": "25/384 * (10 + 2 sqrt 5)",
+  "bound_exact_form": "25/48 + 25/96 * phi",
+  "source": "REFERENCES/related_studies.md R4 (abstract read)",
+  "bound": {
+   "seed": 0,
+   "arithmetic": "determinants in exact a + b*phi forms; facets found in floats (tol 1e-7) and checked to close up",
+   "only_two_point_sets": "this run does not search ten-point sets; it reads A and B"
+  },
+  "A": {
+   "name": "A: 5-cell and its negative",
+   "n_points": 10,
+   "on_unit_sphere_max_deviation": 0.0,
+   "n_facets": 30,
+   "facets_all_tetrahedra": true,
+   "facets_close_up": true,
+   "volume_exact": [
+    [
+     -25,
+     64
+    ],
+    [
+     25,
+     32
+    ]
+   ],
+   "volume_exact_text": "-25/64 + 25/32*phi",
+   "volume_float_from_exact": 0.8734640537108553,
+   "volume_float_direct": 0.8734640537108556,
+   "bound_exact": [
+    [
+     25,
+     48
+    ],
+    [
+     25,
+     96
+    ]
+   ],
+   "bound_float": 0.9421963512369519,
+   "volume_minus_bound_exact": [
+    [
+     -175,
+     192
+    ],
+    [
+     25,
+     48
+    ]
+   ],
+   "volume_minus_bound_float": -0.06873229752609633,
+   "volume_over_bound": 0.9270509831248421,
+   "equals_the_bound_exactly": false,
+   "below_the_bound": true,
+   "above_the_bound": false,
+   "verdict": "MISS",
+   "distinct_pairwise_angles_deg": [
+    {
+     "value": 75.52248781407008,
+     "count": 20
+    },
+    {
+     "value": 104.47751218592994,
+     "count": 20
+    },
+    {
+     "value": 180.0,
+     "count": 5
+    }
+   ],
+   "same_set_as_the_sphere_compounds_entry": true,
+   "five_cell_is_regular_and_unit_exactly": true
+  },
+  "B": {
+   "name": "B: two regular pentagons in orthogonal planes",
+   "n_points": 10,
+   "on_unit_sphere_max_deviation": 1.1102230246251565e-16,
+   "n_facets": 25,
+   "facets_all_tetrahedra": true,
+   "facets_close_up": true,
+   "volume_exact": [
+    [
+     25,
+     48
+    ],
+    [
+     25,
+     96
+    ]
+   ],
+   "volume_exact_text": "25/48 + 25/96*phi",
+   "volume_float_from_exact": 0.9421963512369519,
+   "volume_float_direct": 0.9421963512369517,
+   "bound_exact": [
+    [
+     25,
+     48
+    ],
+    [
+     25,
+     96
+    ]
+   ],
+   "bound_float": 0.9421963512369519,
+   "volume_minus_bound_exact": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     1
+    ]
+   ],
+   "volume_minus_bound_float": 0.0,
+   "volume_over_bound": 1.0,
+   "equals_the_bound_exactly": true,
+   "below_the_bound": false,
+   "above_the_bound": false,
+   "verdict": "MATCH",
+   "distinct_pairwise_angles_deg": [
+    {
+     "value": 72.0,
+     "count": 10
+    },
+    {
+     "value": 90.0,
+     "count": 25
+    },
+    {
+     "value": 144.0,
+     "count": 10
+    }
+   ],
+   "exact_note": "coordinates are (u, v*s) per plane with s = sqrt(2 + phi); the exact determinant of the (u, v) rows is multiplied by s^2 = 2 + phi"
+  },
+  "A_over_B": 0.9270509831248421
+ },
+ "angles": null,
+ "human_interest": null,
+ "ai_interest": null,
+ "compressibility": {
+  "definition": "second letter of the verdict for A then B (A match, I miss)",
+  "n": 2,
+  "phrases": 2,
+  "zlib_ratio": 5.0
+ },
+ "nature_match": null,
+ "divergence_note": null
+}

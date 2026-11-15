@@ -64,3 +64,29 @@ abstract  a regular tessellation of (d+1)-dimensional hyperbolic space gives
 ```
 
 Pointer to: nothing in the toolkit yet. No hyperbolic primitive exists here.
+
+## R4. The inscribed 4-polytope of maximal volume with ten vertices
+
+```text
+where     arXiv:2611.14674 (math.MG; cross-list math.CO). Csaba Medgyes.
+          Submitted 2026-11-10.
+status    ABSTRACT READ on 2026-11-15, from the abs page. The copy fetched ends
+          mid-sentence; the end of the abstract and the body are unread.
+abstract  a 4-polytope with ten vertices inscribed in the unit sphere S^3 has
+          volume at most 25/384 (10 + 2 sqrt 5). Up to orthogonal
+          transformations, equality holds only for the convex hull of two
+          regular pentagons inscribed in S^3 in orthogonal 2-planes through
+          the origin. This extends the known optimum for six to nine
+          vertices (two regular polygons in orthogonal planes). The proof
+          uses sum-of-squares certificates in exact arithmetic to exclude
+          the other simplicial combinatorial types, with a result of
+          Horvath and Langi that an optimal polytope is simplicial.
+carried   seen on the arXiv math/new listing.
+```
+
+Pointer to: `experiments/ten_vertex_volume.py`, `runs/ten_vertex_volume_seed0.json`.
+Computed there in exact a + b*phi forms: two regular pentagons in orthogonal
+planes have volume exactly 25/384 (10 + 2 sqrt 5); the hull of a regular
+5-cell and its negative has volume 25 sqrt 5 / 64, about 0.8735, below it.
+The theorem itself is not checked here; only those two volumes are.
+

@@ -66,6 +66,12 @@ of the ten directions, and they are 30 disphenoids, which is what the name
 carried for that hull says. That the hull is the dual of the bitruncated
 5-cell was not computed here.
 
+Volume of that ten-direction hull on the unit sphere, exact
+(`runs/ten_vertex_volume_seed0.json`): 25 sqrt 5 / 64, about 0.8735. A
+stated bound for ten vertices on S^3 is 25/384 (10 + 2 sqrt 5), about
+0.9422 (REFERENCES/related_studies.md R4): MISS, at 0.927 of it. Two
+regular pentagons in orthogonal planes: MATCH, exactly.
+
 Bounds: the rotation search is a lower bound on the separation; the
 catalogue the joined sets are compared with is short (eight entries); a
 match is equality of sorted pairwise angles within 0.5 degrees.

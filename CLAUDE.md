@@ -84,6 +84,7 @@ exact/                 numbers with no floats: ZPhi (a + b*phi, a, b Fractions,
                        point set into its mirror wedge, with multiplicities), complement
                        (squared-distance field of an exact pattern and its exact symmetries)
                        corkscrew (double rotation by multiples of 36 degrees; the exact 5-cell)
+                       volume (exact 4-volume from tetrahedral facets; sqrt(5) = 2*phi - 1)
 field/                 hexsheet: CONSTRUCTED toy. Ideal hexagonal sheet (exact
                        reference), a field over it, a local relaxation rule, and
                        each cell's RESPONSE (never called error); saturating rule,
@@ -172,6 +173,8 @@ experiments/
   ancestry.py             ah rectified and truncated forms of four 4-polytopes: are their
                              voids covered by the parent, by the parent's dual, or both
                              together; --small (full ~25 s)
+  ten_vertex_volume.py    ai exact volume of two ten-point hulls on S^3 against a stated
+                             bound (REFERENCES R4): match or miss
   exact_inflation.py      s  Fibonacci / pentagon / Penrose inflation in exact forms:
                              two constructions per level must be EQUAL; --small
   field_response.py       t  hexagonal sheet under a gradient field + uniform control;
