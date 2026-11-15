@@ -15,7 +15,7 @@ rest by rule, instead of searching for each mirror.
                m = h        the dihedral rule (Coxeter-plane pattern)
                m = h - 1    control, wrong rule
                m = h + 1    control, wrong rule
-  compare    beside runs/layered_pursuit_seed0 (layered, and alt k = h):
+  compare    beside runs/layered_pursuit_seed0 (layered_unanchored, and alt k = h):
              starts reaching h mirrors, evaluations used, final residual
              per axis.
 
@@ -23,7 +23,16 @@ Shapes: 5-cell (h = 5), 16-cell (h = 8); 8 starts each, seed 0, the starts
 of mirror_pursuit and layered_pursuit. Nothing is interpreted here; both
 observer slots are written null.
 
+What "anchored" means in this run: the generated axes are held fixed in
+the projection plane, and the anchor axis is one term of the summed score.
+The rotation is NOT constrained to keep the anchor mirror exact; a descent
+can give it up. Whether it was kept is logged per start (anchor_kept).
+
   python3 experiments/anchor_generate.py [seed]
+  python3 experiments/anchor_generate.py --small [seed]   # phone bound: fewer starts and
+                                                          # evaluations, no 4000-evaluation
+                                                          # rerun; every output kept,
+                                                          # written to its own run file
 """
 import math
 import random
@@ -46,6 +55,8 @@ SCORE_STOP = 1e-11          # stop when the score is below this
 MAX_EVALS = 700             # per generate descent (the layered_pursuit limit)
 BOUND_CHECK_EVALS = 4000    # the same descent again at a higher limit, logged beside it
 COUNT_TOLS = (1e-6, 1e-4)
+ANCHOR_KEPT_TOL = 1e-6      # the anchor counts as kept if its axis residual ends below this
+SMALL = {"starts": 2, "max_evals": 250, "anchor_max_evals": 1000, "bound_check_evals": None}
 LAYERED = "runs/layered_pursuit_seed0.json"
 HYPOTHESIS = ("PROPOSED by the operator: find one anchor, then generate the rest by rule, "
               "instead of searching for each mirror. Controls (m = h - 1, h + 1) are "
@@ -185,6 +196,13 @@ def run(seed=0, starts=STARTS, max_evals=MAX_EVALS, anchor_max_evals=U.MAX_EVALS
                         "final_scores": col(label, "final_score"),
                         "final_residual_per_axis": col(label, "final_residual_per_axis"),
                         "stops": col(label, "stop"),
+                        "anchor_axis_final_residual":
+                            [x["rules"][label]["final_residual_per_axis"][0] for x in rows],
+                        "anchor_kept": [x["rules"][label]["final_residual_per_axis"][0]
+                                        < ANCHOR_KEPT_TOL for x in rows],
+                        "starts_keeping_anchor": sum(
+                            1 for x in rows
+                            if x["rules"][label]["final_residual_per_axis"][0] < ANCHOR_KEPT_TOL),
                         "bound_check": ({
                             "max_evals": bound_check_evals,
                             "final_counts": [x["rules"][label]["bound_check"]["counts"][0]
@@ -199,7 +217,7 @@ def run(seed=0, starts=STARTS, max_evals=MAX_EVALS, anchor_max_evals=U.MAX_EVALS
                             "stops": [x["rules"][label]["bound_check"]["stop"] for x in rows]}
                             if bound_check_evals else None)}
                 for label in ("h_minus_1", "h", "h_plus_1")},
-            "layered": ({"final_counts": r["layered_final_counts"],
+            "layered_unanchored": ({"final_counts": r["layered_final_counts"],
                          "starts_reaching_h": sum(1 for c in r["layered_final_counts"] if c == h),
                          "total_evals": r["layered_evals"],
                          "final_residual_per_axis": r["layered_final_residual_per_axis"]}
@@ -221,6 +239,9 @@ def run(seed=0, starts=STARTS, max_evals=MAX_EVALS, anchor_max_evals=U.MAX_EVALS
                                    "score_stop": SCORE_STOP, "max_evals": max_evals,
                                    "bound_check_max_evals": bound_check_evals,
                                    "axes": "fixed in the projection plane at a + k*180/m",
+                                   "anchor_constraint": "none: the anchor axis is a term of "
+                                       "the score, the rotation is free to give it up",
+                                   "anchor_kept_tol": ANCHOR_KEPT_TOL,
                                    "matching": "nearest point, not one-to-one"},
                       "count_rel_tols": list(COUNT_TOLS),
                       "moves": "one angle at a time, +-step, first improvement kept",
@@ -231,8 +252,11 @@ def run(seed=0, starts=STARTS, max_evals=MAX_EVALS, anchor_max_evals=U.MAX_EVALS
 
 
 def main(argv):
+    small = "--small" in argv
+    argv = [a for a in argv if a != "--small"]
     seed = int(argv[0]) if argv else 0
-    out = run(seed)
+    out = (run(seed, SMALL["starts"], SMALL["max_evals"], SMALL["anchor_max_evals"],
+               bound_check_evals=SMALL["bound_check_evals"]) if small else run(seed))
     symbols = [str(min(c, 9)) for s in out["shapes"]
                for label in ("h_minus_1", "h", "h_plus_1")
                for c in s["compare"]["anchor_generate"][label]["final_counts"]]
@@ -243,12 +267,16 @@ def main(argv):
                            for label in ("h_minus_1", "h", "h_plus_1")}
               for s in out["shapes"]}
     # observer slots null by instruction: ai_interest is void
-    p = emlib.write_run(NAME, seed,
-                        {"shapes": [[n, h] for n, _, h in SHAPES], "starts": STARTS,
+    b = out["bound"]
+    p = emlib.write_run(NAME + "_small" if small else NAME, seed,
+                        {"small": small,
+                         "shapes": [[n, h] for n, _, h in SHAPES],
+                         "starts": b["starts_per_shape"],
                          "rules": ["h - 1", "h", "h + 1"], "step0_deg": STEP0,
                          "step_min_deg": STEP_MIN, "score_stop": SCORE_STOP,
-                         "max_evals_generate": MAX_EVALS, "max_evals_anchor": U.MAX_EVALS,
-                         "bound_check_max_evals": BOUND_CHECK_EVALS,
+                         "max_evals_generate": b["generate"]["max_evals"],
+                         "max_evals_anchor": b["anchor"]["max_evals"],
+                         "bound_check_max_evals": b["generate"]["bound_check_max_evals"],
                          "count_rel_tols": list(COUNT_TOLS),
                          "layered_reference": LAYERED, "hypothesis": HYPOTHESIS},
                         out, angles, None, comp, None, gz=True)
@@ -260,13 +288,15 @@ def main(argv):
             g = c["anchor_generate"][label]
             print(f"  rule {label:9s} m={g['m']}  counts {g['final_counts']}  reach h "
                   f"{g['starts_reaching_h']}  evals {g['total_evals']}  scores "
-                  f"{[float(f'{x:.1e}') for x in g['final_scores']]}")
+                  f"{[float(f'{x:.1e}') for x in g['final_scores']]}  anchor kept "
+                  f"{g['starts_keeping_anchor']}")
             b = g["bound_check"]
-            print(f"       at {b['max_evals']} evals: counts {b['final_counts']}  reach h "
-                  f"{b['starts_reaching_h']}  stops on limit "
-                  f"{sum(1 for x in b['stops'] if x == 'max_evals reached')}  scores "
-                  f"{[float(f'{x:.1e}') for x in b['final_scores']]}")
-        for k in ("layered", "alt"):
+            if b:
+                print(f"       at {b['max_evals']} evals: counts {b['final_counts']}  reach h "
+                      f"{b['starts_reaching_h']}  stops on limit "
+                      f"{sum(1 for x in b['stops'] if x == 'max_evals reached')}  scores "
+                      f"{[float(f'{x:.1e}') for x in b['final_scores']]}")
+        for k in ("layered_unanchored", "alt"):
             if c[k]:
                 print(f"  {k:14s} counts {c[k]['final_counts']}  reach h "
                       f"{c[k]['starts_reaching_h']}  evals {c[k]['total_evals']}")

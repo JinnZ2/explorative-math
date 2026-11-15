@@ -1,5 +1,12 @@
 """o. layered_pursuit -- descend toward more than one mirror, two ways.
 
+Label: layered_unanchored. The operator's intended layered pursuit holds the
+mirrors already found FIXED (the rotation is constrained to keep those axes
+exact) and descends only the next axis. This run does not do that: each
+stage descends an unconstrained sum, so an earlier mirror can be given up.
+It is kept as run, under that label. The anchored test is
+experiments/anchor_generate.py.
+
 CC0. Co-authored. Stdlib only.
 
 runs/mirror_pursuit_seed0 descended the smallest axis residual and stopped
@@ -8,13 +15,11 @@ mirror exists. Here the index asks for more axes. The score is
 probes.mirror_k_score: the sum of the k smallest residuals over distinct
 candidate axes (axes at least MIN_SEP_DEG apart), 0 when k mirrors exist.
 
-  layered   stage s = 1, 2, ..., h descends the score with k = s, each
-            stage starting where the one before stopped. The mirror-axis
-            count is logged after every stage.
+  layered_unanchored
+            stage s = 1, 2, ..., h descends the score with k = s, each
+            stage starting where the one before stopped. Nothing holds the
+            earlier axes. The mirror-axis count is logged after every stage.
   alt       one descent of the score with k = h, from the same start.
-
-"Layered" is read here as that staging. The operator's own definition was
-not in the relay; if another staging was meant, this is a different run.
 
 Same shapes, same random starts as mirror_pursuit (seed 0, 8 per shape),
 same moves: one rotation angle at a time, +-step, first improvement kept,
@@ -22,6 +27,9 @@ step halved after a pass with no move. h is the Coxeter number (5, 8),
 and the final counts are set beside the Coxeter-plane counts.
 
   python3 experiments/layered_pursuit.py [seed]
+  python3 experiments/layered_pursuit.py --small [seed]   # phone bound: fewer starts and
+                                                          # evaluations, every output kept,
+                                                          # written to its own run file
 """
 import math
 import random
@@ -42,6 +50,8 @@ STEP_MIN = 1e-6             # stop when the step is below this, degrees
 SCORE_STOP = 1e-11          # stop when the score is below this
 MAX_EVALS = 700             # per descent (per stage, and for alt)
 MIN_SEP_DEG = 5.0           # two candidate axes closer than this are one axis
+LABEL = "layered_unanchored"
+SMALL = {"starts": 2, "max_evals": 250}     # the --small bound
 COUNT_TOLS = (1e-6, 1e-4)
 PURSUIT = "runs/mirror_pursuit_seed0.json"
 COXETER = "runs/coxeter_plane_seed0.json"
@@ -158,7 +168,8 @@ def run(seed=0, starts=STARTS, max_evals=MAX_EVALS, pursuit_path=None, coxeter_p
                         (sum(1 for r in rows if r["alt_final_count"] == target)
                          if target is not None else None),
                     "starts": rows})
-    return {"bound": {"starts_per_shape": starts, "step0_deg": STEP0, "step_min_deg": STEP_MIN,
+    return {"label": LABEL,
+            "bound": {"starts_per_shape": starts, "step0_deg": STEP0, "step_min_deg": STEP_MIN,
                       "score_stop": SCORE_STOP, "max_evals_per_descent": max_evals,
                       "min_sep_deg": MIN_SEP_DEG, "count_rel_tols": list(COUNT_TOLS),
                       "moves": "one angle at a time, +-step, first improvement kept",
@@ -168,8 +179,12 @@ def run(seed=0, starts=STARTS, max_evals=MAX_EVALS, pursuit_path=None, coxeter_p
 
 
 def main(argv):
+    small = "--small" in argv
+    argv = [a for a in argv if a != "--small"]
     seed = int(argv[0]) if argv else 0
-    out = run(seed)
+    starts, max_evals = ((SMALL["starts"], SMALL["max_evals"]) if small
+                         else (STARTS, MAX_EVALS))
+    out = run(seed, starts, max_evals)
     symbols = [str(min(c, 9)) for s in out["shapes"] for r in s["starts"]
                for c in r["layered_axis_count_per_stage"]]
     comp = emlib.compressibility(
@@ -192,7 +207,9 @@ def main(argv):
         for s in out["shapes"])
     stops = sorted({st["stop"] for s in out["shapes"] for r in s["starts"]
                     for st in r["layered_stages"] + [r["alt"]]})
-    ai = (f"OBSERVED, counts at tolerance {COUNT_TOLS[0]:g}: {rows}. Stop reasons seen: "
+    ai = (f"Label {LABEL}: no stage holds the axes an earlier stage found. "
+          f"OBSERVED, {starts} starts per shape, {max_evals} evaluations per descent, "
+          f"counts at tolerance {COUNT_TOLS[0]:g}: {rows}. Stop reasons seen: "
           f"{stops}. DERIVED: a count is read at a tolerance, a score is not; a descent "
           "that stops on its evaluation limit with a small score can read fewer axes than "
           "the score suggests. Axes closer than the declared separation are one axis to "
@@ -201,13 +218,15 @@ def main(argv):
                                        for r in s["starts"]],
                            "alt": [r["alt"]["final_angles_deg"] for r in s["starts"]]}
               for s in out["shapes"]}
-    p = emlib.write_run(NAME, seed,
-                        {"shapes": [[n, h] for n, _, h in SHAPES], "starts": STARTS,
+    p = emlib.write_run(NAME + "_small" if small else NAME, seed,
+                        {"label": LABEL, "small": small,
+                         "shapes": [[n, h] for n, _, h in SHAPES], "starts": starts,
                          "step0_deg": STEP0, "step_min_deg": STEP_MIN,
-                         "score_stop": SCORE_STOP, "max_evals_per_descent": MAX_EVALS,
+                         "score_stop": SCORE_STOP, "max_evals_per_descent": max_evals,
                          "min_sep_deg": MIN_SEP_DEG, "count_rel_tols": list(COUNT_TOLS),
                          "pursuit_reference": PURSUIT, "coxeter_reference": COXETER,
-                         "layered": "stage s descends the sum of the s smallest distinct-axis "
+                         "anchored": False,
+                         "layered": "UNANCHORED: stage s descends the sum of the s smallest distinct-axis "
                                     "residuals, s = 1..h, from the previous stage's end",
                          "alt": "one descent of the sum of the h smallest, same start"},
                         out, angles, ai, comp, None)

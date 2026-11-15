@@ -26,6 +26,9 @@ python           stdlib only: math, itertools, random, fractions, statistics for
                  functools, gzip, unittest for I/O, the log hook and tests.
                  No numpy, no pip.
                  phone-buildable: every script runs in seconds on a phone.
+                 A run that takes more than a few seconds gets a --small bound
+                 option (fewer starts / evaluations, own run file); outputs are
+                 never cut to make it fit.
 words            no word coinage. Use an existing name or leave the slot unnamed.
 gaps             leave gaps. A slot with nothing in it stays void (null),
                  never dropped and never filled to look complete.
@@ -105,10 +108,11 @@ experiments/
   mirror_sweep.py         l  what frame 0 is; mirror axes on 360 tour frames per shape
   coxeter_plane.py        m  Coxeter-plane projections of four 4-polytopes, read for mirrors
   mirror_pursuit.py       n  coordinate descent on mirror_residual from random starts; path logged
-  layered_pursuit.py      o  descent on the sum of the k smallest axis residuals: staged
-                             k = 1..h, and k = h at once; axis count per stage
+  layered_pursuit.py      o  label layered_unanchored: descent on the sum of the k smallest
+                             axis residuals, staged k = 1..h, and k = h at once; --small
   anchor_generate.py      p  one mirror by descent, then axes a + k*180/m by rule
-                             (m = h, controls h-1, h+1); set beside layered and alt
+                             (m = h, controls h-1, h+1); set beside layered_unanchored
+                             and alt; --small
 runs/*.json            one file per run, schema below
 runs/*.json.gz         the same, gzipped, for a run above emlib.GZ_THRESHOLD bytes;
                        full content; read either form with emlib.load_run
@@ -144,6 +148,7 @@ reading it asks for.
 ```sh
 python3 -m unittest discover -s tests          # all tests
 python3 experiments/<name>.py                  # writes runs/<name>_seed<k>.json (or .json.gz)
+python3 experiments/layered_pursuit.py --small # phone bound -> runs/<name>_small_seed<k>; also anchor_generate
 python3 -m toolkit.generator 0 1 2             # writes runs/generated_seed<k>.json
 python3 -m toolkit.generator --pipeline cut_weighted 0 1 2   # runs/generated_cut_weighted_seed<k>.json
 python3 -m compare                             # cross-build comparison -> compare/runs/*.jsonl

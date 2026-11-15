@@ -62,7 +62,7 @@ class AnchorGenerate(unittest.TestCase):
         out = A.run(seed=0, starts=1, max_evals=20, anchor_max_evals=60,
                     layered_path="/nonexistent.json", bound_check_evals=None)
         for s in out["shapes"]:
-            self.assertIsNone(s["compare"]["layered"])
+            self.assertIsNone(s["compare"]["layered_unanchored"])
             self.assertIsNone(s["compare"]["alt"])
             self.assertIsNone(s["compare"]["starts_equal_layered_pursuit_starts"])
 
@@ -96,8 +96,42 @@ class LoggedRun(unittest.TestCase):
                                "16-cell": {"h_minus_1": 0, "h": 1, "h_plus_1": 0}})
         self.assertEqual(self.by["16-cell"]["anchor_generate"]["h"]["bound_check"]
                          ["starts_reaching_h"], 2)
-        self.assertEqual(self.by["5-cell"]["layered"]["starts_reaching_h"], 0)
+        self.assertEqual(self.by["5-cell"]["layered_unanchored"]["starts_reaching_h"], 0)
         self.assertEqual(self.by["16-cell"]["alt"]["starts_reaching_h"], 1)
+
+
+class LabelsAndSmall(unittest.TestCase):
+    def test_layered_run_is_labelled_unanchored_and_values_kept(self):
+        rec = emlib.load_run(emlib.RUNS / "layered_pursuit_seed0.json")
+        self.assertEqual(rec["params"]["label"], "layered_unanchored")
+        self.assertFalse(rec["params"]["anchored"])
+        self.assertEqual(rec["outputs"]["label"], "layered_unanchored")
+        by = {s["shape"]: s for s in rec["outputs"]["shapes"]}
+        self.assertEqual(by["16-cell"]["alt_final_counts"], [0, 0, 0, 0, 0, 8, 0, 0])
+        self.assertEqual(by["5-cell"]["layered_final_counts"], [0, 4, 0, 0, 0, 0, 0, 0])
+
+    def test_anchor_kept_is_logged_and_no_constraint_is_claimed(self):
+        rec = emlib.load_run(emlib.RUNS / "anchor_generate_seed0.json")
+        self.assertIn("none", rec["outputs"]["bound"]["generate"]["anchor_constraint"])
+        got = {s["shape"]: s["compare"]["anchor_generate"]["h"]["starts_keeping_anchor"]
+               for s in rec["outputs"]["shapes"]}
+        self.assertEqual(got, {"5-cell": 6, "16-cell": 3})   # OBSERVED, pinned
+        for s in rec["outputs"]["shapes"]:
+            self.assertIn("layered_unanchored", s["compare"])
+            self.assertNotIn("layered", s["compare"])
+
+    def test_small_runs_are_separate_files_with_every_output_key(self):
+        for name in ("layered_pursuit", "anchor_generate"):
+            full = emlib.load_run(emlib.RUNS / f"{name}_seed0.json")
+            small = emlib.load_run(emlib.RUNS / f"{name}_small_seed0.json")
+            self.assertTrue(small["params"]["small"])
+            self.assertFalse(full["params"]["small"])
+            self.assertLess(small["params"]["starts"], full["params"]["starts"])
+            self.assertEqual(set(small["outputs"]), set(full["outputs"]))
+            fs, ss = full["outputs"]["shapes"][0], small["outputs"]["shapes"][0]
+            self.assertEqual(set(ss), set(fs))
+            self.assertEqual(set(ss["starts"][0]), set(fs["starts"][0]))
+            self.assertEqual(len(ss["starts"]), small["params"]["starts"])
 
 
 if __name__ == "__main__":
