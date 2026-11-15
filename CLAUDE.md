@@ -178,6 +178,8 @@ experiments/
                              tested against them: match / no match
   coxeter_products.py     al the chains with no match, against products of two or three
                              groups (A, B, D, G2, F4, I2(m)) of total rank <= 6
+  simplicial_helix.py     am tan(n theta) = n tan(theta) on every logged closed chain
+                             (REFERENCES R5, carried); residual per plane
   ancestry.py             ah rectified and truncated forms of four 4-polytopes: are their
                              voids covered by the parent, by the parent's dual, or both
                              together; --small (full ~25 s)

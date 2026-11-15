@@ -1,0 +1,1611 @@
+{
+ "params": {
+  "source": "runs/coxeter_exponents_seed0.json",
+  "tol": 1e-09,
+  "status_before_run": "PROPOSED",
+  "seed": 0
+ },
+ "outputs": {
+  "equation": "tan(n theta) = n tan(theta)",
+  "source": "REFERENCES/related_studies.md R5 (carried; keywords only)",
+  "bound": {
+   "seed": 0,
+   "tol": 1e-09,
+   "theta": "half of each plane's turn",
+   "n": "simplex vertex count, m + 1",
+   "bounded_form": "sin(n theta) cos(theta) - n sin(theta) cos(n theta)",
+   "theta_choice_not_from_the_paper": "the paper was not read; the half turn is the reading under which the R^3 reference row holds"
+  },
+  "reference_r3": {
+   "helix": "regular tetrahedra in R^3, turn acos(-2/3)",
+   "turn_deg": 131.81031489577862,
+   "half_turn": {
+    "theta_deg": 65.90515744788931,
+    "n": 4,
+    "tan_n_theta": 8.94427190999918,
+    "n_tan_theta": 8.944271909999161,
+    "residual_tan_form": 1.9539925233402755e-14,
+    "residual_bounded_form": -9.43689570931383e-16,
+    "holds": true
+   },
+   "full_turn": {
+    "theta_deg": 131.81031489577862,
+    "n": 4,
+    "tan_n_theta": -0.22643726354428192,
+    "n_tan_theta": -4.472135954999578,
+    "residual_tan_form": 4.245698691455296,
+    "residual_bounded_form": 2.7605777499997406,
+    "holds": false
+   },
+   "half_turn_with_n_3": {
+    "theta_deg": 65.90515744788931,
+    "n": 3,
+    "tan_n_theta": 0.3194382824999702,
+    "n_tan_theta": 6.708203932499371,
+    "residual_tan_form": -6.388765649999401,
+    "residual_bounded_form": 2.484519974999766,
+    "holds": false
+   }
+  },
+  "chains": [
+   {
+    "dimension": 4,
+    "simplex_m": 3,
+    "simplex_vertices_n": 4,
+    "n_to_close": 4,
+    "turns": [
+     1,
+     2
+    ],
+    "coxeter_verdict": "match",
+    "coxeter_matches": [
+     "A3"
+    ],
+    "survivor_unmatched": false,
+    "planes": [
+     {
+      "turn": 1,
+      "turn_deg": 90.0,
+      "half_turn": {
+       "theta_deg": 45.0,
+       "n": 4,
+       "tan_n_theta": -1.2246467991473532e-16,
+       "n_tan_theta": 3.9999999999999996,
+       "residual_tan_form": -3.9999999999999996,
+       "residual_bounded_form": 2.82842712474619,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 90.0,
+       "n": 4,
+       "tan_n_theta": -2.4492935982947064e-16,
+       "n_tan_theta": null,
+       "residual_tan_form": null,
+       "residual_bounded_form": -4.0,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 2,
+      "turn_deg": 180.0,
+      "half_turn": {
+       "theta_deg": 90.0,
+       "n": 4,
+       "tan_n_theta": -2.4492935982947064e-16,
+       "n_tan_theta": null,
+       "residual_tan_form": null,
+       "residual_bounded_form": -4.0,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 180.0,
+       "n": 4,
+       "tan_n_theta": -4.898587196589413e-16,
+       "n_tan_theta": -4.898587196589413e-16,
+       "residual_tan_form": 0.0,
+       "residual_bounded_form": 0.0,
+       "holds": true
+      },
+      "theta_is_90_deg": true,
+      "other_n_2_to_12_that_hold_at_half_turn": [
+       3,
+       5,
+       7,
+       9,
+       11
+      ]
+     }
+    ],
+    "largest_abs_residual_half_turn": 4.0,
+    "largest_abs_residual_full_turn": 4.0,
+    "holds_on_every_plane_half_turn": false,
+    "planes_holding_half_turn": 0,
+    "planes_holding_only_at_theta_90": 0,
+    "holds_on_every_plane_full_turn": false
+   },
+   {
+    "dimension": 4,
+    "simplex_m": 3,
+    "simplex_vertices_n": 4,
+    "n_to_close": 5,
+    "turns": [
+     1,
+     2
+    ],
+    "coxeter_verdict": "match",
+    "coxeter_matches": [
+     "A4"
+    ],
+    "survivor_unmatched": false,
+    "planes": [
+     {
+      "turn": 1,
+      "turn_deg": 72.0,
+      "half_turn": {
+       "theta_deg": 36.0,
+       "n": 4,
+       "tan_n_theta": -0.726542528005361,
+       "n_tan_theta": 2.9061701120214436,
+       "residual_tan_form": -3.6327126400268046,
+       "residual_bounded_form": 2.377641290737884,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 72.0,
+       "n": 4,
+       "tan_n_theta": -3.0776835371752553,
+       "n_tan_theta": 12.310734148701012,
+       "residual_tan_form": -15.388417685876268,
+       "residual_bounded_form": -1.469463130731182,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 2,
+      "turn_deg": 144.0,
+      "half_turn": {
+       "theta_deg": 72.0,
+       "n": 4,
+       "tan_n_theta": -3.0776835371752553,
+       "n_tan_theta": 12.310734148701012,
+       "residual_tan_form": -15.388417685876268,
+       "residual_bounded_form": -1.469463130731182,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 144.0,
+       "n": 4,
+       "tan_n_theta": 0.7265425280053602,
+       "n_tan_theta": -2.906170112021444,
+       "residual_tan_form": 3.632712640026804,
+       "residual_bounded_form": 2.3776412907378845,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     }
+    ],
+    "largest_abs_residual_half_turn": 2.377641290737884,
+    "largest_abs_residual_full_turn": 2.3776412907378845,
+    "holds_on_every_plane_half_turn": false,
+    "planes_holding_half_turn": 0,
+    "planes_holding_only_at_theta_90": 0,
+    "holds_on_every_plane_full_turn": false
+   },
+   {
+    "dimension": 4,
+    "simplex_m": 3,
+    "simplex_vertices_n": 4,
+    "n_to_close": 8,
+    "turns": [
+     1,
+     3
+    ],
+    "coxeter_verdict": "match",
+    "coxeter_matches": [
+     "A7",
+     "B4",
+     "D5"
+    ],
+    "survivor_unmatched": false,
+    "planes": [
+     {
+      "turn": 1,
+      "turn_deg": 45.0,
+      "half_turn": {
+       "theta_deg": 22.5,
+       "n": 4,
+       "tan_n_theta": null,
+       "n_tan_theta": 1.6568542494923801,
+       "residual_tan_form": null,
+       "residual_bounded_form": 0.9238795325112866,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 45.0,
+       "n": 4,
+       "tan_n_theta": -1.2246467991473532e-16,
+       "n_tan_theta": 3.9999999999999996,
+       "residual_tan_form": -3.9999999999999996,
+       "residual_bounded_form": 2.82842712474619,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 3,
+      "turn_deg": 135.0,
+      "half_turn": {
+       "theta_deg": 67.5,
+       "n": 4,
+       "tan_n_theta": null,
+       "n_tan_theta": 9.65685424949238,
+       "residual_tan_form": null,
+       "residual_bounded_form": -0.38268343236508917,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 135.0,
+       "n": 4,
+       "tan_n_theta": -3.67394039744206e-16,
+       "n_tan_theta": -4.000000000000001,
+       "residual_tan_form": 4.000000000000001,
+       "residual_bounded_form": 2.82842712474619,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     }
+    ],
+    "largest_abs_residual_half_turn": 0.9238795325112866,
+    "largest_abs_residual_full_turn": 2.82842712474619,
+    "holds_on_every_plane_half_turn": false,
+    "planes_holding_half_turn": 0,
+    "planes_holding_only_at_theta_90": 0,
+    "holds_on_every_plane_full_turn": false
+   },
+   {
+    "dimension": 4,
+    "simplex_m": 3,
+    "simplex_vertices_n": 4,
+    "n_to_close": 30,
+    "turns": [
+     1,
+     11
+    ],
+    "coxeter_verdict": "match",
+    "coxeter_matches": [
+     "H4",
+     "E8"
+    ],
+    "survivor_unmatched": false,
+    "planes": [
+     {
+      "turn": 1,
+      "turn_deg": 12.0,
+      "half_turn": {
+       "theta_deg": 6.0,
+       "n": 4,
+       "tan_n_theta": 0.4452286853085362,
+       "n_tan_theta": 0.4204169410627059,
+       "residual_tan_form": 0.024811744245830325,
+       "residual_bounded_form": 0.022542485937368517,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 12.0,
+       "n": 4,
+       "tan_n_theta": 1.110612514829193,
+       "n_tan_theta": 0.8502262466800885,
+       "residual_tan_form": 0.2603862681491045,
+       "residual_bounded_form": 0.17042502505452495,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 11,
+      "turn_deg": 132.0,
+      "half_turn": {
+       "theta_deg": 66.0,
+       "n": 4,
+       "tan_n_theta": 9.514364454222596,
+       "n_tan_theta": 8.984147095616866,
+       "residual_tan_form": 0.5302173586057304,
+       "residual_bounded_form": -0.022542485937369017,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 132.0,
+       "n": 4,
+       "tan_n_theta": -0.21255656167002188,
+       "n_tan_theta": -4.442450059316771,
+       "residual_tan_form": 4.229893497646749,
+       "residual_bounded_form": 2.7685012364078414,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     }
+    ],
+    "largest_abs_residual_half_turn": 0.022542485937369017,
+    "largest_abs_residual_full_turn": 2.7685012364078414,
+    "holds_on_every_plane_half_turn": false,
+    "planes_holding_half_turn": 0,
+    "planes_holding_only_at_theta_90": 0,
+    "holds_on_every_plane_full_turn": false
+   },
+   {
+    "dimension": 4,
+    "simplex_m": 3,
+    "simplex_vertices_n": 4,
+    "n_to_close": 30,
+    "turns": [
+     7,
+     13
+    ],
+    "coxeter_verdict": "match",
+    "coxeter_matches": [
+     "E8"
+    ],
+    "survivor_unmatched": false,
+    "planes": [
+     {
+      "turn": 7,
+      "turn_deg": 84.0,
+      "half_turn": {
+       "theta_deg": 42.0,
+       "n": 4,
+       "tan_n_theta": -0.2125565616700221,
+       "n_tan_theta": 3.6016161771913597,
+       "residual_tan_form": -3.814172738861382,
+       "residual_bounded_form": 2.7725424859373686,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 84.0,
+       "n": 4,
+       "tan_n_theta": -0.4452286853085361,
+       "n_tan_theta": 38.05745781689035,
+       "residual_tan_form": -38.502686502198884,
+       "residual_bounded_form": -3.676679396414542,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 13,
+      "turn_deg": 156.0,
+      "half_turn": {
+       "theta_deg": 78.0,
+       "n": 4,
+       "tan_n_theta": -1.110612514829194,
+       "n_tan_theta": 18.818520437913804,
+       "residual_tan_form": -19.929132952742997,
+       "residual_bounded_form": -2.772542485937367,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 156.0,
+       "n": 4,
+       "tan_n_theta": 9.514364454222491,
+       "n_tan_theta": -1.780914741234146,
+       "residual_tan_form": 11.295279195456637,
+       "residual_bounded_form": 1.0786031850612274,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     }
+    ],
+    "largest_abs_residual_half_turn": 2.7725424859373686,
+    "largest_abs_residual_full_turn": 3.676679396414542,
+    "holds_on_every_plane_half_turn": false,
+    "planes_holding_half_turn": 0,
+    "planes_holding_only_at_theta_90": 0,
+    "holds_on_every_plane_full_turn": false
+   },
+   {
+    "dimension": 6,
+    "simplex_m": 4,
+    "simplex_vertices_n": 5,
+    "n_to_close": 6,
+    "turns": [
+     1,
+     2,
+     3
+    ],
+    "coxeter_verdict": "match",
+    "coxeter_matches": [
+     "A5"
+    ],
+    "survivor_unmatched": false,
+    "planes": [
+     {
+      "turn": 1,
+      "turn_deg": 60.0,
+      "half_turn": {
+       "theta_deg": 30.0,
+       "n": 5,
+       "tan_n_theta": -0.5773502691896263,
+       "n_tan_theta": 2.8867513459481287,
+       "residual_tan_form": -3.464101615137755,
+       "residual_bounded_form": 2.5980762113533156,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 60.0,
+       "n": 5,
+       "tan_n_theta": -1.7320508075688805,
+       "n_tan_theta": 8.660254037844384,
+       "residual_tan_form": -10.392304845413264,
+       "residual_bounded_form": -2.5980762113533133,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 2,
+      "turn_deg": 120.0,
+      "half_turn": {
+       "theta_deg": 60.0,
+       "n": 5,
+       "tan_n_theta": -1.7320508075688805,
+       "n_tan_theta": 8.660254037844384,
+       "residual_tan_form": -10.392304845413264,
+       "residual_bounded_form": -2.5980762113533133,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 120.0,
+       "n": 5,
+       "tan_n_theta": 1.732050807568871,
+       "n_tan_theta": -8.66025403784439,
+       "residual_tan_form": 10.392304845413262,
+       "residual_bounded_form": 2.5980762113533213,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 3,
+      "turn_deg": 180.0,
+      "half_turn": {
+       "theta_deg": 90.0,
+       "n": 5,
+       "tan_n_theta": null,
+       "n_tan_theta": null,
+       "residual_tan_form": null,
+       "residual_bounded_form": -1.469576158976824e-15,
+       "holds": true
+      },
+      "full_turn": {
+       "theta_deg": 180.0,
+       "n": 5,
+       "tan_n_theta": -6.123233995736766e-16,
+       "n_tan_theta": -6.123233995736766e-16,
+       "residual_tan_form": 0.0,
+       "residual_bounded_form": 0.0,
+       "holds": true
+      },
+      "theta_is_90_deg": true,
+      "other_n_2_to_12_that_hold_at_half_turn": [
+       3,
+       5,
+       7,
+       9,
+       11
+      ]
+     }
+    ],
+    "largest_abs_residual_half_turn": 2.5980762113533156,
+    "largest_abs_residual_full_turn": 2.5980762113533213,
+    "holds_on_every_plane_half_turn": false,
+    "planes_holding_half_turn": 1,
+    "planes_holding_only_at_theta_90": 1,
+    "holds_on_every_plane_full_turn": false
+   },
+   {
+    "dimension": 6,
+    "simplex_m": 4,
+    "simplex_vertices_n": 5,
+    "n_to_close": 7,
+    "turns": [
+     1,
+     2,
+     3
+    ],
+    "coxeter_verdict": "match",
+    "coxeter_matches": [
+     "A6"
+    ],
+    "survivor_unmatched": false,
+    "planes": [
+     {
+      "turn": 1,
+      "turn_deg": 51.42857142857143,
+      "half_turn": {
+       "theta_deg": 25.714285714285715,
+       "n": 5,
+       "tan_n_theta": -1.253960337662704,
+       "n_tan_theta": 2.407873094037643,
+       "residual_tan_form": -3.661833431700347,
+       "residual_bounded_form": 2.0570162583103544,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 51.42857142857143,
+       "n": 5,
+       "tan_n_theta": 4.381286267534819,
+       "n_tan_theta": 6.269801688313519,
+       "residual_tan_form": -1.8885154207786998,
+       "residual_bounded_form": 0.26201174758338597,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 2,
+      "turn_deg": 102.85714285714286,
+      "half_turn": {
+       "theta_deg": 51.42857142857143,
+       "n": 5,
+       "tan_n_theta": 4.381286267534819,
+       "n_tan_theta": 6.269801688313519,
+       "residual_tan_form": -1.8885154207786998,
+       "residual_bounded_form": 0.26201174758338597,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 102.85714285714286,
+       "n": 5,
+       "tan_n_theta": -0.48157461880752905,
+       "n_tan_theta": -21.906431337674125,
+       "residual_tan_form": 21.424856718866597,
+       "residual_bounded_form": 4.295350271767736,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 3,
+      "turn_deg": 154.28571428571428,
+      "half_turn": {
+       "theta_deg": 77.14285714285714,
+       "n": 5,
+       "tan_n_theta": 0.48157461880752833,
+       "n_tan_theta": 21.90643133767411,
+       "residual_tan_form": -21.424856718866582,
+       "residual_bounded_form": -4.295350271767737,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 154.28571428571428,
+       "n": 5,
+       "tan_n_theta": 1.2539603376627024,
+       "n_tan_theta": -2.407873094037644,
+       "residual_tan_form": 3.6618334317003463,
+       "residual_bounded_form": -2.0570162583103553,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     }
+    ],
+    "largest_abs_residual_half_turn": 4.295350271767737,
+    "largest_abs_residual_full_turn": 4.295350271767736,
+    "holds_on_every_plane_half_turn": false,
+    "planes_holding_half_turn": 0,
+    "planes_holding_only_at_theta_90": 0,
+    "holds_on_every_plane_full_turn": false
+   },
+   {
+    "dimension": 6,
+    "simplex_m": 4,
+    "simplex_vertices_n": 5,
+    "n_to_close": 10,
+    "turns": [
+     1,
+     3,
+     5
+    ],
+    "coxeter_verdict": "match",
+    "coxeter_matches": [
+     "B5",
+     "D6"
+    ],
+    "survivor_unmatched": false,
+    "planes": [
+     {
+      "turn": 1,
+      "turn_deg": 36.0,
+      "half_turn": {
+       "theta_deg": 18.0,
+       "n": 5,
+       "tan_n_theta": null,
+       "n_tan_theta": 1.6245984811645315,
+       "residual_tan_form": null,
+       "residual_bounded_form": 0.9510565162951534,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 36.0,
+       "n": 5,
+       "tan_n_theta": -1.2246467991473532e-16,
+       "n_tan_theta": 3.6327126400268046,
+       "residual_tan_form": -3.6327126400268046,
+       "residual_bounded_form": 2.938926261462366,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 3,
+      "turn_deg": 108.0,
+      "half_turn": {
+       "theta_deg": 54.0,
+       "n": 5,
+       "tan_n_theta": null,
+       "n_tan_theta": 6.881909602355867,
+       "residual_tan_form": null,
+       "residual_bounded_form": -0.5877852522924724,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 108.0,
+       "n": 5,
+       "tan_n_theta": -3.67394039744206e-16,
+       "n_tan_theta": -15.38841768587627,
+       "residual_tan_form": 15.38841768587627,
+       "residual_bounded_form": 4.755282581475768,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 5,
+      "turn_deg": 180.0,
+      "half_turn": {
+       "theta_deg": 90.0,
+       "n": 5,
+       "tan_n_theta": null,
+       "n_tan_theta": null,
+       "residual_tan_form": null,
+       "residual_bounded_form": -1.469576158976824e-15,
+       "holds": true
+      },
+      "full_turn": {
+       "theta_deg": 180.0,
+       "n": 5,
+       "tan_n_theta": -6.123233995736766e-16,
+       "n_tan_theta": -6.123233995736766e-16,
+       "residual_tan_form": 0.0,
+       "residual_bounded_form": 0.0,
+       "holds": true
+      },
+      "theta_is_90_deg": true,
+      "other_n_2_to_12_that_hold_at_half_turn": [
+       3,
+       5,
+       7,
+       9,
+       11
+      ]
+     }
+    ],
+    "largest_abs_residual_half_turn": 0.9510565162951534,
+    "largest_abs_residual_full_turn": 4.755282581475768,
+    "holds_on_every_plane_half_turn": false,
+    "planes_holding_half_turn": 1,
+    "planes_holding_only_at_theta_90": 1,
+    "holds_on_every_plane_full_turn": false
+   },
+   {
+    "dimension": 6,
+    "simplex_m": 4,
+    "simplex_vertices_n": 5,
+    "n_to_close": 12,
+    "turns": [
+     1,
+     3,
+     5
+    ],
+    "coxeter_verdict": "match",
+    "coxeter_matches": [
+     "B6",
+     "D7"
+    ],
+    "survivor_unmatched": false,
+    "planes": [
+     {
+      "turn": 1,
+      "turn_deg": 30.0,
+      "half_turn": {
+       "theta_deg": 15.0,
+       "n": 5,
+       "tan_n_theta": 3.7320508075688745,
+       "n_tan_theta": 1.3397459621556136,
+       "residual_tan_form": 2.392304845413261,
+       "residual_bounded_form": 0.5980762113533157,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 30.0,
+       "n": 5,
+       "tan_n_theta": -0.5773502691896263,
+       "n_tan_theta": 2.8867513459481287,
+       "residual_tan_form": -3.464101615137755,
+       "residual_bounded_form": 2.5980762113533156,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 3,
+      "turn_deg": 90.0,
+      "half_turn": {
+       "theta_deg": 45.0,
+       "n": 5,
+       "tan_n_theta": 0.9999999999999997,
+       "n_tan_theta": 4.999999999999999,
+       "residual_tan_form": -3.9999999999999996,
+       "residual_bounded_form": 2.0000000000000004,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 90.0,
+       "n": 5,
+       "tan_n_theta": null,
+       "n_tan_theta": null,
+       "residual_tan_form": null,
+       "residual_bounded_form": -1.469576158976824e-15,
+       "holds": true
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 5,
+      "turn_deg": 150.0,
+      "half_turn": {
+       "theta_deg": 75.0,
+       "n": 5,
+       "tan_n_theta": 0.2679491924311231,
+       "n_tan_theta": 18.66025403784439,
+       "residual_tan_form": -18.392304845413268,
+       "residual_bounded_form": -4.598076211353316,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 150.0,
+       "n": 5,
+       "tan_n_theta": 0.5773502691896266,
+       "n_tan_theta": -2.8867513459481287,
+       "residual_tan_form": 3.4641016151377553,
+       "residual_bounded_form": -2.598076211353315,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     }
+    ],
+    "largest_abs_residual_half_turn": 4.598076211353316,
+    "largest_abs_residual_full_turn": 2.5980762113533156,
+    "holds_on_every_plane_half_turn": false,
+    "planes_holding_half_turn": 0,
+    "planes_holding_only_at_theta_90": 0,
+    "holds_on_every_plane_full_turn": false
+   },
+   {
+    "dimension": 6,
+    "simplex_m": 4,
+    "simplex_vertices_n": 5,
+    "n_to_close": 18,
+    "turns": [
+     1,
+     5,
+     8
+    ],
+    "coxeter_verdict": "no match",
+    "coxeter_matches": [],
+    "survivor_unmatched": true,
+    "planes": [
+     {
+      "turn": 1,
+      "turn_deg": 20.0,
+      "half_turn": {
+       "theta_deg": 10.0,
+       "n": 5,
+       "tan_n_theta": 1.19175359259421,
+       "n_tan_theta": 0.8816349035423249,
+       "residual_tan_form": 0.3101186890518851,
+       "residual_bounded_form": 0.19631202149074067,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 20.0,
+       "n": 5,
+       "tan_n_theta": -5.671281819617711,
+       "n_tan_theta": 1.8198511713310117,
+       "residual_tan_form": -7.4911329909487225,
+       "residual_bounded_form": 1.2223724514677468,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 5,
+      "turn_deg": 100.0,
+      "half_turn": {
+       "theta_deg": 50.0,
+       "n": 5,
+       "tan_n_theta": 2.7474774194546243,
+       "n_tan_theta": 5.95876796297105,
+       "residual_tan_form": -3.211290543516426,
+       "residual_bounded_form": 0.7059903775918702,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 100.0,
+       "n": 5,
+       "tan_n_theta": -0.8390996311772793,
+       "n_tan_theta": -28.356409098088555,
+       "residual_tan_form": 27.517309466911275,
+       "residual_bounded_form": 3.6604136366284963,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 8,
+      "turn_deg": 160.0,
+      "half_turn": {
+       "theta_deg": 80.0,
+       "n": 5,
+       "tan_n_theta": 0.8390996311772797,
+       "n_tan_theta": 28.356409098088534,
+       "residual_tan_form": -27.517309466911254,
+       "residual_bounded_form": -3.6604136366284954,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 160.0,
+       "n": 5,
+       "tan_n_theta": 5.671281819617698,
+       "n_tan_theta": -1.8198511713310128,
+       "residual_tan_form": 7.49113299094871,
+       "residual_bounded_form": -1.2223724514677474,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     }
+    ],
+    "largest_abs_residual_half_turn": 3.6604136366284954,
+    "largest_abs_residual_full_turn": 3.6604136366284963,
+    "holds_on_every_plane_half_turn": false,
+    "planes_holding_half_turn": 0,
+    "planes_holding_only_at_theta_90": 0,
+    "holds_on_every_plane_full_turn": false
+   },
+   {
+    "dimension": 6,
+    "simplex_m": 4,
+    "simplex_vertices_n": 5,
+    "n_to_close": 24,
+    "turns": [
+     1,
+     7,
+     12
+    ],
+    "coxeter_verdict": "no match",
+    "coxeter_matches": [],
+    "survivor_unmatched": true,
+    "planes": [
+     {
+      "turn": 1,
+      "turn_deg": 15.0,
+      "half_turn": {
+       "theta_deg": 7.5,
+       "n": 5,
+       "tan_n_theta": 0.7673269879789602,
+       "n_tan_theta": 0.6582624879369792,
+       "residual_tan_form": 0.10906450004198098,
+       "residual_bounded_form": 0.08578643762690485,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 15.0,
+       "n": 5,
+       "tan_n_theta": 3.7320508075688745,
+       "n_tan_theta": 1.3397459621556136,
+       "residual_tan_form": 2.392304845413261,
+       "residual_bounded_form": 0.5980762113533157,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 7,
+      "turn_deg": 105.0,
+      "half_turn": {
+       "theta_deg": 52.5,
+       "n": 5,
+       "tan_n_theta": 7.595754112725149,
+       "n_tan_theta": 6.516126864206029,
+       "residual_tan_form": 1.0796272485191194,
+       "residual_bounded_form": -0.08578643762690485,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 105.0,
+       "n": 5,
+       "tan_n_theta": -0.26794919243112275,
+       "n_tan_theta": -18.660254037844382,
+       "residual_tan_form": 18.39230484541326,
+       "residual_bounded_form": 4.598076211353316,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 12,
+      "turn_deg": 180.0,
+      "half_turn": {
+       "theta_deg": 90.0,
+       "n": 5,
+       "tan_n_theta": null,
+       "n_tan_theta": null,
+       "residual_tan_form": null,
+       "residual_bounded_form": -1.469576158976824e-15,
+       "holds": true
+      },
+      "full_turn": {
+       "theta_deg": 180.0,
+       "n": 5,
+       "tan_n_theta": -6.123233995736766e-16,
+       "n_tan_theta": -6.123233995736766e-16,
+       "residual_tan_form": 0.0,
+       "residual_bounded_form": 0.0,
+       "holds": true
+      },
+      "theta_is_90_deg": true,
+      "other_n_2_to_12_that_hold_at_half_turn": [
+       3,
+       5,
+       7,
+       9,
+       11
+      ]
+     }
+    ],
+    "largest_abs_residual_half_turn": 0.08578643762690485,
+    "largest_abs_residual_full_turn": 4.598076211353316,
+    "holds_on_every_plane_half_turn": false,
+    "planes_holding_half_turn": 1,
+    "planes_holding_only_at_theta_90": 1,
+    "holds_on_every_plane_full_turn": false
+   },
+   {
+    "dimension": 6,
+    "simplex_m": 4,
+    "simplex_vertices_n": 5,
+    "n_to_close": 28,
+    "turns": [
+     1,
+     8,
+     13
+    ],
+    "coxeter_verdict": "no match",
+    "coxeter_matches": [],
+    "survivor_unmatched": true,
+    "planes": [
+     {
+      "turn": 1,
+      "turn_deg": 12.857142857142858,
+      "half_turn": {
+       "theta_deg": 6.428571428571429,
+       "n": 5,
+       "tan_n_theta": 0.6283416453672137,
+       "n_tan_theta": 0.5633646995005552,
+       "residual_tan_form": 0.06497694586665848,
+       "residual_bounded_form": 0.05467161363520728,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 12.857142857142858,
+       "n": 5,
+       "tan_n_theta": 2.0765213965723364,
+       "n_tan_theta": 1.1412173719507497,
+       "residual_tan_form": 0.9353040246215867,
+       "residual_bounded_form": 0.3956386230404422,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 8,
+      "turn_deg": 102.85714285714286,
+      "half_turn": {
+       "theta_deg": 51.42857142857143,
+       "n": 5,
+       "tan_n_theta": 4.381286267534819,
+       "n_tan_theta": 6.269801688313519,
+       "residual_tan_form": -1.8885154207786998,
+       "residual_bounded_form": 0.26201174758338597,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 102.85714285714286,
+       "n": 5,
+       "tan_n_theta": -0.48157461880752905,
+       "n_tan_theta": -21.906431337674125,
+       "residual_tan_form": 21.424856718866597,
+       "residual_bounded_form": 4.295350271767736,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 13,
+      "turn_deg": 167.14285714285714,
+      "half_turn": {
+       "theta_deg": 83.57142857142857,
+       "n": 5,
+       "tan_n_theta": 1.59149088298227,
+       "n_tan_theta": 44.37622737484876,
+       "residual_tan_form": -42.78473649186649,
+       "residual_bounded_form": -2.5486308210701427,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 167.14285714285714,
+       "n": 5,
+       "tan_n_theta": -2.0765213965723395,
+       "n_tan_theta": -1.1412173719507503,
+       "residual_tan_form": -0.9353040246215891,
+       "residual_bounded_form": -0.3956386230404427,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     }
+    ],
+    "largest_abs_residual_half_turn": 2.5486308210701427,
+    "largest_abs_residual_full_turn": 4.295350271767736,
+    "holds_on_every_plane_half_turn": false,
+    "planes_holding_half_turn": 0,
+    "planes_holding_only_at_theta_90": 0,
+    "holds_on_every_plane_full_turn": false
+   },
+   {
+    "dimension": 6,
+    "simplex_m": 4,
+    "simplex_vertices_n": 5,
+    "n_to_close": 28,
+    "turns": [
+     5,
+     9,
+     12
+    ],
+    "coxeter_verdict": "no match",
+    "coxeter_matches": [],
+    "survivor_unmatched": true,
+    "planes": [
+     {
+      "turn": 5,
+      "turn_deg": 64.28571428571429,
+      "half_turn": {
+       "theta_deg": 32.142857142857146,
+       "n": 5,
+       "tan_n_theta": -0.34991513394697227,
+       "n_tan_theta": 3.141708226836069,
+       "residual_tan_form": -3.4916233607830414,
+       "residual_bounded_form": 2.7905363153167193,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 64.28571428571429,
+       "n": 5,
+       "tan_n_theta": -0.7974733888824028,
+       "n_tan_theta": 10.382606982861688,
+       "residual_tan_form": -11.18008037174409,
+       "residual_bounded_form": -3.792551214780589,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 9,
+      "turn_deg": 115.71428571428571,
+      "half_turn": {
+       "theta_deg": 57.857142857142854,
+       "n": 5,
+       "tan_n_theta": -2.857835809272382,
+       "n_tan_theta": 7.957454414911354,
+       "residual_tan_form": -10.815290224183737,
+       "residual_bounded_form": -1.9004525794914595,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 115.71428571428571,
+       "n": 5,
+       "tan_n_theta": 0.7974733888824033,
+       "n_tan_theta": -10.382606982861684,
+       "residual_tan_form": 11.180080371744088,
+       "residual_bounded_form": 3.7925512147805884,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 12,
+      "turn_deg": 154.28571428571428,
+      "half_turn": {
+       "theta_deg": 77.14285714285714,
+       "n": 5,
+       "tan_n_theta": 0.48157461880752833,
+       "n_tan_theta": 21.90643133767411,
+       "residual_tan_form": -21.424856718866582,
+       "residual_bounded_form": -4.295350271767737,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 154.28571428571428,
+       "n": 5,
+       "tan_n_theta": 1.2539603376627024,
+       "n_tan_theta": -2.407873094037644,
+       "residual_tan_form": 3.6618334317003463,
+       "residual_bounded_form": -2.0570162583103553,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     }
+    ],
+    "largest_abs_residual_half_turn": 4.295350271767737,
+    "largest_abs_residual_full_turn": 3.792551214780589,
+    "holds_on_every_plane_half_turn": false,
+    "planes_holding_half_turn": 0,
+    "planes_holding_only_at_theta_90": 0,
+    "holds_on_every_plane_full_turn": false
+   },
+   {
+    "dimension": 6,
+    "simplex_m": 5,
+    "simplex_vertices_n": 6,
+    "n_to_close": 6,
+    "turns": [
+     1,
+     2,
+     3
+    ],
+    "coxeter_verdict": "match",
+    "coxeter_matches": [
+     "A5"
+    ],
+    "survivor_unmatched": false,
+    "planes": [
+     {
+      "turn": 1,
+      "turn_deg": 60.0,
+      "half_turn": {
+       "theta_deg": 30.0,
+       "n": 6,
+       "tan_n_theta": -1.2246467991473532e-16,
+       "n_tan_theta": 3.4641016151377544,
+       "residual_tan_form": -3.4641016151377544,
+       "residual_bounded_form": 2.9999999999999996,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 60.0,
+       "n": 6,
+       "tan_n_theta": -2.4492935982947064e-16,
+       "n_tan_theta": 10.39230484541326,
+       "residual_tan_form": -10.39230484541326,
+       "residual_bounded_form": -5.196152422706632,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 2,
+      "turn_deg": 120.0,
+      "half_turn": {
+       "theta_deg": 60.0,
+       "n": 6,
+       "tan_n_theta": -2.4492935982947064e-16,
+       "n_tan_theta": 10.39230484541326,
+       "residual_tan_form": -10.39230484541326,
+       "residual_bounded_form": -5.196152422706632,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 120.0,
+       "n": 6,
+       "tan_n_theta": -4.898587196589413e-16,
+       "n_tan_theta": -10.39230484541327,
+       "residual_tan_form": 10.39230484541327,
+       "residual_bounded_form": -5.196152422706632,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 3,
+      "turn_deg": 180.0,
+      "half_turn": {
+       "theta_deg": 90.0,
+       "n": 6,
+       "tan_n_theta": -3.67394039744206e-16,
+       "n_tan_theta": null,
+       "residual_tan_form": null,
+       "residual_bounded_form": 6.0,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 180.0,
+       "n": 6,
+       "tan_n_theta": -7.34788079488412e-16,
+       "n_tan_theta": -7.347880794884119e-16,
+       "residual_tan_form": -9.860761315262648e-32,
+       "residual_bounded_form": 0.0,
+       "holds": true
+      },
+      "theta_is_90_deg": true,
+      "other_n_2_to_12_that_hold_at_half_turn": [
+       3,
+       5,
+       7,
+       9,
+       11
+      ]
+     }
+    ],
+    "largest_abs_residual_half_turn": 6.0,
+    "largest_abs_residual_full_turn": 5.196152422706632,
+    "holds_on_every_plane_half_turn": false,
+    "planes_holding_half_turn": 0,
+    "planes_holding_only_at_theta_90": 0,
+    "holds_on_every_plane_full_turn": false
+   },
+   {
+    "dimension": 6,
+    "simplex_m": 5,
+    "simplex_vertices_n": 6,
+    "n_to_close": 7,
+    "turns": [
+     1,
+     2,
+     3
+    ],
+    "coxeter_verdict": "match",
+    "coxeter_matches": [
+     "A6"
+    ],
+    "survivor_unmatched": false,
+    "planes": [
+     {
+      "turn": 1,
+      "turn_deg": 51.42857142857143,
+      "half_turn": {
+       "theta_deg": 25.714285714285715,
+       "n": 6,
+       "tan_n_theta": -0.4815746188075288,
+       "n_tan_theta": 2.889447712845172,
+       "residual_tan_form": -3.371022331652701,
+       "residual_bounded_form": 2.7364101886381045,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 51.42857142857143,
+       "n": 6,
+       "tan_n_theta": -1.2539603376627044,
+       "n_tan_theta": 7.523762025976223,
+       "residual_tan_form": -8.777722363638928,
+       "residual_bounded_form": -3.412247692636382,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 2,
+      "turn_deg": 102.85714285714286,
+      "half_turn": {
+       "theta_deg": 51.42857142857143,
+       "n": 6,
+       "tan_n_theta": -1.2539603376627044,
+       "n_tan_theta": 7.523762025976223,
+       "residual_tan_form": -8.777722363638928,
+       "residual_bounded_form": -3.412247692636382,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 102.85714285714286,
+       "n": 6,
+       "tan_n_theta": 4.381286267534815,
+       "n_tan_theta": -26.287717605208947,
+       "residual_tan_form": 30.66900387274376,
+       "residual_bounded_form": 1.518593086911456,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 3,
+      "turn_deg": 154.28571428571428,
+      "half_turn": {
+       "theta_deg": 77.14285714285714,
+       "n": 6,
+       "tan_n_theta": -4.381286267534829,
+       "n_tan_theta": 26.287717605208933,
+       "residual_tan_form": -30.66900387274376,
+       "residual_bounded_form": 1.518593086911452,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 154.28571428571428,
+       "n": 6,
+       "tan_n_theta": 0.4815746188075279,
+       "n_tan_theta": -2.8894477128451728,
+       "residual_tan_form": 3.371022331652701,
+       "residual_bounded_form": 2.736410188638105,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     }
+    ],
+    "largest_abs_residual_half_turn": 3.412247692636382,
+    "largest_abs_residual_full_turn": 3.412247692636382,
+    "holds_on_every_plane_half_turn": false,
+    "planes_holding_half_turn": 0,
+    "planes_holding_only_at_theta_90": 0,
+    "holds_on_every_plane_full_turn": false
+   },
+   {
+    "dimension": 6,
+    "simplex_m": 5,
+    "simplex_vertices_n": 6,
+    "n_to_close": 12,
+    "turns": [
+     1,
+     3,
+     5
+    ],
+    "coxeter_verdict": "match",
+    "coxeter_matches": [
+     "B6",
+     "D7"
+    ],
+    "survivor_unmatched": false,
+    "planes": [
+     {
+      "turn": 1,
+      "turn_deg": 30.0,
+      "half_turn": {
+       "theta_deg": 15.0,
+       "n": 6,
+       "tan_n_theta": null,
+       "n_tan_theta": 1.6076951545867362,
+       "residual_tan_form": null,
+       "residual_bounded_form": 0.9659258262890682,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 30.0,
+       "n": 6,
+       "tan_n_theta": -1.2246467991473532e-16,
+       "n_tan_theta": 3.4641016151377544,
+       "residual_tan_form": -3.4641016151377544,
+       "residual_bounded_form": 2.9999999999999996,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 3,
+      "turn_deg": 90.0,
+      "half_turn": {
+       "theta_deg": 45.0,
+       "n": 6,
+       "tan_n_theta": null,
+       "n_tan_theta": 5.999999999999999,
+       "residual_tan_form": null,
+       "residual_bounded_form": -0.7071067811865468,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 90.0,
+       "n": 6,
+       "tan_n_theta": -3.67394039744206e-16,
+       "n_tan_theta": null,
+       "residual_tan_form": null,
+       "residual_bounded_form": 6.0,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 5,
+      "turn_deg": 150.0,
+      "half_turn": {
+       "theta_deg": 75.0,
+       "n": 6,
+       "tan_n_theta": null,
+       "n_tan_theta": 22.392304845413264,
+       "residual_tan_form": null,
+       "residual_bounded_form": 0.25881904510251896,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 150.0,
+       "n": 6,
+       "tan_n_theta": -6.123233995736766e-16,
+       "n_tan_theta": -3.4641016151377544,
+       "residual_tan_form": 3.464101615137754,
+       "residual_bounded_form": 2.999999999999999,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     }
+    ],
+    "largest_abs_residual_half_turn": 0.9659258262890682,
+    "largest_abs_residual_full_turn": 6.0,
+    "holds_on_every_plane_half_turn": false,
+    "planes_holding_half_turn": 0,
+    "planes_holding_only_at_theta_90": 0,
+    "holds_on_every_plane_full_turn": false
+   },
+   {
+    "dimension": 6,
+    "simplex_m": 6,
+    "simplex_vertices_n": 7,
+    "n_to_close": 7,
+    "turns": [
+     1,
+     2,
+     3
+    ],
+    "coxeter_verdict": "match",
+    "coxeter_matches": [
+     "A6"
+    ],
+    "survivor_unmatched": false,
+    "planes": [
+     {
+      "turn": 1,
+      "turn_deg": 51.42857142857143,
+      "half_turn": {
+       "theta_deg": 25.714285714285715,
+       "n": 7,
+       "tan_n_theta": -1.2246467991473532e-16,
+       "n_tan_theta": 3.3710223316527004,
+       "residual_tan_form": -3.3710223316527004,
+       "residual_bounded_form": 3.037186173822907,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 51.42857142857143,
+       "n": 7,
+       "tan_n_theta": -2.4492935982947064e-16,
+       "n_tan_theta": 8.777722363638926,
+       "residual_tan_form": -8.777722363638926,
+       "residual_bounded_form": -5.472820377276209,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 2,
+      "turn_deg": 102.85714285714286,
+      "half_turn": {
+       "theta_deg": 51.42857142857143,
+       "n": 7,
+       "tan_n_theta": -2.4492935982947064e-16,
+       "n_tan_theta": 8.777722363638926,
+       "residual_tan_form": -8.777722363638926,
+       "residual_bounded_form": -5.472820377276209,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 102.85714285714286,
+       "n": 7,
+       "tan_n_theta": -4.898587196589413e-16,
+       "n_tan_theta": -30.669003872743772,
+       "residual_tan_form": 30.669003872743772,
+       "residual_bounded_form": -6.8244953852727654,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     },
+     {
+      "turn": 3,
+      "turn_deg": 154.28571428571428,
+      "half_turn": {
+       "theta_deg": 77.14285714285714,
+       "n": 7,
+       "tan_n_theta": -3.67394039744206e-16,
+       "n_tan_theta": 30.669003872743755,
+       "residual_tan_form": -30.669003872743755,
+       "residual_bounded_form": 6.8244953852727654,
+       "holds": false
+      },
+      "full_turn": {
+       "theta_deg": 154.28571428571428,
+       "n": 7,
+       "tan_n_theta": -7.34788079488412e-16,
+       "n_tan_theta": -3.3710223316527013,
+       "residual_tan_form": 3.3710223316527004,
+       "residual_bounded_form": -3.0371861738229073,
+       "holds": false
+      },
+      "theta_is_90_deg": false,
+      "other_n_2_to_12_that_hold_at_half_turn": []
+     }
+    ],
+    "largest_abs_residual_half_turn": 6.8244953852727654,
+    "largest_abs_residual_full_turn": 6.8244953852727654,
+    "holds_on_every_plane_half_turn": false,
+    "planes_holding_half_turn": 0,
+    "planes_holding_only_at_theta_90": 0,
+    "holds_on_every_plane_full_turn": false
+   }
+  ],
+  "summary": {
+   "chains": 17,
+   "holding_on_every_plane": 0,
+   "holding_on_no_plane": 14,
+   "planes_holding": 3,
+   "planes_holding_that_are_theta_90": 3,
+   "theta_90_note": "at theta = 90 degrees both tangents are unbounded; the bounded form is 0 there for odd n",
+   "survivors": 4,
+   "survivors_holding_on_every_plane": 0,
+   "matched_holding_on_every_plane": 0,
+   "full_turn_reading_holding": 0
+  }
+ },
+ "angles": null,
+ "human_interest": null,
+ "ai_interest": null,
+ "compressibility": {
+  "definition": "one letter per chain: h the equation holds on every plane (half turn), n it does not",
+  "n": 17,
+  "phrases": 2,
+  "zlib_ratio": 0.6470588235294118
+ },
+ "nature_match": null,
+ "divergence_note": null
+}

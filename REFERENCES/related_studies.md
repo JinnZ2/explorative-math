@@ -90,3 +90,20 @@ planes have volume exactly 25/384 (10 + 2 sqrt 5); the hull of a regular
 5-cell and its negative has volume 25 sqrt 5 / 64, about 0.8735, below it.
 The theorem itself is not checked here; only those two volumes are.
 
+
+## R5. Coxeter 1985
+
+```text
+where     Canadian Mathematical Bulletin 28(4):385-393, 1985.
+          doi 10.4153/CMB-1985-045-5
+status    NOT FETCHED here (doi.org and the publisher were outside the allowed
+          network). Title and abstract: void. Read level CARRIED from a
+          co-author: ABSTRACT, keywords only.
+carried   the equation tan(n theta) = n tan(theta).
+```
+
+Pointer to: `experiments/simplicial_helix.py`, `runs/simplicial_helix_seed0.json`.
+What theta and n stand for in the paper was not read. The run takes theta
+as half a plane's turn and n as the simplex's vertex count, the reading
+under which the tetrahedral helix of R^3 (turn acos(-2/3), n = 4) satisfies
+the equation.
