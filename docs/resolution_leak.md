@@ -269,6 +269,9 @@ anchor is held (residual below 1e-6) on every start either way. Bound: 8
 starts, one seed; the pairing is the nearest-point one at each trial
 position; paths are not kept for the re-read descents.
 
+What the anchor is (position + pairing), and the run that chooses anchors
+by pairing type, are in `docs/anchor.md`.
+
 Degenerate projections (`runs/degeneracy_check_seed0.json`). A projection
 where two points land on each other has mirrors the polytope's symmetry
 did not give it. OBSERVED over 334 final projections: 63 have coincident
