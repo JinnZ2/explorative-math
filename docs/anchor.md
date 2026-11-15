@@ -35,15 +35,19 @@ for two points to land on each other.
 | the same selection on new starts (holdout: seed 1, types fixed from seed 0, nothing retuned) | `runs/anchor_selection_seed1.json.gz`, beside `runs/constrained_generate_seed1.json.gz` | 5-cell: 7 of 8 reach 5 against 4 of 8 with the anchor as found. 16-cell: 1 of 8 reach 8 against 2 of 8 |
 | the 16-cell anchors with 2 points on the axis, logged start by start | `runs/axis_split_seed0.json.gz`, `runs/axis_split_seed1.json.gz` | see "The 16-cell split" below |
 | wrong rule (m = h - 1, h + 1) | all four runs | 0 starts reach h, every variant, every limit |
-| no rule: fold the axis directions by the mirrors found, search the wedge, next axis becomes the next anchor | `runs/fold_loop_seed0.json.gz` | reach h on 1 of 8 (5-cell), 3 of 8 (16-cell), 0 of 2 (24-cell). The wrong-fold control and the no-fold loop end on the same count as the fold on every start; the fold reads about half the candidate axes the no-fold loop reads |
+| no rule: fold the SHAPE (reflect the projected points into the wedge of the mirrors found), pursue on the folded points, confirm on the shape, fold again | `runs/fold_shape_seed0.json.gz` | reach h on 1 of 8 (5-cell), 3 of 8 (16-cell), 0 of 2 (24-cell); the no-fold loop reaches h on the same starts; the wrong-fold control (one random axis) reaches h on none. Exact fold of the pentagon: one mirror gives 3 folded points (multiplicities 2, 2, 1) whose own mirror at 72 degrees is a mirror of the pentagon; all five give a single point of multiplicity 5 |
+| no rule, label fold_search_space: fold the axis directions by the mirrors found, search the wedge, next axis becomes the next anchor (does not test the carrier's method) | `runs/fold_loop_seed0.json.gz` | reach h on 1 of 8 (5-cell), 3 of 8 (16-cell), 0 of 2 (24-cell). The wrong-fold control and the no-fold loop end on the same count as the fold on every start; the fold reads about half the candidate axes the no-fold loop reads |
 
 ## Bounds on these readings
 
 - 8 starts per shape, one seed, two shapes (the fold loop adds the 24-cell
   on 2 starts).
-- In `fold_loop` the fold acts on the directions of candidate axes in the
-  projection plane, not on the six rotation angles; that is one reading of
-  a carried method its carrier had not tested.
+- `fold_loop` (label fold_search_space) folds the directions of candidate
+  axes. `fold_shape` folds the projected points, which is the carrier's
+  method. A quotient of orientation space (B) has not been built.
+- In `fold_shape` a mirror of the folded set counts only once the whole
+  shape is shown to have it; folded points are merged at 1e-6 in floats,
+  and with no tolerance in the exact pentagon fold.
 - The preferred types in `anchor_selection` (5-cell 1, 16-cell 2) were read
   off the kept-pairing run on the same starts (seed 0). Seed 1 is a holdout
   for them: one further seed, 8 starts per shape. Starts that are not

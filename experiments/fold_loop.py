@@ -2,9 +2,13 @@
 
 CC0. Co-authored. Stdlib only.
 
-Carried method, untested by its carrier. Status: PROPOSED. This file is one
-concrete reading of it; the choices that make it concrete are listed under
-"What fold means here" and logged in the run's bound.
+Label: fold_search_space. This run folds the SEARCH SPACE (the directions a
+candidate axis can have). The carrier's method folds the SHAPE; that is
+experiments/fold_shape.py. This run is kept as run, under this label, and
+does not test the carrier's method.
+
+Status: PROPOSED. The choices that make this reading concrete are listed
+under "What fold means here" and logged in the run's bound.
 
   anchor   stage-1 pursuit (mirror_pursuit): one exact mirror, axis a, with
            its pairing kept. It is held from then on.
@@ -73,6 +77,7 @@ VARIANTS = ("fold", "wrong_fold", "no_fold")
 SMALL = {"starts": 2, "level_trials": 120, "anchor_max_evals": 1000, "extra_starts": 0}
 REFERENCES = {"constrained_generate": "runs/constrained_generate_seed0.json",
               "anchor_selection": "runs/anchor_selection_seed0.json"}
+LABEL = "fold_search_space"     # the carrier's method folds the shape: see fold_shape.py
 METHOD = ("PROPOSED, carried, untested by the carrier: after an anchor is found, quotient the "
           "search by the symmetry found so far and search only the fundamental domain; the "
           "next axis becomes the next anchor; fold again; repeat.")
@@ -374,7 +379,8 @@ def run(seed=0, starts=STARTS, level_trials=LEVEL_TRIALS, anchor_max_evals=U.MAX
     if extra_starts:
         shapes += [run_shape(n, m, h, extra_starts, extra_rng, level_trials, anchor_max_evals,
                              ref, seed) for n, m, h in EXTRA_SHAPES]
-    return {"method": METHOD,
+    return {"method": METHOD, "label": LABEL,
+            "tests_the_carriers_method": False,
             "bound": {"starts_per_shape": starts, "extra_shapes": [n for n, _, _ in EXTRA_SHAPES]
                       if extra_starts else [], "extra_starts": extra_starts,
                       "extra_shapes_not_run": [] if extra_starts else
@@ -414,7 +420,7 @@ def main(argv):
     b = out["bound"]
     # observer slots null: ai_interest is void
     p = emlib.write_run(NAME + "_small" if small else NAME, seed,
-                        {"small": small,
+                        {"small": small, "label": LABEL,
                          "shapes": [[s["shape"], s["h"], len(s["starts"])] for s in out["shapes"]],
                          "level_trials": b["level_trials"], "max_levels": MAX_LEVELS,
                          "snap_try": SNAP_TRY, "sep_deg": SEP_DEG,

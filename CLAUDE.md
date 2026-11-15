@@ -80,7 +80,8 @@ emlib.py               shared: run-file writer (+ .json.gz for large runs), load
 exact/                 numbers with no floats: ZPhi (a + b*phi, a, b Fractions,
                        phi^2 = phi + 1; add, mul, inverse, compare, conjugate),
                        Cyc5 (plane points on fifth roots of unity), inflation
-                       (Fibonacci chain, pentagon, Penrose subdivision)
+                       (Fibonacci chain, pentagon, Penrose subdivision), fold (reflect a
+                       point set into its mirror wedge, with multiplicities)
 field/                 hexsheet: CONSTRUCTED toy. Ideal hexagonal sheet (exact
                        reference), a field over it, a local relaxation rule, and
                        each cell's RESPONSE (never called error); saturating rule,
@@ -138,9 +139,13 @@ experiments/
                              otherwise; beside the anchor as found; --small (~30 s)
   axis_split.py           y  the 16-cell's 2-on-axis anchors, reach vs not, start by start:
                              on-axis points, pairing, generators, residual path, degeneracy
-  fold_loop.py            x  anchor -> fold -> rerun: search candidate axes only inside the
+  fold_loop.py            x  label fold_search_space. anchor -> fold -> rerun: search candidate axes only inside the
                              wedge left by the mirrors found; wrong-fold and no-fold
                              controls; 5-cell, 16-cell, 24-cell (2 starts); --small
+  fold_shape.py           z  the carrier's fold: reflect the projected points into the wedge
+                             of the mirrors found, pursue on the folded set, confirm on the
+                             shape, fold again; wrong-fold and no-fold controls; exact fold
+                             of the pentagon; --small
   exact_inflation.py      s  Fibonacci / pentagon / Penrose inflation in exact forms:
                              two constructions per level must be EQUAL; --small
   field_response.py       t  hexagonal sheet under a gradient field + uniform control;
@@ -185,7 +190,7 @@ python3 -m unittest discover -s tests          # all tests
 python3 experiments/<name>.py                  # writes runs/<name>_seed<k>.json (or .json.gz)
 python3 experiments/layered_pursuit.py --small # phone bound -> runs/<name>_small_seed<k>; also anchor_generate,
                                                # constrained_generate, pairing_reread, anchor_selection,
-                                               # fold_loop, exact_inflation,
+                                               # fold_loop, fold_shape, exact_inflation,
                                                # field_response, field_adaptation
 python3 -m toolkit.generator 0 1 2             # writes runs/generated_seed<k>.json
 python3 -m toolkit.generator --pipeline cut_weighted 0 1 2   # runs/generated_cut_weighted_seed<k>.json
