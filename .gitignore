@@ -1,3 +1,10 @@
+# Merged .gitignore (two builds, see docs/two_builds.md).
+# Manus build ignores runs/ (datasets are local scratch; seed archives live in examples/).
+# Claude Code build commits runs/*.json (each run file is the record).
+# Conflict decision: runs/* stays ignored, so Manus dataset DIRECTORIES under runs/
+# remain local; runs/*.json is re-included, so the Claude Code run files stay tracked.
+
+# --- Manus build ---
 __pycache__/
 *.py[cod]
 .venv/
@@ -6,7 +13,12 @@ dist/
 build/
 *.egg-info/
 .DS_Store
-runs/
+runs/*
+!runs/*.json
 .env
 .env.*
 .dataset.lock
+
+# --- Claude Code build ---
+__pycache__/
+*.pyc

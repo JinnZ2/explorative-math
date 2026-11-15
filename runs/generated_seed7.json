@@ -1,0 +1,36 @@
+{
+ "params": {
+  "spec": {
+   "pipeline": "cut",
+   "slope": 1.4244047728831417,
+   "extent": 120
+  },
+  "seed": 7
+ },
+ "outputs": {
+  "n_gaps": 96,
+  "distinct_gap_lengths": [
+   0.5745865508902749,
+   0.8184438255225693
+  ],
+  "word": "ABABBABABBABABBABABABBABABBABABBABABABBABABBABABBABABABBABABBABABABBABABBABABBABABABBABABBABABBA",
+  "period_profile": {
+   "8": 5,
+   "16": 5,
+   "32": 17,
+   "64": 17
+  },
+  "zlib_ratio": 0.19791666666666666
+ },
+ "angles": null,
+ "human_interest": null,
+ "ai_interest": null,
+ "compressibility": {
+  "definition": "gap classes as letters A.. (shortest first)",
+  "n": 96,
+  "phrases": 6,
+  "zlib_ratio": 0.19791666666666666
+ },
+ "nature_match": null,
+ "divergence_note": null
+}

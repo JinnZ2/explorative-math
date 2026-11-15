@@ -1,0 +1,67 @@
+{
+ "params": {
+  "slope": "1/phi",
+  "control_slope": "1/2",
+  "extent": 300,
+  "window_offset": 1e-07,
+  "seed": 0
+ },
+ "outputs": {
+  "golden": {
+   "slope": 0.6180339887498948,
+   "n_gaps": 350,
+   "distinct_gap_lengths": [
+    0.5257311121191334,
+    0.85065080835204
+   ],
+   "word": "SLLSLSLLSLLSLSLLSLSLLSLLSLSLLSLLSLSLLSLSLLSLLSLSLLSLSLLSLLSLSLLSLLSLSLLSLSLLSLLSLSLLSLSLLSLLSLSLLSLLSLSLLSLSLLSLLSLSLLSLLSLSLLSLSLLSLLSLSLLSLSLLSLLSLSLLSLLSLSLLSLSLLSLLSLSLLSLSLLSLLSLSLLSLLSLSLLSLSLLSLLSLSLLSLLSLSLLSLSLLSLLSLSLLSLSLLSLLSLSLLSLLSLSLLSLSLLSLLSLSLLSLLSLSLLSLSLLSLLSLSLLSLSLLSLLSLSLLSLLSLSLLSLSLLSLLSLSLLSLSLLSLLSLSLLSLLSLSLLSLSLLSLLSLSL",
+   "L_over_S_length": 1.6180339887498958,
+   "count_L": 216,
+   "count_S": 134,
+   "count_ratio": 1.6119402985074627,
+   "smallest_period": 233,
+   "prefix_smallest_periods": {
+    "10": 5,
+    "20": 13,
+    "40": 21,
+    "80": 34,
+    "160": 89,
+    "320": 233
+   },
+   "factor_of_substitution_word": true
+  },
+  "control_rational_1_2": {
+   "slope": 0.5,
+   "n_gaps": 360,
+   "distinct_gap_lengths": [
+    0.447213595499958,
+    0.8944271909999159
+   ],
+   "word": "SLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLLSLL",
+   "L_over_S_length": 1.9999999999999998,
+   "count_L": 240,
+   "count_S": 120,
+   "count_ratio": 2.0,
+   "smallest_period": 3,
+   "prefix_smallest_periods": {
+    "10": 3,
+    "20": 3,
+    "40": 3,
+    "80": 3,
+    "160": 3,
+    "320": 3
+   }
+  }
+ },
+ "angles": null,
+ "human_interest": null,
+ "ai_interest": "OBSERVED: two gap lengths, L/S = 1.618033988750 (phi = 1.618033988750); counts L=216 S=134, ratio 1.611940; factor of the substitution word L->LS, S->L: True. Smallest period of each prefix (length: period) {'10': 5, '20': 13, '40': 21, '80': 34, '160': 89, '320': 233}; control slope 1/2 {'10': 3, '20': 3, '40': 3, '80': 3, '160': 3, '320': 3}. DERIVED: a finite word always has some period, so aperiodicity shows only as the smallest period growing with length; it does for the golden chain and stays fixed for the control. AI reading: which numbers the prefix periods land on is the part not asked for; not interpretable atm beyond listing them.",
+ "compressibility": {
+  "definition": "golden-slope chain as L/S letters",
+  "n": 350,
+  "phrases": 10,
+  "zlib_ratio": 0.08
+ },
+ "nature_match": "fibonacci_chain_quasicrystal",
+ "divergence_note": null
+}

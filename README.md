@@ -1,3 +1,10 @@
+> **Two builds of one spec live in this repository, on purpose.** This README is the
+> **Manus build**'s (`explorative_math/`, `examples/`, `docs/schema.md`), unchanged below.
+> The **Claude Code build** (`toolkit/`, `experiments/`, `emlib.py`, `runs/*.json`,
+> `open_questions.md`) has its own README: [README.claude-code-build.md](README.claude-code-build.md).
+> How they differ, and the cross-build comparison: [docs/two_builds.md](docs/two_builds.md), `compare/`.
+> Neither build is folded into the other; the difference between them is data.
+
 # explorative-math
 
 **Purpose: map whose curiosity lands where.**
