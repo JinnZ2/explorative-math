@@ -102,7 +102,7 @@ toolkit/
                        mirror_residual (continuous; 0 = exact mirror)
                        mirror_axis_residuals, mirror_k_score (k distinct axes)
                        mirror_residual_at (residual on given axes)
-                       degeneracy (smallest pair distance, collinearity, tags)
+                       degeneracy (smallest pair distance, collinearity, centre points, tags)
   generator.py         seed -> random pipeline (shape / cut / orbit) -> probes -> log
                        cut_weighted: asked for by name, never drawn, own run files
   loghook.py           log_run() and @logged: every run writes the schema,
@@ -146,6 +146,8 @@ experiments/
                              of the mirrors found, pursue on the folded set, confirm on the
                              shape, fold again; wrong-fold and no-fold controls; exact fold
                              of the pentagon; --small
+  combine.py              aa fold shape, anchor by type, rule m = h and weighed multiplicities,
+                             together and one at a time through one loop; --small
   exact_inflation.py      s  Fibonacci / pentagon / Penrose inflation in exact forms:
                              two constructions per level must be EQUAL; --small
   field_response.py       t  hexagonal sheet under a gradient field + uniform control;
@@ -190,7 +192,7 @@ python3 -m unittest discover -s tests          # all tests
 python3 experiments/<name>.py                  # writes runs/<name>_seed<k>.json (or .json.gz)
 python3 experiments/layered_pursuit.py --small # phone bound -> runs/<name>_small_seed<k>; also anchor_generate,
                                                # constrained_generate, pairing_reread, anchor_selection,
-                                               # fold_loop, fold_shape, exact_inflation,
+                                               # fold_loop, fold_shape, combine, exact_inflation,
                                                # field_response, field_adaptation
 python3 -m toolkit.generator 0 1 2             # writes runs/generated_seed<k>.json
 python3 -m toolkit.generator --pipeline cut_weighted 0 1 2   # runs/generated_cut_weighted_seed<k>.json

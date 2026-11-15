@@ -178,17 +178,24 @@ def folded_score(reps, scale, found):
 
 # ---- one level, and the loop ---------------------------------------------------
 
-def level(verts, planes, angles, held, found, variant, wrong_axis, level_trials):
+def level(verts, planes, angles, held, found, variant, wrong_axis, level_trials,
+          score_fn=None):
+    """score_fn(points, found) -> (residual or None, axis, candidates, folded points):
+    another way to score a position; None uses the folded-set mirror residual."""
     ang = list(angles)
     c = {"proj": 0, "trials": 0, "cand": 0, "scores": 0, "points": 0,
          "snaps_tried": 0, "snaps_refused": 0}
 
     def score(a):
-        reps, _, scale = folded(K.project(verts, planes, a), found, variant, wrong_axis)
-        r, deg, k = folded_score(reps, scale, found)
+        if score_fn is not None:
+            r, deg, k, npts = score_fn(K.project(verts, planes, a), found)
+        else:
+            reps, _, scale = folded(K.project(verts, planes, a), found, variant, wrong_axis)
+            r, deg, k = folded_score(reps, scale, found)
+            npts = len(reps)
         c["cand"] += k
         c["scores"] += 1
-        c["points"] += len(reps)
+        c["points"] += npts
         return (float("inf") if r is None else r), deg
 
     def try_snap(a, deg):
@@ -251,7 +258,8 @@ def level(verts, planes, angles, held, found, variant, wrong_axis, level_trials)
         "refused_examples": refused_at[:5], "stop": stop}
 
 
-def loop(verts, planes, anc, h, variant, wrong_axis, level_trials, max_levels=MAX_LEVELS):
+def loop(verts, planes, anc, h, variant, wrong_axis, level_trials, max_levels=MAX_LEVELS,
+         score_fn=None):
     a = anc["final_reading"]["axis_deg"]
     ang = list(anc["final_angles_deg"])
     held = [(a, K.pairing(K.project(verts, planes, ang), a))]
@@ -274,7 +282,7 @@ def loop(verts, planes, anc, h, variant, wrong_axis, level_trials, max_levels=MA
             stop = "single point"
             break
         ang, held, log = level(verts, planes, ang, held, found, variant, wrong_axis,
-                               level_trials)
+                               level_trials, score_fn)
         pts = K.project(verts, planes, ang)
         after = Q.mirror_symmetry_from_pairs(pts, COUNT_TOL)
         reps2, mult2, _ = folded(pts, after, variant, wrong_axis)

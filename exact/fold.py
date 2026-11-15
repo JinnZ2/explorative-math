@@ -75,6 +75,14 @@ def is_mirror(points, u):
     return all(reflect(z, u) in s for z in s)
 
 
+def is_mirror_weighed(folded, u):
+    """folded: [(point, multiplicity)]. True exactly when reflecting in the
+    line with direction u maps every folded point to a folded point of the
+    SAME multiplicity."""
+    index = {z: m for z, m in folded}
+    return all(index.get(reflect(z, u)) == m for z, m in folded)
+
+
 def on_ray(z, u):
     """True when z is a non-negative multiple of u (or the origin)."""
     if z == Cyc5(0, 0):

@@ -30,7 +30,8 @@ TAG_TOL = "1e-06"            # the recount excludes projections degenerate at th
 COUNT_TOL = 1e-6             # mirror counts are the ones logged at this tolerance
 SOURCES = ("mirror_pursuit_seed0.json", "layered_pursuit_seed0.json",
            "anchor_generate_seed0.json", "constrained_generate_seed0.json",
-           "coxeter_plane_seed0.json", "mirror_sweep_seed0.json")
+           "coxeter_plane_seed0.json", "mirror_sweep_seed0.json",
+           "fold_loop_seed0.json", "fold_shape_seed0.json", "combine_seed0.json")
 MAKE = {"5-cell": lambda: P.simplex(4), "16-cell": lambda: P.cross_polytope(4)}
 
 
@@ -41,7 +42,16 @@ def row(run, shape, where, pts, n_axes, h, method=None, start=None, recomputed=F
             "projection_recomputed_from_angles": recomputed,
             "min_pair_distance": d["min_pair_distance"], "closest_pair": d["closest_pair"],
             "collinearity": d["collinearity"], "tags": d["tags"],
-            "degenerate": d["tags"][TAG_TOL]["degenerate"]}
+            "degenerate": d["tags"][TAG_TOL]["degenerate"],
+            # a point at the centre is fixed by every mirror; logged beside the
+            # degenerate tag, not folded into it
+            "min_radius": d["min_radius"],
+            "central": d["tags"][TAG_TOL]["central"],
+            "n_at_centre": d["tags"][TAG_TOL]["n_at_centre"],
+            "n_points": d["n_points"],
+            "more_axes_than_off_centre_points":
+                (n_axes is not None
+                 and n_axes > d["n_points"] - d["tags"][TAG_TOL]["n_at_centre"])}
 
 
 def axes_at(counts):
@@ -91,6 +101,15 @@ def rows_of(name, rec):
                                         from_angles(s["shape"], b["final_angles_deg"]),
                                         axes_at(b["counts"]), s["h"],
                                         f"{base}_{label}_bound_check", i, recomputed=True))
+    elif name.startswith(("fold_loop", "fold_shape", "combine")):
+        base = name.split("_seed")[0]
+        for s in out["shapes"]:
+            for r in s["starts"]:
+                i = r["start_index"]
+                for v, g in r["variants"].items():
+                    rows.append(row(name, s["shape"], f"starts[{i}].variants.{v}",
+                                    g["final_projected"], g["final_count"], s["h"],
+                                    f"{base}_{v}", i))
     elif name.startswith("coxeter_plane"):
         for c in out["cases"]:
             rows.append(row(name, c["name"], f"cases[{c['name']}]", c["projected"],
@@ -126,6 +145,9 @@ def recount(rows):
                     "reaching_h_degenerate": sum(1 for r in reach if r["degenerate"]),
                     "reaching_h_excluding_degenerate":
                         sum(1 for r in reach if not r["degenerate"]),
+                    "n_central": sum(1 for r in rs if r["central"]),
+                    "central_flags": [r["central"] for r in rs],
+                    "reaching_h_central": sum(1 for r in reach if r["central"]),
                     "largest_count_excluding_degenerate":
                         max((r["n_mirror_axes"] for r in rs if not r["degenerate"]),
                             default=None)})
@@ -150,6 +172,13 @@ def run(seed=0, runs_dir=None, sources=SOURCES):
             "sources_read": [s for s in sources if s not in absent], "sources_absent": absent,
             "n_rows": len(rows), "n_degenerate": len(tagged),
             "n_degenerate_only_at_1e-3": len(near),
+            "n_central": sum(1 for r in rows if r["central"]),
+            "n_central_not_degenerate": sum(1 for r in rows if r["central"]
+                                            and not r["degenerate"]),
+            "central_not_degenerate": [
+                {k: r[k] for k in ("run", "shape", "where", "method", "n_mirror_axes",
+                                   "n_at_centre", "n_points", "min_radius")}
+                for r in rows if r["central"] and not r["degenerate"]],
             "degenerate": [{k: r[k] for k in ("run", "shape", "where", "method", "n_mirror_axes",
                                               "min_pair_distance", "collinearity")}
                            for r in tagged],
@@ -175,7 +204,11 @@ def main(argv):
           f"lie on a line): {out['n_degenerate']}; degenerate only at 1e-3: "
           f"{out['n_degenerate_only_at_1e-3']}. Groups with a degenerate final projection, "
           f"starts reaching h before -> after excluding them: {lines or 'none'}. Groups where "
-          f"the count of starts reaching h changes: {len(changed)}. "
+          f"the count of starts reaching h changes: {len(changed)}. A point at the centre "
+          f"(fixed by every mirror; not part of the degenerate tag): {out['n_central']} "
+          f"projections, {out['n_central_not_degenerate']} of them not degenerate; starts "
+          f"reaching h with a point at the centre: "
+          f"{sum(g['reaching_h_central'] for g in out['recount'])}. "
           "AI reading: not interpretable atm beyond the rows.")
     p = emlib.write_run(NAME, seed, {"sources": list(SOURCES), "tols": list(TOLS),
                                      "tag_tol": float(TAG_TOL), "count_rel_tol": COUNT_TOL,

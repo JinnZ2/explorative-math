@@ -251,9 +251,14 @@ def degeneracy(points, tols=(1e-6, 1e-3)):
                         its long width. 0 = all points on one line.
     n_distinct          number of points left after merging those closer
                         than tol x radius, per tolerance.
+    min_radius          smallest distance of a point from the centroid, over
+                        the radius. 0 = a point sits at the centre, where
+                        every mirror line and every rotation fixes it.
     Tags, per tolerance: "coincident" if min_pair_distance < tol,
-    "collinear" if collinearity < tol; "degenerate" if either. The raw values
-    are returned so another threshold can be applied."""
+    "collinear" if collinearity < tol; "degenerate" if either. "central"
+    (min_radius < tol) and n_at_centre are logged beside them and are NOT
+    part of "degenerate". The raw values are returned so another threshold
+    can be applied."""
     n = len(points)
     c = P.centroid(points)
     pts = [P.sub(p, c) for p in points]
@@ -279,9 +284,13 @@ def degeneracy(points, tols=(1e-6, 1e-3)):
                 reps.append(q)
         coincident = rel is not None and rel < t
         collinear = col < t
+        at_centre = sum(1 for q in pts if math.hypot(*q) < t * scale)
         tags[f"{t:g}"] = {"coincident": coincident, "collinear": collinear,
-                          "degenerate": coincident or collinear, "n_distinct": len(reps)}
+                          "degenerate": coincident or collinear, "n_distinct": len(reps),
+                          "central": at_centre > 0, "n_at_centre": at_centre}
+    radii = [math.hypot(*q) for q in pts]
     return {"n_points": n, "min_pair_distance": rel, "closest_pair": pair,
+            "min_radius": (min(radii) / scale) if radii else None,
             "collinearity": col, "scale": scale, "about": "centroid", "tags": tags}
 
 

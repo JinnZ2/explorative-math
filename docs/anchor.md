@@ -36,6 +36,7 @@ for two points to land on each other.
 | the 16-cell anchors with 2 points on the axis, logged start by start | `runs/axis_split_seed0.json.gz`, `runs/axis_split_seed1.json.gz` | see "The 16-cell split" below |
 | wrong rule (m = h - 1, h + 1) | all four runs | 0 starts reach h, every variant, every limit |
 | no rule: fold the SHAPE (reflect the projected points into the wedge of the mirrors found), pursue on the folded points, confirm on the shape, fold again | `runs/fold_shape_seed0.json.gz` | reach h on 1 of 8 (5-cell), 3 of 8 (16-cell), 0 of 2 (24-cell); the no-fold loop reaches h on the same starts; the wrong-fold control (one random axis) reaches h on none. Exact fold of the pentagon: one mirror gives 3 folded points (multiplicities 2, 2, 1) whose own mirror at 72 degrees is a mirror of the pentagon; all five give a single point of multiplicity 5 |
+| the pieces together and one at a time through one loop (fold, anchor by type, rule, weighed multiplicities) | `runs/combine_seed0.json.gz`, `runs/combine_seed1.json.gz` (holdout) | see "Combined" below |
 | no rule, label fold_search_space: fold the axis directions by the mirrors found, search the wedge, next axis becomes the next anchor (does not test the carrier's method) | `runs/fold_loop_seed0.json.gz` | reach h on 1 of 8 (5-cell), 3 of 8 (16-cell), 0 of 2 (24-cell). The wrong-fold control and the no-fold loop end on the same count as the fold on every start; the fold reads about half the candidate axes the no-fold loop reads |
 
 ## Bounds on these readings
@@ -81,6 +82,33 @@ final score                       below 1e-07    1.5 - 2.2        5e-08         
 Coxeter-plane reference, logged the same way: 8 mirrors, alternately 2
 antipodal points on the axis (1 swap with own antipode) and 0 on the axis
 (none); generator radius ratio 1.
+
+## Combined
+
+Logged, not interpreted (`combine`; 8 starts, 400 trials per level, counts
+at tolerance 1e-6; seed 1 is the holdout for the anchor types).
+
+```text
+starts reaching h                  5-cell            16-cell
+                                   seed 0   seed 1   seed 0   seed 1
+fold only                            1        1        3        2
+fold + weighed multiplicities        0        0        4        2
+fold + rule                          3        1        3        2
+fold + anchor by type                1        1        4        2
+anchor by type + rule, no fold       5        6        5        1
+fold + type + rule                   4        4        4        2
+fold + type + rule + weighed         0        0        5        2
+```
+
+Exact check (regular pentagon folded by one mirror): the folded set has a
+mirror at 72 degrees, the pentagon has it too, and that mirror does NOT
+keep multiplicities (it sends the point of multiplicity 1 to a point of
+multiplicity 2).
+
+A 5-point shape reading 4 mirror axes (5-cell endpoints of the fold loops)
+is a square with the fifth point at the centre: no two points coincide, so
+it is not tagged degenerate; `probes.degeneracy` now logs centre points
+beside that tag (`runs/degeneracy_check_seed0.json`).
 
 ## Not shown
 
