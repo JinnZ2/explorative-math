@@ -1,0 +1,667 @@
+{
+ "params": {
+  "key": "distinct_gap_lengths",
+  "factor": 3.0,
+  "runs_dir": "runs",
+  "references": [
+   [
+    [
+     "generated_cut_weighted_seed1.json",
+     "levels[0]"
+    ],
+    [
+     "window_extent_seed0.json",
+     "stretches[5]"
+    ]
+   ]
+  ],
+  "groups": {
+   "window_extent_seed0.json": "stretches"
+  },
+  "skipped_prefixes": [
+   "min_stretch_flag_",
+   "three_gap_check_"
+  ],
+  "seed": 0
+ },
+ "outputs": {
+  "rows": [
+   {
+    "run": "fibonacci_chain_seed0.json",
+    "where": "golden",
+    "n_lengths": 2,
+    "counts": [
+     216,
+     134
+    ],
+    "freq_source": "void",
+    "freq_reference": null,
+    "n_points": 351,
+    "third_gap_freq": null,
+    "min_points": null,
+    "factor": 3.0,
+    "assessed": false,
+    "tag": null
+   },
+   {
+    "run": "fibonacci_chain_seed0.json",
+    "where": "control_rational_1_2",
+    "n_lengths": 2,
+    "counts": [
+     240,
+     120
+    ],
+    "freq_source": "void",
+    "freq_reference": null,
+    "n_points": 361,
+    "third_gap_freq": null,
+    "min_points": null,
+    "factor": 3.0,
+    "assessed": false,
+    "tag": null
+   },
+   {
+    "run": "generated_cut_weighted_seed0.json",
+    "where": "levels[0]",
+    "n_lengths": 3,
+    "counts": [
+     10,
+     16,
+     12
+    ],
+    "freq_source": "self",
+    "freq_reference": null,
+    "n_points": 39,
+    "third_gap_freq": 0.2631578947368421,
+    "min_points": 11.4,
+    "factor": 3.0,
+    "assessed": true,
+    "tag": null
+   },
+   {
+    "run": "generated_cut_weighted_seed0.json",
+    "where": "levels[1]",
+    "n_lengths": 3,
+    "counts": [
+     32,
+     4,
+     48
+    ],
+    "freq_source": "self",
+    "freq_reference": null,
+    "n_points": 85,
+    "third_gap_freq": 0.047619047619047616,
+    "min_points": 63.0,
+    "factor": 3.0,
+    "assessed": true,
+    "tag": null
+   },
+   {
+    "run": "generated_cut_weighted_seed0.json",
+    "where": "levels[2]",
+    "n_lengths": 3,
+    "counts": [
+     46,
+     18,
+     34
+    ],
+    "freq_source": "self",
+    "freq_reference": null,
+    "n_points": 99,
+    "third_gap_freq": 0.1836734693877551,
+    "min_points": 16.333333333333332,
+    "factor": 3.0,
+    "assessed": true,
+    "tag": null
+   },
+   {
+    "run": "generated_cut_weighted_seed0.json",
+    "where": "levels[3]",
+    "n_lengths": 3,
+    "counts": [
+     128,
+     48,
+     4
+    ],
+    "freq_source": "self",
+    "freq_reference": null,
+    "n_points": 181,
+    "third_gap_freq": 0.022222222222222223,
+    "min_points": 135.0,
+    "factor": 3.0,
+    "assessed": true,
+    "tag": null
+   },
+   {
+    "run": "generated_cut_weighted_seed0.json",
+    "where": "levels[4]",
+    "n_lengths": 3,
+    "counts": [
+     22,
+     74,
+     162
+    ],
+    "freq_source": "self",
+    "freq_reference": null,
+    "n_points": 259,
+    "third_gap_freq": 0.08527131782945736,
+    "min_points": 35.18181818181818,
+    "factor": 3.0,
+    "assessed": true,
+    "tag": null
+   },
+   {
+    "run": "generated_cut_weighted_seed1.json",
+    "where": "levels[0]",
+    "n_lengths": 2,
+    "counts": [
+     42,
+     14
+    ],
+    "freq_source": "reference",
+    "freq_reference": [
+     "window_extent_seed0.json",
+     "stretches[5]"
+    ],
+    "n_points": 57,
+    "third_gap_freq": 0.01002004008016032,
+    "min_points": 299.40000000000003,
+    "factor": 3.0,
+    "assessed": true,
+    "tag": "under-resolved"
+   },
+   {
+    "run": "generated_cut_weighted_seed1.json",
+    "where": "levels[1]",
+    "n_lengths": 3,
+    "counts": [
+     66,
+     52,
+     4
+    ],
+    "freq_source": "self",
+    "freq_reference": null,
+    "n_points": 123,
+    "third_gap_freq": 0.03278688524590164,
+    "min_points": 91.5,
+    "factor": 3.0,
+    "assessed": true,
+    "tag": null
+   },
+   {
+    "run": "generated_cut_weighted_seed1.json",
+    "where": "levels[2]",
+    "n_lengths": 3,
+    "counts": [
+     90,
+     18,
+     38
+    ],
+    "freq_source": "self",
+    "freq_reference": null,
+    "n_points": 147,
+    "third_gap_freq": 0.1232876712328767,
+    "min_points": 24.333333333333336,
+    "factor": 3.0,
+    "assessed": true,
+    "tag": null
+   },
+   {
+    "run": "generated_cut_weighted_seed1.json",
+    "where": "levels[3]",
+    "n_lengths": 3,
+    "counts": [
+     26,
+     210,
+     30
+    ],
+    "freq_source": "self",
+    "freq_reference": null,
+    "n_points": 267,
+    "third_gap_freq": 0.09774436090225563,
+    "min_points": 30.692307692307693,
+    "factor": 3.0,
+    "assessed": true,
+    "tag": null
+   },
+   {
+    "run": "generated_cut_weighted_seed1.json",
+    "where": "levels[4]",
+    "n_lengths": 3,
+    "counts": [
+     136,
+     78,
+     162
+    ],
+    "freq_source": "self",
+    "freq_reference": null,
+    "n_points": 377,
+    "third_gap_freq": 0.2074468085106383,
+    "min_points": 14.461538461538462,
+    "factor": 3.0,
+    "assessed": true,
+    "tag": null
+   },
+   {
+    "run": "generated_cut_weighted_seed2.json",
+    "where": "levels[0]",
+    "n_lengths": 3,
+    "counts": [
+     14,
+     24,
+     4
+    ],
+    "freq_source": "self",
+    "freq_reference": null,
+    "n_points": 43,
+    "third_gap_freq": 0.09523809523809523,
+    "min_points": 31.5,
+    "factor": 3.0,
+    "assessed": true,
+    "tag": null
+   },
+   {
+    "run": "generated_cut_weighted_seed2.json",
+    "where": "levels[1]",
+    "n_lengths": 3,
+    "counts": [
+     42,
+     14,
+     32
+    ],
+    "freq_source": "self",
+    "freq_reference": null,
+    "n_points": 89,
+    "third_gap_freq": 0.1590909090909091,
+    "min_points": 18.857142857142858,
+    "factor": 3.0,
+    "assessed": true,
+    "tag": null
+   },
+   {
+    "run": "generated_cut_weighted_seed2.json",
+    "where": "levels[2]",
+    "n_lengths": 3,
+    "counts": [
+     60,
+     32,
+     14
+    ],
+    "freq_source": "self",
+    "freq_reference": null,
+    "n_points": 107,
+    "third_gap_freq": 0.1320754716981132,
+    "min_points": 22.714285714285715,
+    "factor": 3.0,
+    "assessed": true,
+    "tag": null
+   },
+   {
+    "run": "generated_cut_weighted_seed2.json",
+    "where": "levels[3]",
+    "n_lengths": 3,
+    "counts": [
+     74,
+     26,
+     96
+    ],
+    "freq_source": "self",
+    "freq_reference": null,
+    "n_points": 197,
+    "third_gap_freq": 0.1326530612244898,
+    "min_points": 22.615384615384613,
+    "factor": 3.0,
+    "assessed": true,
+    "tag": null
+   },
+   {
+    "run": "generated_cut_weighted_seed2.json",
+    "where": "levels[4]",
+    "n_lengths": 3,
+    "counts": [
+     152,
+     106,
+     18
+    ],
+    "freq_source": "self",
+    "freq_reference": null,
+    "n_points": 277,
+    "third_gap_freq": 0.06521739130434782,
+    "min_points": 46.0,
+    "factor": 3.0,
+    "assessed": true,
+    "tag": null
+   },
+   {
+    "run": "generated_seed0.json",
+    "where": "",
+    "n_lengths": 2,
+    "counts": [
+     52,
+     58
+    ],
+    "freq_source": "void",
+    "freq_reference": null,
+    "n_points": 111,
+    "third_gap_freq": null,
+    "min_points": null,
+    "factor": 3.0,
+    "assessed": false,
+    "tag": null
+   },
+   {
+    "run": "generated_seed7.json",
+    "where": "",
+    "n_lengths": 2,
+    "counts": [
+     40,
+     56
+    ],
+    "freq_source": "void",
+    "freq_reference": null,
+    "n_points": 97,
+    "third_gap_freq": null,
+    "min_points": null,
+    "factor": 3.0,
+    "assessed": false,
+    "tag": null
+   },
+   {
+    "run": "generated_seed9.json",
+    "where": "",
+    "n_lengths": 2,
+    "counts": [
+     60,
+     62
+    ],
+    "freq_source": "void",
+    "freq_reference": null,
+    "n_points": 123,
+    "third_gap_freq": null,
+    "min_points": null,
+    "factor": 3.0,
+    "assessed": false,
+    "tag": null
+   },
+   {
+    "run": "weighted_window_seed0.json",
+    "where": "hard",
+    "n_lengths": 2,
+    "counts": [
+     26,
+     42
+    ],
+    "freq_source": "void",
+    "freq_reference": null,
+    "n_points": 69,
+    "third_gap_freq": null,
+    "min_points": null,
+    "factor": 3.0,
+    "assessed": false,
+    "tag": null
+   },
+   {
+    "run": "weighted_window_seed0.json",
+    "where": "gaussian.levels[0]",
+    "n_lengths": 3,
+    "counts": [
+     6,
+     16,
+     10
+    ],
+    "freq_source": "self",
+    "freq_reference": null,
+    "n_points": 33,
+    "third_gap_freq": 0.1875,
+    "min_points": 16.0,
+    "factor": 3.0,
+    "assessed": true,
+    "tag": null
+   },
+   {
+    "run": "weighted_window_seed0.json",
+    "where": "gaussian.levels[1]",
+    "n_lengths": 2,
+    "counts": [
+     26,
+     42
+    ],
+    "freq_source": "void",
+    "freq_reference": null,
+    "n_points": 69,
+    "third_gap_freq": null,
+    "min_points": null,
+    "factor": 3.0,
+    "assessed": false,
+    "tag": null
+   },
+   {
+    "run": "weighted_window_seed0.json",
+    "where": "gaussian.levels[2]",
+    "n_lengths": 3,
+    "counts": [
+     12,
+     38,
+     30
+    ],
+    "freq_source": "self",
+    "freq_reference": null,
+    "n_points": 81,
+    "third_gap_freq": 0.15,
+    "min_points": 20.0,
+    "factor": 3.0,
+    "assessed": true,
+    "tag": null
+   },
+   {
+    "run": "weighted_window_seed0.json",
+    "where": "gaussian.levels[3]",
+    "n_lengths": 3,
+    "counts": [
+     38,
+     80,
+     32
+    ],
+    "freq_source": "self",
+    "freq_reference": null,
+    "n_points": 151,
+    "third_gap_freq": 0.21333333333333335,
+    "min_points": 14.062499999999998,
+    "factor": 3.0,
+    "assessed": true,
+    "tag": null
+   },
+   {
+    "run": "weighted_window_seed0.json",
+    "where": "gaussian.levels[4]",
+    "n_lengths": 3,
+    "counts": [
+     28,
+     98,
+     84
+    ],
+    "freq_source": "self",
+    "freq_reference": null,
+    "n_points": 211,
+    "third_gap_freq": 0.13333333333333333,
+    "min_points": 22.5,
+    "factor": 3.0,
+    "assessed": true,
+    "tag": null
+   },
+   {
+    "run": "window_extent_seed0.json",
+    "where": "stretches[0]",
+    "n_lengths": 2,
+    "counts": [
+     42,
+     14
+    ],
+    "freq_source": "group",
+    "freq_reference": [
+     "window_extent_seed0.json",
+     "stretches[5]"
+    ],
+    "n_points": 57,
+    "third_gap_freq": 0.01002004008016032,
+    "min_points": 299.40000000000003,
+    "factor": 3.0,
+    "assessed": true,
+    "tag": "under-resolved"
+   },
+   {
+    "run": "window_extent_seed0.json",
+    "where": "stretches[1]",
+    "n_lengths": 2,
+    "counts": [
+     74,
+     24
+    ],
+    "freq_source": "group",
+    "freq_reference": [
+     "window_extent_seed0.json",
+     "stretches[5]"
+    ],
+    "n_points": 99,
+    "third_gap_freq": 0.01002004008016032,
+    "min_points": 299.40000000000003,
+    "factor": 3.0,
+    "assessed": true,
+    "tag": "under-resolved"
+   },
+   {
+    "run": "window_extent_seed0.json",
+    "where": "stretches[2]",
+    "n_lengths": 3,
+    "counts": [
+     2,
+     150,
+     46
+    ],
+    "freq_source": "group",
+    "freq_reference": [
+     "window_extent_seed0.json",
+     "stretches[5]"
+    ],
+    "n_points": 199,
+    "third_gap_freq": 0.01002004008016032,
+    "min_points": 299.40000000000003,
+    "factor": 3.0,
+    "assessed": true,
+    "tag": "under-resolved"
+   },
+   {
+    "run": "window_extent_seed0.json",
+    "where": "stretches[3]",
+    "n_lengths": 3,
+    "counts": [
+     6,
+     380,
+     114
+    ],
+    "freq_source": "group",
+    "freq_reference": [
+     "window_extent_seed0.json",
+     "stretches[5]"
+    ],
+    "n_points": 501,
+    "third_gap_freq": 0.01002004008016032,
+    "min_points": 299.40000000000003,
+    "factor": 3.0,
+    "assessed": true,
+    "tag": null
+   },
+   {
+    "run": "window_extent_seed0.json",
+    "where": "stretches[4]",
+    "n_lengths": 3,
+    "counts": [
+     12,
+     758,
+     230
+    ],
+    "freq_source": "group",
+    "freq_reference": [
+     "window_extent_seed0.json",
+     "stretches[5]"
+    ],
+    "n_points": 1001,
+    "third_gap_freq": 0.01002004008016032,
+    "min_points": 299.40000000000003,
+    "factor": 3.0,
+    "assessed": true,
+    "tag": null
+   },
+   {
+    "run": "window_extent_seed0.json",
+    "where": "stretches[5]",
+    "n_lengths": 3,
+    "counts": [
+     20,
+     1512,
+     464
+    ],
+    "freq_source": "group",
+    "freq_reference": [
+     "window_extent_seed0.json",
+     "stretches[5]"
+    ],
+    "n_points": 1997,
+    "third_gap_freq": 0.01002004008016032,
+    "min_points": 299.40000000000003,
+    "factor": 3.0,
+    "assessed": true,
+    "tag": null
+   }
+  ],
+  "n_rows": 32,
+  "n_assessed": 25,
+  "n_not_assessed": 7,
+  "n_under_resolved": 4,
+  "under_resolved": [
+   {
+    "run": "generated_cut_weighted_seed1.json",
+    "where": "levels[0]",
+    "n_points": 57,
+    "min_points": 299.40000000000003,
+    "n_lengths": 2,
+    "freq_source": "reference"
+   },
+   {
+    "run": "window_extent_seed0.json",
+    "where": "stretches[0]",
+    "n_points": 57,
+    "min_points": 299.40000000000003,
+    "n_lengths": 2,
+    "freq_source": "group"
+   },
+   {
+    "run": "window_extent_seed0.json",
+    "where": "stretches[1]",
+    "n_points": 99,
+    "min_points": 299.40000000000003,
+    "n_lengths": 2,
+    "freq_source": "group"
+   },
+   {
+    "run": "window_extent_seed0.json",
+    "where": "stretches[2]",
+    "n_points": 199,
+    "min_points": 299.40000000000003,
+    "n_lengths": 3,
+    "freq_source": "group"
+   }
+  ]
+ },
+ "angles": null,
+ "human_interest": null,
+ "ai_interest": "OBSERVED: 32 gap readings; 25 assessed, 7 not assessed (third-gap frequency void); 4 tagged under-resolved at factor 3.0: generated_cut_weighted_seed1.json levels[0] (57 points, needs 299, reads 2 lengths, f from reference); window_extent_seed0.json stretches[0] (57 points, needs 299, reads 2 lengths, f from group); window_extent_seed0.json stretches[1] (99 points, needs 299, reads 2 lengths, f from group); window_extent_seed0.json stretches[2] (199 points, needs 299, reads 3 lengths, f from group). DERIVED: a reading with two lengths and no longer reference cannot be assessed by this flag, because the frequency it needs is the thing the short stretch may have missed. AI reading: not interpretable atm beyond the rows.",
+ "compressibility": {
+  "definition": "one letter per row: u under-resolved, a assessed and not tagged, v not assessed (frequency void)",
+  "n": 32,
+  "phrases": 9,
+  "zlib_ratio": 0.78125
+ },
+ "nature_match": null,
+ "divergence_note": null
+}

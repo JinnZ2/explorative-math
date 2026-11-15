@@ -12,6 +12,9 @@ CC0. Co-authored. Stdlib only.
   three_gap_sum        for three gap lengths: is the longest the sum of the
                        other two (three-distance theorem)? pass / fail, or
                        not_applicable for any other count
+  min_stretch_tag      is a gap reading taken on fewer points than about
+                       3 / (frequency of the third gap)? "under-resolved"
+                       or no tag; frequency unknown -> not assessed
 """
 import math
 import zlib
@@ -118,3 +121,20 @@ def three_gap_sum(lengths, tol=1e-6):
     r = ls[2] - (ls[0] + ls[1])
     return {"n_lengths": 3, "verdict": "pass" if abs(r) <= tol else "fail",
             "residual": r, "tol": tol}
+
+
+def min_stretch_tag(n_points, third_gap_freq, factor=3.0):
+    """Bound check on a gap-length reading.
+
+    third_gap_freq: share of gaps that have the rarest of three lengths, from
+    whatever reading is the reference for this window (declare which). A
+    stretch shorter than factor / third_gap_freq points is tagged
+    "under-resolved". None or 0 for the frequency means it is not known (or
+    no third gap has been seen): the reading is not assessed and gets no tag."""
+    if not third_gap_freq:
+        return {"n_points": n_points, "third_gap_freq": third_gap_freq or None,
+                "min_points": None, "factor": factor, "assessed": False, "tag": None}
+    need = factor / third_gap_freq
+    return {"n_points": n_points, "third_gap_freq": third_gap_freq, "min_points": need,
+            "factor": factor, "assessed": True,
+            "tag": "under-resolved" if n_points < need else None}

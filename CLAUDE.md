@@ -32,6 +32,9 @@ gaps             leave gaps. A slot with nothing in it stays void (null),
 readings         "not interpretable atm" is a legal reading. Use it rather
                  than force one.
 shape            keep shape: record the object as computed before any summary.
+bounds           any count / period / symmetry reading logs the instrument bound
+                 it was read at (points, precision, probe step); unknown bound
+                 = void, not omitted. See docs/resolution_leak.md.
 status tags      every claim is OBSERVED (computed here), DERIVED (follows from
                  computed values, reasoning shown) or PROPOSED (not yet run).
 interest fields  human_interest is the human's to fill; the AI never writes it.
@@ -72,6 +75,7 @@ toolkit/
   probes.py            rotational / mirror symmetry, smallest period, period
                        profile, zlib ratio, angle histogram, polar angles
                        three_gap_sum (L3 = L1 + L2: pass / fail / not_applicable)
+                       min_stretch_tag (points < 3 / third-gap freq: under-resolved)
   generator.py         seed -> random pipeline (shape / cut / orbit) -> probes -> log
                        cut_weighted: asked for by name, never drawn, own run files
   loghook.py           log_run() and @logged: every run writes the schema,
@@ -86,6 +90,7 @@ experiments/
   weighted_window.py      f  one Z^2 cut, two windows: hard strip and Gaussian weight
   window_extent.py        g  one logged window on a longer stretch; width beside m + n*slope
   three_gap_check.py      h  three_gap_sum probe over every logged cut run
+  min_stretch_flag.py     i  under-resolved tag for logged gap readings; run files untouched
 runs/*.json            one file per run, schema below
 tests/                 unittest, one file per experiment plus emlib
 DIVERGENCE_LOG.md      where human and AI interest differ (columns = schema)

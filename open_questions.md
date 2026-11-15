@@ -167,3 +167,25 @@ same on both shadows and those that differ only once the source is given.
   under two windows. That is one source, so it is not an attempt at Q13.
 - Pointers: `REFERENCES/related_studies.md` R1.
 
+**Q14. Third-gap frequency against distance from a 2-gap width.**
+Status: **PROPOSED** (not run).
+
+At a window width that gives two gap lengths, the third length has
+frequency zero. Near such a width it is rare
+(`runs/window_extent_seed0.json`: 20 of 1996 gaps, where width x norm sits
+8.598e-03 from the nearest m + n*slope with |m|, |n| <= 10). Is the
+frequency of the third gap proportional to the residual of width x norm
+from the nearest m + n*slope?
+- Test: fix a slope. Sweep window widths near a 2-gap value. At each
+  width log the third-gap frequency, the residual, the nearest (m, n), and
+  the bounds the reading was taken at: number of points, gap cluster
+  separation, the range of m and n searched, the sweep step.
+- Resolved when: that sweep is logged with frequency beside residual at
+  every width, and a stated check of proportionality with its reading
+  (holds, fails, or not interpretable atm).
+- Tools: `experiments/window_extent.py` (`band_lattice`, `nearest_combos`),
+  `composers.cut_and_project`, `probes.three_gap_sum`,
+  `probes.min_stretch_tag`.
+- Known limit: a stretch too short for the frequency it is measuring
+  reads zero. See `docs/resolution_leak.md`.
+
