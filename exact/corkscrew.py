@@ -81,3 +81,51 @@ def is_regular_simplex(points):
     d = {dist2(points[i], points[j]) for i in range(len(points))
          for j in range(i + 1, len(points))}
     return len(d) == 1
+
+
+# ---- any number of planes ---------------------------------------------------------
+
+def three_pentagons():
+    """Fifteen points of R^6: a regular pentagon in each of three orthogonal planes."""
+    zero = Cyc5(0, 0)
+    p = [power(ZETA, j) for j in range(5)]
+    return ([(z, zero, zero) for z in p] + [(zero, z, zero) for z in p]
+            + [(zero, zero, z) for z in p])
+
+
+def lifted_orbit():
+    """Five points of R^6: (zeta^k, zeta^(2k), zeta^(3k)), k = 0..4."""
+    return [(power(ZETA, k), power(ZETA, 2 * k), power(ZETA, 3 * k)) for k in range(5)]
+
+
+def closure_multi(points, turns, max_steps=60):
+    """Like closure(), for points with any number of planes: plane i is turned
+    by turns[i] * 36 degrees each step. Also logs, plane by plane, the first
+    step at which that plane alone is back."""
+    start = list(points)
+    sset = set(start)
+    mult = [power(Z10, t) for t in turns]
+    cur = start
+    set_step = point_step = None
+    plane_steps = [None] * len(turns)
+    misses = []
+    for k in range(1, max_steps + 1):
+        cur = [tuple(z * m for z, m in zip(pt, mult)) for pt in cur]
+        miss = ZERO
+        for a, b in zip(cur[0], start[0]):
+            miss = miss + norm2(a - b)
+        misses.append(miss)
+        for i in range(len(turns)):
+            if plane_steps[i] is None and all(c[i] == s_[i] for c, s_ in zip(cur, start)):
+                plane_steps[i] = k
+        if set_step is None and set(cur) == sset:
+            set_step = k
+        if cur == start:
+            point_step = k
+            break
+    return {"turns_of_36_deg": list(turns), "set_return_step": set_step,
+            "point_return_step": point_step, "plane_return_steps": plane_steps,
+            "miss_is_exactly_zero_at_return": point_step is not None and misses[-1] == ZERO,
+            "miss_squared_of_first_point_per_step": [m.pair() for m in misses],
+            "arithmetic": "exact a + b*phi forms; equality is ==, no tolerance"}
+

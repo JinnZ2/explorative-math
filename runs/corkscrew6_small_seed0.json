@@ -1,0 +1,3893 @@
+{
+ "params": {
+  "small": true,
+  "n_steps": 1200,
+  "n_max_chain": 40,
+  "shapes": [
+   "6-simplex",
+   "6-orthoplex"
+  ],
+  "alpha_deg": 36.0,
+  "rate_triples": [
+   "1 : 1 : 1",
+   "1 : 2 : 3",
+   "1 : 2 : 4",
+   "2 : 3 : 5",
+   "1 : 3/2 : 5/3",
+   "1 : 13/8 : 7/4",
+   "1 : 2 : phi",
+   "1 : 3/2 : sqrt(2)",
+   "1 : 1 : pi/3",
+   "1 : phi : sqrt(2)",
+   "1 : sqrt(2) : pi/3"
+  ],
+  "asked": "PROPOSED: a triple rotation returns at the least common multiple of its three periods and only for rational rates; a wrong angle shows in its own plane; with one irrational rate the orbit closes in four dimensions and not in the other two.",
+  "status_before_run": "PROPOSED",
+  "seed": 0
+ },
+ "outputs": {
+  "asked": "PROPOSED: a triple rotation returns at the least common multiple of its three periods and only for rational rates; a wrong angle shows in its own plane; with one irrational rate the orbit closes in four dimensions and not in the other two.",
+  "bound": {
+   "seed": 0,
+   "n_steps": 1200,
+   "alpha_deg": 36.0,
+   "return_tol": 1e-09,
+   "set_decimals": 7,
+   "n_max_chain": 40,
+   "shapes": [
+    "6-simplex",
+    "6-orthoplex"
+   ],
+   "planes": [
+    [
+     0,
+     1
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     4,
+     5
+    ]
+   ],
+   "irrationals_are_floats": "held as 64-bit floats; within the steps run they do not return",
+   "not_closing_means": "not within the steps run",
+   "positions": "from the angle k * alpha directly"
+  },
+  "sweep": [
+   {
+    "shape": "6-simplex",
+    "n_vertices": 7,
+    "alpha_deg": 36.0,
+    "n_steps": 1200,
+    "rows": [
+     {
+      "rates": "1 : 1 : 1",
+      "kind": "all rational",
+      "angles_deg": [
+       36.0,
+       36.0,
+       36.0
+      ],
+      "period_per_plane": [
+       10,
+       10,
+       10
+      ],
+      "predicted_point_return_lcm": 10,
+      "point_return_matches_lcm": true,
+      "closes": true,
+      "set_returns": true,
+      "lcm_of_the_rational_planes": 10,
+      "point_return_step": 10,
+      "set_return_step": 10,
+      "first_return_step_per_plane": [
+       10,
+       10,
+       10
+      ],
+      "smallest_miss": 2.508260582887067e-16,
+      "smallest_miss_step": 10,
+      "steps_run": 10,
+      "record_low_misses": [
+       [
+        1,
+        0.6180339887498949
+       ],
+       [
+        10,
+        2.508260582887067e-16
+       ]
+      ]
+     },
+     {
+      "rates": "1 : 2 : 3",
+      "kind": "all rational",
+      "angles_deg": [
+       36.0,
+       72.0,
+       108.0
+      ],
+      "period_per_plane": [
+       10,
+       5,
+       10
+      ],
+      "predicted_point_return_lcm": 10,
+      "point_return_matches_lcm": true,
+      "closes": true,
+      "set_returns": true,
+      "lcm_of_the_rational_planes": 10,
+      "point_return_step": 10,
+      "set_return_step": 10,
+      "first_return_step_per_plane": [
+       10,
+       5,
+       10
+      ],
+      "smallest_miss": 6.796810987468202e-16,
+      "smallest_miss_step": 10,
+      "steps_run": 10,
+      "record_low_misses": [
+       [
+        1,
+        1.5088689635967387
+       ],
+       [
+        10,
+        6.796810987468202e-16
+       ]
+      ]
+     },
+     {
+      "rates": "1 : 2 : 4",
+      "kind": "all rational",
+      "angles_deg": [
+       36.0,
+       72.0,
+       144.0
+      ],
+      "period_per_plane": [
+       10,
+       5,
+       5
+      ],
+      "predicted_point_return_lcm": 10,
+      "point_return_matches_lcm": true,
+      "closes": true,
+      "set_returns": true,
+      "lcm_of_the_rational_planes": 10,
+      "point_return_step": 10,
+      "set_return_step": 10,
+      "first_return_step_per_plane": [
+       10,
+       5,
+       5
+      ],
+      "smallest_miss": 8.883229682273576e-16,
+      "smallest_miss_step": 10,
+      "steps_run": 10,
+      "record_low_misses": [
+       [
+        1,
+        1.7477022993299731
+       ],
+       [
+        10,
+        8.883229682273576e-16
+       ]
+      ]
+     },
+     {
+      "rates": "2 : 3 : 5",
+      "kind": "all rational",
+      "angles_deg": [
+       72.0,
+       108.0,
+       180.0
+      ],
+      "period_per_plane": [
+       5,
+       10,
+       2
+      ],
+      "predicted_point_return_lcm": 10,
+      "point_return_matches_lcm": true,
+      "closes": true,
+      "set_returns": true,
+      "lcm_of_the_rational_planes": 10,
+      "point_return_step": 10,
+      "set_return_step": 10,
+      "first_return_step_per_plane": [
+       5,
+       10,
+       2
+      ],
+      "smallest_miss": 1.1772421959737318e-15,
+      "smallest_miss_step": 10,
+      "steps_run": 10,
+      "record_low_misses": [
+       [
+        1,
+        1.900129445619719
+       ],
+       [
+        4,
+        1.1755705045849463
+       ],
+       [
+        10,
+        1.1772421959737318e-15
+       ]
+      ]
+     },
+     {
+      "rates": "1 : 3/2 : 5/3",
+      "kind": "all rational",
+      "angles_deg": [
+       36.0,
+       54.0,
+       60.0
+      ],
+      "period_per_plane": [
+       10,
+       20,
+       6
+      ],
+      "predicted_point_return_lcm": 60,
+      "point_return_matches_lcm": true,
+      "closes": true,
+      "set_returns": true,
+      "lcm_of_the_rational_planes": 60,
+      "point_return_step": 60,
+      "set_return_step": 20,
+      "first_return_step_per_plane": [
+       10,
+       20,
+       6
+      ],
+      "smallest_miss": 2.3621950968205546e-15,
+      "smallest_miss_step": 60,
+      "steps_run": 60,
+      "record_low_misses": [
+       [
+        1,
+        0.9651356208862356
+       ],
+       [
+        19,
+        0.9651356208862343
+       ],
+       [
+        60,
+        2.3621950968205546e-15
+       ]
+      ]
+     },
+     {
+      "rates": "1 : 13/8 : 7/4",
+      "kind": "all rational",
+      "angles_deg": [
+       36.0,
+       58.5,
+       63.0
+      ],
+      "period_per_plane": [
+       10,
+       80,
+       40
+      ],
+      "predicted_point_return_lcm": 80,
+      "point_return_matches_lcm": true,
+      "closes": true,
+      "set_returns": true,
+      "lcm_of_the_rational_planes": 80,
+      "point_return_step": 80,
+      "set_return_step": 80,
+      "first_return_step_per_plane": [
+       10,
+       80,
+       40
+      ],
+      "smallest_miss": 3.822625319121885e-15,
+      "smallest_miss_step": 80,
+      "steps_run": 80,
+      "record_low_misses": [
+       [
+        1,
+        1.0116167823611066
+       ],
+       [
+        80,
+        3.822625319121885e-15
+       ]
+      ]
+     },
+     {
+      "rates": "1 : 2 : phi",
+      "kind": "one irrational",
+      "angles_deg": [
+       36.0,
+       72.0,
+       58.24922359499622
+      ],
+      "period_per_plane": [
+       10,
+       5,
+       null
+      ],
+      "predicted_point_return_lcm": null,
+      "point_return_matches_lcm": null,
+      "closes": false,
+      "set_returns": false,
+      "lcm_of_the_rational_planes": 10,
+      "point_return_step": null,
+      "set_return_step": null,
+      "first_return_step_per_plane": [
+       10,
+       5,
+       null
+      ],
+      "smallest_miss": 0.027843610642083915,
+      "smallest_miss_step": 890,
+      "steps_run": 1200,
+      "record_low_misses": [
+       [
+        1,
+        1.1468650071318065
+       ],
+       [
+        30,
+        0.780445453022819
+       ],
+       [
+        50,
+        0.4929982953121809
+       ],
+       [
+        80,
+        0.307228082386574
+       ],
+       [
+        130,
+        0.19047868624003242
+       ],
+       [
+        210,
+        0.11786443330075302
+       ],
+       [
+        340,
+        0.07287779522141107
+       ],
+       [
+        550,
+        0.04504888064044649
+       ],
+       [
+        890,
+        0.027843610642083915
+       ]
+      ]
+     },
+     {
+      "rates": "1 : 3/2 : sqrt(2)",
+      "kind": "one irrational",
+      "angles_deg": [
+       36.0,
+       54.0,
+       50.91168824543143
+      ],
+      "period_per_plane": [
+       10,
+       20,
+       null
+      ],
+      "predicted_point_return_lcm": null,
+      "point_return_matches_lcm": null,
+      "closes": false,
+      "set_returns": false,
+      "lcm_of_the_rational_planes": 20,
+      "point_return_step": null,
+      "set_return_step": null,
+      "first_return_step_per_plane": [
+       10,
+       20,
+       null
+      ],
+      "smallest_miss": 0.027985643549625346,
+      "smallest_miss_step": 700,
+      "steps_run": 1200,
+      "record_low_misses": [
+       [
+        1,
+        0.8915895523188107
+       ],
+       [
+        100,
+        0.7616948393038734
+       ],
+       [
+        120,
+        0.16288671448948616
+       ],
+       [
+        580,
+        0.1350001556289196
+       ],
+       [
+        700,
+        0.027985643549625346
+       ]
+      ]
+     },
+     {
+      "rates": "1 : 1 : pi/3",
+      "kind": "one irrational",
+      "angles_deg": [
+       36.0,
+       36.0,
+       37.69911184307752
+      ],
+      "period_per_plane": [
+       10,
+       10,
+       null
+      ],
+      "predicted_point_return_lcm": null,
+      "point_return_matches_lcm": null,
+      "closes": false,
+      "set_returns": false,
+      "lcm_of_the_rational_planes": 10,
+      "point_return_step": null,
+      "set_return_step": null,
+      "first_return_step_per_plane": [
+       10,
+       10,
+       null
+      ],
+      "smallest_miss": 0.016293404340091508,
+      "smallest_miss_step": 1060,
+      "steps_run": 1200,
+      "record_low_misses": [
+       [
+        1,
+        0.6400234240599789
+       ],
+       [
+        9,
+        0.6180339887498951
+       ],
+       [
+        10,
+        0.2605760880762113
+       ],
+       [
+        210,
+        0.04904162467135868
+       ],
+       [
+        1060,
+        0.016293404340091508
+       ]
+      ]
+     },
+     {
+      "rates": "1 : phi : sqrt(2)",
+      "kind": "two irrational",
+      "angles_deg": [
+       36.0,
+       58.24922359499622,
+       50.91168824543143
+      ],
+      "period_per_plane": [
+       10,
+       null,
+       null
+      ],
+      "predicted_point_return_lcm": null,
+      "point_return_matches_lcm": null,
+      "closes": false,
+      "set_returns": false,
+      "lcm_of_the_rational_planes": 10,
+      "point_return_step": null,
+      "set_return_step": null,
+      "first_return_step_per_plane": [
+       10,
+       null,
+       null
+      ],
+      "smallest_miss": 0.4572902832564257,
+      "smallest_miss_step": 340,
+      "steps_run": 1200,
+      "record_low_misses": [
+       [
+        1,
+        0.9538572047955429
+       ],
+       [
+        49,
+        0.618033988749896
+       ],
+       [
+        50,
+        0.5400525743081497
+       ],
+       [
+        290,
+        0.46293957508580186
+       ],
+       [
+        340,
+        0.4572902832564257
+       ]
+      ]
+     },
+     {
+      "rates": "1 : sqrt(2) : pi/3",
+      "kind": "two irrational",
+      "angles_deg": [
+       36.0,
+       50.91168824543143,
+       37.69911184307752
+      ],
+      "period_per_plane": [
+       10,
+       null,
+       null
+      ],
+      "predicted_point_return_lcm": null,
+      "point_return_matches_lcm": null,
+      "closes": false,
+      "set_returns": false,
+      "lcm_of_the_rational_planes": 10,
+      "point_return_step": null,
+      "set_return_step": null,
+      "first_return_step_per_plane": [
+       10,
+       null,
+       null
+      ],
+      "smallest_miss": 0.35968765219707016,
+      "smallest_miss_step": 410,
+      "steps_run": 1200,
+      "record_low_misses": [
+       [
+        1,
+        0.8456743467855685
+       ],
+       [
+        29,
+        0.6248329380133949
+       ],
+       [
+        191,
+        0.618033988749887
+       ],
+       [
+        410,
+        0.35968765219707016
+       ]
+      ]
+     }
+    ],
+    "by_kind": {
+     "all rational": {
+      "n": 6,
+      "point_return": 6,
+      "set_return": 6
+     },
+     "one irrational": {
+      "n": 3,
+      "point_return": 0,
+      "set_return": 0
+     },
+     "two irrational": {
+      "n": 2,
+      "point_return": 0,
+      "set_return": 0
+     }
+    }
+   },
+   {
+    "shape": "6-orthoplex",
+    "n_vertices": 12,
+    "alpha_deg": 36.0,
+    "n_steps": 1200,
+    "rows": [
+     {
+      "rates": "1 : 1 : 1",
+      "kind": "all rational",
+      "angles_deg": [
+       36.0,
+       36.0,
+       36.0
+      ],
+      "period_per_plane": [
+       10,
+       10,
+       10
+      ],
+      "predicted_point_return_lcm": 10,
+      "point_return_matches_lcm": true,
+      "closes": true,
+      "set_returns": true,
+      "lcm_of_the_rational_planes": 10,
+      "point_return_step": 10,
+      "set_return_step": 5,
+      "first_return_step_per_plane": [
+       10,
+       10,
+       10
+      ],
+      "smallest_miss": 2.4492935982947064e-16,
+      "smallest_miss_step": 10,
+      "steps_run": 10,
+      "record_low_misses": [
+       [
+        1,
+        0.6180339887498949
+       ],
+       [
+        10,
+        2.4492935982947064e-16
+       ]
+      ]
+     },
+     {
+      "rates": "1 : 2 : 3",
+      "kind": "all rational",
+      "angles_deg": [
+       36.0,
+       72.0,
+       108.0
+      ],
+      "period_per_plane": [
+       10,
+       5,
+       10
+      ],
+      "predicted_point_return_lcm": 10,
+      "point_return_matches_lcm": true,
+      "closes": true,
+      "set_returns": true,
+      "lcm_of_the_rational_planes": 10,
+      "point_return_step": 10,
+      "set_return_step": 5,
+      "first_return_step_per_plane": [
+       10,
+       5,
+       10
+      ],
+      "smallest_miss": 7.347880794884119e-16,
+      "smallest_miss_step": 10,
+      "steps_run": 10,
+      "record_low_misses": [
+       [
+        1,
+        1.618033988749895
+       ],
+       [
+        10,
+        7.347880794884119e-16
+       ]
+      ]
+     },
+     {
+      "rates": "1 : 2 : 4",
+      "kind": "all rational",
+      "angles_deg": [
+       36.0,
+       72.0,
+       144.0
+      ],
+      "period_per_plane": [
+       10,
+       5,
+       5
+      ],
+      "predicted_point_return_lcm": 10,
+      "point_return_matches_lcm": true,
+      "closes": true,
+      "set_returns": true,
+      "lcm_of_the_rational_planes": 10,
+      "point_return_step": 10,
+      "set_return_step": 5,
+      "first_return_step_per_plane": [
+       10,
+       5,
+       5
+      ],
+      "smallest_miss": 9.797174393178826e-16,
+      "smallest_miss_step": 10,
+      "steps_run": 10,
+      "record_low_misses": [
+       [
+        1,
+        1.9021130325903073
+       ],
+       [
+        3,
+        1.902113032590307
+       ],
+       [
+        10,
+        9.797174393178826e-16
+       ]
+      ]
+     },
+     {
+      "rates": "2 : 3 : 5",
+      "kind": "all rational",
+      "angles_deg": [
+       72.0,
+       108.0,
+       180.0
+      ],
+      "period_per_plane": [
+       5,
+       10,
+       2
+      ],
+      "predicted_point_return_lcm": 10,
+      "point_return_matches_lcm": true,
+      "closes": true,
+      "set_returns": true,
+      "lcm_of_the_rational_planes": 10,
+      "point_return_step": 10,
+      "set_return_step": 5,
+      "first_return_step_per_plane": [
+       5,
+       10,
+       2
+      ],
+      "smallest_miss": 1.2246467991473533e-15,
+      "smallest_miss_step": 10,
+      "steps_run": 10,
+      "record_low_misses": [
+       [
+        1,
+        2.0
+       ],
+       [
+        2,
+        1.9021130325903073
+       ],
+       [
+        4,
+        1.1755705045849465
+       ],
+       [
+        10,
+        1.2246467991473533e-15
+       ]
+      ]
+     },
+     {
+      "rates": "1 : 3/2 : 5/3",
+      "kind": "all rational",
+      "angles_deg": [
+       36.0,
+       54.0,
+       60.0
+      ],
+      "period_per_plane": [
+       10,
+       20,
+       6
+      ],
+      "predicted_point_return_lcm": 60,
+      "point_return_matches_lcm": true,
+      "closes": true,
+      "set_returns": true,
+      "lcm_of_the_rational_planes": 60,
+      "point_return_step": 60,
+      "set_return_step": 15,
+      "first_return_step_per_plane": [
+       10,
+       20,
+       6
+      ],
+      "smallest_miss": 2.4492935982947065e-15,
+      "smallest_miss_step": 60,
+      "steps_run": 60,
+      "record_low_misses": [
+       [
+        1,
+        0.9999999999999999
+       ],
+       [
+        19,
+        0.9999999999999983
+       ],
+       [
+        60,
+        2.4492935982947065e-15
+       ]
+      ]
+     },
+     {
+      "rates": "1 : 13/8 : 7/4",
+      "kind": "all rational",
+      "angles_deg": [
+       36.0,
+       58.5,
+       63.0
+      ],
+      "period_per_plane": [
+       10,
+       80,
+       40
+      ],
+      "predicted_point_return_lcm": 80,
+      "point_return_matches_lcm": true,
+      "closes": true,
+      "set_returns": true,
+      "lcm_of_the_rational_planes": 80,
+      "point_return_step": 80,
+      "set_return_step": 20,
+      "first_return_step_per_plane": [
+       10,
+       80,
+       40
+      ],
+      "smallest_miss": 3.921345679817883e-15,
+      "smallest_miss_step": 80,
+      "steps_run": 80,
+      "record_low_misses": [
+       [
+        1,
+        1.0449971294318976
+       ],
+       [
+        80,
+        3.921345679817883e-15
+       ]
+      ]
+     },
+     {
+      "rates": "1 : 2 : phi",
+      "kind": "one irrational",
+      "angles_deg": [
+       36.0,
+       72.0,
+       58.24922359499622
+      ],
+      "period_per_plane": [
+       10,
+       5,
+       null
+      ],
+      "predicted_point_return_lcm": null,
+      "point_return_matches_lcm": null,
+      "closes": false,
+      "set_returns": false,
+      "lcm_of_the_rational_planes": 10,
+      "point_return_step": null,
+      "set_return_step": null,
+      "first_return_step_per_plane": [
+       10,
+       5,
+       null
+      ],
+      "smallest_miss": 0.03157168686902807,
+      "smallest_miss_step": 890,
+      "steps_run": 1200,
+      "record_low_misses": [
+       [
+        1,
+        1.1755705045849463
+       ],
+       [
+        30,
+        0.8849419630926522
+       ],
+       [
+        50,
+        0.5590075226463475
+       ],
+       [
+        80,
+        0.34836390075863066
+       ],
+       [
+        130,
+        0.2159825287926114
+       ],
+       [
+        210,
+        0.13364570525715103
+       ],
+       [
+        340,
+        0.08263565239480503
+       ],
+       [
+        550,
+        0.05108062929276576
+       ],
+       [
+        890,
+        0.03157168686902807
+       ]
+      ]
+     },
+     {
+      "rates": "1 : 3/2 : sqrt(2)",
+      "kind": "one irrational",
+      "angles_deg": [
+       36.0,
+       54.0,
+       50.91168824543143
+      ],
+      "period_per_plane": [
+       10,
+       20,
+       null
+      ],
+      "predicted_point_return_lcm": null,
+      "point_return_matches_lcm": null,
+      "closes": false,
+      "set_returns": false,
+      "lcm_of_the_rational_planes": 20,
+      "point_return_step": null,
+      "set_return_step": null,
+      "first_return_step_per_plane": [
+       10,
+       20,
+       null
+      ],
+      "smallest_miss": 0.03173273704817466,
+      "smallest_miss_step": 700,
+      "steps_run": 1200,
+      "record_low_misses": [
+       [
+        1,
+        0.9079809994790936
+       ],
+       [
+        100,
+        0.8636807655940096
+       ],
+       [
+        120,
+        0.18469617360666932
+       ],
+       [
+        580,
+        0.1530757880353448
+       ],
+       [
+        700,
+        0.03173273704817466
+       ]
+      ]
+     },
+     {
+      "rates": "1 : 1 : pi/3",
+      "kind": "one irrational",
+      "angles_deg": [
+       36.0,
+       36.0,
+       37.69911184307752
+      ],
+      "period_per_plane": [
+       10,
+       10,
+       null
+      ],
+      "predicted_point_return_lcm": null,
+      "point_return_matches_lcm": null,
+      "closes": false,
+      "set_returns": false,
+      "lcm_of_the_rational_planes": 10,
+      "point_return_step": null,
+      "set_return_step": null,
+      "first_return_step_per_plane": [
+       10,
+       10,
+       null
+      ],
+      "smallest_miss": 0.018474983954786754,
+      "smallest_miss_step": 1060,
+      "steps_run": 1200,
+      "record_low_misses": [
+       [
+        1,
+        0.6461686895638814
+       ],
+       [
+        9,
+        0.6180339887498951
+       ],
+       [
+        10,
+        0.2954655114255935
+       ],
+       [
+        210,
+        0.055607975473279204
+       ],
+       [
+        1060,
+        0.018474983954786754
+       ]
+      ]
+     },
+     {
+      "rates": "1 : phi : sqrt(2)",
+      "kind": "two irrational",
+      "angles_deg": [
+       36.0,
+       58.24922359499622,
+       50.91168824543143
+      ],
+      "period_per_plane": [
+       10,
+       null,
+       null
+      ],
+      "predicted_point_return_lcm": null,
+      "point_return_matches_lcm": null,
+      "closes": false,
+      "set_returns": false,
+      "lcm_of_the_rational_planes": 10,
+      "point_return_step": null,
+      "set_return_step": null,
+      "first_return_step_per_plane": [
+       10,
+       null,
+       null
+      ],
+      "smallest_miss": 0.47918798523494355,
+      "smallest_miss_step": 290,
+      "steps_run": 1200,
+      "record_low_misses": [
+       [
+        1,
+        0.9734213408626367
+       ],
+       [
+        49,
+        0.618033988749896
+       ],
+       [
+        50,
+        0.5590075226463475
+       ],
+       [
+        290,
+        0.47918798523494355
+       ]
+      ]
+     },
+     {
+      "rates": "1 : sqrt(2) : pi/3",
+      "kind": "two irrational",
+      "angles_deg": [
+       36.0,
+       50.91168824543143,
+       37.69911184307752
+      ],
+      "period_per_plane": [
+       10,
+       null,
+       null
+      ],
+      "predicted_point_return_lcm": null,
+      "point_return_matches_lcm": null,
+      "closes": false,
+      "set_returns": false,
+      "lcm_of_the_rational_planes": 10,
+      "point_return_step": null,
+      "set_return_step": null,
+      "first_return_step_per_plane": [
+       10,
+       null,
+       null
+      ],
+      "smallest_miss": 0.4049617738669961,
+      "smallest_miss_step": 410,
+      "steps_run": 1200,
+      "record_low_misses": [
+       [
+        1,
+        0.8596307554874055
+       ],
+       [
+        29,
+        0.6253157485363842
+       ],
+       [
+        191,
+        0.618033988749887
+       ],
+       [
+        410,
+        0.4049617738669961
+       ]
+      ]
+     }
+    ],
+    "by_kind": {
+     "all rational": {
+      "n": 6,
+      "point_return": 6,
+      "set_return": 6
+     },
+     "one irrational": {
+      "n": 3,
+      "point_return": 0,
+      "set_return": 0
+     },
+     "two irrational": {
+      "n": 2,
+      "point_return": 0,
+      "set_return": 0
+     }
+    }
+   }
+  ],
+  "miss": {
+   "shape": "6-cube",
+   "nominal_deg": [
+    36.0,
+    72.0,
+    108.0
+   ],
+   "return_step": 10,
+   "nominal_miss_per_plane": [
+    1.2819751242557095e-16,
+    2.563950248511419e-16,
+    4.1787276567288925e-16
+   ],
+   "one_plane": [
+    {
+     "eps_deg": 1e-06,
+     "plane_perturbed": 0,
+     "miss_per_plane": [
+      1.0076663107174049e-07,
+      2.563950248511419e-16,
+      4.1787276567288925e-16
+     ],
+     "miss_in_the_other_planes": 4.1787276567288925e-16,
+     "confined_to_its_plane": true,
+     "linear_estimate": 1.0076663134634544e-07,
+     "miss_over_linear_estimate": 0.9999999972748425
+    },
+    {
+     "eps_deg": 1e-06,
+     "plane_perturbed": 1,
+     "miss_per_plane": [
+      1.2819751242557095e-16,
+      1.0076663094354297e-07,
+      4.1787276567288925e-16
+     ],
+     "miss_in_the_other_planes": 4.1787276567288925e-16,
+     "confined_to_its_plane": true,
+     "linear_estimate": 1.0076663134634544e-07,
+     "miss_over_linear_estimate": 0.9999999960026205
+    },
+    {
+     "eps_deg": 1e-06,
+     "plane_perturbed": 2,
+     "miss_per_plane": [
+      1.2819751242557095e-16,
+      2.563950248511419e-16,
+      1.0076663078329607e-07
+     ],
+     "miss_in_the_other_planes": 2.563950248511419e-16,
+     "confined_to_its_plane": true,
+     "linear_estimate": 1.0076663134634544e-07,
+     "miss_over_linear_estimate": 0.9999999944123431
+    },
+    {
+     "eps_deg": 0.0001,
+     "plane_perturbed": 0,
+     "miss_per_plane": [
+      1.0076663134703526e-05,
+      2.563950248511419e-16,
+      4.1787276567288925e-16
+     ],
+     "miss_in_the_other_planes": 4.1787276567288925e-16,
+     "confined_to_its_plane": true,
+     "linear_estimate": 1.0076663134634545e-05,
+     "miss_over_linear_estimate": 1.0000000000068456
+    },
+    {
+     "eps_deg": 0.0001,
+     "plane_perturbed": 1,
+     "miss_per_plane": [
+      1.2819751242557095e-16,
+      1.0076663134062537e-05,
+      4.1787276567288925e-16
+     ],
+     "miss_in_the_other_planes": 4.1787276567288925e-16,
+     "confined_to_its_plane": true,
+     "linear_estimate": 1.0076663134634545e-05,
+     "miss_over_linear_estimate": 0.9999999999432344
+    },
+    {
+     "eps_deg": 0.0001,
+     "plane_perturbed": 2,
+     "miss_per_plane": [
+      1.2819751242557095e-16,
+      2.563950248511419e-16,
+      1.0076663134927871e-05
+     ],
+     "miss_in_the_other_planes": 2.563950248511419e-16,
+     "confined_to_its_plane": true,
+     "linear_estimate": 1.0076663134634545e-05,
+     "miss_over_linear_estimate": 1.0000000000291094
+    },
+    {
+     "eps_deg": 0.01,
+     "plane_perturbed": 0,
+     "miss_per_plane": [
+      0.0010076661855662676,
+      2.563950248511419e-16,
+      4.1787276567288925e-16
+     ],
+     "miss_in_the_other_planes": 4.1787276567288925e-16,
+     "confined_to_its_plane": true,
+     "linear_estimate": 0.0010076663134634546,
+     "miss_over_linear_estimate": 0.9999998730758534
+    },
+    {
+     "eps_deg": 0.01,
+     "plane_perturbed": 1,
+     "miss_per_plane": [
+      1.2819751242557095e-16,
+      0.0010076661855661394,
+      4.1787276567288925e-16
+     ],
+     "miss_in_the_other_planes": 4.1787276567288925e-16,
+     "confined_to_its_plane": true,
+     "linear_estimate": 0.0010076663134634546,
+     "miss_over_linear_estimate": 0.9999998730757261
+    },
+    {
+     "eps_deg": 0.01,
+     "plane_perturbed": 2,
+     "miss_per_plane": [
+      1.2819751242557095e-16,
+      2.563950248511419e-16,
+      0.0010076661855670367
+     ],
+     "miss_in_the_other_planes": 2.563950248511419e-16,
+     "confined_to_its_plane": true,
+     "linear_estimate": 0.0010076663134634546,
+     "miss_over_linear_estimate": 0.9999998730766166
+    }
+   ],
+   "two_planes": [
+    {
+     "eps_deg": [
+      1e-06,
+      2e-06
+     ],
+     "planes_perturbed": [
+      0,
+      1
+     ],
+     "miss_per_plane": [
+      1.0076663107174049e-07,
+      2.0153326217553268e-07,
+      4.1787276567288925e-16
+     ],
+     "each_plane_alone": [
+      1.0076663107174049e-07,
+      2.0153326217553268e-07
+     ],
+     "difference_from_alone": [
+      0.0,
+      0.0
+     ],
+     "same_as_alone": true,
+     "untouched_plane_miss": 4.1787276567288925e-16
+    },
+    {
+     "eps_deg": [
+      1e-06,
+      2e-06
+     ],
+     "planes_perturbed": [
+      0,
+      2
+     ],
+     "miss_per_plane": [
+      1.0076663107174049e-07,
+      2.563950248511419e-16,
+      2.0153326201528575e-07
+     ],
+     "each_plane_alone": [
+      1.0076663107174049e-07,
+      2.0153326201528575e-07
+     ],
+     "difference_from_alone": [
+      0.0,
+      0.0
+     ],
+     "same_as_alone": true,
+     "untouched_plane_miss": 2.563950248511419e-16
+    },
+    {
+     "eps_deg": [
+      1e-06,
+      2e-06
+     ],
+     "planes_perturbed": [
+      1,
+      2
+     ],
+     "miss_per_plane": [
+      1.2819751242557095e-16,
+      1.0076663094354297e-07,
+      2.0153326201528575e-07
+     ],
+     "each_plane_alone": [
+      1.0076663094354297e-07,
+      2.0153326201528575e-07
+     ],
+     "difference_from_alone": [
+      0.0,
+      0.0
+     ],
+     "same_as_alone": true,
+     "untouched_plane_miss": 1.2819751242557095e-16
+    },
+    {
+     "eps_deg": [
+      0.0001,
+      0.0002
+     ],
+     "planes_perturbed": [
+      0,
+      1
+     ],
+     "miss_per_plane": [
+      1.0076663134703526e-05,
+      2.0153326268696554e-05,
+      4.1787276567288925e-16
+     ],
+     "each_plane_alone": [
+      1.0076663134703526e-05,
+      2.0153326268696554e-05
+     ],
+     "difference_from_alone": [
+      0.0,
+      0.0
+     ],
+     "same_as_alone": true,
+     "untouched_plane_miss": 4.1787276567288925e-16
+    },
+    {
+     "eps_deg": [
+      0.0001,
+      0.0002
+     ],
+     "planes_perturbed": [
+      0,
+      2
+     ],
+     "miss_per_plane": [
+      1.0076663134703526e-05,
+      2.563950248511419e-16,
+      2.0153326267542773e-05
+     ],
+     "each_plane_alone": [
+      1.0076663134703526e-05,
+      2.0153326267542773e-05
+     ],
+     "difference_from_alone": [
+      0.0,
+      0.0
+     ],
+     "same_as_alone": true,
+     "untouched_plane_miss": 2.563950248511419e-16
+    },
+    {
+     "eps_deg": [
+      0.0001,
+      0.0002
+     ],
+     "planes_perturbed": [
+      1,
+      2
+     ],
+     "miss_per_plane": [
+      1.2819751242557095e-16,
+      1.0076663134062537e-05,
+      2.0153326267542773e-05
+     ],
+     "each_plane_alone": [
+      1.0076663134062537e-05,
+      2.0153326267542773e-05
+     ],
+     "difference_from_alone": [
+      0.0,
+      0.0
+     ],
+     "same_as_alone": true,
+     "untouched_plane_miss": 1.2819751242557095e-16
+    },
+    {
+     "eps_deg": [
+      0.01,
+      0.02
+     ],
+     "planes_perturbed": [
+      0,
+      1
+     ],
+     "miss_per_plane": [
+      0.0010076661855662676,
+      0.0020153316037509533,
+      4.1787276567288925e-16
+     ],
+     "each_plane_alone": [
+      0.0010076661855662676,
+      0.0020153316037509533
+     ],
+     "difference_from_alone": [
+      0.0,
+      0.0
+     ],
+     "same_as_alone": true,
+     "untouched_plane_miss": 4.1787276567288925e-16
+    },
+    {
+     "eps_deg": [
+      0.01,
+      0.02
+     ],
+     "planes_perturbed": [
+      0,
+      2
+     ],
+     "miss_per_plane": [
+      0.0010076661855662676,
+      2.563950248511419e-16,
+      0.002015331603750825
+     ],
+     "each_plane_alone": [
+      0.0010076661855662676,
+      0.002015331603750825
+     ],
+     "difference_from_alone": [
+      0.0,
+      0.0
+     ],
+     "same_as_alone": true,
+     "untouched_plane_miss": 2.563950248511419e-16
+    },
+    {
+     "eps_deg": [
+      0.01,
+      0.02
+     ],
+     "planes_perturbed": [
+      1,
+      2
+     ],
+     "miss_per_plane": [
+      1.2819751242557095e-16,
+      0.0010076661855661394,
+      0.002015331603750825
+     ],
+     "each_plane_alone": [
+      0.0010076661855661394,
+      0.002015331603750825
+     ],
+     "difference_from_alone": [
+      0.0,
+      0.0
+     ],
+     "same_as_alone": true,
+     "untouched_plane_miss": 1.2819751242557095e-16
+    }
+   ],
+   "all_single_confined": true,
+   "all_double_same_as_alone": true,
+   "miss_over_linear_estimate_range": [
+    0.9999998730757261,
+    1.0000000000291094
+   ]
+  },
+  "partial_closure": {
+   "shape": "6-cube",
+   "closes_in": "planes (0,1) and (2,3): four of six dimensions",
+   "cases": [
+    {
+     "rates": "1 : 2 : phi",
+     "angles_deg": [
+      36.0,
+      72.0,
+      58.24922359499622
+     ],
+     "return_step_of_the_two_rational_planes": 10,
+     "at_laps": [
+      {
+       "step": 10,
+       "miss_per_plane": [
+        1.2819751242557095e-16,
+        2.563950248511419e-16,
+        1.076218341564053
+       ],
+       "rational_planes_back": true,
+       "third_plane_miss": 1.076218341564053
+      },
+      {
+       "step": 20,
+       "miss_per_plane": [
+        2.563950248511419e-16,
+        5.457812425614246e-16,
+        0.7799890064537398
+       ],
+       "rational_planes_back": true,
+       "third_plane_miss": 0.7799890064537398
+      },
+      {
+       "step": 30,
+       "miss_per_plane": [
+        4.1787276567288925e-16,
+        8.659265124794158e-16,
+        0.5109214806087387
+       ],
+       "rational_planes_back": true,
+       "third_plane_miss": 0.5109214806087387
+      },
+      {
+       "step": 50,
+       "miss_per_plane": [
+        7.378320931034775e-16,
+        1.4101726366812802e-15,
+        0.3227431436788946
+       ],
+       "rational_planes_back": true,
+       "third_plane_miss": 0.3227431436788946
+      },
+      {
+       "step": 100,
+       "miss_per_plane": [
+        1.4101726366812802e-15,
+        2.8203452733625605e-15,
+        0.6197601713308633
+       ],
+       "rational_planes_back": true,
+       "third_plane_miss": 0.6197601713308633
+      },
+      {
+       "step": 500,
+       "miss_per_plane": [
+        1.1537776118301384e-15,
+        2.275731534207606e-15,
+        0.3509538854365449
+       ],
+       "rational_planes_back": true,
+       "third_plane_miss": 0.3509538854365449
+      },
+      {
+       "step": 1000,
+       "miss_per_plane": [
+        2.275731534207606e-15,
+        4.5190759618492525e-15,
+        0.6687024635690226
+       ],
+       "rational_planes_back": true,
+       "third_plane_miss": 0.6687024635690226
+      }
+     ],
+     "rational_planes_back_at_every_lap": true,
+     "third_plane_ever_back_at_a_lap": false,
+     "third_plane_smallest_miss_at_a_lap": 0.01822792191260394,
+     "third_plane_smallest_miss_step": 890,
+     "first_return_step_per_plane": [
+      10,
+      5,
+      null
+     ],
+     "full_point_return_step": null,
+     "full_smallest_miss": 0.01822792191260394
+    },
+    {
+     "rates": "1 : 2 : sqrt(2)",
+     "angles_deg": [
+      36.0,
+      72.0,
+      50.91168824543143
+     ],
+     "return_step_of_the_two_rational_planes": 10,
+     "at_laps": [
+      {
+       "step": 10,
+       "miss_per_plane": [
+        1.2819751242557095e-16,
+        2.563950248511419e-16,
+        1.113018773626878
+       ],
+       "rational_planes_back": true,
+       "third_plane_miss": 1.113018773626878
+      },
+      {
+       "step": 20,
+       "miss_per_plane": [
+        2.563950248511419e-16,
+        5.457812425614246e-16,
+        0.5926943885410807
+       ],
+       "rational_planes_back": true,
+       "third_plane_miss": 0.5926943885410807
+      },
+      {
+       "step": 30,
+       "miss_per_plane": [
+        4.1787276567288925e-16,
+        8.659265124794158e-16,
+        0.7974026793328134
+       ],
+       "rational_planes_back": true,
+       "third_plane_miss": 0.7974026793328134
+      },
+      {
+       "step": 50,
+       "miss_per_plane": [
+        7.378320931034775e-16,
+        1.4101726366812802e-15,
+        0.2556689981713219
+       ],
+       "rational_planes_back": true,
+       "third_plane_miss": 0.2556689981713219
+      },
+      {
+       "step": 100,
+       "miss_per_plane": [
+        1.4101726366812802e-15,
+        2.8203452733625605e-15,
+        0.4986463225096036
+       ],
+       "rational_planes_back": true,
+       "third_plane_miss": 0.4986463225096036
+      },
+      {
+       "step": 500,
+       "miss_per_plane": [
+        1.1537776118301384e-15,
+        2.275731534207606e-15,
+        0.9108826328637948
+       ],
+       "rational_planes_back": true,
+       "third_plane_miss": 0.9108826328637948
+      },
+      {
+       "step": 1000,
+       "miss_per_plane": [
+        2.275731534207606e-15,
+        4.5190759618492525e-15,
+        1.119636867612643
+       ],
+       "rational_planes_back": true,
+       "third_plane_miss": 1.119636867612643
+      }
+     ],
+     "rational_planes_back_at_every_lap": true,
+     "third_plane_ever_back_at_a_lap": false,
+     "third_plane_smallest_miss_at_a_lap": 0.018320904276887283,
+     "third_plane_smallest_miss_step": 700,
+     "first_return_step_per_plane": [
+      10,
+      5,
+      null
+     ],
+     "full_point_return_step": null,
+     "full_smallest_miss": 0.018320904276887283
+    },
+    {
+     "rates": "1 : 2 : pi/3",
+     "angles_deg": [
+      36.0,
+      72.0,
+      37.69911184307752
+     ],
+     "return_step_of_the_two_rational_planes": 10,
+     "at_laps": [
+      {
+       "step": 10,
+       "miss_per_plane": [
+        1.2819751242557095e-16,
+        2.563950248511419e-16,
+        0.17058709255781687
+       ],
+       "rational_planes_back": true,
+       "third_plane_miss": 0.17058709255781687
+      },
+      {
+       "step": 20,
+       "miss_per_plane": [
+        2.563950248511419e-16,
+        5.457812425614246e-16,
+        0.33743058878232624
+       ],
+       "rational_planes_back": true,
+       "third_plane_miss": 0.33743058878232624
+      },
+      {
+       "step": 30,
+       "miss_per_plane": [
+        4.1787276567288925e-16,
+        8.659265124794158e-16,
+        0.49686904693525297
+       ],
+       "rational_planes_back": true,
+       "third_plane_miss": 0.49686904693525297
+      },
+      {
+       "step": 50,
+       "miss_per_plane": [
+        7.378320931034775e-16,
+        1.4101726366812802e-15,
+        0.7797743988823465
+       ],
+       "rational_planes_back": true,
+       "third_plane_miss": 0.7797743988823465
+      },
+      {
+       "step": 100,
+       "miss_per_plane": [
+        1.4101726366812802e-15,
+        2.8203452733625605e-15,
+        1.1502282073071377
+       ],
+       "rational_planes_back": true,
+       "third_plane_miss": 1.1502282073071377
+      },
+      {
+       "step": 500,
+       "miss_per_plane": [
+        1.1537776118301384e-15,
+        2.275731534207606e-15,
+        1.044615091581678
+       ],
+       "rational_planes_back": true,
+       "third_plane_miss": 1.044615091581678
+      },
+      {
+       "step": 1000,
+       "miss_per_plane": [
+        2.275731534207606e-15,
+        4.5190759618492525e-15,
+        0.8902780342500267
+       ],
+       "rational_planes_back": true,
+       "third_plane_miss": 0.8902780342500267
+      }
+     ],
+     "rational_planes_back_at_every_lap": true,
+     "third_plane_ever_back_at_a_lap": false,
+     "third_plane_smallest_miss_at_a_lap": 0.010666536959570165,
+     "third_plane_smallest_miss_step": 1060,
+     "first_return_step_per_plane": [
+      10,
+      5,
+      null
+     ],
+     "full_point_return_step": null,
+     "full_smallest_miss": 0.010666536959570165
+    }
+   ]
+  },
+  "chains": {
+   "searched": "N from 4 to 40; turns 360 p/N, 360 q/N, 360 r/N with 1 <= p < q < r <= N/2, coprime with N",
+   "triples_tried": 10215,
+   "method": "d_1 = d_2 = d_3 fixes the three radius shares; larger simplices are then checked (relative tolerance 1e-9)",
+   "chains_using_all_three_planes": {
+    "3": {
+     "n_found": 2637,
+     "n_values": [
+      6,
+      7,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+     ],
+     "listed": [
+      {
+       "n": 6,
+       "p": 1,
+       "q": 2,
+       "r": 3,
+       "angles_deg": [
+        60.0,
+        120.0,
+        180.0
+       ],
+       "radius_squared_shares": [
+        0.39999999999999997,
+        0.4,
+        0.20000000000000007
+       ],
+       "edge_over_radius": 1.5491933384829668
+      },
+      {
+       "n": 7,
+       "p": 1,
+       "q": 2,
+       "r": 3,
+       "angles_deg": [
+        51.42857142857143,
+        102.85714285714286,
+        154.28571428571428
+       ],
+       "radius_squared_shares": [
+        0.33333333333333337,
+        0.33333333333333337,
+        0.33333333333333326
+       ],
+       "edge_over_radius": 1.5275252316519465
+      },
+      {
+       "n": 9,
+       "p": 1,
+       "q": 3,
+       "r": 4,
+       "angles_deg": [
+        40.0,
+        120.0,
+        160.0
+       ],
+       "radius_squared_shares": [
+        0.47857799829102504,
+        0.3552136071595272,
+        0.1662083945494478
+       ],
+       "edge_over_radius": 1.3908124167267915
+      },
+      {
+       "n": 9,
+       "p": 2,
+       "q": 3,
+       "r": 4,
+       "angles_deg": [
+        80.0,
+        120.0,
+        160.0
+       ],
+       "radius_squared_shares": [
+        0.5234296409421921,
+        0.1349259246885502,
+        0.3416444343692577
+       ],
+       "edge_over_radius": 1.610969343573722
+      },
+      {
+       "n": 10,
+       "p": 1,
+       "q": 3,
+       "r": 4,
+       "angles_deg": [
+        36.0,
+        108.0,
+        144.0
+       ],
+       "radius_squared_shares": [
+        0.5000000000000001,
+        0.19098300562505244,
+        0.30901699437494745
+       ],
+       "edge_over_radius": 1.3449970239279145
+      },
+      {
+       "n": 10,
+       "p": 1,
+       "q": 3,
+       "r": 5,
+       "angles_deg": [
+        36.0,
+        108.0,
+        180.0
+       ],
+       "radius_squared_shares": [
+        0.4,
+        0.4,
+        0.19999999999999996
+       ],
+       "edge_over_radius": 1.414213562373095
+      },
+      {
+       "n": 10,
+       "p": 2,
+       "q": 3,
+       "r": 5,
+       "angles_deg": [
+        72.0,
+        108.0,
+        180.0
+       ],
+       "radius_squared_shares": [
+        0.3559964222368532,
+        0.3559964222368532,
+        0.2880071555262936
+       ],
+       "edge_over_radius": 1.604996670106386
+      },
+      {
+       "n": 11,
+       "p": 1,
+       "q": 3,
+       "r": 5,
+       "angles_deg": [
+        32.72727272727273,
+        98.18181818181819,
+        163.63636363636363
+       ],
+       "radius_squared_shares": [
+        0.31841541268918394,
+        0.4170355017062594,
+        0.26454908560455664
+       ],
+       "edge_over_radius": 1.4459012676947083
+      },
+      {
+       "n": 11,
+       "p": 1,
+       "q": 4,
+       "r": 5,
+       "angles_deg": [
+        32.72727272727273,
+        130.9090909090909,
+        163.63636363636363
+       ],
+       "radius_squared_shares": [
+        0.5885322294769055,
+        0.38063128732541746,
+        0.03083648319767701
+       ],
+       "edge_over_radius": 1.251992856135494
+      },
+      {
+       "n": 11,
+       "p": 2,
+       "q": 3,
+       "r": 5,
+       "angles_deg": [
+        65.45454545454545,
+        98.18181818181819,
+        163.63636363636363
+       ],
+       "radius_squared_shares": [
+        0.2446090656200559,
+        0.41959513201231624,
+        0.33579580236762785
+       ],
+       "edge_over_radius": 1.6001837695206367
+      },
+      {
+       "n": 11,
+       "p": 2,
+       "q": 4,
+       "r": 5,
+       "angles_deg": [
+        65.45454545454545,
+        130.9090909090909,
+        163.63636363636363
+       ],
+       "radius_squared_shares": [
+        0.4544811366692576,
+        0.3849719097890493,
+        0.16054695354169307
+       ],
+       "edge_over_radius": 1.5603514821684703
+      },
+      {
+       "n": 12,
+       "p": 1,
+       "q": 3,
+       "r": 5,
+       "angles_deg": [
+        30.0,
+        90.0,
+        150.0
+       ],
+       "radius_squared_shares": [
+        0.33333333333333376,
+        0.3333333333333332,
+        0.3333333333333331
+       ],
+       "edge_over_radius": 1.4142135623730947
+      },
+      {
+       "n": 12,
+       "p": 1,
+       "q": 4,
+       "r": 5,
+       "angles_deg": [
+        30.0,
+        120.0,
+        150.0
+       ],
+       "radius_squared_shares": [
+        0.5915063509461097,
+        0.24999999999999986,
+        0.15849364905389043
+       ],
+       "edge_over_radius": 1.224744871391589
+      },
+      {
+       "n": 12,
+       "p": 1,
+       "q": 4,
+       "r": 6,
+       "angles_deg": [
+        30.0,
+        120.0,
+        180.0
+       ],
+       "radius_squared_shares": [
+        0.5680646641785709,
+        0.3279722867806124,
+        0.10396304904081666
+       ],
+       "edge_over_radius": 1.2457855050209923
+      },
+      {
+       "n": 12,
+       "p": 2,
+       "q": 3,
+       "r": 5,
+       "angles_deg": [
+        60.0,
+        90.0,
+        150.0
+       ],
+       "radius_squared_shares": [
+        0.24401693585629275,
+        0.3333333333333331,
+        0.4226497308103742
+       ],
+       "edge_over_radius": 1.5773502691896257
+      },
+      {
+       "n": 12,
+       "p": 2,
+       "q": 4,
+       "r": 5,
+       "angles_deg": [
+        60.0,
+        120.0,
+        150.0
+       ],
+       "radius_squared_shares": [
+        0.4330127018922194,
+        0.24999999999999978,
+        0.3169872981077808
+       ],
+       "edge_over_radius": 1.5381890013208515
+      },
+      {
+       "n": 13,
+       "p": 1,
+       "q": 3,
+       "r": 5,
+       "angles_deg": [
+        27.692307692307693,
+        83.07692307692308,
+        138.46153846153845
+       ],
+       "radius_squared_shares": [
+        0.523816237527722,
+        0.12627814067085075,
+        0.34990562180142726
+       ],
+       "edge_over_radius": 1.251295909882764
+      },
+      {
+       "n": 13,
+       "p": 1,
+       "q": 4,
+       "r": 5,
+       "angles_deg": [
+        27.692307692307693,
+        110.76923076923077,
+        138.46153846153845
+       ],
+       "radius_squared_shares": [
+        0.6289387479448301,
+        0.09727212742497936,
+        0.27378912463019056
+       ],
+       "edge_over_radius": 1.168357539575486
+      },
+      {
+       "n": 13,
+       "p": 1,
+       "q": 4,
+       "r": 6,
+       "angles_deg": [
+        27.692307692307693,
+        110.76923076923077,
+        166.15384615384616
+       ],
+       "radius_squared_shares": [
+        0.5389467129038157,
+        0.3043328506947756,
+        0.1567204364014087
+       ],
+       "edge_over_radius": 1.251295909882764
+      },
+      {
+       "n": 13,
+       "p": 2,
+       "q": 3,
+       "r": 5,
+       "angles_deg": [
+        55.38461538461539,
+        83.07692307692308,
+        138.46153846153845
+       ],
+       "radius_squared_shares": [
+        0.4288151940612271,
+        0.051380054379720194,
+        0.5198047515590528
+       ],
+       "edge_over_radius": 1.509497577140969
+      },
+      {
+       "n": 13,
+       "p": 2,
+       "q": 4,
+       "r": 5,
+       "angles_deg": [
+        55.38461538461539,
+        110.76923076923077,
+        138.46153846153845
+       ],
+       "radius_squared_shares": [
+        0.4601056057631331,
+        0.035368183871976856,
+        0.5045262103648901
+       ],
+       "edge_over_radius": 1.5025413456085372
+      },
+      {
+       "n": 13,
+       "p": 2,
+       "q": 4,
+       "r": 6,
+       "angles_deg": [
+        55.38461538461539,
+        110.76923076923077,
+        166.15384615384616
+       ],
+       "radius_squared_shares": [
+        0.35184371974548523,
+        0.3904363677474866,
+        0.2577199125070282
+       ],
+       "edge_over_radius": 1.5419543902286381
+      },
+      {
+       "n": 13,
+       "p": 3,
+       "q": 4,
+       "r": 6,
+       "angles_deg": [
+        83.07692307692308,
+        110.76923076923077,
+        166.15384615384616
+       ],
+       "radius_squared_shares": [
+        0.5229483446176846,
+        0.13989702365604548,
+        0.3371546317262699
+       ],
+       "edge_over_radius": 1.6210683154931025
+      },
+      {
+       "n": 13,
+       "p": 3,
+       "q": 5,
+       "r": 6,
+       "angles_deg": [
+        83.07692307692308,
+        138.46153846153845,
+        166.15384615384616
+       ],
+       "radius_squared_shares": [
+        0.5750377806254734,
+        0.16332354971119684,
+        0.26163866966332977
+       ],
+       "edge_over_radius": 1.6167697502873764
+      },
+      {
+       "n": 14,
+       "p": 1,
+       "q": 4,
+       "r": 6,
+       "angles_deg": [
+        25.714285714285715,
+        102.85714285714286,
+        154.28571428571428
+       ],
+       "radius_squared_shares": [
+        0.5317447670140026,
+        0.2570638752041814,
+        0.21119135778181597
+       ],
+       "edge_over_radius": 1.2396720948530542
+      },
+      {
+       "n": 14,
+       "p": 1,
+       "q": 4,
+       "r": 7,
+       "angles_deg": [
+        25.714285714285715,
+        102.85714285714286,
+        180.0
+       ],
+       "radius_squared_shares": [
+        0.4519337358884675,
+        0.3624227168922195,
+        0.18564354721931298
+       ],
+       "edge_over_radius": 1.3108104075561888
+      },
+      {
+       "n": 14,
+       "p": 1,
+       "q": 5,
+       "r": 6,
+       "angles_deg": [
+        25.714285714285715,
+        128.57142857142858,
+        154.28571428571428
+       ],
+       "radius_squared_shares": [
+        0.6730053679075242,
+        0.27747906604368544,
+        0.04951556604879037
+       ],
+       "edge_over_radius": 1.1056766859965501
+      },
+      {
+       "n": 14,
+       "p": 1,
+       "q": 5,
+       "r": 7,
+       "angles_deg": [
+        25.714285714285715,
+        128.57142857142858,
+        180.0
+       ],
+       "radius_squared_shares": [
+        0.669094393615531,
+        0.29777501874452356,
+        0.03313058763994542
+       ],
+       "edge_over_radius": 1.1099162641747424
+      },
+      {
+       "n": 14,
+       "p": 2,
+       "q": 4,
+       "r": 7,
+       "angles_deg": [
+        51.42857142857143,
+        102.85714285714286,
+        180.0
+       ],
+       "radius_squared_shares": [
+        0.26067438329921555,
+        0.46971900802451116,
+        0.2696066086762733
+       ],
+       "edge_over_radius": 1.556663805351718
+      },
+      {
+       "n": 14,
+       "p": 2,
+       "q": 5,
+       "r": 6,
+       "angles_deg": [
+        51.42857142857143,
+        128.57142857142858,
+        154.28571428571428
+       ],
+       "radius_squared_shares": [
+        0.4579823896988097,
+        0.39059137516107606,
+        0.15142623514011416
+       ],
+       "edge_over_radius": 1.4794679539237903
+      },
+      {
+       "n": 14,
+       "p": 2,
+       "q": 5,
+       "r": 7,
+       "angles_deg": [
+        51.42857142857143,
+        128.57142857142858,
+        180.0
+       ],
+       "radius_squared_shares": [
+        0.4499395190037188,
+        0.44993951900371876,
+        0.10012096199256248
+       ],
+       "edge_over_radius": 1.4833212477360138
+      },
+      {
+       "n": 14,
+       "p": 3,
+       "q": 4,
+       "r": 6,
+       "angles_deg": [
+        77.14285714285714,
+        102.85714285714286,
+        154.28571428571428
+       ],
+       "radius_squared_shares": [
+        0.460291599075738,
+        0.13873953302184283,
+        0.40096886790241915
+       ],
+       "edge_over_radius": 1.6060562885056437
+      },
+      {
+       "n": 14,
+       "p": 3,
+       "q": 4,
+       "r": 7,
+       "angles_deg": [
+        77.14285714285714,
+        102.85714285714286,
+        180.0
+       ],
+       "radius_squared_shares": [
+        0.344712420413895,
+        0.3447124204138952,
+        0.31057515917220985
+       ],
+       "edge_over_radius": 1.6189967011530382
+      },
+      {
+       "n": 14,
+       "p": 3,
+       "q": 5,
+       "r": 6,
+       "angles_deg": [
+        77.14285714285714,
+        128.57142857142858,
+        154.28571428571428
+       ],
+       "radius_squared_shares": [
+        0.5190959315558876,
+        0.133440811768481,
+        0.3474632566756314
+       ],
+       "edge_over_radius": 1.6004642144024281
+      },
+      {
+       "n": 14,
+       "p": 3,
+       "q": 5,
+       "r": 7,
+       "angles_deg": [
+        77.14285714285714,
+        128.57142857142858,
+        180.0
+       ],
+       "radius_squared_shares": [
+        0.49864305113226665,
+        0.27672601623471027,
+        0.22463093263302314
+       ],
+       "edge_over_radius": 1.6038754716096766
+      },
+      {
+       "n": 15,
+       "p": 1,
+       "q": 4,
+       "r": 6,
+       "angles_deg": [
+        24.0,
+        96.0,
+        144.0
+       ],
+       "radius_squared_shares": [
+        0.5824127583107681,
+        0.16294323418916176,
+        0.2546440075000701
+       ],
+       "edge_over_radius": 1.1755705045849463
+      },
+      {
+       "n": 15,
+       "p": 1,
+       "q": 4,
+       "r": 7,
+       "angles_deg": [
+        24.0,
+        96.0,
+        168.0
+       ],
+       "radius_squared_shares": [
+        0.34944765498646085,
+        0.41414316989937444,
+        0.23640917511416465
+       ],
+       "edge_over_radius": 1.3822420183564197
+      },
+      {
+       "n": 15,
+       "p": 1,
+       "q": 5,
+       "r": 6,
+       "angles_deg": [
+        24.0,
+        120.0,
+        144.0
+       ],
+       "radius_squared_shares": [
+        0.6855480163324185,
+        0.1645834482332481,
+        0.14986853543433343
+       ],
+       "edge_over_radius": 1.074484657767348
+      },
+      {
+       "n": 15,
+       "p": 1,
+       "q": 5,
+       "r": 7,
+       "angles_deg": [
+        24.0,
+        120.0,
+        168.0
+       ],
+       "radius_squared_shares": [
+        0.6589112828370656,
+        0.25595455520643573,
+        0.0851341619564987
+       ],
+       "edge_over_radius": 1.1039072827336451
+      },
+      {
+       "n": 15,
+       "p": 2,
+       "q": 4,
+       "r": 6,
+       "angles_deg": [
+        48.0,
+        96.0,
+        144.0
+       ],
+       "radius_squared_shares": [
+        0.37495762091663243,
+        0.20522110737883173,
+        0.41982127170453587
+       ],
+       "edge_over_radius": 1.4900995739551408
+      }
+     ]
+    },
+    "4": {
+     "n_found": 8,
+     "n_values": [
+      6,
+      7,
+      10,
+      12,
+      18,
+      24,
+      28
+     ],
+     "listed": [
+      {
+       "n": 6,
+       "p": 1,
+       "q": 2,
+       "r": 3,
+       "angles_deg": [
+        60.0,
+        120.0,
+        180.0
+       ],
+       "radius_squared_shares": [
+        0.39999999999999997,
+        0.4,
+        0.20000000000000007
+       ],
+       "edge_over_radius": 1.5491933384829668
+      },
+      {
+       "n": 7,
+       "p": 1,
+       "q": 2,
+       "r": 3,
+       "angles_deg": [
+        51.42857142857143,
+        102.85714285714286,
+        154.28571428571428
+       ],
+       "radius_squared_shares": [
+        0.33333333333333337,
+        0.33333333333333337,
+        0.33333333333333326
+       ],
+       "edge_over_radius": 1.5275252316519465
+      },
+      {
+       "n": 10,
+       "p": 1,
+       "q": 3,
+       "r": 5,
+       "angles_deg": [
+        36.0,
+        108.0,
+        180.0
+       ],
+       "radius_squared_shares": [
+        0.4,
+        0.4,
+        0.19999999999999996
+       ],
+       "edge_over_radius": 1.414213562373095
+      },
+      {
+       "n": 12,
+       "p": 1,
+       "q": 3,
+       "r": 5,
+       "angles_deg": [
+        30.0,
+        90.0,
+        150.0
+       ],
+       "radius_squared_shares": [
+        0.33333333333333376,
+        0.3333333333333332,
+        0.3333333333333331
+       ],
+       "edge_over_radius": 1.4142135623730947
+      },
+      {
+       "n": 18,
+       "p": 1,
+       "q": 5,
+       "r": 8,
+       "angles_deg": [
+        20.0,
+        100.0,
+        160.0
+       ],
+       "radius_squared_shares": [
+        0.5685790213016287,
+        0.2577728010314408,
+        0.17364817766693047
+       ],
+       "edge_over_radius": 1.160730957342769
+      },
+      {
+       "n": 24,
+       "p": 1,
+       "q": 7,
+       "r": 12,
+       "angles_deg": [
+        15.0,
+        105.0,
+        180.0
+       ],
+       "radius_squared_shares": [
+        0.7146687612194447,
+        0.19149491742450106,
+        0.09383632135605427
+       ],
+       "edge_over_radius": 0.9519262989559357
+      },
+      {
+       "n": 28,
+       "p": 1,
+       "q": 8,
+       "r": 13,
+       "angles_deg": [
+        12.857142857142858,
+        102.85714285714286,
+        167.14285714285714
+       ],
+       "radius_squared_shares": [
+        0.760340892168185,
+        0.153989264184952,
+        0.08566984364686298
+       ],
+       "edge_over_radius": 0.8677674782351167
+      },
+      {
+       "n": 28,
+       "p": 5,
+       "q": 9,
+       "r": 12,
+       "angles_deg": [
+        64.28571428571429,
+        115.71428571428571,
+        154.28571428571428
+       ],
+       "radius_squared_shares": [
+        0.4166496237913913,
+        0.2617983101547134,
+        0.32155206605389536
+       ],
+       "edge_over_radius": 1.5636629649360596
+      }
+     ]
+    },
+    "5": {
+     "n_found": 3,
+     "n_values": [
+      6,
+      7,
+      12
+     ],
+     "listed": [
+      {
+       "n": 6,
+       "p": 1,
+       "q": 2,
+       "r": 3,
+       "angles_deg": [
+        60.0,
+        120.0,
+        180.0
+       ],
+       "radius_squared_shares": [
+        0.39999999999999997,
+        0.4,
+        0.20000000000000007
+       ],
+       "edge_over_radius": 1.5491933384829668
+      },
+      {
+       "n": 7,
+       "p": 1,
+       "q": 2,
+       "r": 3,
+       "angles_deg": [
+        51.42857142857143,
+        102.85714285714286,
+        154.28571428571428
+       ],
+       "radius_squared_shares": [
+        0.33333333333333337,
+        0.33333333333333337,
+        0.33333333333333326
+       ],
+       "edge_over_radius": 1.5275252316519465
+      },
+      {
+       "n": 12,
+       "p": 1,
+       "q": 3,
+       "r": 5,
+       "angles_deg": [
+        30.0,
+        90.0,
+        150.0
+       ],
+       "radius_squared_shares": [
+        0.33333333333333376,
+        0.3333333333333332,
+        0.3333333333333331
+       ],
+       "edge_over_radius": 1.4142135623730947
+      }
+     ]
+    },
+    "6": {
+     "n_found": 1,
+     "n_values": [
+      7
+     ],
+     "listed": [
+      {
+       "n": 7,
+       "p": 1,
+       "q": 2,
+       "r": 3,
+       "angles_deg": [
+        51.42857142857143,
+        102.85714285714286,
+        154.28571428571428
+       ],
+       "radius_squared_shares": [
+        0.33333333333333337,
+        0.33333333333333337,
+        0.33333333333333326
+       ],
+       "edge_over_radius": 1.5275252316519465
+      }
+     ]
+    }
+   },
+   "chains_with_a_zero_radius_plane": {
+    "3": 179,
+    "4": 53,
+    "5": 0,
+    "6": 0
+   },
+   "note": "m = 3 (tetrahedra): two equations for two free shares, so a solution is expected for many turns; only the first 40 are listed, all are counted"
+  },
+  "exact": {
+   "three pentagons in orthogonal planes": {
+    "n_points": 15,
+    "closures": [
+     {
+      "turns_of_36_deg": [
+       2,
+       4,
+       6
+      ],
+      "set_return_step": 1,
+      "point_return_step": 5,
+      "plane_return_steps": [
+       5,
+       5,
+       5
+      ],
+      "miss_is_exactly_zero_at_return": true,
+      "miss_squared_of_first_point_per_step": [
+       [
+        [
+         3,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         2,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         2,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         3,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         0,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ]
+      ],
+      "arithmetic": "exact a + b*phi forms; equality is ==, no tolerance",
+      "predicted_lcm_of_plane_periods": 5,
+      "point_return_matches_lcm": true
+     },
+     {
+      "turns_of_36_deg": [
+       1,
+       2,
+       3
+      ],
+      "set_return_step": 2,
+      "point_return_step": 10,
+      "plane_return_steps": [
+       10,
+       5,
+       10
+      ],
+      "miss_is_exactly_zero_at_return": true,
+      "miss_squared_of_first_point_per_step": [
+       [
+        [
+         2,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         3,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         1,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         2,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         4,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         2,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         1,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         3,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         2,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         0,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ]
+      ],
+      "arithmetic": "exact a + b*phi forms; equality is ==, no tolerance",
+      "predicted_lcm_of_plane_periods": 10,
+      "point_return_matches_lcm": true
+     },
+     {
+      "turns_of_36_deg": [
+       2,
+       2,
+       2
+      ],
+      "set_return_step": 1,
+      "point_return_step": 5,
+      "plane_return_steps": [
+       5,
+       5,
+       5
+      ],
+      "miss_is_exactly_zero_at_return": true,
+      "miss_squared_of_first_point_per_step": [
+       [
+        [
+         3,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         2,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         2,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         3,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         0,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ]
+      ],
+      "arithmetic": "exact a + b*phi forms; equality is ==, no tolerance",
+      "predicted_lcm_of_plane_periods": 5,
+      "point_return_matches_lcm": true
+     },
+     {
+      "turns_of_36_deg": [
+       2,
+       4,
+       5
+      ],
+      "set_return_step": 2,
+      "point_return_step": 10,
+      "plane_return_steps": [
+       5,
+       5,
+       2
+      ],
+      "miss_is_exactly_zero_at_return": true,
+      "miss_squared_of_first_point_per_step": [
+       [
+        [
+         3,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         2,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         2,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         3,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         0,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         3,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         2,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         2,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         3,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         0,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ]
+      ],
+      "arithmetic": "exact a + b*phi forms; equality is ==, no tolerance",
+      "predicted_lcm_of_plane_periods": 10,
+      "point_return_matches_lcm": true
+     },
+     {
+      "turns_of_36_deg": [
+       1,
+       5,
+       10
+      ],
+      "set_return_step": 2,
+      "point_return_step": 10,
+      "plane_return_steps": [
+       10,
+       2,
+       1
+      ],
+      "miss_is_exactly_zero_at_return": true,
+      "miss_squared_of_first_point_per_step": [
+       [
+        [
+         2,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         3,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         1,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         2,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         4,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         2,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         1,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         3,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         2,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         0,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ]
+      ],
+      "arithmetic": "exact a + b*phi forms; equality is ==, no tolerance",
+      "predicted_lcm_of_plane_periods": 10,
+      "point_return_matches_lcm": true
+     },
+     {
+      "turns_of_36_deg": [
+       4,
+       6,
+       8
+      ],
+      "set_return_step": 1,
+      "point_return_step": 5,
+      "plane_return_steps": [
+       5,
+       5,
+       5
+      ],
+      "miss_is_exactly_zero_at_return": true,
+      "miss_squared_of_first_point_per_step": [
+       [
+        [
+         2,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         3,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         3,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         2,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         0,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ]
+      ],
+      "arithmetic": "exact a + b*phi forms; equality is ==, no tolerance",
+      "predicted_lcm_of_plane_periods": 5,
+      "point_return_matches_lcm": true
+     }
+    ],
+    "all_match_the_lcm": true
+   },
+   "(zeta^k, zeta^2k, zeta^3k)": {
+    "n_points": 5,
+    "closures": [
+     {
+      "turns_of_36_deg": [
+       2,
+       4,
+       6
+      ],
+      "set_return_step": 1,
+      "point_return_step": 5,
+      "plane_return_steps": [
+       5,
+       5,
+       5
+      ],
+      "miss_is_exactly_zero_at_return": true,
+      "miss_squared_of_first_point_per_step": [
+       [
+        [
+         7,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         8,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         8,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         7,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         0,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ]
+      ],
+      "arithmetic": "exact a + b*phi forms; equality is ==, no tolerance",
+      "predicted_lcm_of_plane_periods": 5,
+      "point_return_matches_lcm": true
+     },
+     {
+      "turns_of_36_deg": [
+       1,
+       2,
+       3
+      ],
+      "set_return_step": 2,
+      "point_return_step": 10,
+      "plane_return_steps": [
+       10,
+       5,
+       10
+      ],
+      "miss_is_exactly_zero_at_return": true,
+      "miss_squared_of_first_point_per_step": [
+       [
+        [
+         6,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         7,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         8,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         8,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         8,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         7,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         6,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         0,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ]
+      ],
+      "arithmetic": "exact a + b*phi forms; equality is ==, no tolerance",
+      "predicted_lcm_of_plane_periods": 10,
+      "point_return_matches_lcm": true
+     },
+     {
+      "turns_of_36_deg": [
+       2,
+       2,
+       2
+      ],
+      "set_return_step": 5,
+      "point_return_step": 5,
+      "plane_return_steps": [
+       5,
+       5,
+       5
+      ],
+      "miss_is_exactly_zero_at_return": true,
+      "miss_squared_of_first_point_per_step": [
+       [
+        [
+         9,
+         1
+        ],
+        [
+         -3,
+         1
+        ]
+       ],
+       [
+        [
+         6,
+         1
+        ],
+        [
+         3,
+         1
+        ]
+       ],
+       [
+        [
+         6,
+         1
+        ],
+        [
+         3,
+         1
+        ]
+       ],
+       [
+        [
+         9,
+         1
+        ],
+        [
+         -3,
+         1
+        ]
+       ],
+       [
+        [
+         0,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ]
+      ],
+      "arithmetic": "exact a + b*phi forms; equality is ==, no tolerance",
+      "predicted_lcm_of_plane_periods": 5,
+      "point_return_matches_lcm": true
+     },
+     {
+      "turns_of_36_deg": [
+       2,
+       4,
+       5
+      ],
+      "set_return_step": 10,
+      "point_return_step": 10,
+      "plane_return_steps": [
+       5,
+       5,
+       2
+      ],
+      "miss_is_exactly_zero_at_return": true,
+      "miss_squared_of_first_point_per_step": [
+       [
+        [
+         9,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         9,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         4,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         9,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         9,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         0,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ]
+      ],
+      "arithmetic": "exact a + b*phi forms; equality is ==, no tolerance",
+      "predicted_lcm_of_plane_periods": 10,
+      "point_return_matches_lcm": true
+     },
+     {
+      "turns_of_36_deg": [
+       1,
+       5,
+       10
+      ],
+      "set_return_step": 10,
+      "point_return_step": 10,
+      "plane_return_steps": [
+       10,
+       2,
+       1
+      ],
+      "miss_is_exactly_zero_at_return": true,
+      "miss_squared_of_first_point_per_step": [
+       [
+        [
+         6,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         3,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         2,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         8,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ],
+       [
+        [
+         2,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         5,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         3,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         6,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         0,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ]
+      ],
+      "arithmetic": "exact a + b*phi forms; equality is ==, no tolerance",
+      "predicted_lcm_of_plane_periods": 10,
+      "point_return_matches_lcm": true
+     },
+     {
+      "turns_of_36_deg": [
+       4,
+       6,
+       8
+      ],
+      "set_return_step": 5,
+      "point_return_step": 5,
+      "plane_return_steps": [
+       5,
+       5,
+       5
+      ],
+      "miss_is_exactly_zero_at_return": true,
+      "miss_squared_of_first_point_per_step": [
+       [
+        [
+         7,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         8,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         8,
+         1
+        ],
+        [
+         -1,
+         1
+        ]
+       ],
+       [
+        [
+         7,
+         1
+        ],
+        [
+         1,
+         1
+        ]
+       ],
+       [
+        [
+         0,
+         1
+        ],
+        [
+         0,
+         1
+        ]
+       ]
+      ],
+      "arithmetic": "exact a + b*phi forms; equality is ==, no tolerance",
+      "predicted_lcm_of_plane_periods": 5,
+      "point_return_matches_lcm": true
+     }
+    ],
+    "all_match_the_lcm": true
+   }
+  }
+ },
+ "angles": null,
+ "human_interest": null,
+ "ai_interest": null,
+ "compressibility": {
+  "definition": "per rate triple: p point return or -, then s set return or -; shape by shape",
+  "n": 44,
+  "phrases": 5,
+  "zlib_ratio": 0.4090909090909091
+ },
+ "nature_match": null,
+ "divergence_note": null
+}
