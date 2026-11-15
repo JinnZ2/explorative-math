@@ -28,9 +28,7 @@ class Schema(unittest.TestCase):
         bad = dict(good, human_interest="nice")
         with self.assertRaises(emlib.SchemaError):
             emlib.check_run(bad)
-        bad = dict(good, ai_interest=None)
-        with self.assertRaises(emlib.SchemaError):
-            emlib.check_run(bad)
+        emlib.check_run(dict(good, ai_interest=None))  # void is legal (auto runs)
 
 
 class LZ76(unittest.TestCase):

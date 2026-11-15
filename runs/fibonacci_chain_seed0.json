@@ -59,7 +59,8 @@
  "compressibility": {
   "definition": "golden-slope chain as L/S letters",
   "n": 350,
-  "phrases": 10
+  "phrases": 10,
+  "zlib_ratio": 0.08
  },
  "nature_match": "fibonacci_chain_quasicrystal",
  "divergence_note": null

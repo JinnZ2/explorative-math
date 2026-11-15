@@ -1,11 +1,11 @@
 """emlib -- shared helpers for the experiments. CC0. Co-authored. Stdlib only.
 
 - write_run(): writes runs/<name>_seed<k>.json and checks the schema.
-- lz76(): Lempel-Ziv 1976 phrase count of a symbol string (compressibility).
-- vector helpers: dot, norm, unit, random_unit, angle_deg.
+- lz76(), compressibility(): LZ76 phrase count and zlib ratio of a symbol string.
+- vector helpers: re-exported from toolkit.primitives (one copy).
 """
 import json
-import math
+import zlib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -27,8 +27,6 @@ def check_run(rec):
         raise SchemaError(f"missing {missing} extra {extra}")
     if rec["human_interest"] is not None:
         raise SchemaError("human_interest is the human's to fill; must be null when written")
-    if rec["ai_interest"] is None:
-        raise SchemaError("ai_interest must be a reading or NOT_INTERPRETABLE, not null")
     c = rec["compressibility"]
     if c is not None and not {"definition", "n", "phrases"} <= set(c):
         raise SchemaError("compressibility needs definition, n, phrases (or null)")
@@ -68,30 +66,11 @@ def lz76(s):
 
 
 def compressibility(symbols, definition):
+    """LZ76 phrase count and zlib ratio of the same symbol string."""
     s = "".join(symbols)
-    return {"definition": definition, "n": len(s), "phrases": lz76(s)}
+    return {"definition": definition, "n": len(s), "phrases": lz76(s),
+            "zlib_ratio": (len(zlib.compress(s.encode("utf-8"), 9)) / len(s)) if s else None}
 
 
-def dot(a, b):
-    return sum(x * y for x, y in zip(a, b))
-
-
-def norm(a):
-    return math.sqrt(dot(a, a))
-
-
-def unit(a):
-    n = norm(a)
-    return [x / n for x in a]
-
-
-def random_unit(rng, d):
-    while True:
-        v = [rng.gauss(0.0, 1.0) for _ in range(d)]
-        if norm(v) > 0:
-            return unit(v)
-
-
-def angle_deg(a, b):
-    c = dot(a, b) / (norm(a) * norm(b))
-    return math.degrees(math.acos(max(-1.0, min(1.0, c))))
+# vector helpers live in toolkit.primitives; re-exported so the experiments keep working
+from toolkit.primitives import dot, norm, unit, random_unit, angle_deg  # noqa: E402,F401

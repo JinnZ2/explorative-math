@@ -273,7 +273,8 @@
  "compressibility": {
   "definition": "exact shell fraction in tenths, rows in (d, eps) order",
   "n": 27,
-  "phrases": 14
+  "phrases": 14,
+  "zlib_ratio": 1.1481481481481481
  },
  "nature_match": null,
  "divergence_note": null

@@ -15,8 +15,9 @@ Status tags:
 - **PROPOSED**: not run yet.
 
 ```sh
-python3 -m unittest discover -s tests     # 29 tests
+python3 -m unittest discover -s tests     # 46 tests
 python3 experiments/<name>.py [seed]      # writes runs/<name>_seed<seed>.json
+python3 -m toolkit.generator 0 1 2        # writes runs/generated_seed<k>.json
 ```
 
 ## Experiments
@@ -61,6 +62,26 @@ The regular 5-cell in R⁴, rotated in all six coordinate planes and projected o
 - **OBSERVED:** the Petrie projection, computed directly from the eigenplane of the cyclic vertex permutation, is a regular pentagon (score 2.2e−14).
 - **OBSERVED:** over 2000 random rotations the best score was 23.45 and the median 152.8. No trial scored below the logging threshold of 5, so the logged angle sets hold only the Petrie projection.
 - **PROPOSED:** search rotations toward the eigenplane, rather than sampling uniformly, and log the path.
+
+## Toolkit layer (`toolkit/`)
+
+| Part | Contents |
+|---|---|
+| primitives | vectors; rotation in any (i, j) plane in any dimension; projection onto coordinates or an orthonormal basis; angles; Gram-Schmidt; polytope vertex generators (simplex, hypercube, cross-polytope, 24-cell, icosahedron, regular polygon); lattices (Z^n, hexagonal) |
+| composers | `rotate_project`, `phi_scale` / `phi_stack`, `cut_and_project` (general lattice, bases and window), `iterate`, `overlay` (points tagged by source) |
+| probes | rotational symmetry, mirror symmetry, smallest period and period profile, zlib ratio, angle histogram |
+| generator | a seed draws one of three pipelines and its parameters, runs it, applies the probes, and logs it. The pipelines are: shape → φ-stack → random rotations → 2D; Z² cut at a random slope; circle-rotation orbit. The drawn spec is stored in `params`, so any run can be remade. |
+| loghook | `log_run()` and `@logged` write the schema for every run, with both interest slots and the divergence note left empty |
+
+Ten generated runs are committed (`runs/generated_seed0..9.json`, seeds 0–9). None is filtered: they include shapes whose only symmetry is the trivial 2-fold one, and a 4-point simplex projection with no symmetry at all.
+
+- **OBSERVED:** the zlib ratio exceeds 1 on short strings (zlib header overhead). It is recorded as computed; Q10 notes the limit.
+
+## Puzzle layer
+
+`open_questions.md` holds ten OPEN prompts with no answer key.
+- Five are find-the-angle challenges (tesseract, 24-cell, 5-cell search path, φ-overlay mirror change, three-gap slope).
+- Five come from something a recorded run showed and did not explain.
 
 ## Method
 

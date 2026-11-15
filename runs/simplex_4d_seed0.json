@@ -2038,7 +2038,8 @@
  "compressibility": {
   "definition": "per-trial pentagon_score, 3*log10(1+score) floored, 0-9",
   "n": 2000,
-  "phrases": 111
+  "phrases": 111,
+  "zlib_ratio": 0.1315
  },
  "nature_match": null,
  "divergence_note": null

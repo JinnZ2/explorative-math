@@ -1,0 +1,99 @@
+{
+ "params": {
+  "spec": {
+   "pipeline": "shape",
+   "source": "simplex",
+   "dim": 3,
+   "rotations": [
+    [
+     [
+      0,
+      1
+     ],
+     1.5807444789804777
+    ],
+    [
+     [
+      0,
+      2
+     ],
+     1.3334101131000777
+    ]
+   ],
+   "phi_stack": [
+    0
+   ]
+  },
+  "seed": 2
+ },
+ "outputs": {
+  "n_points": 4,
+  "projected": [
+   [
+    -0.002025978,
+    0.865982551
+   ],
+   [
+    -0.191324915,
+    -0.296783349
+   ],
+   [
+    -0.590601204,
+    -0.284599601
+   ],
+   [
+    0.783952097,
+    -0.284599601
+   ]
+  ],
+  "rotational_symmetry": [],
+  "mirror_axes_deg": [],
+  "polar_angle_histogram": {
+   "lo": 0.0,
+   "hi": 360.0,
+   "width": 15.0,
+   "counts": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0
+   ]
+  }
+ },
+ "angles": [
+  90.13404401378743,
+  205.72854170849413,
+  237.1916667324321,
+  340.04748905540725
+ ],
+ "human_interest": null,
+ "ai_interest": null,
+ "compressibility": {
+  "definition": "polar angles of projected points in 15-degree bins (a..x)",
+  "n": 4,
+  "phrases": 4,
+  "zlib_ratio": 3.0
+ },
+ "nature_match": null,
+ "divergence_note": null
+}

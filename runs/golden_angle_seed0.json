@@ -90,7 +90,8 @@
  "compressibility": {
   "definition": "rank of each angle by nn_cv (a = most even), in ANGLES order",
   "n": 9,
-  "phrases": 9
+  "phrases": 9,
+  "zlib_ratio": 1.8888888888888888
  },
  "nature_match": "phyllotaxis_golden_angle",
  "divergence_note": null

@@ -13,8 +13,10 @@ kept. The log is the product; no single result is.
 
 ```text
 license          CC0, everything
-python           stdlib only: math, itertools, random, fractions for the maths;
-                 json, pathlib, unittest for I/O and tests. No numpy, no pip.
+python           stdlib only: math, itertools, random, fractions, statistics for
+                 the maths; zlib for the compressibility probe; json, pathlib,
+                 functools, unittest for I/O, the log hook and tests.
+                 No numpy, no pip.
                  phone-buildable: every script runs in seconds on a phone.
 words            no word coinage. Use an existing name or leave the slot unnamed.
 gaps             leave gaps. A slot with nothing in it stays void (null),
@@ -25,7 +27,9 @@ shape            keep shape: record the object as computed before any summary.
 status tags      every claim is OBSERVED (computed here), DERIVED (follows from
                  computed values, reasoning shown) or PROPOSED (not yet run).
 interest fields  human_interest is the human's to fill; the AI never writes it.
-                 ai_interest is the AI's own reading, labelled as such.
+                 ai_interest is the AI's own reading, labelled as such, or void.
+                 Automatic runs (toolkit.loghook, toolkit.generator) leave BOTH
+                 interest slots void: nobody has looked yet.
 co-authored      tag new files and commits co-authored.
 ```
 
@@ -48,8 +52,19 @@ Known related names, kept as pointers, not as a name for the method:
 ## Layout
 
 ```text
-emlib.py               shared: run-file writer + schema check, LZ76 complexity,
-                       small vector helpers
+emlib.py               shared: run-file writer + schema check, LZ76 + zlib
+                       compressibility (vector helpers re-exported from toolkit)
+toolkit/
+  primitives.py        vectors, rotation in any (i, j) plane, projection, angles,
+                       Gram-Schmidt, polytopes (simplex, hypercube, cross-polytope,
+                       24-cell, icosahedron, regular polygon), lattices (Z^n, hex)
+  composers.py         rotate_project, phi_scale / phi_stack, cut_and_project,
+                       iterate, overlay
+  probes.py            rotational / mirror symmetry, smallest period, period
+                       profile, zlib ratio, angle histogram, polar angles
+  generator.py         seed -> random pipeline (shape / cut / orbit) -> probes -> log
+  loghook.py           log_run() and @logged: every run writes the schema,
+                       interest slots void
 nature_catalog.py      entries a run can match against (all CARRIED, not verified)
 experiments/
   near_orthogonality.py   a  random unit vectors: angle distribution vs dimension
@@ -60,6 +75,7 @@ experiments/
 runs/*.json            one file per run, schema below
 tests/                 unittest, one file per experiment plus emlib
 DIVERGENCE_LOG.md      where human and AI interest differ (columns = schema)
+open_questions.md      puzzle layer: unsolved prompts, no answer key
 ```
 
 ## Run schema (`runs/*.json`)
@@ -69,8 +85,9 @@ params            inputs, including the seed
 outputs           everything computed, before any summary
 angles            measured angles (degrees) or null when the run has none
 human_interest    null until the human fills it
-ai_interest       the AI's reading, or "not interpretable atm"
-compressibility   LZ76 phrase count of a declared symbol string, with its definition
+ai_interest       the AI's reading, "not interpretable atm", or null (automatic runs)
+compressibility   LZ76 phrase count and zlib ratio of a declared symbol string,
+                  with its definition
 nature_match      a nature_catalog id, or null
 divergence_note   null until the two interest fields differ
 ```
@@ -78,9 +95,14 @@ divergence_note   null until the two interest fields differ
 `emlib.write_run` refuses a run that is missing a key, or that carries a
 non-null `human_interest`.
 
+Puzzles in `open_questions.md` carry no answers. Do not add one; an attempt
+is a logged run, and a prompt stays OPEN until a run file shows the probe
+reading it asks for.
+
 ## Commands
 
 ```sh
 python3 -m unittest discover -s tests          # all tests
 python3 experiments/<name>.py                  # writes runs/<name>_seed<k>.json
+python3 -m toolkit.generator 0 1 2             # writes runs/generated_seed<k>.json
 ```

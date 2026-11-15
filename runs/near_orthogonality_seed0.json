@@ -3306,7 +3306,8 @@
  "compressibility": {
   "definition": "angles in 10-degree bins as letters a..r, dims in ascending order",
   "n": 3200,
-  "phrases": 788
+  "phrases": 788,
+  "zlib_ratio": 0.4496875
  },
  "nature_match": null,
  "divergence_note": null
