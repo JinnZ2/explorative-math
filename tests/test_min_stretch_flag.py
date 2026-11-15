@@ -53,7 +53,7 @@ class MinStretchFlag(unittest.TestCase):
         self.assertEqual(out["n_rows"], 4)
 
     def test_logged_runs_flag_and_are_not_edited(self):
-        files = sorted(M.emlib.RUNS.glob("*.json"))
+        files = M.emlib.run_files()
         before = {f.name: hashlib.sha256(f.read_bytes()).hexdigest() for f in files}
         out = M.run()
         after = {f.name: hashlib.sha256(f.read_bytes()).hexdigest() for f in files}

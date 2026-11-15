@@ -1,9 +1,13 @@
 """emlib -- shared helpers for the experiments. CC0. Co-authored. Stdlib only.
 
-- write_run(): writes runs/<name>_seed<k>.json and checks the schema.
+- write_run(): writes runs/<name>_seed<k>.json and checks the schema. A run
+  whose JSON is larger than GZ_THRESHOLD bytes is written as .json.gz
+  instead: the same text, complete, gzip-compressed.
+- load_run(), run_files(): read a run from either form; list both forms.
 - lz76(), compressibility(): LZ76 phrase count and zlib ratio of a symbol string.
 - vector helpers: re-exported from toolkit.primitives (one copy).
 """
+import gzip
 import json
 import zlib
 from pathlib import Path
@@ -14,6 +18,7 @@ RUNS = ROOT / "runs"
 SCHEMA = ("params", "outputs", "angles", "human_interest", "ai_interest",
           "compressibility", "nature_match", "divergence_note")
 NOT_INTERPRETABLE = "not interpretable atm"
+GZ_THRESHOLD = 256 * 1024   # bytes of JSON text above which a run is written gzipped
 
 
 class SchemaError(ValueError):
@@ -34,7 +39,10 @@ def check_run(rec):
 
 
 def write_run(name, seed, params, outputs, angles, ai_interest,
-              compressibility, nature_match, out_dir=None):
+              compressibility, nature_match, out_dir=None, gz=None):
+    """gz: True / False forces the form; None chooses by GZ_THRESHOLD. Either
+    way the full record is written, and a stale file of the other form for
+    the same run is removed, so a run has one file."""
     rec = {"params": dict(params, seed=seed), "outputs": outputs, "angles": angles,
            "human_interest": None, "ai_interest": ai_interest,
            "compressibility": compressibility, "nature_match": nature_match,
@@ -42,9 +50,41 @@ def write_run(name, seed, params, outputs, angles, ai_interest,
     check_run(rec)
     d = Path(out_dir) if out_dir else RUNS
     d.mkdir(parents=True, exist_ok=True)
-    p = d / f"{name}_seed{seed}.json"
-    p.write_text(json.dumps(rec, indent=1, sort_keys=False) + "\n", encoding="utf-8")
-    return p
+    data = (json.dumps(rec, indent=1, sort_keys=False) + "\n").encode("utf-8")
+    plain = d / f"{name}_seed{seed}.json"
+    packed = d / f"{name}_seed{seed}.json.gz"
+    if gz if gz is not None else len(data) > GZ_THRESHOLD:
+        with packed.open("wb") as fh:
+            # mtime 0 and no stored name: the same record gives the same bytes
+            with gzip.GzipFile(filename="", mode="wb", fileobj=fh, mtime=0) as z:
+                z.write(data)
+        plain.unlink(missing_ok=True)
+        return packed
+    plain.write_bytes(data)
+    packed.unlink(missing_ok=True)
+    return plain
+
+
+def load_run(path):
+    """Read a run from .json or .json.gz. If the named form is absent and the
+    other form is there, the other form is read."""
+    p = Path(path)
+    if not p.exists():
+        other = (p.with_name(p.name[:-3]) if p.name.endswith(".json.gz")
+                 else p.with_name(p.name + ".gz"))
+        if not other.exists():
+            raise FileNotFoundError(str(p))
+        p = other
+    if p.name.endswith(".gz"):
+        with gzip.open(p, "rt", encoding="utf-8") as fh:
+            return json.load(fh)
+    return json.loads(p.read_text(encoding="utf-8"))
+
+
+def run_files(runs_dir=None):
+    """Every run file in a directory, both forms, sorted by name."""
+    d = Path(runs_dir) if runs_dir else RUNS
+    return sorted(list(d.glob("*.json")) + list(d.glob("*.json.gz")))
 
 
 def lz76(s):

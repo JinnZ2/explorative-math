@@ -67,7 +67,7 @@ class ResidualSweep(unittest.TestCase):
 
     def test_observed_dips_in_the_logged_run(self):
         # OBSERVED on the committed run, pinned so a change shows up
-        rec = json.loads((M.emlib.RUNS / "mirror_sweep_seed0.json").read_text())
+        rec = M.emlib.load_run(M.emlib.RUNS / "mirror_sweep_seed0.json")
         got = {s["shape"]: s["residual_min_excluding_frame_0"]["shape"][0]
                for s in rec["outputs"]["sweep"]}
         self.assertEqual(got, {"simplex": 137, "crosspolytope": 1})
@@ -95,7 +95,7 @@ class MirrorPursuit(unittest.TestCase):
 
     def test_observed_counts_in_the_logged_run(self):
         # OBSERVED on the committed run, pinned so a change shows up
-        rec = json.loads((U.emlib.RUNS / "mirror_pursuit_seed0.json").read_text())
+        rec = U.emlib.load_run(U.emlib.RUNS / "mirror_pursuit_seed0.json")
         by = {s["shape"]: s for s in rec["outputs"]["shapes"]}
         self.assertEqual(by["5-cell"]["final_mirror_counts"], [1] * 8)
         self.assertEqual(by["16-cell"]["final_mirror_counts"], [2, 2, 2, 2, 0, 2, 2, 2])

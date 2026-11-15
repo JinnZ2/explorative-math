@@ -39,7 +39,7 @@ SEP = 1e-6                    # gap lengths closer than this are one length
 
 
 def source_window(path=None):
-    rec = json.loads((Path(path) if path else emlib.ROOT / SOURCE).read_text())
+    rec = emlib.load_run(Path(path) if path else emlib.ROOT / SOURCE)
     spec = rec["params"]["spec"]
     slope = spec["slope"]
     _, perp = C.line_basis_2d(slope)

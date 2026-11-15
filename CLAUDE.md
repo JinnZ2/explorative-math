@@ -23,7 +23,7 @@ kept. The log is the product; no single result is.
 license          CC0, everything
 python           stdlib only: math, itertools, random, fractions, statistics for
                  the maths; zlib for the compressibility probe; json, pathlib,
-                 functools, unittest for I/O, the log hook and tests.
+                 functools, gzip, unittest for I/O, the log hook and tests.
                  No numpy, no pip.
                  phone-buildable: every script runs in seconds on a phone.
 words            no word coinage. Use an existing name or leave the slot unnamed.
@@ -65,7 +65,8 @@ Known related names, kept as pointers, not as a name for the method:
 ## Layout
 
 ```text
-emlib.py               shared: run-file writer + schema check, LZ76 + zlib
+emlib.py               shared: run-file writer (+ .json.gz for large runs), load_run,
+                       run_files, schema check, LZ76 + zlib
                        compressibility (vector helpers re-exported from toolkit)
 toolkit/
   primitives.py        vectors, rotation in any (i, j) plane, projection, angles,
@@ -81,6 +82,7 @@ toolkit/
                        min_stretch_tag (points < 3 / third-gap freq: under-resolved)
                        *_bound helpers: the bound a reading was taken at
                        mirror_residual (continuous; 0 = exact mirror)
+                       mirror_axis_residuals, mirror_k_score (k distinct axes)
   generator.py         seed -> random pipeline (shape / cut / orbit) -> probes -> log
                        cut_weighted: asked for by name, never drawn, own run files
   loghook.py           log_run() and @logged: every run writes the schema,
@@ -102,14 +104,18 @@ experiments/
   mirror_sweep.py         l  what frame 0 is; mirror axes on 360 tour frames per shape
   coxeter_plane.py        m  Coxeter-plane projections of four 4-polytopes, read for mirrors
   mirror_pursuit.py       n  coordinate descent on mirror_residual from random starts; path logged
+  layered_pursuit.py      o  descent on the sum of the k smallest axis residuals: staged
+                             k = 1..h, and k = h at once; axis count per stage
 runs/*.json            one file per run, schema below
+runs/*.json.gz         the same, gzipped, for a run above emlib.GZ_THRESHOLD bytes;
+                       full content; read either form with emlib.load_run
 tests/                 unittest, one file per experiment plus emlib
 DIVERGENCE_LOG.md      where human and AI interest differ (columns = schema)
 open_questions.md      puzzle layer: unsolved prompts, no answer key
 REFERENCES/            pointers to related studies, each with how far it was read
 ```
 
-## Run schema (`runs/*.json`)
+## Run schema (`runs/*.json`, `runs/*.json.gz`)
 
 ```text
 params            inputs, including the seed
@@ -134,7 +140,7 @@ reading it asks for.
 
 ```sh
 python3 -m unittest discover -s tests          # all tests
-python3 experiments/<name>.py                  # writes runs/<name>_seed<k>.json
+python3 experiments/<name>.py                  # writes runs/<name>_seed<k>.json (or .json.gz)
 python3 -m toolkit.generator 0 1 2             # writes runs/generated_seed<k>.json
 python3 -m toolkit.generator --pipeline cut_weighted 0 1 2   # runs/generated_cut_weighted_seed<k>.json
 python3 -m compare                             # cross-build comparison -> compare/runs/*.jsonl

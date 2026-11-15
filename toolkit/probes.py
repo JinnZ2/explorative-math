@@ -10,6 +10,9 @@ CC0. Co-authored. Stdlib only.
   mirror_residual      continuous: mean distance from each reflected point to
                        its nearest point, smallest over candidate axes,
                        over the set's radius. 0 = exact mirror
+  mirror_axis_residuals, mirror_k_score
+                       the residual per distinct axis, and the sum of the k
+                       smallest (0 = k mirrors)
   smallest_period      smallest p with s[i] == s[i+p] throughout
   period_profile       smallest period of growing prefixes (aperiodicity shows
                        as growth; a finite sequence always has some period)
@@ -159,6 +162,56 @@ def mirror_residual(points):
             "scale": scale, "about": "centroid",
             "axes": "mean polar angle of every pair of points; no angle grid",
             "matching": "nearest point, not one-to-one"}
+
+
+def mirror_axis_residuals(points, min_sep_deg=5.0):
+    """Residual of every distinct candidate mirror axis, smallest first.
+
+    The per-axis reading mirror_residual takes its minimum of: for each
+    candidate axis (mean polar angle of every pair of points) the mean
+    distance from each reflected point to its nearest point, over the set's
+    radius. Candidates are then thinned so that no two kept axes are within
+    min_sep_deg of each other (smallest residual kept first); without that,
+    one mirror is listed once per pair that proposes it.
+
+    Returns [{"axis_deg", "residual"}, ...]. Bounds: pair candidates only;
+    nearest-point matching; min_sep_deg decides what counts as two axes."""
+    n = len(points)
+    c = P.centroid(points)
+    pts = [P.sub(p, c) for p in points]
+    scale = _scale_of(points)
+    th = [math.atan2(y, x) for x, y in pts if math.hypot(x, y) > 1e-12 * scale]
+    uniq = {}
+    for i, a in enumerate(th):
+        for b in th[i:]:
+            deg = math.degrees((a + b) / 2.0) % 180.0
+            uniq.setdefault(round(deg, 9), deg)
+    rows = []
+    for deg in uniq.values():
+        a = math.radians(deg)
+        c2, s2 = math.cos(2 * a), math.sin(2 * a)
+        total = 0.0
+        for x, y in pts:
+            rx, ry = c2 * x + s2 * y, s2 * x - c2 * y
+            total += math.sqrt(min((rx - u) ** 2 + (ry - v) ** 2 for u, v in pts))
+        rows.append((total / n / scale, deg))
+    rows.sort()
+    kept = []
+    for r, deg in rows:
+        if all(min(abs(deg - k["axis_deg"]), 180.0 - abs(deg - k["axis_deg"])) > min_sep_deg
+               for k in kept):
+            kept.append({"axis_deg": deg, "residual": r})
+    return kept
+
+
+def mirror_k_score(points, k, min_sep_deg=5.0):
+    """Sum of the k smallest distinct-axis residuals (mirror_axis_residuals).
+    0 means k mirror axes at least min_sep_deg apart. If the set offers fewer
+    than k distinct candidate axes the score is None."""
+    rows = mirror_axis_residuals(points, min_sep_deg)
+    if len(rows) < k:
+        return None
+    return sum(r["residual"] for r in rows[:k])
 
 
 def smallest_period(s):

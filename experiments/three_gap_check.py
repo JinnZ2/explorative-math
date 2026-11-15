@@ -47,10 +47,10 @@ def as_lengths(value):
 def run(seed=0, runs_dir=None):
     d = Path(runs_dir) if runs_dir else emlib.RUNS
     rows = []
-    for f in sorted(d.glob("*.json")):
+    for f in emlib.run_files(d):
         if f.name.startswith(NAME + "_"):
             continue
-        rec = json.loads(f.read_text())
+        rec = emlib.load_run(f)
         for where, value in find(rec.get("outputs")):
             ls = as_lengths(value)
             row = {"run": f.name, "where": where, "lengths": ls}

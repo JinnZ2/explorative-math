@@ -47,7 +47,7 @@ def first_difference(a, b):
 
 
 def run(seed=0, source=None, extended_steps=EXTENDED_STEPS, prefixes=EXTENDED_PREFIXES):
-    rec = json.loads((Path(source) if source else emlib.ROOT / SOURCE).read_text())
+    rec = emlib.load_run(Path(source) if source else emlib.ROOT / SOURCE)
     spec = rec["params"]["spec"]
     a, x0, steps = spec["alpha"], spec["x0"], spec["steps"]
     logged_word = rec["outputs"]["word"]

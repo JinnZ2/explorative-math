@@ -85,7 +85,7 @@ class MirrorSweep(unittest.TestCase):
             self.assertEqual(s["frames_with_any_mirror"]["a_union"], 0)
 
     def test_logged_run_reads_360_frames(self):
-        rec = json.loads((M.emlib.RUNS / "mirror_sweep_seed0.json").read_text())
+        rec = M.emlib.load_run(M.emlib.RUNS / "mirror_sweep_seed0.json")
         for s in rec["outputs"]["sweep"]:
             self.assertEqual(s["frames"], 360)
             self.assertEqual(s["frames_with_any_mirror"]["b_union"], 1)

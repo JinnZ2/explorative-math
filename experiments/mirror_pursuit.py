@@ -105,9 +105,10 @@ def descend(verts, start_deg, step0=STEP0, step_min=STEP_MIN, max_evals=MAX_EVAL
 
 def coxeter_counts(path=None):
     f = Path(path) if path else emlib.ROOT / COXETER
-    if not f.exists():
+    try:
+        rec = emlib.load_run(f)
+    except FileNotFoundError:
         return {}
-    rec = json.loads(f.read_text())
     return {c["name"]: c["readings"][0]["n_mirror_axes"] for c in rec["outputs"]["cases"]}
 
 

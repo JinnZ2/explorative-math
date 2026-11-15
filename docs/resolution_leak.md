@@ -178,6 +178,24 @@ has no slope toward more axes. The many-mirror orientations are measure
 zero inside the one-mirror set as well; the descent trades one sampling
 leak for the next one down.
 
+Follow-up (`runs/layered_pursuit_seed0.json.gz`): an index that asks for
+more axes, the sum of the k smallest distinct-axis residuals. OBSERVED, 8
+starts per shape, counts at tolerance 1e-6:
+
+```text
+                         5-cell (Coxeter 5)      16-cell (Coxeter 8)
+layered, k = 1..h        0 of 8 reach 5          0 of 8 reach 8
+  largest count seen     4 (one start)           4 (three starts, lost again later)
+alt, k = h at once       0 of 8 reach 5          1 of 8 reaches 8
+```
+
+The layered stages do not hold what an earlier stage found: the count
+falls from 1 to 0 at stage 2 on every 5-cell start, because the sum of two
+residuals is lowered by giving up the exact first mirror. Nearly every
+descent stops on its step limit, not its evaluation limit, at a score well
+above 0: a local minimum of the index for these moves. Bound: 8 starts,
+one seed, coordinate moves, axes closer than 5 degrees counted as one.
+
 Rule for sampling readings: a "none found" or "largest seen" reading logs
 how the samples were drawn and how many, says whether the target is
 expected to be measure zero in that space, and where it is, is logged

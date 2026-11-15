@@ -89,10 +89,10 @@ def run(seed=0, runs_dir=None, references=None, groups=None):
     references = REFERENCES if references is None else references
     groups = GROUPS if groups is None else groups
     entries = {}
-    for f in sorted(d.glob("*.json")):
+    for f in emlib.run_files(d):
         if f.name.startswith(SKIP):
             continue
-        for where, entry in find(json.loads(f.read_text()).get("outputs")):
+        for where, entry in find(emlib.load_run(f).get("outputs")):
             n, counts = reading(entry)
             entries[(f.name, where)] = {"n_points": n, "counts": counts,
                                         "n_lengths": len(entry[KEY]) if entry[KEY] is not None

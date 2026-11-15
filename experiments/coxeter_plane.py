@@ -61,9 +61,10 @@ CASES = (
 
 def sweep_max(path=None):
     f = Path(path) if path else emlib.ROOT / SWEEP
-    if not f.exists():
+    try:
+        rec = emlib.load_run(f)
+    except FileNotFoundError:
         return {}
-    rec = json.loads(f.read_text())
     return {s["shape"]: {"max_axis_count_shape_alone": s["max_axis_count"]["shape"],
                          "frames": s["frames"]} for s in rec["outputs"]["sweep"]}
 
