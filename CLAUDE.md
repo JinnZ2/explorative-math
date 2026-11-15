@@ -169,6 +169,9 @@ experiments/
   corkscrew.py            ag double rotation in two planes: return step and miss, ratio sweep,
                              perturbed-angle test, regular-tetrahedra chains in R^3 and R^4;
                              exact turns of 36 degrees; --small
+  ancestry.py             ah rectified and truncated forms of four 4-polytopes: are their
+                             voids covered by the parent, by the parent's dual, or both
+                             together; --small (full ~25 s)
   exact_inflation.py      s  Fibonacci / pentagon / Penrose inflation in exact forms:
                              two constructions per level must be EQUAL; --small
   field_response.py       t  hexagonal sheet under a gradient field + uniform control;
@@ -215,7 +218,7 @@ python3 experiments/layered_pursuit.py --small # phone bound -> runs/<name>_smal
                                                # constrained_generate, pairing_reread, anchor_selection,
                                                # fold_loop, fold_shape, combine, collapse_gap,
                                                # complement_fit, complement_fit_v2, sphere_compounds,
-                                               # dual_partner, corkscrew,
+                                               # dual_partner, corkscrew, ancestry,
                                                # exact_inflation,
                                                # field_response, field_adaptation
 python3 -m toolkit.generator 0 1 2             # writes runs/generated_seed<k>.json

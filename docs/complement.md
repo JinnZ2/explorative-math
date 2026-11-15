@@ -109,6 +109,47 @@ rectified 5-cell) has a covering probe that is not its dual in this set, so
 polytopes and seven polygons as probes; the rotation search is a lower
 bound; duals are taken as standard, not derived here; one seed.
 
+## Pattern (PROPOSED): void cover = dual OR parent
+
+PROPOSED. The probe that covers a shape's voids is its dual or its parent.
+The case that raised it: the rectified 5-cell, whose dual is not in the
+probe set, had its deepest voids covered by the 5-cell
+(`runs/dual_partner_seed0.json.gz`, control).
+
+What the ancestry test logged (`runs/ancestry_seed0.json.gz`): the
+rectified and truncated forms of the four polytopes, each in its parent's
+frame, with the parent and the parent's dual as probes.
+
+```text
+form                  vertices   deepest voids      covered by
+rectified 5-cell         10       5 at 65.9         the parent's dual (5-cell, negated)
+truncated 5-cell         20       5 at 68.0         the parent's dual
+rectified 16-cell        24      24 at 45.0         parent and dual together (16-cell + tesseract)
+truncated 16-cell        48      16 at 47.9         the parent's dual (tesseract)
+rectified tesseract      32       8 at 54.7         the parent's dual (16-cell)
+truncated tesseract      64       8 at 55.8         the parent's dual
+rectified 24-cell        96      24 at 35.3         the parent's dual (24-cell, dual position)
+truncated 24-cell       192      24 at 36.7         the parent's dual
+```
+
+- The parent's dual covers the deepest voids in 7 of 8 forms.
+- The parent, in its own position, covers no void class of any form.
+- The rectified 16-cell is the 24-cell; its voids take the 16-cell and the
+  tesseract directions together, which is the 24-cell's own dual.
+
+On the rectified 5-cell case. The 5-cell is self-dual, so "the 5-cell
+covers the voids" does not say which. In `dual_partner` the probe was
+turned by a search; in `ancestry` nothing is turned, and the covering set
+is the 5-cell at the parent's NEGATIVE, not at the parent's position. As a
+shape, parent and dual are the same there; by position it is the dual.
+
+So as logged, the "OR parent" branch has no case in these eight forms: what
+covers is the dual of the parent, or parent and dual together. The pattern
+stays PROPOSED. Not tested: other derived forms (bitruncated, cantellated,
+runcinated), other parents, shallower voids (the lower depth classes found
+are few and may be incomplete), and any search over rotations. Bound: one
+seed, 240 climbs per shape, voids found are a lower bound.
+
 ## Pointer, structural only
 
 Alexander duality relates a set to its complement. No homology is computed
