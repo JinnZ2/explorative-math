@@ -40,6 +40,20 @@ Neither build is unified with, refactored into, or deduplicated against the othe
 | Implemented, not in the other | superposition packing, random walk, iterated affine map, finite simple-rule enumeration (CA, substitutions, affine), CLI, zipapp phone build | cut-and-project, Fibonacci chain, golden-angle packing, symmetry / mirror probes, 24-cell, icosahedron, lattices |
 | Cut-and-project | documented as **not implemented** (`docs/methods.md`) | implemented for Z² with a strip window |
 
+## Welded terms
+
+A welded term is one label that names two different operations. The two builds use the label the same way and do different things with it, so a comparison that keys on the label compares two operations as if they were one.
+
+| Label in both builds | Build A (Manus) operation | Build B (Claude Code) operation | Name in `compare/` output |
+|---|---|---|---|
+| "φ composition" | scale the copy by φ **and** rotate it in-plane by the golden angle | scale the copy by φ, no rotation (`phi_stack`) | A: `phi_scale_rotate`; B: `phi_scale`; comparison: `phi_scale_vs_phi_scale_rotate` |
+
+Notes:
+- The split names exist only in `compare/` output: the record ids, the jsonl file name, and the `A_operation` / `B_operation` params. Each record also keeps `label_in_both_builds` so the shared label stays visible.
+- `phi_scale` is also the name of Build B's own scale-only composer (`toolkit/composers.py`), so the B-side label matches B's code. Build A has no function by either name.
+- Neither build's own code, functions, parameters or docs are renamed. Build A still says `composition="phi"`; Build B still says `phi_stack`.
+- Whether the two operations are distinguishable by the symmetry probe is `open_questions.md` Q12 (PROPOSED).
+
 ## First comparison results (OBSERVED, seed 0)
 
 Each `compare/runs/*.jsonl` file counts fields by verdict.
@@ -57,7 +71,7 @@ Each `compare/runs/*.jsonl` file counts fields by verdict.
 | polytopes | 30 | 15 | 0 | 3 | 1.24 |
 | rotate_project | 58 | 0 | 0 | 0 | 0 |
 | angle_measure | 29 | 0 | 6 | 6 | 0 |
-| phi_composition | 51 | 77 | 8 | 0 | 180 |
+| phi_scale_vs_phi_scale_rotate | 51 | 77 | 8 | 0 | 180 |
 | capabilities | 0 | 0 | 9 | 8 | — |
 | schema | 6 | 5 | 2 | 2 | — |
 
@@ -67,7 +81,7 @@ Each `compare/runs/*.jsonl` file counts fields by verdict.
 - **Shared explicit rotations give identical geometry.** Rotating Build A's vertices by the same plane-angle list through each build's rotator gives identical projected points (58 of 58). Build A takes degrees and Build B radians.
 - **The constants are equal in exact arithmetic but not in float.** The golden angle differs by 2.8e−14° (A: 360/φ²; B: 360(1−1/φ)). The shell formula differs in 21 of 36 cells, by up to 3.3e−16 (A: `−expm1(n·log1p(−t))`; B: `1−(1−t)ⁿ`).
 - **The polytopes are the same shapes at different sizes.** Vertex counts and the rotation- and scale-invariant distance sets all agree. Circumradius differs because A normalises to 1. The cross-polytope's vertex order also differs: A lists −e then +e, B lists +e then −e.
-- **"φ composition" means two different operations.** On Build A's own projected frames, A's union carries about twice as many distinct directions as B's (for example 16 against 8 for the cross-polytope). That is because A rotates the copy and B does not.
+- **"φ composition" means two different operations** (a welded term; see above). On Build A's own projected frames, A's union carries about twice as many distinct directions as B's (for example 16 against 8 for the cross-polytope). That is because A rotates the copy and B does not.
   - Build B's symmetry probe gives the same k for both unions on every frame tried. A rotated copy of a k-fold set keeps the same k.
   - On simplex frame 3, A's catalog matched "capsids" and "quasicrystals" (the same 72° target, as A's docs note).
 - **Angle measurement agreed on these shapes.** A measures about the origin, B about the centroid. For centred shapes they agreed exactly here; they would part for a shape not centred on the origin.

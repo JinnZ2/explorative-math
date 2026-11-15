@@ -72,6 +72,7 @@ toolkit/
   probes.py            rotational / mirror symmetry, smallest period, period
                        profile, zlib ratio, angle histogram, polar angles
   generator.py         seed -> random pipeline (shape / cut / orbit) -> probes -> log
+                       cut_weighted: asked for by name, never drawn, own run files
   loghook.py           log_run() and @logged: every run writes the schema,
                        interest slots void
 nature_catalog.py      entries a run can match against (all CARRIED, not verified)
@@ -116,6 +117,7 @@ reading it asks for.
 python3 -m unittest discover -s tests          # all tests
 python3 experiments/<name>.py                  # writes runs/<name>_seed<k>.json
 python3 -m toolkit.generator 0 1 2             # writes runs/generated_seed<k>.json
+python3 -m toolkit.generator --pipeline cut_weighted 0 1 2   # runs/generated_cut_weighted_seed<k>.json
 python3 -m compare                             # cross-build comparison -> compare/runs/*.jsonl
 python3 -m explorative_math --help             # the Manus build's CLI
 ```

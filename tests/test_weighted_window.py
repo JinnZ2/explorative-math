@@ -5,6 +5,7 @@ import unittest
 import _path  # noqa: F401
 import weighted_window as E
 from toolkit import composers as C
+from toolkit import generator as G
 from toolkit import primitives as P
 
 
@@ -67,6 +68,35 @@ class WeightedWindow(unittest.TestCase):
         # OBSERVED on this run, pinned so a change shows up
         got = [len(lv["distinct_gap_lengths"]) for lv in self.out["gaussian"]["levels"]]
         self.assertEqual(got, [3, 2, 3, 3, 3])
+
+
+class GeneratorOption(unittest.TestCase):
+    def test_drawn_pipelines_do_not_move(self):
+        self.assertEqual(G.PIPELINES, ("shape", "cut", "orbit"))
+        self.assertNotIn("cut_weighted", {G.draw_spec(s)["pipeline"] for s in range(50)})
+
+    def test_cut_weighted_by_name_only(self):
+        spec, out, angles, symbols, _ = G.run(3, "cut_weighted")
+        self.assertEqual(spec["pipeline"], "cut_weighted")
+        self.assertEqual(spec, G.draw_spec(3, "cut_weighted"))
+        self.assertIsNone(angles)
+        self.assertEqual(len(out["levels"]), len(G.WEIGHT_LEVELS))
+        for lv in out["levels"]:
+            self.assertLessEqual(len(lv["distinct_gap_lengths"]), 3)
+        self.assertEqual("".join(symbols), out["levels"][1]["word"])
+
+    def test_drawn_pipeline_cannot_be_forced(self):
+        with self.assertRaises(ValueError):
+            G.draw_spec(0, "no_such")
+
+    def test_separate_run_file_and_void_interest(self):
+        import json, tempfile
+        with tempfile.TemporaryDirectory() as d:
+            p = G.generate(1, out_dir=d, pipeline="cut_weighted")
+            self.assertEqual(p.name, "generated_cut_weighted_seed1.json")
+            rec = json.loads(p.read_text())
+            self.assertIsNone(rec["human_interest"])
+            self.assertIsNone(rec["ai_interest"])
 
 
 if __name__ == "__main__":

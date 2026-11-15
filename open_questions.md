@@ -49,6 +49,23 @@ keeps it at two.
   stated reason.
 - Tools: `composers.cut_and_project`, `strip_window_1d`,
   `generator` "cut" pipeline.
+- Annotation, 2026-11-15. Status: DERIVED, not run. Q5 stays OPEN.
+  - OBSERVED (`runs/weighted_window_seed0.json`, slope 1/phi, windows
+    centred on the cut): gap-length counts 3, 2, 3, 3, 3 at weight levels
+    0.9, e^-1/2, 0.5, 0.1, 0.01. The level e^-1/2 is half-width sigma,
+    which is the full width of the hard strip.
+  - DERIVED: the table fits the three-distance theorem (Steinhaus): at
+    most three gap lengths for any window width, two only at particular
+    widths. The canonical strip width is one of them.
+  - PROPOSED test: sweep the window width finely at a fixed slope and
+    record the gap-length count against width. Expectation carried into
+    the test: two only at the canonical width(s), three elsewhere. Which
+    widths other than the canonical one give two is not stated here.
+  - Not decided: whether the 3-length levels in that run count as "a
+    logged cut run with three lengths". They come from centred windows of
+    other widths, not from `strip_window_1d`.
+  - Tools for the sweep: `composers.cut_and_project(weight=...)`,
+    `gaussian_weight`; `generator` `cut_weighted` pipeline.
 
 ## Prompts from recorded runs
 
@@ -97,9 +114,41 @@ And which disagreements survive once that choice is aligned?
   choice aligned and the field re-checked.
 - Do not resolve it by making the builds identical.
 
-## Projection and the source lattice
+**Q12. Same symmetry answer, different unions: real equality or probe
+resolution?** Status: **PROPOSED** (not run).
 
-Q12 is void: no prompt carries that number.
+In `compare/runs/phi_scale_vs_phi_scale_rotate.jsonl`, Build B's
+`rotational_symmetry` probe returns the same list for both builds' unions on
+all 8 frames. The unions are not the same: on cross-polytope frames 1–3,
+Build A's union (`phi_scale_rotate`) has 16 distinct directions and Build B's
+(`phi_scale`) has 8.
+
+OBSERVED, from the jsonl:
+- Cross-polytope frame 0: both `[2, 4]`.
+- Cross-polytope frames 1–3: both `[2]`.
+- Simplex frame 0: both `[3]`.
+- Simplex frames 1–3: both `[]`.
+
+Two readings are both open:
+- *Real equality.* Rotating a k-fold set by a fixed angle, then adding the
+  copy, keeps the same k, so the order really is the same.
+- *Probe resolution.* The probe cannot see the difference. DERIVED from the
+  code: `rotational_symmetry` tests only k in 2..`k_max` (default 12), at a
+  relative tolerance (default 1e-6), about the centroid. So a 16-fold set
+  could only show up as its divisors ≤ 12, and two sets whose orders differ
+  above 12, or by less than the tolerance, read the same.
+  - "16 vs 8" is a count of distinct directions, not a symmetry order.
+
+- Test: run the probe on shapes whose symmetry orders are known and
+  different (for example regular polygons with k = 5, 8, 13, 16, 24, and a
+  k-gon plus its φ-scaled rotated copy). Report, for each pair, whether the
+  probe separates them, and at which `k_max` and tolerance.
+- Resolved when: that run is logged, with each shape's known order beside
+  the probe's output.
+- Tools: `toolkit.primitives.regular_polygon`, `toolkit.composers`
+  (`phi_stack`; a scale-and-rotate copy), `toolkit.probes.rotational_symmetry`.
+
+## Projection and the source lattice
 
 **Q13. What survives the shadow?** Which measured properties survive
 projection unchanged, and which need the source lattice to distinguish?

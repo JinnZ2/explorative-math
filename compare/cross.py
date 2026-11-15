@@ -263,12 +263,17 @@ def cmp_angle_measure():
     return recs
 
 
-def cmp_phi_composition():
+def cmp_phi_scale_vs_phi_scale_rotate():
     """A's own projection pipeline (composition=phi); B's phi_stack on A's projected points.
 
     A's frames come from A's seeded tour. Each frame's projected points (before
     composition) are handed to B's phi_stack, so both compositions start from
-    identical 2D points and differ only in what "phi composition" means."""
+    identical 2D points and differ only in what "phi composition" means.
+
+    "phi composition" is a welded term: one label, two operations. In this
+    comparison's output the two are named phi_scale (B: scale only) and
+    phi_scale_rotate (A: scale and rotate by the golden angle). Neither
+    build's own code or naming is changed (docs/two_builds.md)."""
     recs = []
     for name in ("simplex", "crosspolytope"):
         n = 4
@@ -290,10 +295,13 @@ def cmp_phi_composition():
                             [c["catalog_id"] for c in frame["catalog_comparisons"] if c["matched"]],
                             None, True, False)]
             fields += vector_fields("sorted_polar_angle_deg", a_ang, b_ang)
-            recs.append(record(f"phi_composition_{name}_n{n}_frame{frame['frame_index']}",
+            recs.append(record(f"phi_scale_vs_phi_scale_rotate_{name}_n{n}_frame{frame['frame_index']}",
                                {"shape": name, "dimension": n, "frame": frame["frame_index"],
                                 "A_source": "explorative_math.projections.iter_projection_runs",
+                                "label_in_both_builds": "phi composition",
+                                "A_operation": "phi_scale_rotate",
                                 "A_phi": "copy scaled by phi AND rotated in-plane by the golden angle",
+                                "B_operation": "phi_scale",
                                 "B_phi": "copy scaled by phi, not rotated (phi_stack ks 0, 1)"},
                                fields))
     return recs
@@ -337,7 +345,7 @@ def cmp_schema():
 
 COMPARISONS = (cmp_constants, cmp_shell_formula, cmp_seed_alignment, cmp_shared_stream_sampler,
                cmp_orthogonality_stats, cmp_polytopes, cmp_rotate_project, cmp_angle_measure,
-               cmp_phi_composition, cmp_capabilities, cmp_schema)
+               cmp_phi_scale_vs_phi_scale_rotate, cmp_capabilities, cmp_schema)
 
 
 def run_all():

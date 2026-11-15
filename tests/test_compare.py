@@ -57,7 +57,7 @@ class Records(unittest.TestCase):
             self.assertGreater(t[X.AGREE], 0, name)
 
     def test_observed_phi_compositions_differ(self):
-        self.assertGreater(self._tally("phi_composition")[X.DIFFER], 0)
+        self.assertGreater(self._tally("phi_scale_vs_phi_scale_rotate")[X.DIFFER], 0)
 
     def test_write_all_jsonl(self):
         with tempfile.TemporaryDirectory() as d:
