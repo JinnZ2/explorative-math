@@ -14,6 +14,8 @@ CC0. Co-authored. Stdlib only.
                        the residual per distinct axis, and the sum of the k
                        smallest (0 = k mirrors)
   mirror_residual_at   the residual on axes handed in (no candidate search)
+  degeneracy           smallest pairwise distance and collinearity of a 2D
+                       set, with coincident / collinear tags per tolerance
   smallest_period      smallest p with s[i] == s[i+p] throughout
   period_profile       smallest period of growing prefixes (aperiodicity shows
                        as growth; a finite sequence always has some period)
@@ -236,6 +238,51 @@ def mirror_k_score(points, k, min_sep_deg=5.0):
     if len(rows) < k:
         return None
     return sum(r["residual"] for r in rows[:k])
+
+
+def degeneracy(points, tols=(1e-6, 1e-3)):
+    """How close a 2D point set is to having coincident points or lying on a line.
+
+    min_pair_distance   smallest distance between two points, over the set's
+                        radius (largest distance from the centroid). 0 = two
+                        points coincide.
+    collinearity        sqrt(smaller / larger eigenvalue) of the 2x2 scatter
+                        matrix about the centroid: the set's thin width over
+                        its long width. 0 = all points on one line.
+    n_distinct          number of points left after merging those closer
+                        than tol x radius, per tolerance.
+    Tags, per tolerance: "coincident" if min_pair_distance < tol,
+    "collinear" if collinearity < tol; "degenerate" if either. The raw values
+    are returned so another threshold can be applied."""
+    n = len(points)
+    c = P.centroid(points)
+    pts = [P.sub(p, c) for p in points]
+    scale = _scale_of(points)
+    dmin, pair = None, None
+    for i in range(n):
+        for j in range(i + 1, n):
+            d = math.dist(pts[i], pts[j])
+            if dmin is None or d < dmin:
+                dmin, pair = d, [i, j]
+    sxx = sum(x * x for x, _ in pts)
+    syy = sum(y * y for _, y in pts)
+    sxy = sum(x * y for x, y in pts)
+    half, disc = (sxx + syy) / 2.0, math.hypot((sxx - syy) / 2.0, sxy)
+    big, small = half + disc, max(half - disc, 0.0)
+    col = math.sqrt(small / big) if big > 0 else 0.0
+    rel = (dmin / scale) if dmin is not None else None
+    tags = {}
+    for t in tols:
+        reps = []
+        for q in pts:
+            if all(math.dist(q, r) >= t * scale for r in reps):
+                reps.append(q)
+        coincident = rel is not None and rel < t
+        collinear = col < t
+        tags[f"{t:g}"] = {"coincident": coincident, "collinear": collinear,
+                          "degenerate": coincident or collinear, "n_distinct": len(reps)}
+    return {"n_points": n, "min_pair_distance": rel, "closest_pair": pair,
+            "collinearity": col, "scale": scale, "about": "centroid", "tags": tags}
 
 
 def smallest_period(s):

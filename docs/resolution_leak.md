@@ -213,8 +213,42 @@ control m = h + 1        0 of 8 (0)          0 of 8 (0)
 Bound on the word "anchored": in that run the anchor axis is a term of
 the score and the rotation is free to give it up. Under rule m = h the
 anchor ends exact (axis residual below 1e-6) on 6 of 8 5-cell starts and
-3 of 8 16-cell starts. A run that constrains the rotation to keep the
-found axes exact has not been made.
+3 of 8 16-cell starts.
+
+The constrained run (`runs/constrained_generate_seed0.json.gz`): the same
+anchors and rules, with every accepted position pulled back onto an exact
+anchor mirror (Gauss-Newton on the reflected-point mismatch) and refused
+if the anchor residual is not below 1e-6. OBSERVED, tolerance 1e-6:
+
+```text
+                         5-cell (h = 5)              16-cell (h = 8)
+                         400 trials   2500 trials    400 trials   2500 trials
+rule m = h                   0            1              1            5
+control m = h - 1            0            0              0            0
+control m = h + 1            0            0              0            0
+anchor held at the end       8 of 8 on every rule, both limits, both shapes
+```
+
+At 400 trials nearly every descent stopped on the trial limit with its
+step still large; the 2500-trial rerun is logged beside it as a bound
+check, and the limit was the bound that moved the reading. At tolerance
+1e-4 the 5-cell rule m = h reads 5 axes on 3 of 8 starts at 2500 trials.
+Bound: 8 starts, one seed; the pairing of points across the anchor is read
+at the anchor and kept; a trial here costs a pull-back, so trials and the
+other runs' evaluations are not like for like.
+
+Degenerate projections (`runs/degeneracy_check_seed0.json`). A projection
+where two points land on each other has mirrors the polytope's symmetry
+did not give it. OBSERVED over 334 final projections: 63 have coincident
+points at 1e-6 and 33 more at 1e-3; none is collinear. Every start counted
+above as reaching h is non-degenerate, so no count of starts reaching h
+changes. What does change: frame 0 of the tour is degenerate for both
+shapes (the 5-cell shows 4 distinct points, the 16-cell 5), so the "largest
+mirror count on the tour, 3 and 4" of row S3 was read on coincident
+points. DERIVED: collinearity cannot occur for these shapes. The vertex
+sets have a scatter matrix proportional to the identity in R^4, so every
+orthogonal projection to a plane has equal widths in all directions; the
+collinearity reading is 1 on every row.
 
 Rule for sampling readings: a "none found" or "largest seen" reading logs
 how the samples were drawn and how many, says whether the target is

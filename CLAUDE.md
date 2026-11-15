@@ -87,6 +87,7 @@ toolkit/
                        mirror_residual (continuous; 0 = exact mirror)
                        mirror_axis_residuals, mirror_k_score (k distinct axes)
                        mirror_residual_at (residual on given axes)
+                       degeneracy (smallest pair distance, collinearity, tags)
   generator.py         seed -> random pipeline (shape / cut / orbit) -> probes -> log
                        cut_weighted: asked for by name, never drawn, own run files
   loghook.py           log_run() and @logged: every run writes the schema,
@@ -113,6 +114,10 @@ experiments/
   anchor_generate.py      p  one mirror by descent, then axes a + k*180/m by rule
                              (m = h, controls h-1, h+1); set beside layered_unanchored
                              and alt; --small
+  degeneracy_check.py     q  coincident / collinear points in every final projection;
+                             recount of starts reaching h with those excluded
+  constrained_generate.py r  anchor_generate with the anchor HELD (Gauss-Newton pull-back,
+                             anchor residual < 1e-6); controls; --small (full run ~1 min)
 runs/*.json            one file per run, schema below
 runs/*.json.gz         the same, gzipped, for a run above emlib.GZ_THRESHOLD bytes;
                        full content; read either form with emlib.load_run
@@ -148,7 +153,8 @@ reading it asks for.
 ```sh
 python3 -m unittest discover -s tests          # all tests
 python3 experiments/<name>.py                  # writes runs/<name>_seed<k>.json (or .json.gz)
-python3 experiments/layered_pursuit.py --small # phone bound -> runs/<name>_small_seed<k>; also anchor_generate
+python3 experiments/layered_pursuit.py --small # phone bound -> runs/<name>_small_seed<k>; also anchor_generate,
+                                               # constrained_generate
 python3 -m toolkit.generator 0 1 2             # writes runs/generated_seed<k>.json
 python3 -m toolkit.generator --pipeline cut_weighted 0 1 2   # runs/generated_cut_weighted_seed<k>.json
 python3 -m compare                             # cross-build comparison -> compare/runs/*.jsonl
