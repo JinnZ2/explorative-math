@@ -1,0 +1,440 @@
+{
+ "params": {
+  "small": true,
+  "samples": 1500,
+  "n": 24,
+  "turns": [
+   1,
+   7,
+   12
+  ],
+  "source": "runs/spherical_helix_seed0.json",
+  "status_before_run": "PROPOSED",
+  "seed": 0
+ },
+ "outputs": {
+  "bound": {
+   "seed": 0,
+   "samples": 1500,
+   "coverage": "fraction of random directions on S^4 inside the cone over a simplex; a statistical reading, not exact",
+   "one_sample_is": 0.0006666666666666666,
+   "copies": "plane (2,3) turned by j * 15 degrees, j = 0..23, fifth axis kept or flipped: 47 candidates beside the ring; placed in that order, a copy kept only if no sample is covered twice",
+   "not_tried": "other rotations; other placement orders; an exact test"
+  },
+  "ring": {
+   "n_simplices": 24,
+   "edge_over_radius": 0.9519262989559356,
+   "radius_squared_shares": [
+    0.7146687612194447,
+    0.19149491742450106,
+    0.09383632135605427
+   ],
+   "fraction_of_sphere_per_simplex": 0.0006666666666666666,
+   "simplices_needed_at_that_fraction": 1500.0,
+   "coverage": {
+    "samples": 1500,
+    "uncovered": 0.9613333333333334,
+    "covered_once": 0.03866666666666667,
+    "covered_twice_or_more": 0.0,
+    "largest_cover_count": 1,
+    "mean_cover_count": 0.03866666666666667
+   },
+   "ring_overlaps_itself": false
+  },
+  "regular_simplices_among_the_ring_vertices": {
+   "n": 24,
+   "all_are_ring_simplices": true,
+   "n_not_in_the_ring": 0,
+   "coverage": {
+    "samples": 1500,
+    "uncovered": 0.9613333333333334,
+    "covered_once": 0.03866666666666667,
+    "covered_twice_or_more": 0.0,
+    "largest_cover_count": 1,
+    "mean_cover_count": 0.03866666666666667
+   }
+  },
+  "copies": {
+   "copies_tried": 47,
+   "copies_placed": 1,
+   "simplices_placed": 24,
+   "placed": [
+    {
+     "phase2": 0,
+     "flip": false
+    }
+   ],
+   "rejected": [
+    {
+     "phase2": 1,
+     "flip": false,
+     "overlapping_samples": 49,
+     "overlap_fraction": 0.03266666666666666
+    },
+    {
+     "phase2": 2,
+     "flip": false,
+     "overlapping_samples": 42,
+     "overlap_fraction": 0.028
+    },
+    {
+     "phase2": 3,
+     "flip": false,
+     "overlapping_samples": 39,
+     "overlap_fraction": 0.026
+    },
+    {
+     "phase2": 4,
+     "flip": false,
+     "overlapping_samples": 36,
+     "overlap_fraction": 0.024
+    },
+    {
+     "phase2": 5,
+     "flip": false,
+     "overlapping_samples": 31,
+     "overlap_fraction": 0.020666666666666667
+    },
+    {
+     "phase2": 6,
+     "flip": false,
+     "overlapping_samples": 29,
+     "overlap_fraction": 0.019333333333333334
+    },
+    {
+     "phase2": 7,
+     "flip": false,
+     "overlapping_samples": 28,
+     "overlap_fraction": 0.018666666666666668
+    },
+    {
+     "phase2": 8,
+     "flip": false,
+     "overlapping_samples": 30,
+     "overlap_fraction": 0.02
+    },
+    {
+     "phase2": 9,
+     "flip": false,
+     "overlapping_samples": 29,
+     "overlap_fraction": 0.019333333333333334
+    },
+    {
+     "phase2": 10,
+     "flip": false,
+     "overlapping_samples": 29,
+     "overlap_fraction": 0.019333333333333334
+    },
+    {
+     "phase2": 11,
+     "flip": false,
+     "overlapping_samples": 27,
+     "overlap_fraction": 0.018
+    },
+    {
+     "phase2": 12,
+     "flip": false,
+     "overlapping_samples": 32,
+     "overlap_fraction": 0.021333333333333333
+    },
+    {
+     "phase2": 13,
+     "flip": false,
+     "overlapping_samples": 33,
+     "overlap_fraction": 0.022
+    },
+    {
+     "phase2": 14,
+     "flip": false,
+     "overlapping_samples": 33,
+     "overlap_fraction": 0.022
+    },
+    {
+     "phase2": 15,
+     "flip": false,
+     "overlapping_samples": 32,
+     "overlap_fraction": 0.021333333333333333
+    },
+    {
+     "phase2": 16,
+     "flip": false,
+     "overlapping_samples": 34,
+     "overlap_fraction": 0.02266666666666667
+    },
+    {
+     "phase2": 17,
+     "flip": false,
+     "overlapping_samples": 33,
+     "overlap_fraction": 0.022
+    },
+    {
+     "phase2": 18,
+     "flip": false,
+     "overlapping_samples": 34,
+     "overlap_fraction": 0.02266666666666667
+    },
+    {
+     "phase2": 19,
+     "flip": false,
+     "overlapping_samples": 33,
+     "overlap_fraction": 0.022
+    },
+    {
+     "phase2": 20,
+     "flip": false,
+     "overlapping_samples": 33,
+     "overlap_fraction": 0.022
+    },
+    {
+     "phase2": 21,
+     "flip": false,
+     "overlapping_samples": 33,
+     "overlap_fraction": 0.022
+    },
+    {
+     "phase2": 22,
+     "flip": false,
+     "overlapping_samples": 38,
+     "overlap_fraction": 0.025333333333333333
+    },
+    {
+     "phase2": 23,
+     "flip": false,
+     "overlapping_samples": 44,
+     "overlap_fraction": 0.029333333333333333
+    },
+    {
+     "phase2": 0,
+     "flip": true,
+     "overlapping_samples": 32,
+     "overlap_fraction": 0.021333333333333333
+    },
+    {
+     "phase2": 1,
+     "flip": true,
+     "overlapping_samples": 31,
+     "overlap_fraction": 0.020666666666666667
+    },
+    {
+     "phase2": 2,
+     "flip": true,
+     "overlapping_samples": 30,
+     "overlap_fraction": 0.02
+    },
+    {
+     "phase2": 3,
+     "flip": true,
+     "overlapping_samples": 35,
+     "overlap_fraction": 0.023333333333333334
+    },
+    {
+     "phase2": 4,
+     "flip": true,
+     "overlapping_samples": 32,
+     "overlap_fraction": 0.021333333333333333
+    },
+    {
+     "phase2": 5,
+     "flip": true,
+     "overlapping_samples": 35,
+     "overlap_fraction": 0.023333333333333334
+    },
+    {
+     "phase2": 6,
+     "flip": true,
+     "overlapping_samples": 40,
+     "overlap_fraction": 0.02666666666666667
+    },
+    {
+     "phase2": 7,
+     "flip": true,
+     "overlapping_samples": 38,
+     "overlap_fraction": 0.025333333333333333
+    },
+    {
+     "phase2": 8,
+     "flip": true,
+     "overlapping_samples": 35,
+     "overlap_fraction": 0.023333333333333334
+    },
+    {
+     "phase2": 9,
+     "flip": true,
+     "overlapping_samples": 35,
+     "overlap_fraction": 0.023333333333333334
+    },
+    {
+     "phase2": 10,
+     "flip": true,
+     "overlapping_samples": 31,
+     "overlap_fraction": 0.020666666666666667
+    },
+    {
+     "phase2": 11,
+     "flip": true,
+     "overlapping_samples": 28,
+     "overlap_fraction": 0.018666666666666668
+    },
+    {
+     "phase2": 12,
+     "flip": true,
+     "overlapping_samples": 27,
+     "overlap_fraction": 0.018
+    },
+    {
+     "phase2": 13,
+     "flip": true,
+     "overlapping_samples": 28,
+     "overlap_fraction": 0.018666666666666668
+    },
+    {
+     "phase2": 14,
+     "flip": true,
+     "overlapping_samples": 27,
+     "overlap_fraction": 0.018
+    },
+    {
+     "phase2": 15,
+     "flip": true,
+     "overlapping_samples": 31,
+     "overlap_fraction": 0.020666666666666667
+    },
+    {
+     "phase2": 16,
+     "flip": true,
+     "overlapping_samples": 32,
+     "overlap_fraction": 0.021333333333333333
+    },
+    {
+     "phase2": 17,
+     "flip": true,
+     "overlapping_samples": 34,
+     "overlap_fraction": 0.02266666666666667
+    },
+    {
+     "phase2": 18,
+     "flip": true,
+     "overlapping_samples": 38,
+     "overlap_fraction": 0.025333333333333333
+    },
+    {
+     "phase2": 19,
+     "flip": true,
+     "overlapping_samples": 42,
+     "overlap_fraction": 0.028
+    },
+    {
+     "phase2": 20,
+     "flip": true,
+     "overlapping_samples": 40,
+     "overlap_fraction": 0.02666666666666667
+    },
+    {
+     "phase2": 21,
+     "flip": true,
+     "overlapping_samples": 38,
+     "overlap_fraction": 0.025333333333333333
+    },
+    {
+     "phase2": 22,
+     "flip": true,
+     "overlapping_samples": 38,
+     "overlap_fraction": 0.025333333333333333
+    },
+    {
+     "phase2": 23,
+     "flip": true,
+     "overlapping_samples": 35,
+     "overlap_fraction": 0.023333333333333334
+    }
+   ],
+   "uncovered_fraction_gaps": 0.9613333333333334,
+   "covered_once_fraction": 0.03866666666666667,
+   "overlap_fraction": 0.0,
+   "tiles_the_sphere": false
+  },
+  "orthoplex_5": {
+   "n_facets": 32,
+   "edge_over_radius": 1.4142135623730951,
+   "fraction_of_sphere_per_facet": 0.028,
+   "exact_fraction_per_facet": 0.03125,
+   "coverage": {
+    "samples": 1500,
+    "uncovered": 0.0,
+    "covered_once": 1.0,
+    "covered_twice_or_more": 0.0,
+    "largest_cover_count": 1,
+    "mean_cover_count": 1.0
+   },
+   "tiles_the_sphere": true
+  },
+  "dihedral": {
+   "ring_simplex": {
+    "dihedral_deg": [
+     78.047144109
+    ],
+    "one_value": true,
+    "simplices_round_a_shared_triangle": 4.612596708179699,
+    "whole_number": false
+   },
+   "orthoplex_facet": {
+    "dihedral_deg": [
+     90.0
+    ],
+    "one_value": true,
+    "simplices_round_a_shared_triangle": 4.0,
+    "whole_number": true
+   },
+   "derived": "congruent simplices meeting face to face round a shared triangle close up only if 360 / dihedral is a whole number"
+  },
+  "side_by_side": {
+   "simplices": [
+    24,
+    32
+   ],
+   "dihedral_deg": [
+    78.047144109,
+    90.0
+   ],
+   "simplices_round_a_triangle": [
+    4.612596708179699,
+    4.0
+   ],
+   "edge_over_radius": [
+    0.9519262989559356,
+    1.4142135623730951
+   ],
+   "fraction_per_simplex": [
+    0.0006666666666666666,
+    0.028
+   ],
+   "covered_once": [
+    0.03866666666666667,
+    1.0
+   ],
+   "gaps": [
+    0.9613333333333334,
+    0.0
+   ],
+   "overlaps": [
+    0.0,
+    0.0
+   ],
+   "order": [
+    "N = 24 ring and its placed copies",
+    "5-orthoplex boundary"
+   ]
+  }
+ },
+ "angles": null,
+ "human_interest": null,
+ "ai_interest": null,
+ "compressibility": {
+  "definition": "the ring (p), then one letter per candidate copy: r rejected, p placed",
+  "n": 48,
+  "phrases": 3,
+  "zlib_ratio": 0.25
+ },
+ "nature_match": null,
+ "divergence_note": null
+}

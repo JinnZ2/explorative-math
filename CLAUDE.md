@@ -53,6 +53,11 @@ interest fields  human_interest is the human's to fill; the AI never writes it.
                  Automatic runs (toolkit.loghook, toolkit.generator) leave BOTH
                  interest slots void: nobody has looked yet.
 co-authored      tag new files and commits co-authored.
+test gate        commit only if the full suite passes. Chain the test command and the
+                 commit with && (or run under set -e), never with ; . Do not pipe
+                 the test command into tail / grep before the &&: a pipe reports
+                 the last command's status and hides a failing suite. Send the
+                 output to a file and read the file.
 ```
 
 ## Method
@@ -182,6 +187,8 @@ experiments/
                              (REFERENCES R5, carried); residual per plane
   spherical_helix.py      an the four unmatched 5-cell chains rebuilt vertex by vertex,
                              beside the 30-tetrahedron ring and the flat helix's turns
+  ring_tiling.py          ao the N = 24 ring of 5-cells on S^4: coverage, copies under its own
+                             rotations, dihedral angle, beside the 5-orthoplex boundary; --small
   ancestry.py             ah rectified and truncated forms of four 4-polytopes: are their
                              voids covered by the parent, by the parent's dual, or both
                              together; --small (full ~25 s)
