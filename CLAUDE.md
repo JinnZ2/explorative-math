@@ -195,6 +195,10 @@ experiments/
   e8_orbits.py            aq the eight Coxeter-element orbits of E8's roots, each in the fold
                              and the conjugate 4-space: exact step cosine, Petrie test,
                              regular windows of consecutive points, fold / conjugate pairing
+  helix_setting.py        ar the closed chains tagged by Coxeter's setting (R5); eq 5.1 with w
+                             from each chain's own dihedral angle; the 4-simplex search in
+                             R^5 / R^6 / R^7; the unmatched chains against B, D, E of rank
+                             7-30, and their Gram matrices
   ancestry.py             ah rectified and truncated forms of four 4-polytopes: are their
                              voids covered by the parent, by the parent's dual, or both
                              together; --small (full ~25 s)
