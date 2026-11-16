@@ -199,6 +199,10 @@ experiments/
                              from each chain's own dihedral angle; the 4-simplex search in
                              R^5 / R^6 / R^7; the unmatched chains against B, D, E of rank
                              7-30, and their Gram matrices
+  helix_isoclinic.py      as setting tags from the span (earlier tags kept); the N = 24 chain
+                             in exact a + b sqrt2 + c sqrt3 + d sqrt6; the (7, 13) chain beside
+                             the 600-cell's orbits; powers of each chain's step that turn
+                             every plane alike, their sub-orbit polygons and circle distances
   ancestry.py             ah rectified and truncated forms of four 4-polytopes: are their
                              voids covered by the parent, by the parent's dual, or both
                              together; --small (full ~25 s)
