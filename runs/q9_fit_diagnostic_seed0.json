@@ -1,0 +1,41 @@
+{
+ "params": {
+  "experiment": "q9_fit_diagnostic",
+  "mode": "EXPLORE",
+  "repo_commit": "3162c9950136a4a7f14e1e064f8d335db33968c8",
+  "seed": 0
+ },
+ "outputs": {
+  "exact_shares_on_grid": {
+   "30": 0.3589348274098848,
+   "35": 0.38675212761473426,
+   "40": 0.41207364552363973,
+   "45": 0.4353502513236942,
+   "50": 0.45690874367194745,
+   "55": 0.4769953937435176,
+   "60": 0.4958015593947327,
+   "65": 0.513479652947375,
+   "70": 0.5301535686369834,
+   "75": 0.5459257561357825,
+   "80": 0.5608821738310648,
+   "85": 0.5750958521451686,
+   "90": 0.5886295170062945,
+   "95": 0.6015375606321581,
+   "100": 0.6138675483819156
+  },
+  "true_crossing_interpolated": 61.16125411070912,
+  "exact_curve_linear_fit_crossing_dims_30_100": 64.02191840819185,
+  "exact_curve_linear_fit_crossing_dims_45_80": 61.95794883504084,
+  "empirical_pooled_mean_fit_dims_45_80": 62.13758170670718,
+  "empirical_sd_fit_dims_45_80": 2.6192808116822905,
+  "empirical_pooled_mean_fit_dims_30_100": 64.18996365684596,
+  "mode": "EXPLORE",
+  "status": "PROPOSED"
+ },
+ "angles": null,
+ "human_interest": null,
+ "ai_interest": null,
+ "compressibility": null,
+ "nature_match": null,
+ "divergence_note": null
+}
