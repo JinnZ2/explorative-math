@@ -210,6 +210,9 @@ experiments/
                              NO_SOLUTION); shares of 18 (1,5,8) and 28 (1,8,13) and the
                              distances between their circles, exact, in Q(cos 2pi/9) and
                              Q(cos 2pi/7, sqrt 7)
+  h_order.py              au one guess (PROPOSED) about which conjugate turn sets are chains:
+                             the unit keeps the order of the reduced turn angles; cross-tab
+                             against conjugate_map's verdicts, counterexamples listed
   ancestry.py             ah rectified and truncated forms of four 4-polytopes: are their
                              voids covered by the parent, by the parent's dual, or both
                              together; --small (full ~25 s)
