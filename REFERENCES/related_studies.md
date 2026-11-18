@@ -121,6 +121,18 @@ equation  (lambda - 1)^2 { (n-1) lambda^(n-2) + 2(n-2) lambda^(n-3)
           paper itself was still not read in this build environment.
 carried   the mapping: theta = half the turn, n = the simplex's vertex
           count, a helix in flat R^(n-1) with a translation along its axis.
+
+          Read depth, 2026-11-16: BODY, via text extraction, parts
+          OCR-garbled. Read by a co-author and relayed; still not fetched
+          in this build environment. The 2026-11-15 status line above
+          (ABSTRACT READ) is kept as the earlier record. Relayed from the
+          body, CARRIED:
+eq 5.1    tan n theta = (1 + sec 2 pi / w) tan theta
+          the spherical case: the simplex's dihedral angle is 2 pi / w.
+families  w = 3:  phi_v = 2 v pi / (n + 1)
+          w = 4:  phi_v = (2 v - 1) pi / n
+example   n = 4, edge pi / 5: a skew 30-gon, the Petrie polygon of {3,3,5}.
+garbled   which parts of the extraction were garbled was not relayed: void.
 ```
 
 Pointer to: `experiments/simplicial_helix.py`, `runs/simplicial_helix_seed0.json`.
@@ -130,6 +142,13 @@ count, which is the carried mapping; under it the tetrahedral helix of R^3
 chains do not, on any plane. Carried note: that is the expected reading,
 since the chains are spherical (closed, no translation) and the equation is
 for flat helices.
+
+Pointer to: `experiments/helix_setting.py`, `runs/helix_setting_seed0.json.gz`.
+Eq 5.1 with w taken from each chain's own dihedral angle, on the chains in
+the setting (simplex vertex count = dimension of the space), and the
+setting tags. OBSERVED there: w = 3 on the chains with turns 2 v pi / (n + 1)
+and w = 4 on those with turns (2 v - 1) pi / n, as the relayed families
+state; w = 5 on the 30-chain of tetrahedra with edge pi / 5.
 
 DERIVED here from the relayed equation, n = 4: the bracket is
 3 lambda^2 + 4 lambda + 3, whose roots have modulus 1 and real part -2/3,

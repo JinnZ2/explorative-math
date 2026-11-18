@@ -90,6 +90,8 @@ exact/                 numbers with no floats: ZPhi (a + b*phi, a, b Fractions,
                        (squared-distance field of an exact pattern and its exact symmetries)
                        corkscrew (double rotation by multiples of 36 degrees; the exact 5-cell)
                        volume (exact 4-volume from tetrahedral facets; sqrt(5) = 2*phi - 1)
+                       cyclo (the field Q(zeta_N) for any N: cos(2 pi k / N) exact, Galois maps
+                       zeta -> zeta^u, coordinates of an element in a given basis)
 field/                 hexsheet: CONSTRUCTED toy. Ideal hexagonal sheet (exact
                        reference), a field over it, a local relaxation rule, and
                        each cell's RESPONSE (never called error); saturating rule,
@@ -195,6 +197,19 @@ experiments/
   e8_orbits.py            aq the eight Coxeter-element orbits of E8's roots, each in the fold
                              and the conjugate 4-space: exact step cosine, Petrie test,
                              regular windows of consecutive points, fold / conjugate pairing
+  helix_setting.py        ar the closed chains tagged by Coxeter's setting (R5); eq 5.1 with w
+                             from each chain's own dihedral angle; the 4-simplex search in
+                             R^5 / R^6 / R^7; the unmatched chains against B, D, E of rank
+                             7-30, and their Gram matrices
+  helix_isoclinic.py      as setting tags from the span (earlier tags kept); the N = 24 chain
+                             in exact a + b sqrt2 + c sqrt3 + d sqrt6; the (7, 13) chain beside
+                             the 600-cell's orbits; powers of each chain's step that turn
+                             every plane alike, their sub-orbit polygons and circle distances
+  conjugate_map.py        at each closed chain's turn set times the units mod N; the sets
+                             reached that are not logged chains, solved (REAL / NEGATIVE_SHARE /
+                             NO_SOLUTION); shares of 18 (1,5,8) and 28 (1,8,13) and the
+                             distances between their circles, exact, in Q(cos 2pi/9) and
+                             Q(cos 2pi/7, sqrt 7)
   ancestry.py             ah rectified and truncated forms of four 4-polytopes: are their
                              voids covered by the parent, by the parent's dual, or both
                              together; --small (full ~25 s)
