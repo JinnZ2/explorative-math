@@ -7,6 +7,9 @@ prereg_adversarial_q5slopes_2026-11-18.json, sha256 e31a31a1...2bdd). Observed c
   DEFECT     the probe contradicts its docstring, a repo rule, or an independent truth, on in-scope input
   LIMIT      misbehaves only outside its stated scope, or in a regime its bound line names
   UNDEFINED  the spec is silent; behaviour recorded
+What each class is measured against is in docs/probe_provenance_2026-11-18.json (per case: docstring, repo
+rule, independent truth, or the function's own output; and how directly the text applies). 'class' is the
+pre-registered reading; 'audited_class' is a post-hoc revision by the same author, with its reason.
 Nothing is dropped; every case and its observed value is logged. No probe is changed.
   python3 experiments/adversarial_probes.py [seed] [--small]
 --small: fewer trials in A09, A10, A14, A17 and shorter timing in A15 (own run file).
@@ -29,6 +32,7 @@ from toolkit import probes as Q  # noqa: E402
 
 NAME = "adversarial_probes"
 PREREG = ROOT / "docs" / "prereg" / "prereg_adversarial_q5slopes_2026-11-18.json"
+PROV = ROOT / "docs" / "probe_provenance_2026-11-18.json"
 NAN, INF = float("nan"), float("inf")
 
 
@@ -49,9 +53,15 @@ def predicted_class(case_id):
     return text.split(":")[0].split(" ")[0].strip()
 
 
+def provenance(case_id):
+    return json.loads(PROV.read_text(encoding="utf-8"))["cases"][case_id]
+
+
 def rec(case_id, observed, cls, detail=None):
     pred = predicted_class(case_id)
+    pv = provenance(case_id)
     return {"id": case_id, "observed": finite(observed), "class": cls, "predicted": pred,
+            "audited_class": pv["audited"], "audit_basis": pv["basis"], "audit_note": pv["note"],
             "prediction_conforms": (cls == pred) or (pred.startswith("UNDEFINED") and cls == "UNDEFINED")
                                    or (pred == "UNDEFINED/LIMIT" and cls in ("UNDEFINED", "LIMIT")),
             "detail": detail}
@@ -422,6 +432,9 @@ def run(seed=0, small=False):
         by_class[c["class"]] = by_class.get(c["class"], 0) + 1
         conf += c["prediction_conforms"]
     return {"cases": cases, "class_counts": by_class, "predictions_conforming": conf, "n_cases": len(cases),
+            "audited_class_counts": {k: sum(1 for c in cases if c["audited_class"] == k)
+                                     for k in ("HOLDS", "DEFECT", "LIMIT", "UNDEFINED")},
+            "audited_defects": [c["id"] for c in cases if c["audited_class"] == "DEFECT"],
             "defects": [c["id"] for c in cases if c["class"] == "DEFECT"],
             "limits": [c["id"] for c in cases if c["class"] == "LIMIT"],
             "undefined": [c["id"] for c in cases if c["class"] == "UNDEFINED"],
@@ -438,7 +451,7 @@ def main(argv):
     p = loghook.log_run(name, seed, {"prereg": str(PREREG.relative_to(ROOT)), "small": small,
                                      "repo_commit_under_test": "3162c9950136a4a7f14e1e064f8d335db33968c8"}, out)
     print(p)
-    print({k: out[k] for k in ("class_counts", "predictions_conforming", "n_cases", "defects", "limits",
+    print({k: out[k] for k in ("class_counts", "audited_class_counts", "audited_defects", "predictions_conforming", "n_cases", "defects", "limits",
                                "undefined", "nonconforming_predictions")})
 
 

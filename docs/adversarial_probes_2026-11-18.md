@@ -16,8 +16,8 @@ Predictions were written and hashed before any run (`docs/prereg/`):
 20 cases against `toolkit/probes.py` and `emlib.py`. Each case has a spec (a docstring, a repo rule, or a ground
 truth computed by an independent method) and a prediction. Classes: HOLDS, DEFECT (contradicts docstring, repo rule
 or independent truth on in-scope input), LIMIT (misbehaves outside stated scope or in a regime the bound line
-names), UNDEFINED (spec silent; behaviour recorded). OBSERVED: 5 HOLDS, 7 DEFECT, 4 LIMIT, 4 UNDEFINED.
-19 of 20 predicted classes were right; the miss is A15 (below).
+names), UNDEFINED (spec silent; behaviour recorded). OBSERVED (pre-registered classes): 5 HOLDS, 7 DEFECT, 4 LIMIT, 4 UNDEFINED; 19 of 20 predicted classes were right,
+the miss is A15 (below). Section 1a revises the DEFECT count to 2 after checking what each class rests on.
 
 | id | probe | class | what was read |
 |---|---|---|---|
@@ -44,10 +44,61 @@ names), UNDEFINED (spec silent; behaviour recorded). OBSERVED: 5 HOLDS, 7 DEFECT
 
 The run file for this experiment replaces NaN and inf by strings so that it is itself strict JSON.
 
+## 1a. What each class is measured against (added after the first write-up)
+
+The first table above gave one class per case without saying what it was measured against. A DEFECT can mean
+four different things, and they carry different weight:
+
+1. **Docstring**: the function's own words are contradicted.
+2. **Repo rule**: a sentence in `CONTRIBUTING.md`, `CLAUDE.md` or `docs/schema.md` is contradicted. Each of those files governs a named part of the repo (`docs/schema.md` governs the Manus build, not `emlib.py`), and a rule can apply directly or by analogy.
+3. **Independent truth**: a result computed outside the repo (an exact matching, an IEEE 754 spacing, RFC 8259) disagrees.
+4. **Own output**: the function's returned record disagrees with itself.
+
+Each case now has these recorded in `docs/probe_provenance_2026-11-18.json`, with the verbatim quote, its source,
+and a strength (DIRECT, ANALOGY, EXTERNAL, COMPUTED). `tests/test_probe_provenance.py` checks that every repo quote
+occurs in the file it cites. The run file keeps both classes: `class` is the pre-registered reading, `audited_class`
+a **post-hoc revision by the same author**, with its reason in `audit_note`. I am an interested party; the quotes are
+there so that you can disagree with a class without taking my word for it.
+
+Result of the audit: 5 HOLDS, 2 DEFECT, 7 LIMIT, 6 UNDEFINED. Five of the seven first-run DEFECTs moved down.
+
+| id | prereg class | audited class | measured against |
+|---|---|---|---|
+| A01 | DEFECT | LIMIT | docstring, independent truth |
+| A02 | DEFECT | LIMIT | docstring, independent truth |
+| A03 | UNDEFINED | UNDEFINED | docstring |
+| A04 | DEFECT | UNDEFINED | no spec, repo rule (analogy) |
+| A05 | DEFECT | DEFECT | own output |
+| A06 | DEFECT | UNDEFINED | independent truth, no spec, repo rule (analogy) |
+| A07 | DEFECT | LIMIT | docstring, repo rule |
+| A08 | HOLDS | HOLDS | derived here |
+| A09 | LIMIT | LIMIT | docstring, independent truth |
+| A10 | LIMIT | LIMIT | docstring, repo rule |
+| A11 | LIMIT | LIMIT | independent truth, repo rule |
+| A12 | UNDEFINED | UNDEFINED | no spec, repo rule (analogy) |
+| A13 | UNDEFINED | UNDEFINED | docstring (analogy), repo rule (analogy) |
+| A14 | HOLDS | HOLDS | docstring, independent truth |
+| A15 | HOLDS | HOLDS | no spec |
+| A16 | UNDEFINED | UNDEFINED | docstring |
+| A17 | HOLDS | HOLDS | independent truth |
+| A18 | LIMIT | LIMIT | docstring |
+| A19 | DEFECT | DEFECT | independent truth (external), repo rule (analogy) |
+| A20 | HOLDS | HOLDS | repo rule |
+
+What moved and why:
+
+- **A01, A02 (three_gap_sum)**: DEFECT to LIMIT. The docstring does not say the tolerance is absolute or relative, and the output records `tol` and `residual`. The independent truth (the identity L3 = L1 + L2 is scale-free; one float step at 2.6e12 is 4.9e-4) shows the absolute 1e-6 is a unit-dependent instrument bound. No text is contradicted.
+- **A04 (angle_histogram drops angles)**: DEFECT to UNDEFINED. There is no docstring. "keep every requested output" (`CONTRIBUTING.md`) reaches it only if an angle outside the range counts as requested. That is a reading, not the text. The one caller feeds angles in [0, 360).
+- **A06 (polar_angles)**: DEFECT to UNDEFINED. No docstring. The direction of a zero vector is undefined (independent truth), and `-1e-15 % 360.0 == 360.0` is float behaviour that the one caller absorbs through the `a == hi` branch.
+- **A07 (rotational_symmetry, far ring and small cluster)**: DEFECT to LIMIT. The literal docstring is contradicted, but `rel_tol` is in the signature, the bound line logs `abs_tol = 1.000000004553418`, and `degeneracy()` on the same set reports `coincident = True, central = True, n_at_centre = 3`. The repo already reports the limit. What is missing is that the symmetry list does not carry it.
+- **A05 (angle_histogram, width 7 on [0, 180])**: stays DEFECT, on the strongest basis available: the function's own record says `hi = 180` and its 26 bins reach 182. Only for widths that do not divide `hi - lo`.
+- **A19 (write_run, NaN and Infinity)**: stays DEFECT, against RFC 8259 only. Section 6: "Numeric values that cannot be represented in the grammar below (such as Infinity and NaN) are not permitted." Section 10: "The resulting text MUST strictly conform to the JSON grammar." The repo rule that matches (`docs/schema.md`: "nonfinite numbers and duplicate object keys are rejected") governs the other build. Seven committed run files in `runs/` already hold 191 bare `+Infinity` values (from `float("inf") if r is None else r` in `fold_loop.py`, `fold_shape.py`, `layered_pursuit.py`). Python reads them; JavaScript `JSON.parse` does not.
+
 Limits of this test: 20 cases written by one author; the oracles for A14 and A17 are short and were checked against known
-values; A09's trial generator targets one failure shape; A15 timing is this machine only. "DEFECT" here means
-"contradicts what the docstring or a repo rule says", not "wrong for the repo's current use". Whether each matters for
-a stored run is for the maintainers to decide; suggested fixes are not made here.
+values; A09's trial generator targets one failure shape; A15 timing is this machine only. "DEFECT" means the probe disagrees with its basis
+(section 1a says which kind), not "wrong for the repo's current use". The audited classes are a post-hoc revision by
+the author of the predictions. Whether each matters for a stored run is for the maintainers to decide. Opt-in fix
+proposals are in a separate PR.
 
 ## 2. Q5 across slopes (`experiments/q5_slopes.py`, `runs/q5_slopes_seed0.json.gz`)
 
