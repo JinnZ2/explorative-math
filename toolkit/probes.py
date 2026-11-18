@@ -316,16 +316,38 @@ def zlib_ratio(data):
     return len(zlib.compress(data, 9)) / len(data)
 
 
-def angle_histogram(angles_deg, width=10.0, lo=0.0, hi=180.0):
+def angle_histogram(angles_deg, width=10.0, lo=0.0, hi=180.0, account=False):
+    """Counts of angles in bins of the given width from lo. An angle equal to
+    hi goes in the last bin. Angles outside [lo, hi] are not counted.
+
+    account (default False: off) adds, without changing any count, what the
+    plain result leaves out: n_input, n_binned, below_lo and above_hi (the
+    angles not counted; n_input = n_binned + below_lo + above_hi), the range
+    the bins actually cover (bins_cover), and binned_above_hi, the angles
+    above hi that were counted because the last bin extends past hi (nonzero
+    only when width does not divide hi - lo)."""
     nb = int(round((hi - lo) / width))
     counts = [0] * nb
+    below = above = binned_above = 0
     for a in angles_deg:
         b = int((a - lo) // width)
         if 0 <= b < nb:
             counts[b] += 1
+            if a > hi:
+                binned_above += 1
         elif a == hi:
             counts[-1] += 1
-    return {"lo": lo, "hi": hi, "width": width, "counts": counts}
+        elif a < lo:
+            below += 1
+        else:
+            above += 1
+    out = {"lo": lo, "hi": hi, "width": width, "counts": counts}
+    if account:
+        n_in = len(angles_deg) if hasattr(angles_deg, "__len__") else None
+        out.update({"n_input": n_in, "n_binned": sum(counts), "below_lo": below,
+                    "above_hi": above, "bins_cover": [lo, lo + nb * width],
+                    "binned_above_hi": binned_above})
+    return out
 
 
 def polar_angles(points2d):
@@ -334,20 +356,31 @@ def polar_angles(points2d):
 
 
 
-def three_gap_sum(lengths, tol=1e-6):
+def three_gap_sum(lengths, tol=1e-6, rel_tol=None):
     """Consistency check on a set of distinct gap lengths.
-
     With exactly three lengths L1 <= L2 <= L3, the three-distance theorem
     gives L3 = L1 + L2. Returns the verdict "pass" or "fail" with the
     residual L3 - (L1 + L2). Any other count is "not_applicable" (residual
-    None): it is recorded, not treated as a pass or a fail."""
+    None): it is recorded, not treated as a pass or a fail.
+
+    tol is absolute, in the units of the lengths. rel_tol (default None: off)
+    compares the residual with rel_tol * L3 instead, which does not change when
+    all lengths are scaled; the result then also records rel_tol and the
+    threshold used (tol_used). With rel_tol None the result is as before."""
     ls = sorted(float(x) for x in lengths)
     if len(ls) != 3:
-        return {"n_lengths": len(ls), "verdict": "not_applicable", "residual": None,
-                "tol": tol}
+        out = {"n_lengths": len(ls), "verdict": "not_applicable", "residual": None,
+               "tol": tol}
+        if rel_tol is not None:
+            out["rel_tol"] = rel_tol
+        return out
     r = ls[2] - (ls[0] + ls[1])
-    return {"n_lengths": 3, "verdict": "pass" if abs(r) <= tol else "fail",
-            "residual": r, "tol": tol}
+    if rel_tol is None:
+        return {"n_lengths": 3, "verdict": "pass" if abs(r) <= tol else "fail",
+                "residual": r, "tol": tol}
+    used = rel_tol * abs(ls[2])
+    return {"n_lengths": 3, "verdict": "pass" if abs(r) <= used else "fail",
+            "residual": r, "tol": tol, "rel_tol": rel_tol, "tol_used": used}
 
 
 def min_stretch_tag(n_points, third_gap_freq, factor=3.0):
@@ -369,11 +402,33 @@ def min_stretch_tag(n_points, third_gap_freq, factor=3.0):
 
 # ---- instrument bounds: logged beside a reading, never instead of it --------
 
-def rotational_symmetry_bound(points, k_max=12, rel_tol=1e-6):
-    """The bound rotational_symmetry reads at, for the same arguments."""
-    return {"n_points": len(points), "k_tested": [2, k_max], "rel_tol": rel_tol,
-            "abs_tol": rel_tol * _scale_of(points) if points else None,
-            "about": "centroid"}
+def rotational_symmetry_bound(points, k_max=12, rel_tol=1e-6, with_spacing=False):
+    """The bound rotational_symmetry reads at, for the same arguments.
+
+    with_spacing (default False: off) adds min_pair_distance (the smallest
+    distance between two points, None for fewer than two) and
+    n_points_within_tol (how many points have another point within abs_tol of
+    them). Where that count is above zero the tolerance cannot tell those
+    points apart, so a symmetry list read at this bound does not distinguish
+    them either."""
+    out = {"n_points": len(points), "k_tested": [2, k_max], "rel_tol": rel_tol,
+           "abs_tol": rel_tol * _scale_of(points) if points else None,
+           "about": "centroid"}
+    if with_spacing:
+        n = len(points)
+        dmin = None
+        near = [False] * n
+        tol = out["abs_tol"]
+        for i in range(n):
+            for j in range(i + 1, n):
+                d = math.dist(points[i], points[j])
+                if dmin is None or d < dmin:
+                    dmin = d
+                if tol is not None and d <= tol:
+                    near[i] = near[j] = True
+        out["min_pair_distance"] = dmin
+        out["n_points_within_tol"] = sum(near)
+    return out
 
 
 def mirror_symmetry_bound(points, n_axes=360, rel_tol=1e-6):
