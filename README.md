@@ -109,6 +109,10 @@ python -m explorative_math enumerate --family all --out runs/rules \
 
 They exhaust the **declared finite spaces**: all 256 elementary cellular-automaton rules on a circular binary row; every binary substitution with nonempty right-hand sides up to the configured length; and affine integer maps `(a*x+b) % modulus` over inclusive coefficient bounds and all residue seeds. Every initial state and requested update is saved, even after a fixed point or cycle is reached. Equivalent outputs and syntactically distinct rules are not deduplicated.
 
+## Open and falsified (Claude Code build)
+
+- H-ORDER falsified 2026-11-18 (cross-tab in runs/h_order_seed0.json.gz); total-positive embedding count: open
+
 ## Integrity, tests, and license
 
 The manifest declares bounds and exact run/output counts. Normal completion is marked explicitly; caught failures leave an error record when possible and an incomplete manifest. Validation checks archive structure, replayed coverage for supported generators, and observer/divergence consistency. Complete runs are appended durably; an abrupt kill can lose the in-memory unfinished run and may leave a lock requiring inspection. This is not a resumable distributed database.
