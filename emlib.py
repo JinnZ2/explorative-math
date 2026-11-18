@@ -25,6 +25,27 @@ class SchemaError(ValueError):
     pass
 
 
+def nonfinite_paths(obj, limit=20):
+    """Paths (like outputs/shapes/3/score) of NaN or infinite floats in a nested
+    dict / list record, at most `limit` of them. [] means none."""
+    found = []
+
+    def walk(x, path):
+        if len(found) >= limit:
+            return
+        if isinstance(x, float) and not (-float("inf") < x < float("inf")):
+            found.append("/".join(path))
+        elif isinstance(x, dict):
+            for k, v in x.items():
+                walk(v, path + [str(k)])
+        elif isinstance(x, (list, tuple)):
+            for i, v in enumerate(x):
+                walk(v, path + [str(i)])
+
+    walk(obj, [])
+    return found
+
+
 def check_run(rec):
     missing = [k for k in SCHEMA if k not in rec]
     extra = [k for k in rec if k not in SCHEMA]
@@ -39,15 +60,26 @@ def check_run(rec):
 
 
 def write_run(name, seed, params, outputs, angles, ai_interest,
-              compressibility, nature_match, out_dir=None, gz=None):
+              compressibility, nature_match, out_dir=None, gz=None, strict_json=False):
     """gz: True / False forces the form; None chooses by GZ_THRESHOLD. Either
     way the full record is written, and a stale file of the other form for
-    the same run is removed, so a run has one file."""
+    the same run is removed, so a run has one file.
+
+    strict_json (default False: off): refuse a record that holds NaN or an
+    infinite float, before any file is written, with a SchemaError that lists
+    where they are (nonfinite_paths). JSON (RFC 8259, section 6) has no such
+    numbers; with this off, json.dumps writes them as bare NaN / Infinity,
+    which Python reads back and strict JSON parsers reject."""
     rec = {"params": dict(params, seed=seed), "outputs": outputs, "angles": angles,
            "human_interest": None, "ai_interest": ai_interest,
            "compressibility": compressibility, "nature_match": nature_match,
            "divergence_note": None}
     check_run(rec)
+    if strict_json:
+        bad = nonfinite_paths(rec)
+        if bad:
+            raise SchemaError("non-finite number at: " + ", ".join(bad[:5])
+                              + (" ..." if len(bad) > 5 else ""))
     d = Path(out_dir) if out_dir else RUNS
     d.mkdir(parents=True, exist_ok=True)
     data = (json.dumps(rec, indent=1, sort_keys=False) + "\n").encode("utf-8")
