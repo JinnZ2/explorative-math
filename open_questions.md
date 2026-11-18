@@ -76,6 +76,12 @@ keeps it at two.
     other widths, not from `strip_window_1d`.
   - Tools for the sweep: `composers.cut_and_project(weight=...)`,
     `gaussian_weight`; `generator` `cut_weighted` pipeline.
+- Annotation, 2026-11-18 (Manus; predictions hashed first, `docs/prereg/`; details in `docs/adversarial_probes_2026-11-18.md`). Status: OBSERVED. Q5 stays OPEN.
+  - OBSERVED (`runs/q5_width_sweep_seed0.json`, slope 1/phi, centred hard window, about 1,200 points, r = width / canonical width, 0.05 to 2.00 step 0.01): at most 3 lengths everywhere; 2 only at r = 1.0 on that grid.
+  - OBSERVED (`runs/q5_special_widths_seed0.json`, EXPLORE): the 0.01 grid missed other two-length widths. At r = phi^k for k = -5..1 (0.0902, 0.1459, 0.2361, 0.3820, 0.6180, 1.0, 1.6180) the count is 2, and 20 other lattice-vector widths give 3. This does not match the 2026-11-15 expectation "two only at the canonical width(s)". The rarest gap is 0.3823 = 1/phi^2 of gaps at each two-length width.
+  - OBSERVED (`runs/q5_slopes_seed0.json.gz`): at the canonical width the count is exactly 2 for 158 of 158 irrational slopes (8 named, 150 random in (-3, 3)); every 3-length reading passes `three_gap_sum`. Rational slopes are not limited to 2 (slope 3 reads 2, 4, 3 at w(1-1e-9), w, w(1+1e-9); slope 1 reads 1, 3, 2).
+  - OBSERVED (8 slopes, m <= 6; 5 slopes to m <= 20 in `runs/q5_slopes_followup_seed0.json`, EXPLORE): every one-sided record approximation width |m|s| - n| gave 2; so did w = 1 and w = 1 + |s|; other lattice-vector widths tested gave 3. Moving the window off-centre changed the count in none of 55 cases.
+  - So "three lengths" is answered (generic width, any slope tested). "What keeps it at two" is partly answered by the record-width list above; why those widths and not others is PROPOSED, not shown. Not tested: records beyond m = 20, non-interval windows, higher dimension.
 
 ## Prompts from recorded runs
 
@@ -105,6 +111,10 @@ growing. Find which alphas stall at 512 steps and at what period.
 `near_orthogonality`, at which dimension does the share of angles within
 90 ± 5° cross 0.5? At 400 pairs, does the crossing move with the seed?
 - Resolved when: a dimension sweep over several seeds, logged.
+- Annotation, 2026-11-18 (Manus; predictions hashed first, `docs/prereg/`). Status: OBSERVED.
+  - OBSERVED (`runs/q9_half_mass_seed0.json`): 100 seeds x dims 30..100 step 5 x 400 pairs; per-seed straight-line fit of the share against dimension, solved for 0.5. Pooled mean crossing 64.19, between-seed SD 1.82, range 59.5 to 68.9. So the crossing does move with the seed at 400 pairs, by about 2 dimensions (SD).
+  - OBSERVED (`runs/q9_fit_diagnostic_seed0.json`, EXPLORE): the exact share (numerical integral) crosses 0.5 at 61.16. The same straight-line fit applied to the exact curve over 30..100 gives 64.02, so about 3 of the offset is the fit window, not sampling. Fitted over 45..80 the exact curve gives 61.96 and the empirical pooled mean 62.14 (SD 2.62).
+  - Bound: the exact value is a Simpson integral, not a closed form.
 
 **Q10. Two compressibility probes disagree.** Every run records both an
 LZ76 phrase count and a zlib ratio of the same symbol string. Find two runs
@@ -126,6 +136,9 @@ And which disagreements survive once that choice is aligned?
 - Resolved when: a logged comparison run, for each DIFFER group, with the
   choice aligned and the field re-checked.
 - Do not resolve it by making the builds identical.
+- Annotation, 2026-11-18 (Manus; predictions hashed first, `docs/prereg/`). Status: OBSERVED for the groups below; the schema group was not re-checked.
+  - OBSERVED (`runs/q11_aligned_seed0.json`): each DIFFER group re-read after aligning the named choice. Constants: both golden-angle floats within 1 ulp of a 60-digit value (A -0.19 ulp, B +0.81 ulp); aligned difference 0. Shell formula: A's `-expm1(n*log1p(-t))` is closer to the exact value in 20 of 21 differing cells; B's is closer at d = 20, t = 0.1 (errors 4.9e-17 against 6.2e-17). Hypercube and cross-polytope: identical after a common circumradius and sort. Simplex: same ambient dimension and same pairwise-dot multiset, so the same shape in a different orientation. phi composition: scaling by phi and rotating by +golden angle reproduces A's union to 3.1e-16 on 8 of 8 frames; -golden misses by 0.14 to 0.88. Orthogonality statistics: with A's stream replaced by `Random(0)` in memory, 400 of 400 pairs are identical at d = 2, 20, 50, 100, 200 and the mean-angle difference is 0.
+  - So each DIFFER group is explained by one choice: stream, omitted rotation, vertex order and orientation, or float rounding.
 
 **Q12. Same symmetry answer, different unions: real equality or probe
 resolution?** Status: **PROPOSED** (not run).
@@ -166,6 +179,9 @@ Two readings are both open:
   all of them. The same run reads `mirror_symmetry` on the two unions;
   `runs/mirror_sweep_seed0.json` reads it on 360 frames per shape.
   See `docs/resolution_leak.md` rows 2a, 2b, 2c.
+- Annotation, 2026-11-18 (Manus; predictions hashed first, `docs/prereg/`). Status line above is unchanged; note that `runs/symmetry_resolution_seed0.json` exists, so "not run" may be stale.
+  - OBSERVED (`runs/q12_extended_seed0.json`): regular k-gons for k = 5, 8, 13, 16, 24 at k_max 12, 24, 32 read exactly the divisors of k up to k_max (13: [] at 12, [13] at 24 and 32). A k-gon united with its phi-scaled copy rotated by 7 deg or by 180/k deg reads the same list as the bare k-gon in all 30 union rows.
+  - DERIVED: for a centred polygon, rotation by 360/k commutes with the rotate-and-scale that makes the copy, so the union is invariant under it; the equality is real, not probe resolution. This covers centred polygons only, not the cross-polytope frames in `compare/runs/`.
 
 ## Projection and the source lattice
 

@@ -1,0 +1,38 @@
+{
+  "prereg_version": "1",
+  "written_before_running": true,
+  "repo_commit": "3162c9950136a4a7f14e1e064f8d335db33968c8",
+  "scoring": "Each case has a SPEC (the docstring or a ground truth computed independently) and a PREDICTION of what the probe does. Observed outcome classes: HOLDS (probe agrees with SPEC), DEFECT (probe contradicts its docstring or a stated repo rule or an independent ground truth, on in-scope input), LIMIT (probe misbehaves only outside its stated scope or at a regime its bound line names), UNDEFINED (spec silent; behaviour recorded). A prediction CONFORMS if the observed class equals the predicted class.",
+  "cases": {
+    "A01": {"probe": "three_gap_sum", "input": "(1e-9, 2e-9, 7e-9)", "spec": "fail (7e-9 != 3e-9)", "predict": "DEFECT: returns pass because tol is absolute 1e-6"},
+    "A02": {"probe": "three_gap_sum", "input": "(1e12, 1.618033988749895e12, L1+L2 computed in floats) with float rounding", "spec": "pass", "predict": "DEFECT: returns fail because absolute tol 1e-6 is below float spacing at 1e12"},
+    "A03": {"probe": "three_gap_sum", "input": "NaN length; duplicate lengths [1,1,2]; zeros [0,0,0]", "spec": "docstring says distinct gap lengths; NaN not covered", "predict": "UNDEFINED: NaN gives fail (not refused), [1,1,2] gives pass, [0,0,0] gives pass"},
+    "A04": {"probe": "angle_histogram", "input": "angles [-5, 185, 360, 90], lo 0 hi 180 width 10", "spec": "repo rule: nothing silently dropped; sum(counts) should equal len(angles) or out-of-range should be reported", "predict": "DEFECT: counts sum to 1, three angles silently dropped"},
+    "A05": {"probe": "angle_histogram", "input": "width 7, angle 181", "spec": "181 > hi=180 so should not be counted in range", "predict": "DEFECT: counted in last bin because nb = round(180/7) = 26 bins reach 182"},
+    "A06": {"probe": "polar_angles", "input": "point at the centroid; point at angle -1e-15 deg", "spec": "angles in [0,360)", "predict": "DEFECT: the centroid point reports 0.0 (a direction that does not exist) and the tiny negative angle reports 360.0"},
+    "A07": {"probe": "rotational_symmetry", "input": "asymmetric 3-point cluster (radii <= 0.3) plus 12-point ring at radius 1e6", "spec": "true orders: none (cluster is asymmetric)", "predict": "DEFECT: returns the ring's orders [2,3,4,6,12] because tol = 1e-6 * max radius = 1 exceeds the cluster size"},
+    "A08": {"probe": "rotational_symmetry", "input": "regular 12-gon, one vertex displaced radially by eps*scale", "spec": "flips from [2,3,4,6,12] to fewer orders near eps = rel_tol", "predict": "HOLDS: flip between 0.8e-6 and 1.25e-6"},
+    "A09": {"probe": "rotational_symmetry (via _matches greedy assignment)", "input": "random near-symmetric 2-fold sets whose points are clustered within ~2 tol", "spec": "exact bipartite matching within tol decides symmetry", "predict": "LIMIT: at least 1 of 20000 random trials where greedy says not symmetric but an exact matching exists; no trial where greedy says symmetric and none exists"},
+    "A10": {"probe": "mirror_symmetry vs mirror_symmetry_from_pairs", "input": "regular pentagon rotated by 500 random angles; control rotated by on-grid angles", "spec": "5 axes at any rotation", "predict": "LIMIT (documented grid): mirror_symmetry finds 5 axes in at most 2 of 500 random rotations; from_pairs finds 5 in 500 of 500; on-grid control finds 5"},
+    "A11": {"probe": "rotational_symmetry", "input": "unit hexagon translated by 1e3,1e6,1e8,1e10,1e12", "spec": "[2,3,6] at every translation", "predict": "LIMIT: correct for translations <= 1e8; [] at 1e10 and 1e12 (float spacing exceeds 1e-6)"},
+    "A12": {"probe": "rotational_symmetry, mirror_symmetry, mirror_residual, degeneracy", "input": "[], one point, identical points, NaN coordinate, inf coordinate, 3D cube, tilted 3D cube", "spec": "docstring: 2D point set", "predict": "UNDEFINED/LIMIT: [] and one point do not crash in rotational_symmetry; mirror_symmetry and degeneracy raise on []; NaN returns [] silently; 3D cube about z reads [2,4]; tilted cube reads []"},
+    "A13": {"probe": "rotational_symmetry", "input": "regular hexagon with one vertex listed twice", "spec": "as a set the symmetry is [2,3,6]", "predict": "UNDEFINED: returns [] (multiset centroid shifts), no refusal and no note"},
+    "A14": {"probe": "emlib.lz76", "input": "3000 random strings over alphabets 2,3,4 plus structured strings; known values", "spec": "independent Kaspar-Schuster algorithm; '0001101001000101' = 6; constant string = 2; '' = 0; 'a' = 1", "predict": "HOLDS: 0 mismatches"},
+    "A15": {"probe": "emlib.lz76", "input": "timing at n = 2000, 5000, 10000, 20000 (binary random)", "spec": "repo rule: scripts run in seconds on a phone", "predict": "LIMIT: roughly quadratic; n=20000 takes more than 2 s on this machine"},
+    "A16": {"probe": "emlib.compressibility", "input": "symbols ['1','10'] vs ['11','0']", "spec": "different token sequences", "predict": "UNDEFINED: identical output because tokens are joined into one string"},
+    "A17": {"probe": "probes.smallest_period", "input": "3000 random strings; known values 'abcabcab'=3, 'aaaa'=1, 'abcd'=4, 'a'=1, ''=0", "spec": "independent border (failure function) computation: n - longest proper border", "predict": "HOLDS: 0 mismatches"},
+    "A18": {"probe": "min_stretch_tag", "input": "freq -0.5, 5.0, NaN", "spec": "a frequency is a share in (0,1]", "predict": "LIMIT: accepted silently (assessed True, no refusal)"},
+    "A19": {"probe": "emlib.write_run", "input": "outputs containing NaN and inf", "spec": "scrapers parse with standard JSON", "predict": "DEFECT: file written with bare NaN / Infinity tokens, which strict JSON parsers reject"},
+    "A20": {"probe": "emlib.write_run / check_run", "input": "human_interest non-null; missing key; extra key; same record twice", "spec": "CONTRIBUTING: human_interest must be null; deterministic gz bytes", "predict": "HOLDS: all three refused; same record gives identical bytes"}
+  },
+  "Q5_slopes": {
+    "design": "slopes: 1/phi, sqrt2-1, sqrt3-1, 1/sqrt2, e-2, pi-3, -1/phi, phi (slope > 1), 2/5, 1/2, 1, 0, 3, 100, 1e-6, and 150 random irrationals in (-3,3). Canonical width via strip_window_1d bounds. For the first eight irrational slopes also scan r = |n - m s|/(1+s) for |m|,|n| <= 6.",
+    "predict": [
+      "P1: canonical width gives exactly 2 distinct gap lengths for every irrational slope tested (including the 150 random ones); never 3. Any 3 would be a float or boundary artefact and gets reported.",
+      "P2: rational slopes give 1 or 2 lengths at canonical width, never more.",
+      "P3: for each irrational slope s tested in the scan, every convergent error delta_k = |q_k s - p_k| (k >= 0, in range) appears as a two-length width w = r(1+s), and so does w = 1+s (r = 1).",
+      "P4: for the golden slope the two-length scan widths are exactly r = phi^k; for other slopes the two-length widths are NOT powers of phi.",
+      "P5: where the count is 3, three_gap_sum passes at tol 1e-6 for all of them."
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "prereg_version": "1",
+  "mode": "CONFIRM for the stated predictions; anything else observed is EXPLORE and stays PROPOSED",
+  "repo": "https://github.com/JinnZ2/explorative-math",
+  "repo_commit": "3162c9950136a4a7f14e1e064f8d335db33968c8",
+  "written_before_running": true,
+  "Q12_extended": {
+    "design": "regular k-gons k in {5,8,13,16,24} and k-gon union with its phi-scaled copy rotated by 7 deg and by 180/k deg; rotational_symmetry at k_max in {12,24,32}, rel_tol 1e-6",
+    "prediction": "For a k-gon the probe returns exactly the divisors d of k with 2<=d<=k_max (k=13: [] at k_max 12, [13] at 24 and 32). For each union the probe returns the same list as for the bare k-gon (real equality, not probe resolution) whenever k_max >= k.",
+    "refuted_by": "any k_max>=k row where a union list differs from its k-gon list, or any k-gon list that is not the divisor set"
+  },
+  "Q11_aligned": {
+    "design": "for each DIFFER group in compare/runs align the named choice and re-check: constants (one formula for both), shell formula (compare each to a 60-digit Decimal truth), polytopes (common circumradius, sorted vertices), phi composition (B scale + rotate by golden angle, both signs), orthogonality stats (same random stream into both builds' statistics where an A function accepts it)",
+    "prediction": [
+      "constants: both golden-angle floats are within 2 ulp of the 60-digit truth; aligned difference is 0",
+      "shell formula: A's -expm1(n*log1p(-t)) is at least as close to the truth as B's 1-(1-t)**n in every one of the 21 DIFFER cells",
+      "polytopes: hypercube and crosspolytope vertex sets agree exactly after scaling to a common circumradius and sorting; any remaining DIFFER is simplex embedding (ambient dimension)",
+      "phi composition: scale by phi then rotate by +golden angle (or -golden angle) reproduces A's union to within 1e-9 for all 8 frames"
+    ],
+    "refuted_by": "any cell contradicting its line above"
+  },
+  "Q5_width_sweep": {
+    "design": "slope 1/phi, hard window of half-width h centred on the cut, width r = W/canonical for r from 0.05 to 2.0 step 0.01, ~1200 points per width through composers.cut_and_project, gaps clustered at 1e-6 as in window_extent.py",
+    "prediction": "At most three distinct gap lengths for every r (three-distance theorem). Exactly two at r = 1.0 (canonical strip). Three for generic r < 1. Two are not confined to r = 1: some other r values or ranges also give two.",
+    "refuted_by": "any r with 4 or more lengths after the stretch is long enough (third-gap frequency logged); or r=1 not giving two"
+  },
+  "Q9_half_mass": {
+    "design": "dims 30..100 step 5, 400 pairs, seeds 0..99 via B's random_unit; per seed fit a line to share vs d on the grid and solve share=0.5",
+    "prediction": "Pooled mean crossing within 3 of 61.3 (exact curve: 61.0 to 62.0, interpolated); between-seed standard deviation of the crossing between 4 and 10 dimensions.",
+    "refuted_by": "pooled mean outside 58.3..64.3, or SD outside 4..10"
+  },
+  "decision_rule": "No guard band; a prediction is CONFORMS if every 'refuted_by' condition is false, else NONCONFORMS. Unlogged scratch results from earlier in the session (Q9 exact crossing 61/62; Q5 return-time counts in index space) are not counted as these runs."
+}
