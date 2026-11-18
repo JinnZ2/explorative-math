@@ -17,6 +17,22 @@
     },
     "class": "DEFECT",
     "predicted": "DEFECT",
+    "audited_class": "LIMIT",
+    "audit_basis": [
+     {
+      "kind": "DOCSTRING",
+      "source": "toolkit/probes.py",
+      "quote": "Returns the verdict \"pass\" or \"fail\" with the residual L3 - (L1 + L2).",
+      "strength": "DIRECT"
+     },
+     {
+      "kind": "INDEPENDENT_TRUTH",
+      "source": "three-distance theorem as stated in the docstring: L3 = L1 + L2; scale-free",
+      "quote": null,
+      "strength": "COMPUTED"
+     }
+    ],
+    "audit_note": "Docstring says nothing about whether tol is absolute or relative. The output carries tol and residual, so the reading is not hidden (CLAUDE.md bounds rule is met). Callers use lengths of order 1 (window_extent.py:102, three_gap_check.py:61). Prereg class DEFECT revised to LIMIT: no docstring or repo rule is contradicted; the independent truth (scale invariance) shows the absolute tolerance is a unit-dependent instrument bound.",
     "prediction_conforms": true,
     "detail": "7e-9 is not 3e-9; verdict compares |residual| to an absolute 1e-6"
    },
@@ -30,6 +46,22 @@
     },
     "class": "DEFECT",
     "predicted": "DEFECT",
+    "audited_class": "LIMIT",
+    "audit_basis": [
+     {
+      "kind": "DOCSTRING",
+      "source": "toolkit/probes.py",
+      "quote": "Returns the verdict \"pass\" or \"fail\" with the residual L3 - (L1 + L2).",
+      "strength": "DIRECT"
+     },
+     {
+      "kind": "INDEPENDENT_TRUTH",
+      "source": "IEEE 754 binary64 spacing: math.ulp(2.618033988749895e12) = 4.8828125e-04 > tol 1e-6",
+      "quote": null,
+      "strength": "COMPUTED"
+     }
+    ],
+    "audit_note": "At 1e12 scale one float step is 4.9e-4, so the residual 4.9e-4 is one rounding step, not a failure of the theorem. Same reading as A01; the output records residual and tol. Prereg DEFECT revised to LIMIT.",
     "prediction_conforms": true,
     "detail": "a true golden triple (1, phi, phi^2) x 1e12, each rounded to a float on its own"
    },
@@ -57,6 +89,16 @@
     },
     "class": "UNDEFINED",
     "predicted": "UNDEFINED",
+    "audited_class": "UNDEFINED",
+    "audit_basis": [
+     {
+      "kind": "DOCSTRING",
+      "source": "toolkit/probes.py",
+      "quote": "Consistency check on a set of distinct gap lengths.",
+      "strength": "DIRECT"
+     }
+    ],
+    "audit_note": "[1,1,2] is not a set of distinct lengths, so it is outside the docstring's stated input. NaN input: docstring silent. Class unchanged.",
     "prediction_conforms": true,
     "detail": "docstring asks for distinct lengths; none of these is refused"
    },
@@ -74,6 +116,28 @@
     },
     "class": "DEFECT",
     "predicted": "DEFECT",
+    "audited_class": "UNDEFINED",
+    "audit_basis": [
+     {
+      "kind": "NONE_SILENT",
+      "source": "toolkit/probes.py",
+      "quote": null,
+      "strength": "DIRECT"
+     },
+     {
+      "kind": "REPO_RULE",
+      "source": "CONTRIBUTING.md",
+      "quote": "keep every requested output",
+      "strength": "ANALOGY"
+     },
+     {
+      "kind": "REPO_RULE",
+      "source": "CLAUDE.md",
+      "quote": "A slot with nothing in it stays void (null), never dropped and never filled to look complete.",
+      "strength": "ANALOGY"
+     }
+    ],
+    "audit_note": "angle_histogram has no docstring. Whether an angle outside [lo, hi] is a 'requested output' is a reading of the rule, not its text. Only caller (toolkit/generator.py:90, width 15, hi 360) is fed angles in [0, 360), so no stored run is affected. Prereg DEFECT revised to UNDEFINED with a conflict-by-analogy flag; the omission of any count of dropped angles is the part that matches the bounds rule's 'unknown ... not omitted' wording only by analogy.",
     "prediction_conforms": true,
     "detail": "three angles outside [lo, hi] vanish with no count of them"
    },
@@ -85,6 +149,16 @@
     },
     "class": "DEFECT",
     "predicted": "DEFECT",
+    "audited_class": "DEFECT",
+    "audit_basis": [
+     {
+      "kind": "INTERNAL_CONSISTENCY",
+      "source": "toolkit/probes.py",
+      "quote": null,
+      "strength": "COMPUTED"
+     }
+    ],
+    "audit_note": "Computed here: angle_histogram([181.0], width=7.0, lo=0.0, hi=180.0) returns hi = 180.0 and 26 bins, the last covering [175, 182), and counts 181. The function's own output states a range its bins exceed, and its own branch 'elif a == hi' shows hi was meant to be the last edge. No docstring, no repo rule needed: the returned record disagrees with itself. Only for widths that do not divide hi - lo; the one caller uses 15 on 360.",
     "prediction_conforms": true,
     "detail": "181 > hi = 180 but the last bin of width 7 reaches 182"
    },
@@ -103,6 +177,28 @@
     },
     "class": "DEFECT",
     "predicted": "DEFECT",
+    "audited_class": "UNDEFINED",
+    "audit_basis": [
+     {
+      "kind": "NONE_SILENT",
+      "source": "toolkit/probes.py",
+      "quote": null,
+      "strength": "DIRECT"
+     },
+     {
+      "kind": "INDEPENDENT_TRUTH",
+      "source": "the direction of the zero vector is undefined; atan2(0, 0) = 0.0 is a convention, not a direction",
+      "quote": null,
+      "strength": "COMPUTED"
+     },
+     {
+      "kind": "REPO_RULE",
+      "source": "CLAUDE.md",
+      "quote": "A slot with nothing in it stays void (null), never dropped and never filled to look complete.",
+      "strength": "ANALOGY"
+     }
+    ],
+    "audit_note": "Two parts. (a) A point at the centroid is returned with direction 0.0, indistinguishable from a real 0 degree point (undefined; no spec). (b) (-1e-15 deg) % 360.0 evaluates to 360.0 in float arithmetic, outside [0, 360); the one caller maps 360.0 into the last histogram bin through the 'a == hi' branch. Prereg DEFECT revised to UNDEFINED: no docstring exists and the rule applies only by analogy.",
     "prediction_conforms": true,
     "detail": "the centroid point is given direction 0.0; an angle just below 0 is returned as 360.0"
    },
@@ -130,6 +226,28 @@
     },
     "class": "DEFECT",
     "predicted": "DEFECT",
+    "audited_class": "LIMIT",
+    "audit_basis": [
+     {
+      "kind": "DOCSTRING",
+      "source": "toolkit/probes.py",
+      "quote": "List of k in 2..k_max such that rotating by 360/k maps the set to itself.",
+      "strength": "DIRECT"
+     },
+     {
+      "kind": "DOCSTRING",
+      "source": "toolkit/probes.py",
+      "quote": "The bound rotational_symmetry reads at, for the same arguments.",
+      "strength": "DIRECT"
+     },
+     {
+      "kind": "REPO_RULE",
+      "source": "CLAUDE.md",
+      "quote": "any count / period / symmetry reading logs the instrument bound it was read at (points, precision, probe step); unknown bound = void, not omitted.",
+      "strength": "DIRECT"
+     }
+    ],
+    "audit_note": "Read literally, the docstring is contradicted (the 3-point cluster is not mapped to itself). But rel_tol is in the signature and the bound line logs abs_tol = 1.000000004553418 for this set, as the bounds rule asks; degeneracy() on the same set reports coincident = True, central = True, n_at_centre = 3 at tol 1e-6. The repo already reports that the tolerance exceeds the cluster. Prereg DEFECT revised to LIMIT. What a reader sees only if they call the bound or degeneracy probe is not in the symmetry list itself.",
     "prediction_conforms": true,
     "detail": "tolerance is rel_tol times the largest radius, so a cluster far smaller than that is invisible"
    },
@@ -148,6 +266,16 @@
     },
     "class": "HOLDS",
     "predicted": "HOLDS",
+    "audited_class": "HOLDS",
+    "audit_basis": [
+     {
+      "kind": "DERIVED_HERE",
+      "source": "toolkit/probes.py",
+      "quote": null,
+      "strength": "COMPUTED"
+     }
+    ],
+    "audit_note": "Reading flips at eps = 1.0104e-6 (rel_tol times scale), as the tolerance parameter says. Unchanged.",
     "prediction_conforms": true,
     "detail": "flip point of the tolerance, vertex displaced radially, scale = 1"
    },
@@ -227,6 +355,22 @@
     },
     "class": "LIMIT",
     "predicted": "LIMIT",
+    "audited_class": "LIMIT",
+    "audit_basis": [
+     {
+      "kind": "DOCSTRING",
+      "source": "toolkit/probes.py",
+      "quote": "List of k in 2..k_max such that rotating by 360/k maps the set to itself.",
+      "strength": "DIRECT"
+     },
+     {
+      "kind": "INDEPENDENT_TRUTH",
+      "source": "existence of a mapping within tolerance is a bipartite-matching question; exact augmenting-path matching decides it, first-fit does not",
+      "quote": null,
+      "strength": "COMPUTED"
+     }
+    ],
+    "audit_note": "One-sided: the probe never reports a symmetry the exact matching denies (0 of 20,000 trials). It misses 8 of 46 when one image point lies within tolerance of two source points. Unchanged.",
     "prediction_conforms": true,
     "detail": "greedy first-fit assignment in _matches vs exact bipartite matching, near-coincident clusters"
    },
@@ -250,6 +394,28 @@
     },
     "class": "LIMIT",
     "predicted": "LIMIT",
+    "audited_class": "LIMIT",
+    "audit_basis": [
+     {
+      "kind": "DOCSTRING",
+      "source": "toolkit/probes.py",
+      "quote": "Axis angles (degrees, in [0, 180)) of mirror lines through the centroid.",
+      "strength": "DIRECT"
+     },
+     {
+      "kind": "DOCSTRING",
+      "source": "toolkit/probes.py",
+      "quote": "The bound mirror_symmetry reads at, for the same arguments.",
+      "strength": "DIRECT"
+     },
+     {
+      "kind": "REPO_RULE",
+      "source": "CLAUDE.md",
+      "quote": "any count / period / symmetry reading logs the instrument bound it was read at (points, precision, probe step); unknown bound = void, not omitted.",
+      "strength": "DIRECT"
+     }
+    ],
+    "audit_note": "The grid (n_axes = 360, 0.5 degree) is an instrument bound with its own bound function. mirror_symmetry_from_pairs does not use the grid. Unchanged.",
     "prediction_conforms": true,
     "detail": "a shape's mirror lines are found on the fixed axis grid only; the bound line states the step"
    },
@@ -300,6 +466,22 @@
     },
     "class": "LIMIT",
     "predicted": "LIMIT",
+    "audited_class": "LIMIT",
+    "audit_basis": [
+     {
+      "kind": "INDEPENDENT_TRUTH",
+      "source": "IEEE 754 binary64 spacing: math.ulp(1e12) = 1.220703125e-04 > tol 1e-6",
+      "quote": null,
+      "strength": "COMPUTED"
+     },
+     {
+      "kind": "REPO_RULE",
+      "source": "CLAUDE.md",
+      "quote": "any count / period / symmetry reading logs the instrument bound it was read at (points, precision, probe step); unknown bound = void, not omitted.",
+      "strength": "DIRECT"
+     }
+    ],
+    "audit_note": "Translation to 1e12 leaves less than 1e-4 of resolution in coordinates before the centroid is subtracted. Unchanged.",
     "prediction_conforms": true,
     "detail": "float spacing at the translation vs tolerance 1e-6; the bound line logs abs_tol, not float precision"
    },
@@ -407,6 +589,22 @@
     },
     "class": "UNDEFINED",
     "predicted": "UNDEFINED/LIMIT",
+    "audited_class": "UNDEFINED",
+    "audit_basis": [
+     {
+      "kind": "NONE_SILENT",
+      "source": "toolkit/probes.py",
+      "quote": null,
+      "strength": "DIRECT"
+     },
+     {
+      "kind": "REPO_RULE",
+      "source": "CONTRIBUTING.md",
+      "quote": "Retain constant states, repeated points, degenerate projections",
+      "strength": "ANALOGY"
+     }
+    ],
+    "audit_note": "Empty and 3D input raise (recorded, not silent); identical points and NaN or inf coordinates are accepted. Docstrings are silent. Unchanged; not re-audited beyond the quote.",
     "prediction_conforms": true,
     "detail": "docstrings say 2D point set; out-of-scope and invalid input are not refused"
    },
@@ -422,6 +620,22 @@
     },
     "class": "UNDEFINED",
     "predicted": "UNDEFINED",
+    "audited_class": "UNDEFINED",
+    "audit_basis": [
+     {
+      "kind": "DOCSTRING",
+      "source": "toolkit/probes.py",
+      "quote": "List of k in 2..k_max such that rotating by 360/k maps the set to itself.",
+      "strength": "ANALOGY"
+     },
+     {
+      "kind": "REPO_RULE",
+      "source": "CONTRIBUTING.md",
+      "quote": "Retain constant states, repeated points, degenerate projections",
+      "strength": "ANALOGY"
+     }
+    ],
+    "audit_note": "Two readings conflict: the docstring says 'the set' (a repeated vertex does not change a set, reading [2,3,6]); the contributing rule says repeated points are retained (multiset reading, [] observed). Neither text decides.",
     "prediction_conforms": true,
     "detail": "the centroid is taken over the list, so a repeated point moves it; no note or refusal"
    },
@@ -462,6 +676,22 @@
     },
     "class": "HOLDS",
     "predicted": "HOLDS",
+    "audited_class": "HOLDS",
+    "audit_basis": [
+     {
+      "kind": "DOCSTRING",
+      "source": "emlib.py",
+      "quote": "Number of phrases in the Lempel-Ziv (1976) parsing of s.",
+      "strength": "DIRECT"
+     },
+     {
+      "kind": "INDEPENDENT_TRUTH",
+      "source": "Kaspar-Schuster algorithm computed here; 0 mismatches in 3000 random strings plus known values",
+      "quote": null,
+      "strength": "COMPUTED"
+     }
+    ],
+    "audit_note": "Unchanged.",
     "prediction_conforms": true,
     "detail": "emlib.lz76 vs independent Kaspar-Schuster"
    },
@@ -469,15 +699,25 @@
     "id": "A15",
     "observed": {
      "seconds_by_n": {
-      "2000": 0.0038060980004956946,
-      "5000": 0.017932024000401725,
-      "10000": 0.06682989599994471,
-      "20000": 0.23452507099955255
+      "2000": 0.0038158380002641934,
+      "5000": 0.017893511000693252,
+      "10000": 0.06697757700021612,
+      "20000": 0.23452981799982808
      },
-     "growth_exponent": 1.7897093096788936
+     "growth_exponent": 1.7886081378965286
     },
     "class": "HOLDS",
     "predicted": "LIMIT",
+    "audited_class": "HOLDS",
+    "audit_basis": [
+     {
+      "kind": "NONE_SILENT",
+      "source": "emlib.py",
+      "quote": null,
+      "strength": "DIRECT"
+     }
+    ],
+    "audit_note": "Timing only (n = 20,000 in 0.24 s on the test machine). No spec states a time bound. The prereg prediction was wrong.",
     "prediction_conforms": false,
     "detail": "repo rule: scripts run in seconds; this machine only, not a phone"
    },
@@ -500,6 +740,16 @@
     },
     "class": "UNDEFINED",
     "predicted": "UNDEFINED",
+    "audited_class": "UNDEFINED",
+    "audit_basis": [
+     {
+      "kind": "DOCSTRING",
+      "source": "emlib.py",
+      "quote": "LZ76 phrase count and zlib ratio of the same symbol string.",
+      "strength": "DIRECT"
+     }
+    ],
+    "audit_note": "'Symbol string' is not defined for multi-character symbols; ['1','10'] and ['11','0'] read identically. Docstring silent. Unchanged.",
     "prediction_conforms": true,
     "detail": "two different token sequences give one string, so one reading"
    },
@@ -538,6 +788,16 @@
     },
     "class": "HOLDS",
     "predicted": "HOLDS",
+    "audited_class": "HOLDS",
+    "audit_basis": [
+     {
+      "kind": "INDEPENDENT_TRUTH",
+      "source": "smallest period = n minus the longest proper border, computed here; 0 mismatches in 3000 strings",
+      "quote": null,
+      "strength": "COMPUTED"
+     }
+    ],
+    "audit_note": "smallest_period has no docstring; truth is the standard border characterisation. Unchanged.",
     "prediction_conforms": true,
     "detail": "smallest_period vs n minus longest proper border"
    },
@@ -571,6 +831,22 @@
     },
     "class": "LIMIT",
     "predicted": "LIMIT",
+    "audited_class": "LIMIT",
+    "audit_basis": [
+     {
+      "kind": "DOCSTRING",
+      "source": "toolkit/probes.py",
+      "quote": "share of gaps that have the rarest of three lengths",
+      "strength": "DIRECT"
+     },
+     {
+      "kind": "DOCSTRING",
+      "source": "toolkit/probes.py",
+      "quote": "None or 0 for the frequency means it is not known",
+      "strength": "DIRECT"
+     }
+    ],
+    "audit_note": "The docstring calls the argument a share of gaps (domain 0 to 1) and names only None and 0 as 'not known'. -0.5, 5.0 and NaN are outside the stated domain and are assessed. Unchanged.",
     "prediction_conforms": true,
     "detail": "frequency outside (0, 1] and NaN are accepted and assessed"
    },
@@ -582,6 +858,28 @@
     },
     "class": "DEFECT",
     "predicted": "DEFECT",
+    "audited_class": "DEFECT",
+    "audit_basis": [
+     {
+      "kind": "INDEPENDENT_TRUTH",
+      "source": "RFC 8259 (STD 90), https://www.rfc-editor.org/rfc/rfc8259, read 2026-11-18",
+      "quote": "Numeric values that cannot be represented in the grammar below (such as Infinity and NaN) are not permitted.",
+      "strength": "EXTERNAL"
+     },
+     {
+      "kind": "INDEPENDENT_TRUTH",
+      "source": "RFC 8259 (STD 90), https://www.rfc-editor.org/rfc/rfc8259, read 2026-11-18",
+      "quote": "The resulting text MUST strictly conform to the JSON grammar.",
+      "strength": "EXTERNAL"
+     },
+     {
+      "kind": "REPO_RULE",
+      "source": "docs/schema.md",
+      "quote": "nonfinite numbers and duplicate object keys are rejected",
+      "strength": "ANALOGY"
+     }
+    ],
+    "audit_note": "Defect only against the external standard. The rule 'nonfinite numbers ... are rejected' is in docs/schema.md, which governs the Manus build (explorative_math/, examples/); emlib.write_run belongs to the Claude Code build and no rule there says the same. Seven committed files in runs/ already hold 191 bare +Infinity values (combine_seed0, combine_seed1, combine_small_seed0, fold_loop_seed0, fold_shape_seed0, layered_pursuit_seed0, layered_pursuit_small_seed0), from experiments/fold_loop.py:180, fold_shape.py:199 and layered_pursuit.py:78 mapping None to float('inf'). Python's json.loads reads them; JavaScript JSON.parse and other strict parsers do not. A default change would stop those experiments from rerunning, so the fix proposal is opt-in.",
     "prediction_conforms": true,
     "detail": "json.dumps default allow_nan=True writes NaN / Infinity, which are not JSON"
    },
@@ -604,6 +902,16 @@
     },
     "class": "HOLDS",
     "predicted": "HOLDS",
+    "audited_class": "HOLDS",
+    "audit_basis": [
+     {
+      "kind": "REPO_RULE",
+      "source": "CONTRIBUTING.md",
+      "quote": "Do not fill `human_interest`, `ai_interest`, `compressibility`, or `divergence_note` merely because a result looks interesting.",
+      "strength": "DIRECT"
+     }
+    ],
+    "audit_note": "Unchanged.",
     "prediction_conforms": true,
     "detail": "check_run refuses bad records; same record gives identical gz bytes"
    }
@@ -616,6 +924,16 @@
   },
   "predictions_conforming": 19,
   "n_cases": 20,
+  "audited_class_counts": {
+   "HOLDS": 5,
+   "DEFECT": 2,
+   "LIMIT": 7,
+   "UNDEFINED": 6
+  },
+  "audited_defects": [
+   "A05",
+   "A19"
+  ],
   "defects": [
    "A01",
    "A02",
